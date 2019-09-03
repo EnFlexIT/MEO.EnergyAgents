@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project>
     <projectName>MEO.EnergyAgents</projectName>
+    <projectStartTab>2|3</projectStartTab>
     <version>0.0.1.20190903-1100</version>
     <versionTag>Complete Project</versionTag>
     <updateSite>?</updateSite>
@@ -9,8 +10,8 @@
     <environmentModel>gridEnvironment</environmentModel>
     <projectFeatures/>
     <plugins>
-        <className>de.enflexit.meo.plugIn.MEOPlugin</className>
         <className>hygrid.plugin.HyGridPlugIn</className>
+        <className>de.enflexit.meo.plugIn.MEOPlugin</className>
     </plugins>
     <subOntologies/>
     <jadeConfiguration>

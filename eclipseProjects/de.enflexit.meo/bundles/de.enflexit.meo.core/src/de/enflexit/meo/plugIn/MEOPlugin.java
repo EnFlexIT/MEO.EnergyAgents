@@ -8,7 +8,7 @@ import org.awb.env.networkModel.controller.ui.toolbar.CustomToolbarComponentDesc
 import agentgui.core.application.Application;
 import agentgui.core.plugin.PlugIn;
 import agentgui.core.project.Project;
-import de.enflexit.meo.plugIn.importer.MEOTopologyImporter;
+import de.enflexit.meo.plugIn.importer.MEO_CsvTopologyImporter;
 
 /**
  * The Class MEOPlugin provides specific control elements to Agent.Workbench.
@@ -35,7 +35,7 @@ public class MEOPlugin extends PlugIn {
 	 */
 	@Override
 	public String getName() {
-		return "H2-Readiness PlugIn";
+		return "MEO PlugIn";
 	}
 	/**
 	 * Gets the graph controller.
@@ -57,7 +57,7 @@ public class MEOPlugin extends PlugIn {
 		
 		if (Application.isOperatingHeadless()==false) {
 			// --- Add the NetworkModel importer ----------
-			this.getGraphController().getImportAdapter().add(new MEOTopologyImporter(this.getGraphController(), ".xml", "MEO - Network Model Import (xml file)"));
+			this.getGraphController().getImportAdapter().add(new MEO_CsvTopologyImporter(this.getGraphController(), ".csv", "MEO - Network Model Import (xml file)"));
 			
 			// --- Add the OAD state data importer --------
 			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonConstructionSite.class, null, true));
