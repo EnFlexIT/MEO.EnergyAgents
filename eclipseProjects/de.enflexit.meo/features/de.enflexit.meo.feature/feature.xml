@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.enflexit.meo.feature"
+      label="MEO - Model Experiments with Energy Agents - Feature"
+      version="1.0.0.qualifier"
+      provider-name="EnFlex.IT - SOFTEC"
+      os="linux,macosx,win32"
+      arch="x86,x86_64">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="Enflex.IT AWB-Web Server Update Site" url="https://p2.enflex.it/awbWebServer/snapshots/"/>
+   </url>
+
+   <requires>
+      <import plugin="de.enflexit.common" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.agentgui.core" version="2.1.6" match="greaterOrEqual"/>
+      <import plugin="org.agentgui.lib.jade" version="4.5.1" match="greaterOrEqual"/>
+      <import plugin="de.enflexit.api"/>
+      <import plugin="de.enflexit.eom.core"/>
+      <import plugin="de.enflexit.geography"/>
+      <import plugin="org.agentgui.lib.jFreeChart"/>
+      <import plugin="org.agentgui.lib.jung"/>
+      <import plugin="org.awb.env.networkModel"/>
+      <import plugin="de.enflexit.awb.webserver.jetty"/>
+   </requires>
+
+   <plugin
+         id="de.enflexit.meo.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.enflexit.meo.help"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

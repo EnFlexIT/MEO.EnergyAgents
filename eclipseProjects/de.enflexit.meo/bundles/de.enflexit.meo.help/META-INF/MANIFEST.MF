@@ -1,0 +1,9 @@
+Automatic-Module-Name: org.a gentgui.help
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MEO Help & API
+Bundle-SymbolicName: de.enflexit.meo.help;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: de.enflexit.awb.webserver.jetty
+Bundle-Vendor: EnFlex.IT - SOFTEC

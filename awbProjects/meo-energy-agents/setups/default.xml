@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simulationSetup>
+    <agentSetup/>
+    <timeModelSettings/>
+    <userObjectClassName>hygrid.deployment.dataModel.SetupExtension</userObjectClassName>
+    <environmentFileName>default.graphml</environmentFileName>
+</simulationSetup>

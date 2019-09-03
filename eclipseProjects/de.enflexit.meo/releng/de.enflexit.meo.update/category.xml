@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="de.enflexit.meo.feature" os="linux,macosx,win32" arch="x86,x86_64">
+      <category name="de.enflexit.meo"/>
+   </feature>
+   <category-def name="de.enflexit.meo" label="MEO - Model Experiments with Energy Agents"/>
+</site>

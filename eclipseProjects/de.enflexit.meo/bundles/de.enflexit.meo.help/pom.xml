@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>de.enflexit.meo.help</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>eclipse-plugin</packaging>
+	<parent>
+		<groupId>de.enflexit.meo</groupId>
+		<artifactId>de.enflexit.meo.configuration</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../releng/de.enflexit.meo.configuration</relativePath>
+	</parent>
+
+	<properties>
+		<platform.api>org.eclipse.platform.doc.isv/reference/api</platform.api>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-document-bundle-plugin</artifactId>
+				<version>${tycho-extras-version}</version>
+				<executions>
+					<execution>
+						<id>eclipse-javadoc</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+						<configuration>
+							<cleanFirst>true</cleanFirst>
+							<outputDirectory>${project.basedir}/help/api-docs/javadoc</outputDirectory>
+							<tocFile>${project.basedir}/help/api_docs.xml</tocFile>
+							<tocOptions>
+								<mainLabel>Agent.Workbench - Webserver API</mainLabel>
+							</tocOptions>
+							<javadocOptions>
+								<ignoreError>true</ignoreError>
+								<encoding>UTF-8</encoding>
+								<includes>
+									<include>de.enflexit.meo*</include>
+								</includes>
+								<additionalArguments>
+									<additionalArgument>-windowtitle "Agent.Workbench - Webserver API"</additionalArgument>
+									<additionalArgument>-link http://docs.oracle.com/javase/8/docs/api/</additionalArgument>
+									<additionalArgument>-linkoffline ../../${platform.api} http://help.eclipse.org/photon/topic/org.eclipse.platform.doc.isv/reference/api/</additionalArgument>
+									<additionalArgument>-nosince</additionalArgument>
+								</additionalArguments>
+							</javadocOptions>
+						</configuration>					
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.eclipse.tycho.extras
+										</groupId>
+										<artifactId>
+											tycho-document-bundle-plugin
+										</artifactId>
+										<versionRange>
+											[1.1.0,)
+										</versionRange>
+										<goals>
+											<goal>javadoc</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+</project>
