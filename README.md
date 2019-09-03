@@ -6,6 +6,6 @@ In the context of [MODEX](https://www.energieforschung.de/forschung-und-innovati
 ![Logo-BMWi](projectDocs/images/logos/BMWi_Office_Farbe_en_WBZ_250.jpg)
 
 ---
-In this repository, the [SOFTEC-Team](https://www.softec.wiwi.uni-due.de/en/) of the [University Duisburg-Essen](https://www.uni-due.de/en/index.php) hosts its developments and [the cumulative documentation of the project](./wiki). This also aims to provide an introductory tutorial for the use of [Agent.Workbench](https://github.com/EnFlexIT/AgentWorkbench), the Energy Option Model (EOM) and the thereon based [Energy Agent](https://github.com/EnFlexIT/EnergyAgents).  
+In this repository, the [SOFTEC-Team](https://www.softec.wiwi.uni-due.de/en/) of the [University Duisburg-Essen](https://www.uni-due.de/en/index.php) hosts its developments and [the cumulative documentation of the project](https://github.com/EnFlexIT/MEO.EnergyAgents/wiki). This also aims to provide an introductory tutorial for the use of [Agent.Workbench](https://github.com/EnFlexIT/AgentWorkbench), the Energy Option Model (EOM) and the thereon based [Energy Agent](https://github.com/EnFlexIT/EnergyAgents).  
 
 
