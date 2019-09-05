@@ -9,32 +9,36 @@ import org.awb.env.networkModel.settings.GeneralGraphSettings4MAS;
 
 import agentgui.core.application.Application;
 import agentgui.simulationService.environment.AbstractEnvironmentModel;
+import de.enflexit.common.csv.CsvDataController;
 import hygrid.csvFileImport.CSV_FileImporter;
 
 
 /**
- * The Class MEO_CsvTopologyImporter.
+ * The Class SimBench_CsvTopologyImporter.
  * 
  * @author Christian Derksen - DAWIS - ICB - University of Duisburg-Essen
  */
-public class MEO_CsvTopologyImporter extends CSV_FileImporter {
+public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 
 	private static final String LAYOUT_DEFAULT_LAYOUT = GeneralGraphSettings4MAS.DEFAULT_LAYOUT_SETTINGS_NAME;
 	
-	private static final String SIMBENCH_Coordinates     = "Coordinates.csv";
-	private static final String SIMBENCH_ExternalNet     = "ExternalNet.csv";
-	private static final String SIMBENCH_Line            = "Line.csv";
-	private static final String SIMBENCH_LineType        = "LineType.csv";
-	private static final String SIMBENCH_Load            = "Load.csv";
-	private static final String SIMBENCH_LoadProfile     = "LoadProfile.csv";
-	private static final String SIMBENCH_Node            = "Node.csv";
-	private static final String SIMBENCH_RES             = "RES.csv";
-	private static final String SIMBENCH_RESProfile      = "RESProfile.csv";
-	private static final String SIMBENCH_Res_Node        = "Res_Node.csv";
-	private static final String SIMBENCH_StudyCases      = "StudyCases.csv";
-	private static final String SIMBENCH_Switch          = "Switch.csv";
-	private static final String SIMBENCH_Transformer     = "Transformer.csv";
+	private static final String SIMBENCH_Coordinates	 = "Coordinates.csv";
+	private static final String SIMBENCH_ExternalNet	 = "ExternalNet.csv";
+	private static final String SIMBENCH_Line			 = "Line.csv";
+	private static final String SIMBENCH_LineType		 = "LineType.csv";
+	private static final String SIMBENCH_Load			 = "Load.csv";
+	private static final String SIMBENCH_LoadProfile	 = "LoadProfile.csv";
+	private static final String SIMBENCH_Measurement	 = "Measurement.csv";
+	private static final String SIMBENCH_Node			 = "Node.csv";
+	private static final String SIMBENCH_NodePFResult	 = "NodePFResult.csv";
+	private static final String SIMBENCH_RES			 = "RES.csv";
+	private static final String SIMBENCH_RESProfile		 = "RESProfile.csv";
+	private static final String SIMBENCH_Storage		 = "Storage.csv";
+	private static final String SIMBENCH_StorageProfile  = "StorageProfile.csv";
+	private static final String SIMBENCH_StudyCases		 = "StudyCases.csv";
+	private static final String SIMBENCH_Transformer	 = "Transformer.csv";
 	private static final String SIMBENCH_TransformerType = "TransformerType.csv";
+
 	
 	private String errTitle;
 	private String errMessage;
@@ -52,7 +56,7 @@ public class MEO_CsvTopologyImporter extends CSV_FileImporter {
 	 * @param fileTypeExtension the file type extension
 	 * @param fileTypeDescription the file type description
 	 */
-	public MEO_CsvTopologyImporter(GraphEnvironmentController graphController, String fileTypeExtension, String fileTypeDescription) {
+	public SimBench_CsvTopologyImporter(GraphEnvironmentController graphController, String fileTypeExtension, String fileTypeDescription) {
 		super(graphController, fileTypeExtension, fileTypeDescription);
 	}
 	
@@ -64,17 +68,19 @@ public class MEO_CsvTopologyImporter extends CSV_FileImporter {
 		
 		Vector<String> fileNameVector = new Vector<>(); 
 		fileNameVector.add(SIMBENCH_Coordinates);
-		fileNameVector.add(SIMBENCH_ExternalNet);    
-		fileNameVector.add(SIMBENCH_Line);  
+		fileNameVector.add(SIMBENCH_ExternalNet);
+		fileNameVector.add(SIMBENCH_Line);
 		fileNameVector.add(SIMBENCH_LineType);
-		fileNameVector.add(SIMBENCH_Load);     
+		fileNameVector.add(SIMBENCH_Load);
 		fileNameVector.add(SIMBENCH_LoadProfile);
-		fileNameVector.add(SIMBENCH_Node);  
-		fileNameVector.add(SIMBENCH_RES);         
+		fileNameVector.add(SIMBENCH_Measurement);
+		fileNameVector.add(SIMBENCH_Node);
+		fileNameVector.add(SIMBENCH_NodePFResult);
+		fileNameVector.add(SIMBENCH_RES);
 		fileNameVector.add(SIMBENCH_RESProfile);
-		fileNameVector.add(SIMBENCH_Res_Node);   
-		fileNameVector.add(SIMBENCH_StudyCases);     
-		fileNameVector.add(SIMBENCH_Switch);   
+		fileNameVector.add(SIMBENCH_Storage);
+		fileNameVector.add(SIMBENCH_StorageProfile);
+		fileNameVector.add(SIMBENCH_StudyCases);
 		fileNameVector.add(SIMBENCH_Transformer);
 		fileNameVector.add(SIMBENCH_TransformerType);
 		return fileNameVector;
@@ -159,14 +165,15 @@ public class MEO_CsvTopologyImporter extends CSV_FileImporter {
 			// --- Show import preview if this.debug is set to true -----------
 			this.showImportPreview();
 		
+			// --- The main import work to be done ----------------------------
+			this.createNodes();
+			// TODO
+			
 			// --- Create the AWB NetworkModel --------------------------------
 			this.setAbstractEnvironmentModel();
 			
-			// TODO
 			this.showError();
 			
-			this.printDebugOutput();
-		
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -179,18 +186,69 @@ public class MEO_CsvTopologyImporter extends CSV_FileImporter {
 	}
 	
 	// --------------------------------------------------------------------------------------------
-	// --- From here: some methods to display errors ----------------------------------------------
+	// --- From here: some methods for getting the nodes ------------------------------------------
 	// --------------------------------------------------------------------------------------------	
-	
 	/**
-	 * Prints some the debug output.
+	 * Creates the nodes in the NetworkModel.
 	 */
-	private void printDebugOutput() {
-		if (this.debug==true) {
+	private void createNodes() {
+		
+		CsvDataController nodeCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_Node);
+		Vector<Vector<String>> nodeDataVector = this.getDataVectorOfCsvFile(SIMBENCH_Node);
+			
+		String colNameID = "id";
+		String colNameCoord = "coordID";
+		
+		int ciID = nodeCsvController.getDataModel().findColumn(colNameID);
+		int ciCoordID = nodeCsvController.getDataModel().findColumn(colNameCoord);
+		
+		for (int i = 0; i < nodeDataVector.size(); i++) {
+			
+			Vector<String> row = nodeDataVector.get(i);
+			String nodeID  = row.get(ciID);
+			String coordID = row.get(ciCoordID);
+			
+			this.printDebugLine("Found node '" + nodeID + "' => Coord-ID: '" + coordID + "'");
+			
+			//TODO
+			
 			
 		}
 	}
 	
+	// --------------------------------------------------------------------------------------------
+	// --- From here: Some general help methods ---------------------------------------------------
+	// --------------------------------------------------------------------------------------------	
+	/**
+	 * Returns the data vector of csv file.
+	 *
+	 * @param csvFileName the csv file name
+	 * @return the data vector of csv file
+	 */
+	private Vector<Vector<String>> getDataVectorOfCsvFile(String csvFileName) {
+		CsvDataController nodeCsvController = this.getCsvDataControllerOfCsvFile(csvFileName);
+		if (nodeCsvController!=null) {
+			@SuppressWarnings("unchecked")
+			Vector<Vector<String>> tableModel = nodeCsvController.getDataModel().getDataVector();
+			return tableModel;
+		}
+		return null;
+	}
+	
+	/**
+	 * Return the CsvDataController of the specified csv file.
+	 *
+	 * @param csvFileName the csv file name
+	 * @return the CsvDataController or <code>null</code>
+	 */
+	private CsvDataController getCsvDataControllerOfCsvFile(String csvFileName) {
+		return this.getCsvDataController().get(csvFileName);
+	}
+	
+	
+	// --------------------------------------------------------------------------------------------
+	// --- From here: some methods to display messages and errors on the console ------------------
+	// --------------------------------------------------------------------------------------------	
 	/**
 	 * Prints the specified debug line.
 	 * @param message the message

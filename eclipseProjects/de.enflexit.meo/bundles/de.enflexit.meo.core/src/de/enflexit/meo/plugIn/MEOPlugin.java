@@ -8,7 +8,7 @@ import org.awb.env.networkModel.controller.ui.toolbar.CustomToolbarComponentDesc
 import agentgui.core.application.Application;
 import agentgui.core.plugin.PlugIn;
 import agentgui.core.project.Project;
-import de.enflexit.meo.plugIn.importer.MEO_CsvTopologyImporter;
+import de.enflexit.meo.plugIn.importer.SimBench_CsvTopologyImporter;
 
 /**
  * The Class MEOPlugin provides specific control elements to Agent.Workbench.
@@ -57,7 +57,7 @@ public class MEOPlugin extends PlugIn {
 		
 		if (Application.isOperatingHeadless()==false) {
 			// --- Add the NetworkModel importer ----------
-			this.getGraphController().getImportAdapter().add(new MEO_CsvTopologyImporter(this.getGraphController(), ".csv", "MEO - Network Model Import (xml file)"));
+			this.getGraphController().getImportAdapter().add(new SimBench_CsvTopologyImporter(this.getGraphController(), ".csv", "SimBench Low Voltage Eletrical Network (csv files)"));
 			
 			// --- Add the OAD state data importer --------
 			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonConstructionSite.class, null, true));
