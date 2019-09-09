@@ -1,8 +1,156 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <generalGraphSettings4MAS>
     <componentSorting>Alphanumeric</componentSorting>
-    <currentCTS/>
+    <currentCTS>
+        <entry>
+            <key>Breaker</key>
+            <value>
+                <adapterClass>hygrid.env.adapter.BreakerAdapter</adapterClass>
+                <color>-3407668</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>/images/Breaker.png</edgeImage>
+                <edgeWidth>5.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.SimpleGraphElement</graphPrototype>
+                <showLabel>false</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>CEA</key>
+            <value>
+                <adapterClass>hygrid.agent.centralExecutiveAgent.dataModel.CeaNetworkAdapter</adapterClass>
+                <agentClass>hygrid.agent.centralExecutiveAgent.CentralExecutiveAgent</agentClass>
+                <color>-16777216</color>
+                <domain>Coordination</domain>
+                <edgeImage>/images/Marvin15DPI.png</edgeImage>
+                <edgeWidth>2.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>Cable</key>
+            <value>
+                <adapterClass>hygrid.env.adapter.LowVoltageCableAdapter</adapterClass>
+                <color>-16777216</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>MissingIcon</edgeImage>
+                <edgeWidth>2.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.SimpleGraphElement</graphPrototype>
+                <showLabel>false</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>CableCabinet</key>
+            <value>
+                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <agentClass>hygrid.agent.prosumer.ProsumerAgent</agentClass>
+                <color>-5000269</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeWidth>15.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>Photovoltaic</key>
+            <value>
+                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <agentClass>hygrid.agent.photovoltaic.PhotovoltaicAgent</agentClass>
+                <color>-256</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>MissingIcon</edgeImage>
+                <edgeWidth>20.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>Prosumer</key>
+            <value>
+                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <agentClass>hygrid.agent.prosumer.ProsumerAgent</agentClass>
+                <color>-16738048</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>/images/Prosumer_Grey_Contour.png</edgeImage>
+                <edgeWidth>15.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>REF-PV</key>
+            <value>
+                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <agentClass>hygrid.agent.photovoltaic.referencePV.RefPVAgent</agentClass>
+                <color>-16724992</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>/images/Photovoltaic_Grey_30x30.png</edgeImage>
+                <edgeWidth>15.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>Sensor</key>
+            <value>
+                <adapterClass>hygrid.env.adapter.SensorAdapter</adapterClass>
+                <agentClass>hygrid.agent.lvSensor.LVSensorAgent</agentClass>
+                <color>-16777216</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>/images/Measurement.png</edgeImage>
+                <edgeWidth>2.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.SimpleGraphElement</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>SlagNode</key>
+            <value>
+                <color>-16777216</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>/images/SlackNode.png</edgeImage>
+                <edgeWidth>2.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>Sleeve</key>
+            <value>
+                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <agentClass>hygrid.agent.prosumer.ProsumerAgent</agentClass>
+                <color>-16777216</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeWidth>10.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
+            <key>Transformer</key>
+            <value>
+                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <agentClass>hygrid.agent.transformer.TransformerAgent</agentClass>
+                <color>-16777216</color>
+                <domain>ElectricityThriPhase</domain>
+                <edgeImage>/images/Trafo.png</edgeImage>
+                <edgeWidth>2.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+    </currentCTS>
     <domainSettings>
+        <entry>
+            <key>Coordination</key>
+            <value>
+                <clusterShape>Rectangle</clusterShape>
+                <showLabel>false</showLabel>
+                <vertexColor>-3355444</vertexColor>
+                <vertexColorPicked>-256</vertexColorPicked>
+                <vertexSize>10</vertexSize>
+            </value>
+        </entry>
         <entry>
             <key>Default Domain</key>
             <value>
@@ -13,10 +161,22 @@
                 <vertexSize>10</vertexSize>
             </value>
         </entry>
+        <entry>
+            <key>ElectricityThriPhase</key>
+            <value>
+                <adapterClass>hygrid.env.adapter.ElectricalTriNodeAdapter</adapterClass>
+                <clusterAgent>hygrid.agent.gridState.gridAgent.GridAgent</clusterAgent>
+                <clusterShape>Rectangle</clusterShape>
+                <showLabel>false</showLabel>
+                <vertexColor>-8734720</vertexColor>
+                <vertexColorPicked>-13369549</vertexColorPicked>
+                <vertexSize>10</vertexSize>
+            </value>
+        </entry>
     </domainSettings>
     <layoutSettings>
         <entry>
-            <key>ITwyeoCgVW</key>
+            <key>23a46fb4-7fac-4801-8012-8a54d7152b58</key>
             <value>
                 <coordinateSystemXDirection>East</coordinateSystemXDirection>
                 <coordinateSystemYDirection>ClockwiseToX</coordinateSystemYDirection>
@@ -25,6 +185,18 @@
                 <layoutName>Default Layout</layoutName>
                 <snap2Grid>true</snap2Grid>
                 <snapRaster>5.0</snapRaster>
+            </value>
+        </entry>
+        <entry>
+            <key>CfaPOTkLOS</key>
+            <value>
+                <coordinateSystemXDirection>East</coordinateSystemXDirection>
+                <coordinateSystemYDirection>CounterclockwiseToX</coordinateSystemYDirection>
+                <edgeShape>Line</edgeShape>
+                <geographicalLayout>true</geographicalLayout>
+                <layoutName>Geo-Coordinates UTM 32U</layoutName>
+                <snap2Grid>true</snap2Grid>
+                <snapRaster>0.1</snapRaster>
             </value>
         </entry>
     </layoutSettings>

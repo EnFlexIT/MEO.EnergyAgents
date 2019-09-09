@@ -63,12 +63,12 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>hygrid.env.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>default</simulationSetupCurrent>
+    <simulationSetupCurrent>SimBench Import-Test</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelContinuous</timeModelClass>
     <simulationSetups>
         <entry>
-            <key>default</key>
-            <value>default.xml</value>
+            <key>SimBench Import-Test</key>
+            <value>SimBench_Import-Test.xml</value>
         </entry>
     </simulationSetups>
 </project>

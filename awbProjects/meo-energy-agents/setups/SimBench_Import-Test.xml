@@ -3,5 +3,5 @@
     <agentSetup/>
     <timeModelSettings/>
     <userObjectClassName>hygrid.deployment.dataModel.SetupExtension</userObjectClassName>
-    <environmentFileName>default.graphml</environmentFileName>
+    <environmentFileName>SimBench Import-Test.graphml</environmentFileName>
 </simulationSetup>
