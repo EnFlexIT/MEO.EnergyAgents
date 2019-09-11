@@ -1,16 +1,32 @@
 package de.enflexit.meo.plugIn.importer;
 
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
+import java.util.HashMap;
 import java.util.Vector;
 
+import org.awb.env.networkModel.GraphNode;
+import org.awb.env.networkModel.NetworkComponent;
 import org.awb.env.networkModel.NetworkModel;
 import org.awb.env.networkModel.controller.GraphEnvironmentController;
+import org.awb.env.networkModel.helper.NetworkComponentFactory;
+import org.awb.env.networkModel.maps.MapSettings;
+import org.awb.env.networkModel.maps.MapSettings.MapScale;
 import org.awb.env.networkModel.settings.GeneralGraphSettings4MAS;
 
 import agentgui.core.application.Application;
+import agentgui.ontology.TimeSeriesChart;
+import agentgui.ontology.TimeSeriesChartSettings;
 import agentgui.simulationService.environment.AbstractEnvironmentModel;
 import de.enflexit.common.csv.CsvDataController;
+import de.enflexit.geography.coordinates.UTMCoordinate;
+import de.enflexit.geography.coordinates.WGS84LatLngCoordinate;
+import energy.GlobalInfo;
 import hygrid.csvFileImport.CSV_FileImporter;
+import hygrid.globalDataModel.ontology.Cable;
+import hygrid.globalDataModel.ontology.TriPhaseElectricalNodeState;
+import hygrid.globalDataModel.ontology.UnitValue;
 
 
 /**
@@ -21,6 +37,8 @@ import hygrid.csvFileImport.CSV_FileImporter;
 public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 
 	private static final String LAYOUT_DEFAULT_LAYOUT = GeneralGraphSettings4MAS.DEFAULT_LAYOUT_SETTINGS_NAME;
+	private static final String LAYOUT_GeoCoordinates_WGS84 = "Geo-Coordinates WGS84";
+	private static final String LAYOUT_GeoCoordinates_UTM = "Geo-Coordinates UTM";
 	
 	private static final String SIMBENCH_Coordinates	 = "Coordinates.csv";
 	private static final String SIMBENCH_ExternalNet	 = "ExternalNet.csv";
@@ -39,15 +57,20 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 	private static final String SIMBENCH_Transformer	 = "Transformer.csv";
 	private static final String SIMBENCH_TransformerType = "TransformerType.csv";
 
-	
-	private String errTitle;
-	private String errMessage;
 
 	private NetworkModel networkModel;
 	private AbstractEnvironmentModel abstractEnvModel;
 	
 	private String layoutIdDefault;
+	private String layoutIdGeoCoordinateWGS84;
+	private String layoutIdGeoCoordinateUTM;
+
+	private MapSettings mapSettings;
 	
+	private Vector<Point2D> defaultPositionVector;
+	
+	private String errTitle;
+	private String errMessage;
 	
 	/**
 	 * Instantiates a new OAD networkType importer.
@@ -94,20 +117,56 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		if (networkModel == null) {
 			networkModel = new NetworkModel();
 			networkModel.setGeneralGraphSettings4MAS(this.graphController.getNetworkModel().getGeneralGraphSettings4MAS());
+			networkModel.getMapSettingsTreeMap().put(this.getLayoutIdGeoCoordinateUTM(), this.getMapSettings());
 		}
 		return networkModel;
 	}
-
 	
 	/**
-	 * Return the layout-ID for the OGE internal coordinates.
+	 * Returns the {@link MapSettings}.
+	 * @return the map settings
+	 */
+	private MapSettings getMapSettings() {
+		if (mapSettings==null) {
+			mapSettings = new MapSettings();
+			mapSettings.setUTMLongitudeZone(32);
+			mapSettings.setUTMLatitudeZone("U");
+			mapSettings.setMapScale(MapScale.km);
+			mapSettings.setShowMapTiles(true);
+			mapSettings.setMapTileTransparency(50);
+		}
+		return mapSettings;
+	}
+	
+	/**
+	 * Return the layout-ID for default coordinates.
 	 * @return the layout id OGE internal
 	 */
-	public String getLayoutIdOgeInternal() {
+	public String getLayoutIdDefault() {
 		if (layoutIdDefault==null) {
 			layoutIdDefault = this.getNetworkModel().getGeneralGraphSettings4MAS().getLayoutIdByLayoutName(LAYOUT_DEFAULT_LAYOUT);
 		}
 		return layoutIdDefault;
+	}
+	/**
+	 * Returns the layout-ID for WGS84 geo coordinate.
+	 * @return the layout id geo coordinate
+	 */
+	public String getLayoutIdGeoCoordinateWGS84() {
+		if (layoutIdGeoCoordinateWGS84==null) {
+			layoutIdGeoCoordinateWGS84 = this.getNetworkModel().getGeneralGraphSettings4MAS().getLayoutIdByLayoutName(LAYOUT_GeoCoordinates_WGS84); 
+		}
+		return layoutIdGeoCoordinateWGS84;
+	}
+	/**
+	 * Returns the layout-ID for UTM geo coordinate WGS84.
+	 * @return the layout id geo coordinate
+	 */
+	public String getLayoutIdGeoCoordinateUTM() {
+		if (layoutIdGeoCoordinateUTM==null) {
+			layoutIdGeoCoordinateUTM = this.getNetworkModel().getGeneralGraphSettings4MAS().getLayoutIdByLayoutName(LAYOUT_GeoCoordinates_UTM); 
+		}
+		return layoutIdGeoCoordinateUTM;
 	}
 	
 	
@@ -144,7 +203,12 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		this.abstractEnvModel = null;
 		
 		this.layoutIdDefault = null;
+		this.layoutIdGeoCoordinateWGS84 = null;
+		this.layoutIdGeoCoordinateUTM = null;
 		
+		this.mapSettings = null;
+		
+		this.defaultPositionVector = null;
 	}
 	
 	/* (non-Javadoc)
@@ -167,6 +231,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		
 			// --- The main import work to be done ----------------------------
 			this.createNodes();
+			this.createLines();
 			// TODO
 			
 			// --- Create the AWB NetworkModel --------------------------------
@@ -184,7 +249,98 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		// --- Return the NetworkModel ----------------------------------------
 		return this.getNetworkModel();
 	}
-	
+
+	// --------------------------------------------------------------------------------------------
+	// --- From here: some methods for getting the lines ------------------------------------------
+	// --------------------------------------------------------------------------------------------	
+
+	/**
+	 * Creates the lines.
+	 */
+	private void createLines() {
+		
+		CsvDataController nodeCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_Line);
+		Vector<Vector<String>> lineDataVector = this.getDataVectorOfCsvFile(SIMBENCH_Line);
+			
+		String colNameID = "id";
+		String colNameNodeA = "nodeA";
+		String colNameNodeB = "nodeB";
+		String colNameType = "type";
+		String colNameLength = "length";
+		
+		int ciID = nodeCsvController.getDataModel().findColumn(colNameID);
+		int ciNodeA = nodeCsvController.getDataModel().findColumn(colNameNodeA);
+		int ciNodeB = nodeCsvController.getDataModel().findColumn(colNameNodeB);
+		int ciType = nodeCsvController.getDataModel().findColumn(colNameType);
+		int ciLength = nodeCsvController.getDataModel().findColumn(colNameLength);
+		
+		for (int i = 0; i < lineDataVector.size(); i++) {
+			
+			// --- Get line data row ----------------------------------------------------
+			Vector<String> row = lineDataVector.get(i);
+			String lineID  = row.get(ciID);
+			String nodeA = row.get(ciNodeA);
+			String nodeB = row.get(ciNodeB);
+			String lineType = row.get(ciType);
+			String lineLength = row.get(ciLength);
+
+			Float lengthInKilometer = this.parseFloat(lineLength);
+			Float lengthInMeter = null;
+			if (lengthInKilometer!=null) {
+				lengthInMeter = lengthInKilometer * 1000f;
+			}
+			
+			HashMap<String, String> dataRowHashMap = this.getDataRowHashMap(SIMBENCH_LineType, "id", lineType);
+			Float linResistance = this.parseFloat(dataRowHashMap.get("r"));
+			Float linReactance = this.parseFloat(dataRowHashMap.get("x"));
+			Float maxCurrent = this.parseFloat(dataRowHashMap.get("iMax"));
+			
+			
+			// --- Prepare new NetworkComponent -----------------------------------------
+			NetworkModel newCompNM = null;
+			Cable cableDataModel = null;
+			
+			// --- Create new NetworkComponent by using the NetworkComponentFactory -----
+			// POSSIBLY a case separation for specific NetworkComponent types? 
+			newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Cable");
+			cableDataModel = new Cable();
+			
+			
+			// --- Get NetworkComponent and GrahNode for renaming -----------------------
+			NetworkComponent newNetComp = newCompNM.getNetworkComponents().values().iterator().next();
+			Object[] graphNodes = newCompNM.getGraphElementsOfNetworkComponent(newNetComp, new GraphNode()).toArray();
+			GraphNode newGraphNodeFrom = (GraphNode) graphNodes[0];
+			GraphNode newGraphNodeTo = (GraphNode) graphNodes[1];
+
+			// --- Rename NetworkComponent and GraphNode --------------------------------
+			newCompNM.renameNetworkComponent(newNetComp.getId(), lineID);
+			newCompNM.renameGraphNode(newGraphNodeFrom.getId(), nodeA);
+			newCompNM.renameGraphNode(newGraphNodeTo.getId(), nodeB);
+			
+			
+			// --- Set the parameters for the component ------------------------
+			cableDataModel.setLength(new UnitValue(lengthInMeter, "m"));
+			cableDataModel.setLinearResistance(new UnitValue(linResistance, "Ω/km"));
+			cableDataModel.setLinearReactance(new UnitValue(linReactance, "Ω/km"));
+			cableDataModel.setMaxCurrent(new UnitValue(maxCurrent, "A"));
+
+			// --- Add an empty time series chart object to match the requirements of the adapter ------
+			TimeSeriesChart tsc = new TimeSeriesChart();
+			tsc.setTimeSeriesVisualisationSettings(new TimeSeriesChartSettings());
+
+			// --- Set the data model --------------
+			Object[] dataModel = new Object[2];
+			dataModel[0] = cableDataModel;
+			dataModel[1] = tsc;
+			newNetComp.setDataModel(dataModel);
+			
+			// --- Merge into the new NetworkModel --------------------------------------
+			this.getNetworkModel().mergeNetworkModel(newCompNM, null, false);
+			
+		} // end for
+		
+	}
+
 	// --------------------------------------------------------------------------------------------
 	// --- From here: some methods for getting the nodes ------------------------------------------
 	// --------------------------------------------------------------------------------------------	
@@ -204,21 +360,196 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		
 		for (int i = 0; i < nodeDataVector.size(); i++) {
 			
+			// --- Get node data row ----------------------------------------------------
 			Vector<String> row = nodeDataVector.get(i);
 			String nodeID  = row.get(ciID);
 			String coordID = row.get(ciCoordID);
 			
-			this.printDebugLine("Found node '" + nodeID + "' => Coord-ID: '" + coordID + "'");
+			// --- Get the corresponding data row of the coordinates --------------------
+			HashMap<String, String> dataRowHashMap = this.getDataRowHashMap(SIMBENCH_Coordinates, "id", coordID);
+			String coordXString = dataRowHashMap.get("x");
+			String coordYString = dataRowHashMap.get("y");
 			
-			//TODO
+			// --- Prepare new NetworkComponent -----------------------------------------
+			NetworkModel newCompNM = null;
+			
+			// --- Create new NetworkComponent by using the NetworkComponentFactory -----
+			// POSSIBLY a case separation for specific NetworkComponent types?
+			newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Prosumer");
 			
 			
+			
+			
+			// --- Get the actual NetworkComponent --------------------------------------
+			NetworkComponent newComp = newCompNM.getNetworkComponents().values().iterator().next();
+			String nodeName = newComp.getGraphElementIDs().iterator().next();
+			GraphNode graphNode = (GraphNode) newCompNM.getGraphElement(nodeName);
+
+			// --- Rename the elements --------------------------------------------------
+			newCompNM.renameNetworkComponent(newComp.getId(), nodeID);
+			newCompNM.renameGraphNode(graphNode.getId(), nodeID);
+			
+			// --- Define the GraphNode positions ---------------------------------------
+			double wgs84Long = this.parseDouble(coordXString);
+			double wgs84Lat  = this.parseDouble(coordYString);
+			this.setGraphNodeCoordinates(graphNode, wgs84Lat, wgs84Long);
+
+			// --------------------------------------------------------------------------
+			// --- Define first part of the GraphNode's data model ----------------------
+			TriPhaseElectricalNodeState nodeDataModel = new TriPhaseElectricalNodeState();
+			nodeDataModel.setIsLoadNode(true);
+			// --- Define TimeSeriesChart as second part of the GraphNode data model ----
+			TimeSeriesChart tsc = new TimeSeriesChart();
+			tsc.setTimeSeriesVisualisationSettings(new TimeSeriesChartSettings());
+			
+			// --------------------------------------------------------------------------
+			// --- Set the data model to the GraphNode ----------------------------------
+			Object[] dataModel = new Object[2];
+			dataModel[0] = nodeDataModel;
+			dataModel[1] = tsc;
+			graphNode.setDataModel(dataModel);
+
+			// --- Merge into the new NetworkModel --------------------------------------
+			this.getNetworkModel().mergeNetworkModel(newCompNM, null, false);
+			
+		} // end for
+		
+		// --- Adjust the node positions for the default layout ------------------------- 
+		this.adjustDefaultPositions();
+	}
+	
+	/**
+	 * Sets the GraphNode coordinates.
+	 *
+	 * @param graphNode the graph node
+	 * @param latNorthSouth the latitude value (North / South)
+	 * @param longEastWest the longitude value (East / West)
+	 */
+	private void setGraphNodeCoordinates(GraphNode graphNode, double latNorthSouth, double longEastWest) {
+		
+		// --- Set GraphNode position according to node -------------
+		Point2D pointGeoWGS84 = new Point2D.Double(latNorthSouth, longEastWest);
+		
+		// --- Calculate to UTM coordinate --------------------------
+		WGS84LatLngCoordinate coordWGS84 = new WGS84LatLngCoordinate(pointGeoWGS84.getX(), pointGeoWGS84.getY());
+		UTMCoordinate coordUTM = coordWGS84.getUTMCoordinate(this.getMapSettings().getUTMLongitudeZone(), this.getMapSettings().getUTMLatitudeZone());
+		Point2D pointUTM = new Point2D.Double(coordUTM.getEasting(), coordUTM.getNorthing());
+		
+		// --- Set default layout to Default ------------------------
+		Point2D pointDefault = this.getDefaultLayoutPosition(pointGeoWGS84);
+		graphNode.setPosition(pointDefault);
+		this.getDefaultPositionVector().add(pointDefault);
+		
+		// --- Set positions to alternative layouts -----------------
+		graphNode.getPositionTreeMap().put(this.getLayoutIdDefault(), pointDefault);
+		graphNode.getPositionTreeMap().put(this.getLayoutIdGeoCoordinateWGS84(), pointGeoWGS84);
+		graphNode.getPositionTreeMap().put(this.getLayoutIdGeoCoordinateUTM(), pointUTM);
+	}
+	/**
+	 * Return the default layout position, derived from the WGS84 coordinates.
+	 *
+	 * @param wgs84Point the WGS84 point
+	 * @return the default layout position
+	 */
+	private Point2D getDefaultLayoutPosition(Point2D wgs84Point) {
+		double xPos = GlobalInfo.round(wgs84Point.getY() *  100000.0, 1);
+		double yPos = GlobalInfo.round(wgs84Point.getX() * -100000.0, 1);
+		return new Point2D.Double(xPos, yPos);
+	}
+	/**
+	 * Reminder for the default positions and a later correction.
+	 * @return the default position vector
+	 */
+	private Vector<Point2D> getDefaultPositionVector() {
+		if (defaultPositionVector==null) {
+			defaultPositionVector = new Vector<>();
 		}
+		return defaultPositionVector;
+	}
+	/**
+	 * Adjusts the default node positions.
+	 */
+	private void adjustDefaultPositions() {
+
+		if (this.getDefaultPositionVector().size()==0) return;
+		
+		// --- Get the spreading rectangle of the default positions -----------
+		Point2D initialPoint = this.getDefaultPositionVector().get(0);
+		Rectangle2D spreadRectangle = new Rectangle2D.Double(initialPoint.getX(), initialPoint.getY(), 0, 0);
+		for (int i = 0; i < this.getDefaultPositionVector().size(); i++) {
+			Point2D singlePos = this.getDefaultPositionVector().get(i);
+			spreadRectangle.add(singlePos);
+		}
+		
+		// --- Calculate movement ---------------------------------------------
+		double moveX = 0;
+		double moveY = 0;
+		
+		if (spreadRectangle.getX()>=0) {
+			moveX = -spreadRectangle.getX(); 
+		} else {
+			moveX = spreadRectangle.getX();
+		}
+		
+		if (spreadRectangle.getY()>=0) {
+			moveY = spreadRectangle.getY();
+		} else {
+			moveY = -spreadRectangle.getY();
+		}
+
+		// --- Move the default positions -------------------------------------
+		for (int i = 0; i < this.getDefaultPositionVector().size(); i++) {
+			Point2D singlePos = this.getDefaultPositionVector().get(i);
+			singlePos.setLocation(singlePos.getX() + moveX, singlePos.getY() + moveY);
+		}
+		
 	}
 	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: Some general help methods ---------------------------------------------------
-	// --------------------------------------------------------------------------------------------	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Return a data row as HashMap, where the key is the column name and the value the row value.
+	 *
+	 * @param csvFileName the csv file name
+	 * @param keyColumnName the key column name
+	 * @param keyValue the key value to search for
+	 * @return the data row as HashMap
+	 */
+	private HashMap<String, String> getDataRowHashMap(String csvFileName, String keyColumnName, String keyValue) {
+		
+		HashMap<String, String> dataRowHashMap = null;
+		
+		CsvDataController csvController = this.getCsvDataControllerOfCsvFile(csvFileName);
+		if (csvController!=null) {
+			
+			// --- Find the right row -------------------------------
+			int idColumnIndex = csvController.getDataModel().findColumn(keyColumnName);
+			if (idColumnIndex!=-1) {
+				// --- Found key column -----------------------------
+				int dataRowIndex = -1;
+				for (int rowIndex = 0; rowIndex < csvController.getDataModel().getRowCount(); rowIndex++) {
+					String currKeyValue = (String)csvController.getDataModel().getValueAt(rowIndex, idColumnIndex);
+					if (currKeyValue.equals(keyValue)==true) {
+						dataRowIndex = rowIndex;
+						break;
+					}
+				}
+				
+				if (dataRowIndex!=-1) {
+					// --- Found row, get values --------------------
+					dataRowHashMap = new HashMap<>();
+					for (int i = 0; i < csvController.getDataModel().getColumnCount(); i++) {
+						String colName = csvController.getDataModel().getColumnName(i);
+						String value = (String) csvController.getDataModel().getValueAt(dataRowIndex, i);
+						dataRowHashMap.put(colName, value);
+					}
+				}
+			}
+		}
+		return dataRowHashMap;
+	}
+	
 	/**
 	 * Returns the data vector of csv file.
 	 *
@@ -245,7 +576,52 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		return this.getCsvDataController().get(csvFileName);
 	}
 	
-	
+	/**
+	 * Parses the specified string to a double value .
+	 *
+	 * @param doubleString the double string
+	 * @return the double value or null
+	 */
+	private Double parseDouble(String doubleString) {
+		Double dValue = null;
+		if (doubleString!=null && doubleString.isEmpty()==false) {
+			// --- Replace decimal separator ? ----------------------
+			if (doubleString.contains(",")==true) {
+				doubleString = doubleString.replace(",", ".");
+			}
+			// --- Try to parse the double string -------------------
+			try {
+				dValue = Double.parseDouble(doubleString);
+			} catch (Exception ex) {
+				// --- No exception will be thrown ------------------
+			}
+		}
+		return dValue;
+	}
+
+	/**
+	 * Parses the specified string to a double value .
+	 *
+	 * @param floatString the float string
+	 * @return the float value or null
+	 */
+	private Float parseFloat(String floatString) {
+		Float fValue = null;
+		if (floatString!=null && floatString.isEmpty()==false) {
+			// --- Replace decimal separator ? ----------------------
+			if (floatString.contains(",")==true) {
+				floatString = floatString.replace(",", ".");
+			}
+			// --- Try to parse the double string -------------------
+			try {
+				fValue = Float.parseFloat(floatString);
+			} catch (Exception ex) {
+				// --- No exception will be thrown ------------------
+			}
+		}
+		return fValue;
+	}
+
 	// --------------------------------------------------------------------------------------------
 	// --- From here: some methods to display messages and errors on the console ------------------
 	// --------------------------------------------------------------------------------------------	

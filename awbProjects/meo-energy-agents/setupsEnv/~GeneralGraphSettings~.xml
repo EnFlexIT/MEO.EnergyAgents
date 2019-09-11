@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <generalGraphSettings4MAS>
-    <componentSorting>Alphanumeric</componentSorting>
+    <componentSorting>Alphabetical</componentSorting>
     <currentCTS>
         <entry>
             <key>Breaker</key>
@@ -194,9 +194,21 @@
                 <coordinateSystemYDirection>CounterclockwiseToX</coordinateSystemYDirection>
                 <edgeShape>Line</edgeShape>
                 <geographicalLayout>true</geographicalLayout>
-                <layoutName>Geo-Coordinates UTM 32U</layoutName>
-                <snap2Grid>true</snap2Grid>
+                <layoutName>Geo-Coordinates UTM</layoutName>
+                <snap2Grid>false</snap2Grid>
                 <snapRaster>0.1</snapRaster>
+            </value>
+        </entry>
+        <entry>
+            <key>FYpOLYLObL</key>
+            <value>
+                <coordinateSystemXDirection>North</coordinateSystemXDirection>
+                <coordinateSystemYDirection>ClockwiseToX</coordinateSystemYDirection>
+                <edgeShape>Line</edgeShape>
+                <geographicalLayout>false</geographicalLayout>
+                <layoutName>Geo-Coordinates WGS84</layoutName>
+                <snap2Grid>false</snap2Grid>
+                <snapRaster>5.0</snapRaster>
             </value>
         </entry>
     </layoutSettings>

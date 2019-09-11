@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <simulationSetup>
-    <agentSetup/>
+    <agentSetup>
+        <agent>
+            <postionNo>1</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 1</startAsName>
+        </agent>
+        <agent>
+            <postionNo>2</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 10</startAsName>
+        </agent>
+        <agent>
+            <postionNo>3</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 11</startAsName>
+        </agent>
+        <agent>
+            <postionNo>4</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 12</startAsName>
+        </agent>
+        <agent>
+            <postionNo>5</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 13</startAsName>
+        </agent>
+        <agent>
+            <postionNo>6</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 14</startAsName>
+        </agent>
+        <agent>
+            <postionNo>7</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 2</startAsName>
+        </agent>
+        <agent>
+            <postionNo>8</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 3</startAsName>
+        </agent>
+        <agent>
+            <postionNo>9</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 4</startAsName>
+        </agent>
+        <agent>
+            <postionNo>10</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 5</startAsName>
+        </agent>
+        <agent>
+            <postionNo>11</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 6</startAsName>
+        </agent>
+        <agent>
+            <postionNo>12</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 7</startAsName>
+        </agent>
+        <agent>
+            <postionNo>13</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 8</startAsName>
+        </agent>
+        <agent>
+            <postionNo>14</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>LV1.101 Bus 9</startAsName>
+        </agent>
+        <agent>
+            <postionNo>15</postionNo>
+            <listMembership>02 AgentStartEnvironment</listMembership>
+            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <startAsName>MV1.101 Bus 4</startAsName>
+        </agent>
+    </agentSetup>
     <timeModelSettings/>
     <userObjectClassName>hygrid.deployment.dataModel.SetupExtension</userObjectClassName>
     <environmentFileName>SimBench Import-Test.graphml</environmentFileName>
