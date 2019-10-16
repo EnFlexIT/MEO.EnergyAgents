@@ -26,6 +26,7 @@ import energy.GlobalInfo;
 import hygrid.csvFileImport.CSV_FileImporter;
 import hygrid.globalDataModel.ontology.Cable;
 import hygrid.globalDataModel.ontology.TriPhaseElectricalNodeState;
+import hygrid.globalDataModel.ontology.TriPhaseElectricalTransformerState;
 import hygrid.globalDataModel.ontology.UnitValue;
 
 
@@ -375,6 +376,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			String newNetCompID = nodeID; 
 			
 			// --- Create new NetworkComponent by using the NetworkComponentFactory -----
+			boolean isCreatingTransformer = false;
 			String transformerID = this.getTransformerID(nodeID);
 			if (transformerID!=null) {
 				// --- Create transformer ? ---------------------------------------------
@@ -384,6 +386,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 				if (nodeLV.equals(nodeID) && this.getNetworkModel().getNetworkComponent(transformerID)==null) {
 					newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Transformer");
 					newNetCompID = transformerID;
+					isCreatingTransformer = true;
 				} else {
 					// --- Do not create this component again ---------------------------
 					continue;
@@ -410,7 +413,17 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			// --------------------------------------------------------------------------
 			// --- Define first part of the GraphNode's data model ----------------------
 			TriPhaseElectricalNodeState nodeDataModel = new TriPhaseElectricalNodeState();
+			if (isCreatingTransformer==true) {
+				// --- Create low voltage node data model -----------
+				UnitValue uValue = new UnitValue();
+				uValue.setValue(400f);
+				uValue.setUnit("V");
+				TriPhaseElectricalTransformerState transformerNodeModel = new TriPhaseElectricalTransformerState();
+				transformerNodeModel.setRatedVoltage(uValue);
+				nodeDataModel = transformerNodeModel;
+			}
 			nodeDataModel.setIsLoadNode(true);
+			
 			// --- Define TimeSeriesChart as second part of the GraphNode data model ----
 			TimeSeriesChart tsc = new TimeSeriesChart();
 			tsc.setTimeSeriesVisualisationSettings(new TimeSeriesChartSettings());

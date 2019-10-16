@@ -7,7 +7,7 @@
             <value>
                 <utmLongitudeZone>32</utmLongitudeZone>
                 <utmLatitudeZone>U</utmLatitudeZone>
-                <mapScale>m</mapScale>
+                <mapScale>km</mapScale>
                 <showMapTiles>true</showMapTiles>
                 <mapTileTransparency>50</mapTileTransparency>
             </value>
