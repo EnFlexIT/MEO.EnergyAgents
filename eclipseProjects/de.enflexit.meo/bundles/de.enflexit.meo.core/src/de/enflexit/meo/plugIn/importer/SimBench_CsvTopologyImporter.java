@@ -221,7 +221,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			// --- Set status information -------------------------------------
 			Application.setStatusBarMessage("Import file " + directoryFile.getAbsolutePath());
 
-			this.debug = true;
+			this.debug = false;
 			
 			// --- Read the csv files -----------------------------------------
 			this.readCsvFiles(directoryFile, true); 
@@ -372,13 +372,26 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			
 			// --- Prepare new NetworkComponent -----------------------------------------
 			NetworkModel newCompNM = null;
+			String newNetCompID = nodeID; 
 			
 			// --- Create new NetworkComponent by using the NetworkComponentFactory -----
-			// POSSIBLY a case separation for specific NetworkComponent types?
-			newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Prosumer");
-			
-			
-			
+			String transformerID = this.getTransformerID(nodeID);
+			if (transformerID!=null) {
+				// --- Create transformer ? ---------------------------------------------
+				HashMap<String, String> transformerRowHashMap = this.getDataRowHashMap(SIMBENCH_Transformer, "id", transformerID);
+				String nodeLV = transformerRowHashMap.get("nodeLV");
+				// --- Only create low voltage node of SimBench model ------------------- 
+				if (nodeLV.equals(nodeID) && this.getNetworkModel().getNetworkComponent(transformerID)==null) {
+					newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Transformer");
+					newNetCompID = transformerID;
+				} else {
+					// --- Do not create this component again ---------------------------
+					continue;
+				}
+				
+			} else {
+				newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Prosumer");
+			}
 			
 			// --- Get the actual NetworkComponent --------------------------------------
 			NetworkComponent newComp = newCompNM.getNetworkComponents().values().iterator().next();
@@ -386,7 +399,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			GraphNode graphNode = (GraphNode) newCompNM.getGraphElement(nodeName);
 
 			// --- Rename the elements --------------------------------------------------
-			newCompNM.renameNetworkComponent(newComp.getId(), nodeID);
+			newCompNM.renameNetworkComponent(newComp.getId(), newNetCompID);
 			newCompNM.renameGraphNode(graphNode.getId(), nodeID);
 			
 			// --- Define the GraphNode positions ---------------------------------------
@@ -417,6 +430,42 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		// --- Adjust the node positions for the default layout ------------------------- 
 		this.adjustDefaultPositions();
 	}
+	
+	/**
+	 * Checks if the specified node ID represents a transformer and returns either the 
+	 * ID of the transformer or <code>null</code>:.
+	 *
+	 * @param nodeID the node ID
+	 * @return the transformer ID or <code>null</code>
+	 */
+	private String getTransformerID(String nodeID) {
+		
+		CsvDataController transformerCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_Transformer);
+		Vector<Vector<String>> transformerDataVector = this.getDataVectorOfCsvFile(SIMBENCH_Transformer);
+		
+		String colID = "id";
+		String colNodeHV = "nodeHV";
+		String colNodeLV = "nodeLV";
+		
+		int ciID = transformerCsvController.getDataModel().findColumn(colID);
+		int ciNodeHV = transformerCsvController.getDataModel().findColumn(colNodeHV);
+		int ciNodeLV = transformerCsvController.getDataModel().findColumn(colNodeLV);
+		
+		for (int i = 0; i < transformerDataVector.size(); i++) {
+		
+			Vector<String> row = transformerDataVector.get(i);
+			String id = row.get(ciID);
+			String idNodeHV = row.get(ciNodeHV);
+			String idNodeLV = row.get(ciNodeLV);
+			
+			if (idNodeHV.equals(nodeID) || idNodeLV.equals(nodeID)) {
+				return id;
+			}
+		}
+		return null;
+	}
+	
+	
 	
 	/**
 	 * Sets the GraphNode coordinates.

@@ -1,0 +1,1568 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<networkModelFileContent>
+    <layoutID>23a46fb4-7fac-4801-8012-8a54d7152b58</layoutID>
+    <mapSettingsList>
+        <entry>
+            <key>CfaPOTkLOS</key>
+            <value>
+                <utmLongitudeZone>32</utmLongitudeZone>
+                <utmLatitudeZone>U</utmLatitudeZone>
+                <mapScale>m</mapScale>
+                <showMapTiles>true</showMapTiles>
+                <mapTileTransparency>50</mapTileTransparency>
+            </value>
+        </entry>
+    </mapSettingsList>
+    <networkComponentList>
+        <entry>
+            <key>LV6.201 Bus 1</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 1</graphElementIDs>
+                <id>LV6.201 Bus 1</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 11</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 11</graphElementIDs>
+                <id>LV6.201 Bus 11</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 12</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 12</graphElementIDs>
+                <id>LV6.201 Bus 12</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 13</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 13</graphElementIDs>
+                <id>LV6.201 Bus 13</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 14</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 14</graphElementIDs>
+                <id>LV6.201 Bus 14</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 15</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 15</graphElementIDs>
+                <id>LV6.201 Bus 15</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 16</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 16</graphElementIDs>
+                <id>LV6.201 Bus 16</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 17</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 17</graphElementIDs>
+                <id>LV6.201 Bus 17</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 18</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 18</graphElementIDs>
+                <id>LV6.201 Bus 18</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 19</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 19</graphElementIDs>
+                <id>LV6.201 Bus 19</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 2</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 2</graphElementIDs>
+                <id>LV6.201 Bus 2</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 20</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 20</graphElementIDs>
+                <id>LV6.201 Bus 20</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 21</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 21</graphElementIDs>
+                <id>LV6.201 Bus 21</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 22</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 22</graphElementIDs>
+                <id>LV6.201 Bus 22</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 23</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 23</graphElementIDs>
+                <id>LV6.201 Bus 23</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 24</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 24</graphElementIDs>
+                <id>LV6.201 Bus 24</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 25</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 25</graphElementIDs>
+                <id>LV6.201 Bus 25</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 26</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 26</graphElementIDs>
+                <id>LV6.201 Bus 26</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 27</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 27</graphElementIDs>
+                <id>LV6.201 Bus 27</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 28</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 28</graphElementIDs>
+                <id>LV6.201 Bus 28</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 29</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 29</graphElementIDs>
+                <id>LV6.201 Bus 29</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 3</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 3</graphElementIDs>
+                <id>LV6.201 Bus 3</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 30</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 30</graphElementIDs>
+                <id>LV6.201 Bus 30</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 31</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 31</graphElementIDs>
+                <id>LV6.201 Bus 31</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 32</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 32</graphElementIDs>
+                <id>LV6.201 Bus 32</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 33</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 33</graphElementIDs>
+                <id>LV6.201 Bus 33</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 34</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 34</graphElementIDs>
+                <id>LV6.201 Bus 34</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 35</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 35</graphElementIDs>
+                <id>LV6.201 Bus 35</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 36</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 36</graphElementIDs>
+                <id>LV6.201 Bus 36</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 37</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 37</graphElementIDs>
+                <id>LV6.201 Bus 37</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 38</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 38</graphElementIDs>
+                <id>LV6.201 Bus 38</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 39</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 39</graphElementIDs>
+                <id>LV6.201 Bus 39</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 4</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 4</graphElementIDs>
+                <id>LV6.201 Bus 4</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 40</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 40</graphElementIDs>
+                <id>LV6.201 Bus 40</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 41</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 41</graphElementIDs>
+                <id>LV6.201 Bus 41</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 42</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 42</graphElementIDs>
+                <id>LV6.201 Bus 42</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 43</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 43</graphElementIDs>
+                <id>LV6.201 Bus 43</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 44</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 44</graphElementIDs>
+                <id>LV6.201 Bus 44</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 45</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 45</graphElementIDs>
+                <id>LV6.201 Bus 45</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 46</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 46</graphElementIDs>
+                <id>LV6.201 Bus 46</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 47</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 47</graphElementIDs>
+                <id>LV6.201 Bus 47</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 48</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 48</graphElementIDs>
+                <id>LV6.201 Bus 48</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 49</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 49</graphElementIDs>
+                <id>LV6.201 Bus 49</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 5</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 5</graphElementIDs>
+                <id>LV6.201 Bus 5</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 50</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 50</graphElementIDs>
+                <id>LV6.201 Bus 50</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 51</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 51</graphElementIDs>
+                <id>LV6.201 Bus 51</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 52</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 52</graphElementIDs>
+                <id>LV6.201 Bus 52</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 53</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 53</graphElementIDs>
+                <id>LV6.201 Bus 53</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 54</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 54</graphElementIDs>
+                <id>LV6.201 Bus 54</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 55</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 55</graphElementIDs>
+                <id>LV6.201 Bus 55</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 56</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 56</graphElementIDs>
+                <id>LV6.201 Bus 56</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 57</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 57</graphElementIDs>
+                <id>LV6.201 Bus 57</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 58</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 58</graphElementIDs>
+                <id>LV6.201 Bus 58</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 59</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 59</graphElementIDs>
+                <id>LV6.201 Bus 59</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 6</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 6</graphElementIDs>
+                <id>LV6.201 Bus 6</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 7</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 7</graphElementIDs>
+                <id>LV6.201 Bus 7</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Bus 8</key>
+            <value>
+                <agentClassName>hygrid.agent.prosumer.ProsumerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 8</graphElementIDs>
+                <id>LV6.201 Bus 8</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Prosumer</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 1</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMzguMzY1OTAyRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 24</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 1</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 3</graphElementIDs>
+                <id>LV6.201 Line 1</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 10</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMC4yMTYyOThGIi8+Cgk8L2xlbmd0aD4KCTxsaW5lYXJSZXNpc3RhbmNlPgoJCTxVbml0VmFsdWUgdW5pdD0izqkva20iIHZhbHVlPSIwLjEyNjdGIi8+Cgk8L2xpbmVhclJlc2lzdGFuY2U+CjwvQ2FibGU+Cg==</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 34</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 5</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 10</graphElementIDs>
+                <id>LV6.201 Line 10</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 11</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTQuNzUzM0YiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 12</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 18</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 11</graphElementIDs>
+                <id>LV6.201 Line 11</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 12</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNTEuNjY0N0YiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 12</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 4</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 32</graphElementIDs>
+                <id>LV6.201 Line 12</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 13</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNTIuMDQwODAyRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 15</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 16</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 13</graphElementIDs>
+                <id>LV6.201 Line 13</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 14</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNDAuMTQ5NkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 17</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 28</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 14</graphElementIDs>
+                <id>LV6.201 Line 14</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 15</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTMuNTgyOEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 25</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 15</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 2</graphElementIDs>
+                <id>LV6.201 Line 15</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 16</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjguMzI0M0YiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 46</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 16</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 1</graphElementIDs>
+                <id>LV6.201 Line 16</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 17</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjAuMjY1M0YiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 17</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 17</graphElementIDs>
+                <id>LV6.201 Line 17</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 18</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMi40NTMxNkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 18</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 39</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 6</graphElementIDs>
+                <id>LV6.201 Line 18</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 19</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNzcuNzQ1OUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 19</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 1</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 42</graphElementIDs>
+                <id>LV6.201 Line 19</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 2</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTUuMjI2NEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 2</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 38</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 33</graphElementIDs>
+                <id>LV6.201 Line 2</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 20</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTAuMTcxNEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 46</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 40</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 20</graphElementIDs>
+                <id>LV6.201 Line 20</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 22</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTAuMzg0NkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 24</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 22</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 4</graphElementIDs>
+                <id>LV6.201 Line 22</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 23</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMy43MTgxNDAxRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 18</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 23</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 11</graphElementIDs>
+                <id>LV6.201 Line 23</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 24</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMC4xODczODhGIi8+Cgk8L2xlbmd0aD4KCTxsaW5lYXJSZXNpc3RhbmNlPgoJCTxVbml0VmFsdWUgdW5pdD0izqkva20iIHZhbHVlPSIwLjEyNjdGIi8+Cgk8L2xpbmVhclJlc2lzdGFuY2U+CjwvQ2FibGU+Cg==</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 25</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 29</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 24</graphElementIDs>
+                <id>LV6.201 Line 24</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 25</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMzYuNTExMUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 37</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 25</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 20</graphElementIDs>
+                <id>LV6.201 Line 25</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 26</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjQuNzgyMjk5RiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 15</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 26</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 2</graphElementIDs>
+                <id>LV6.201 Line 26</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 27</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTMuMTIwMTk5RiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 12</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 27</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 7</graphElementIDs>
+                <id>LV6.201 Line 27</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 28</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTguNzU5MUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 28</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 28</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 6</graphElementIDs>
+                <id>LV6.201 Line 28</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 29</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTQuMjc2NjAxRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 23</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 29</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 11</graphElementIDs>
+                <id>LV6.201 Line 29</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 3</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMy43MDgyODk5RiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 3</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 30</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 31</graphElementIDs>
+                <id>LV6.201 Line 3</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 30</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjIuOTQ1N0YiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 8</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 30</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 22</graphElementIDs>
+                <id>LV6.201 Line 30</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 31</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMy4zODMyOUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 26</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 31</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 21</graphElementIDs>
+                <id>LV6.201 Line 31</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 32</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNy40OTI0OEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 39</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 7</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 32</graphElementIDs>
+                <id>LV6.201 Line 32</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 33</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTguOTUyNkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 29</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 33</graphElementIDs>
+                <id>LV6.201 Line 33</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 34</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjkuNTc4NzAxRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 37</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 34</graphElementIDs>
+                <id>LV6.201 Line 34</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 35</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTcuODQ3ODk4RiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 36</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 35</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 6</graphElementIDs>
+                <id>LV6.201 Line 35</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 36</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTguMjI2M0YiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 36</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 5</graphElementIDs>
+                <id>LV6.201 Line 36</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 37</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjQuMTQ2MTk4RiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 37</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 19</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 2</graphElementIDs>
+                <id>LV6.201 Line 37</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 38</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjAuMzE2MkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 35</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 38</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 3</graphElementIDs>
+                <id>LV6.201 Line 38</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 39</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMC4yMTU1NDgwMUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 34</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 39</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 44</graphElementIDs>
+                <id>LV6.201 Line 39</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 4</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTQuNDkyMDAxRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 4</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 13</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 30</graphElementIDs>
+                <id>LV6.201 Line 4</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 40</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTMuODgyNUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 40</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 44</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 22</graphElementIDs>
+                <id>LV6.201 Line 40</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 41</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTcuMzA0NEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 3</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 41</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 43</graphElementIDs>
+                <id>LV6.201 Line 41</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 42</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTguNTc5NEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 35</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 41</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 42</graphElementIDs>
+                <id>LV6.201 Line 42</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 43</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNC4yNzc4Nzk3RiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 38</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 27</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 43</graphElementIDs>
+                <id>LV6.201 Line 43</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 44</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjEuNTE1OUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 27</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 44</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 4</graphElementIDs>
+                <id>LV6.201 Line 44</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 45</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMy4wMzc2NkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 13</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 45</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 33</graphElementIDs>
+                <id>LV6.201 Line 45</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 46</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjIuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 48</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 46</graphElementIDs>
+                <id>LV6.201 Line 46</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 47</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjYuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 47</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 47</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 19</graphElementIDs>
+                <id>LV6.201 Line 47</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 48</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTcuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 48</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 49</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 48</graphElementIDs>
+                <id>LV6.201 Line 48</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 49</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjIuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 49</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 49</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 50</graphElementIDs>
+                <id>LV6.201 Line 49</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 5</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTguMDE3MkYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 45</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 26</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 5</graphElementIDs>
+                <id>LV6.201 Line 5</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 50</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTYuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 50</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 51</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 50</graphElementIDs>
+                <id>LV6.201 Line 50</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 51</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTkuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 51</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 52</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 51</graphElementIDs>
+                <id>LV6.201 Line 51</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 52</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTIuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 52</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 52</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 53</graphElementIDs>
+                <id>LV6.201 Line 52</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 53</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMjAuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 53</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 53</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 54</graphElementIDs>
+                <id>LV6.201 Line 53</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 54</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNDUuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 54</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 55</graphElementIDs>
+                <id>LV6.201 Line 54</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 55</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTQuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 56</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 55</graphElementIDs>
+                <id>LV6.201 Line 55</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 56</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTYuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 56</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 57</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 56</graphElementIDs>
+                <id>LV6.201 Line 56</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 57</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTUuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 57</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 58</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 57</graphElementIDs>
+                <id>LV6.201 Line 57</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 58</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTAuMEYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 58</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 59</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 58</graphElementIDs>
+                <id>LV6.201 Line 58</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 6</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMTQuNDcyNTAxRiIvPgoJPC9sZW5ndGg+Cgk8bGluZWFyUmVzaXN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4xMjY3RiIvPgoJPC9saW5lYXJSZXNpc3RhbmNlPgo8L0NhYmxlPgo=</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 45</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 31</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 6</graphElementIDs>
+                <id>LV6.201 Line 6</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 7</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMC4yMjczOUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Line 7</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 20</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 43</graphElementIDs>
+                <id>LV6.201 Line 7</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 8</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iNy42MjU2OUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 23</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 40</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 8</graphElementIDs>
+                <id>LV6.201 Line 8</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>LV6.201 Line 9</key>
+            <value>
+                <dataModelsBase64>
+                    <dataModelBase64>PENhYmxlIFFfTDE9IjAuMEYiIFBfTDI9IjAuMEYiIGN1cnJlbnRfTDE9IjAuMEYiIGNvc1BoaV9MMj0iMC4wRiIgUF9MMz0iMC4wRiIgY29zUGhpX0wxPSIwLjBGIiB1dGlsX0wzPSIwLjBGIiBjdXJyZW50X0wyPSIwLjBGIiBRX0wzPSIwLjBGIiBjb3NQaGlfTDM9IjAuMEYiIGN1cnJlbnRfTDM9IjAuMEYiIHV0aWxfTDE9IjAuMEYiIFBfTDE9IjAuMEYiIFFfTDI9IjAuMEYiIHV0aWxfTDI9IjAuMEYiPgoJPGxpbmVhclJlYWN0YW5jZT4KCQk8VW5pdFZhbHVlIHVuaXQ9Is6pL2ttIiB2YWx1ZT0iMC4wNzk3OTY1RiIvPgoJPC9saW5lYXJSZWFjdGFuY2U+Cgk8bWF4Q3VycmVudD4KCQk8VW5pdFZhbHVlIHVuaXQ9IkEiIHZhbHVlPSIzNTcuMEYiLz4KCTwvbWF4Q3VycmVudD4KCTxsZW5ndGg+CgkJPFVuaXRWYWx1ZSB1bml0PSJtIiB2YWx1ZT0iMzYuNzY5OUYiLz4KCTwvbGVuZ3RoPgoJPGxpbmVhclJlc2lzdGFuY2U+CgkJPFVuaXRWYWx1ZSB1bml0PSLOqS9rbSIgdmFsdWU9IjAuMTI2N0YiLz4KCTwvbGluZWFyUmVzaXN0YW5jZT4KPC9DYWJsZT4K</dataModelBase64>
+                    <dataModelBase64>PFRpbWVTZXJpZXNDaGFydCByZWFsVGltZT0iZmFsc2UiPgoJPHRpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CgkJPFRpbWVTZXJpZXNDaGFydFNldHRpbmdzPgoJCTwvVGltZVNlcmllc0NoYXJ0U2V0dGluZ3M+Cgk8L3RpbWVTZXJpZXNWaXN1YWxpc2F0aW9uU2V0dGluZ3M+CjwvVGltZVNlcmllc0NoYXJ0Pgo=</dataModelBase64>
+                </dataModelsBase64>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 14</graphElementIDs>
+                <graphElementIDs>LV6.201 Bus 16</graphElementIDs>
+                <graphElementIDs>LV6.201 Line 9</graphElementIDs>
+                <id>LV6.201 Line 9</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.SimpleGraphElement</prototypeClassName>
+                <type>Cable</type>
+            </value>
+        </entry>
+        <entry>
+            <key>MV2.101-LV6.201-Trafo 1</key>
+            <value>
+                <agentClassName>hygrid.agent.transformer.TransformerAgent</agentClassName>
+                <directed>false</directed>
+                <graphElementIDs>LV6.201 Bus 9</graphElementIDs>
+                <id>MV2.101-LV6.201-Trafo 1</id>
+                <prototypeClassName>org.awb.env.networkModel.prototypes.DistributionNode</prototypeClassName>
+                <type>Transformer</type>
+            </value>
+        </entry>
+    </networkComponentList>
+</networkModelFileContent>
