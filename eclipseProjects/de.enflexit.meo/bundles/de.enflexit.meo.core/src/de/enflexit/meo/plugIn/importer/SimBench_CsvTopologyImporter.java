@@ -3,7 +3,12 @@ package de.enflexit.meo.plugIn.importer;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 
 import org.awb.env.networkModel.GraphNode;
@@ -23,6 +28,16 @@ import de.enflexit.common.csv.CsvDataController;
 import de.enflexit.geography.coordinates.UTMCoordinate;
 import de.enflexit.geography.coordinates.WGS84LatLngCoordinate;
 import energy.GlobalInfo;
+import energy.domain.DefaultDomainModelElectricity;
+import energy.domain.DefaultDomainModelElectricity.CurrentType;
+import energy.domain.DefaultDomainModelElectricity.Phase;
+import energy.domain.DefaultDomainModelElectricity.PowerType;
+import energy.optionModel.EnergyCarrier;
+import energy.optionModel.InterfaceSetting;
+import energy.optionModel.Schedule;
+import energy.optionModel.ScheduleList;
+import energy.optionModel.TechnicalSystemStateEvaluation;
+import energy.persistence.ScheduleList_StorageHandler;
 import hygrid.csvFileImport.CSV_FileImporter;
 import hygrid.globalDataModel.ontology.Cable;
 import hygrid.globalDataModel.ontology.TriPhaseElectricalNodeState;
@@ -58,7 +73,11 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 	private static final String SIMBENCH_Transformer	 = "Transformer.csv";
 	private static final String SIMBENCH_TransformerType = "TransformerType.csv";
 
+	private String errTitle;
+	private String errMessage;
 
+	
+	// --- From here variables for the topology import ------------------------
 	private NetworkModel networkModel;
 	private AbstractEnvironmentModel abstractEnvModel;
 	
@@ -70,8 +89,11 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 	
 	private Vector<Point2D> defaultPositionVector;
 	
-	private String errTitle;
-	private String errMessage;
+	// --- From here variables for the time series import ---------------------
+	private static final String DEFAULT_TSSE_STATE_ID = "Prosuming";
+	private static final String[] INTERFACE_IDs_Electricity = {"Electricity L1", "Electricity L2", "Electricity L3"};
+	private SimpleDateFormat dateFormatter;
+	
 	
 	/**
 	 * Instantiates a new OAD networkType importer.
@@ -222,7 +244,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			// --- Set status information -------------------------------------
 			Application.setStatusBarMessage("Import file " + directoryFile.getAbsolutePath());
 
-			this.debug = false;
+			this.debug = true;
 			
 			// --- Read the csv files -----------------------------------------
 			this.readCsvFiles(directoryFile, true); 
@@ -233,13 +255,12 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			// --- The main import work to be done ----------------------------
 			this.createNodes();
 			this.createLines();
-			// TODO
+			this.createSystemSchedules();
 			
 			// --- Create the AWB NetworkModel --------------------------------
 			this.setAbstractEnvironmentModel();
 			
 			this.showError();
-			
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -252,9 +273,199 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 	}
 
 	// --------------------------------------------------------------------------------------------
+	// --- From here: some methods for creating system schedules can be found ---------------------
+	// --------------------------------------------------------------------------------------------	
+	/**
+	 * Creates the system schedules.
+	 */
+	private void createSystemSchedules() {
+		
+		CsvDataController loadCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_Load);
+		Vector<Vector<String>> loadDataVector = this.getDataVectorOfCsvFile(SIMBENCH_Load);
+
+		String colNameID = "id";
+		String colNameNodeID = "node";
+		String colNameProfile = "profile";
+		
+		int ciID = loadCsvController.getDataModel().findColumn(colNameID);
+		int ciNodeID = loadCsvController.getDataModel().findColumn(colNameNodeID);
+		int ciProfile = loadCsvController.getDataModel().findColumn(colNameProfile);
+		
+		for (int i = 0; i < loadDataVector.size(); i++) {
+			
+			// --- Get load data row ----------------------------------------------------
+			Vector<String> row = loadDataVector.get(i);
+			String loadID  = row.get(ciID);
+			String nodeID = row.get(ciNodeID);
+			String profile = row.get(ciProfile);
+
+			// --- Create ScheduleList for the system -----------------------------------
+			Schedule schedule = this.getScheduleOfProfile(profile);
+			ScheduleList sl = this.createScheduleList(nodeID);
+			sl.getSchedules().add(schedule);
+
+			// --- Place in the NetworkModel --------------------------------------------
+			NetworkComponent netComp = this.getNetworkModel().getNetworkComponent(nodeID);
+			netComp.setDataModel(sl);
+			
+		} // end for
+		
+	}
+	
+	/**
+	 * Return a schedule for the specified profile .
+	 * @return the schedule of profile
+	 */
+	private Schedule getScheduleOfProfile(String profile) {
+		
+		// --- Define list of system states -----------------------------------
+		List<TechnicalSystemStateEvaluation> tsseList = new ArrayList<>();
+		
+		// --- Get time series from load profile ------------------------------
+		CsvDataController loadProfileCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_LoadProfile);
+		Vector<Vector<String>> loadProfileDataVector = this.getDataVectorOfCsvFile(SIMBENCH_LoadProfile);
+
+		String colNameTime = "time";
+		String colNamePLoad = profile + "_pload";
+		String colNameQLoad = profile + "_qload";
+		
+		int ciTime = loadProfileCsvController.getDataModel().findColumn(colNameTime);
+		int ciPLoad = loadProfileCsvController.getDataModel().findColumn(colNamePLoad);
+		int ciQLoad = loadProfileCsvController.getDataModel().findColumn(colNameQLoad);
+		
+		long timeStampLast = -1;
+		// --- Get data rows for the profile ----------------------------------
+		for (int i = 0; i < loadProfileDataVector.size(); i++) {
+
+			Vector<String> row = loadProfileDataVector.get(i);
+			String stringTime = row.get(ciTime);
+			String stringPLoad = row.get(ciPLoad);
+			String stringQLoad = row.get(ciQLoad);
+			
+			try {
+				
+				Date timeDate = this.getDateFormatter().parse(stringTime);
+				long timeStamp = timeDate.getTime();
+				double pLoadMW = this.parseDouble(stringPLoad);
+				double qLoadMW = this.parseDouble(stringQLoad);
+				// TODO handle power values 
+				
+				long duration = 0;
+				if (timeStampLast>0) {
+					duration = timeStamp - timeStampLast;
+				}
+				// --- Remind for next iteration ------------------------------
+				timeStampLast = timeStamp;
+				
+				// --- Create TechnicalSystemStateEvaluation ------------------
+				tsseList.add(this.createTechnicalSystemStateEvaluation(timeStamp, duration, pLoadMW, qLoadMW));
+			
+			} catch (ParseException pEx) {
+				pEx.printStackTrace();
+			}
+			
+			
+		} // end for
+		
+		// --- Finally, create Schedule ---------------------------------------
+		Schedule schedule = new Schedule();
+		schedule.setStrategyClass(this.getClass().getSimpleName());
+		// --- Add List of TechnicalSystemStatesEvaluation to Schedule --------
+		for (int i = tsseList.size()-1; i >= 0; i--) {
+			schedule.getTechnicalSystemStateList().add(tsseList.get(i));
+		}
+		// --- Create the usual tree structure of Schedules -------------------
+		ScheduleList_StorageHandler.convertToTreeSchedule(schedule);
+		return schedule;
+	}
+	/**
+	 * Returns the local date formatter.
+	 * @return the date formatter
+	 */
+	public SimpleDateFormat getDateFormatter() {
+		if (dateFormatter==null) {
+			dateFormatter = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+		}
+		return dateFormatter;
+	}
+	
+	/**
+	 * Creates the technical system state evaluation.
+	 *
+	 * @param time the time
+	 * @param duration the duration
+	 * @param pLoad the P load
+	 * @param qLoad the Q load
+	 * @return the technical system state evaluation
+	 */
+	private TechnicalSystemStateEvaluation createTechnicalSystemStateEvaluation(long time, long duration, double pLoad, double qLoad) {
+		
+		TechnicalSystemStateEvaluation tsse = new TechnicalSystemStateEvaluation();
+		tsse.setStateID(DEFAULT_TSSE_STATE_ID);
+		tsse.setGlobalTime(time);
+		tsse.setStateTime(duration);
+
+		// TODO
+		
+		
+		return tsse;
+	}
+	
+	/**
+	 * Creates a ScheduleList with the specified systemID.
+	 *
+	 * @param systemID the system ID to use
+	 * @return the schedule list
+	 */
+	private ScheduleList createScheduleList(String systemID) {
+		
+		ScheduleList sl = new ScheduleList();
+		sl.setSystemID(systemID);
+//		sl.setNetworkID(value);
+		sl.setDescription("Load data imported for " + systemID + "");
+		
+		// --- Define domain model and interface settings for all phases ----------------
+		for (int i=0; i < INTERFACE_IDs_Electricity.length; i++) {
+
+			// --- Active power ----------------------------------------
+			String activeInterfaceID = INTERFACE_IDs_Electricity[i] + " P";
+			DefaultDomainModelElectricity domainModelActivePower = new DefaultDomainModelElectricity();
+			domainModelActivePower.setPowerType(PowerType.ActivePower);
+			domainModelActivePower.setCurrentType(CurrentType.AC);
+			domainModelActivePower.setPhase(Phase.values()[i+1]);
+			domainModelActivePower.setFrequency(50);
+			domainModelActivePower.setRatedVoltage(230);
+			
+			InterfaceSetting interfaceSettingActivePower = new InterfaceSetting();
+			interfaceSettingActivePower.setInterfaceID(activeInterfaceID);
+			interfaceSettingActivePower.setDomainModel(domainModelActivePower);
+			interfaceSettingActivePower.setDomain(EnergyCarrier.ELECTRICITY.value());
+			
+			sl.getInterfaceSettings().add(interfaceSettingActivePower);
+			
+			// --- Reactive power -------------------------------------
+			String reactiveInterfaceID = INTERFACE_IDs_Electricity[i] + " Q";
+			DefaultDomainModelElectricity domainModelReactivePower = new DefaultDomainModelElectricity();
+			domainModelReactivePower.setPowerType(PowerType.ReactivePower);
+			domainModelReactivePower.setCurrentType(CurrentType.AC);
+			domainModelReactivePower.setPhase(Phase.values()[i+1]);
+			domainModelReactivePower.setFrequency(50);
+			domainModelReactivePower.setRatedVoltage(230);
+			
+			InterfaceSetting interfaceSettingsReactivePower = new InterfaceSetting();
+			interfaceSettingsReactivePower.setInterfaceID(reactiveInterfaceID);
+			interfaceSettingsReactivePower.setDomainModel(domainModelReactivePower);
+			interfaceSettingsReactivePower.setDomain(EnergyCarrier.ELECTRICITY.value());
+			
+			sl.getInterfaceSettings().add(interfaceSettingsReactivePower);
+			
+		}
+		return sl;
+	}
+	
+	// --------------------------------------------------------------------------------------------
 	// --- From here: some methods for getting the lines ------------------------------------------
 	// --------------------------------------------------------------------------------------------	
-
 	/**
 	 * Creates the lines.
 	 */
