@@ -63,7 +63,7 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>hygrid.env.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>SimBench-Import-Test</simulationSetupCurrent>
+    <simulationSetupCurrent>1-LV-rural3--0-no_sw</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelContinuous</timeModelClass>
     <simulationSetups>
         <entry>

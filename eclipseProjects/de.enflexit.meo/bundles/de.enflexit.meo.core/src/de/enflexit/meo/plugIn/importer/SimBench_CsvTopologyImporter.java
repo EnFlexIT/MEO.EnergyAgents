@@ -739,7 +739,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 		List<TechnicalSystemStateEvaluation> tsseList = new ArrayList<>();
 		// --- Get data rows for the profile ----------------------------------
 		int iMax = loadProfileDataVector.size();
-		iMax = 1000; // TODO 
+		iMax = 10; // TODO 
 		for (int i = 0; i < iMax; i++) {
 
 			Vector<String> row = loadProfileDataVector.get(i);
