@@ -5,7 +5,7 @@
         <entry>
             <key>Breaker</key>
             <value>
-                <adapterClass>hygrid.env.adapter.BreakerAdapter</adapterClass>
+                <adapterClass>hygrid.env.adapter.triPhase.TriPhaseBreakerAdapter</adapterClass>
                 <color>-3407668</color>
                 <domain>ElectricityThriPhase</domain>
                 <edgeImage>/images/Breaker.png</edgeImage>
@@ -30,7 +30,7 @@
         <entry>
             <key>Cable</key>
             <value>
-                <adapterClass>hygrid.env.adapter.CableAdapter</adapterClass>
+                <adapterClass>hygrid.env.adapter.triPhase.TriPhaseCableAdapter</adapterClass>
                 <color>-16777216</color>
                 <domain>ElectricityThriPhase</domain>
                 <edgeImage>MissingIcon</edgeImage>
@@ -42,7 +42,7 @@
         <entry>
             <key>CableCabinet</key>
             <value>
-                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
                 <agentClass>hygrid.agent.prosumer.ProsumerAgent</agentClass>
                 <color>-5000269</color>
                 <domain>ElectricityThriPhase</domain>
@@ -54,7 +54,7 @@
         <entry>
             <key>Photovoltaic</key>
             <value>
-                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
                 <agentClass>hygrid.agent.photovoltaic.PhotovoltaicAgent</agentClass>
                 <color>-256</color>
                 <domain>ElectricityThriPhase</domain>
@@ -67,7 +67,7 @@
         <entry>
             <key>Prosumer</key>
             <value>
-                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
                 <agentClass>hygrid.agent.prosumer.ProsumerAgent</agentClass>
                 <color>-16738048</color>
                 <domain>ElectricityThriPhase</domain>
@@ -80,7 +80,7 @@
         <entry>
             <key>REF-PV</key>
             <value>
-                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
                 <agentClass>hygrid.agent.photovoltaic.referencePV.RefPVAgent</agentClass>
                 <color>-16724992</color>
                 <domain>ElectricityThriPhase</domain>
@@ -93,7 +93,7 @@
         <entry>
             <key>Sensor</key>
             <value>
-                <adapterClass>hygrid.env.adapter.SensorAdapter</adapterClass>
+                <adapterClass>hygrid.env.adapter.triPhase.TriPhaseSensorAdapter</adapterClass>
                 <agentClass>hygrid.agent.lvSensor.LVSensorAgent</agentClass>
                 <color>-16777216</color>
                 <domain>ElectricityThriPhase</domain>
@@ -117,7 +117,7 @@
         <entry>
             <key>Sleeve</key>
             <value>
-                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
                 <agentClass>hygrid.agent.prosumer.ProsumerAgent</agentClass>
                 <color>-16777216</color>
                 <domain>ElectricityThriPhase</domain>
@@ -129,7 +129,7 @@
         <entry>
             <key>Transformer</key>
             <value>
-                <adapterClass>energy.agentgui.EomAdapter</adapterClass>
+                <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
                 <agentClass>hygrid.agent.transformer.TransformerAgent</agentClass>
                 <color>-16777216</color>
                 <domain>ElectricityThriPhase</domain>
@@ -164,7 +164,7 @@
         <entry>
             <key>ElectricityThriPhase</key>
             <value>
-                <adapterClass>hygrid.env.adapter.ElectricalTriNodeAdapter</adapterClass>
+                <adapterClass>hygrid.env.adapter.triPhase.TriPhaseElectricalNodeAdapter</adapterClass>
                 <clusterAgent>hygrid.agent.gridState.gridAgent.GridAgent</clusterAgent>
                 <clusterShape>Rectangle</clusterShape>
                 <showLabel>false</showLabel>

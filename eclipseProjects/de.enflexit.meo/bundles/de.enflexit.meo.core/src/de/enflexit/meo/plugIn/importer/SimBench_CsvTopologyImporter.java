@@ -46,9 +46,11 @@ import energy.optionModel.TimeUnit;
 import energy.optionModel.UsageOfInterfaceEnergy;
 import energy.persistence.ScheduleList_StorageHandler;
 import hygrid.csvFileImport.CSV_FileImporter;
-import hygrid.globalDataModel.ontology.Cable;
+import hygrid.globalDataModel.ontology.CableProperties;
+import hygrid.globalDataModel.ontology.ElectricalNodeProperties;
+import hygrid.globalDataModel.ontology.TransformerNodeProperties;
+import hygrid.globalDataModel.ontology.TriPhaseCableState;
 import hygrid.globalDataModel.ontology.TriPhaseElectricalNodeState;
-import hygrid.globalDataModel.ontology.TriPhaseElectricalTransformerState;
 import hygrid.globalDataModel.ontology.UnitValue;
 
 
@@ -337,12 +339,12 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			
 			// --- Prepare new NetworkComponent -----------------------------------------
 			NetworkModel newCompNM = null;
-			Cable cableDataModel = null;
+			CableProperties cableProperties = null;
 			
 			// --- Create new NetworkComponent by using the NetworkComponentFactory -----
 			// POSSIBLY a case separation for specific NetworkComponent types? 
 			newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Cable");
-			cableDataModel = new Cable();
+			cableProperties = new CableProperties();
 			
 			
 			// --- Get NetworkComponent and GrahNode for renaming -----------------------
@@ -358,19 +360,20 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			
 			
 			// --- Set the parameters for the component ------------------------
-			cableDataModel.setLength(new UnitValue(lengthInMeter, "m"));
-			cableDataModel.setLinearResistance(new UnitValue(linResistance, "Ω/km"));
-			cableDataModel.setLinearReactance(new UnitValue(linReactance, "Ω/km"));
-			cableDataModel.setMaxCurrent(new UnitValue(maxCurrent, "A"));
+			cableProperties.setLength(new UnitValue(lengthInMeter, "m"));
+			cableProperties.setLinearResistance(new UnitValue(linResistance, "Ω/km"));
+			cableProperties.setLinearReactance(new UnitValue(linReactance, "Ω/km"));
+			cableProperties.setMaxCurrent(new UnitValue(maxCurrent, "A"));
 
 			// --- Add an empty time series chart object to match the requirements of the adapter ------
 			TimeSeriesChart tsc = new TimeSeriesChart();
 			tsc.setTimeSeriesVisualisationSettings(new TimeSeriesChartSettings());
 
 			// --- Set the data model --------------
-			Object[] dataModel = new Object[2];
-			dataModel[0] = cableDataModel;
-			dataModel[1] = tsc;
+			Object[] dataModel = new Object[3];
+			dataModel[0] = cableProperties;
+			dataModel[1] = new TriPhaseCableState();
+			dataModel[2] = tsc;
 			newNetComp.setDataModel(dataModel);
 			
 			// --- Merge into the new NetworkModel --------------------------------------
@@ -470,19 +473,20 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			double wgs84Lat  = this.parseDouble(coordYString);
 			this.setGraphNodeCoordinates(graphNode, wgs84Lat, wgs84Long);
 
+			
 			// --------------------------------------------------------------------------
 			// --- Define first part of the GraphNode's data model ----------------------
-			TriPhaseElectricalNodeState nodeDataModel = new TriPhaseElectricalNodeState();
+			ElectricalNodeProperties nodeProps = new ElectricalNodeProperties();
 			if (isCreatingTransformer==true) {
 				// --- Create low voltage node data model -----------
 				UnitValue uValue = new UnitValue();
 				uValue.setValue(400f);
 				uValue.setUnit("V");
-				TriPhaseElectricalTransformerState transformerNodeModel = new TriPhaseElectricalTransformerState();
-				transformerNodeModel.setRatedVoltage(uValue);
-				nodeDataModel = transformerNodeModel;
+				TransformerNodeProperties transformerProps = new TransformerNodeProperties();
+				transformerProps.setRatedVoltage(uValue);
+				nodeProps = transformerProps;
 			}
-			nodeDataModel.setIsLoadNode(true);
+			nodeProps.setIsLoadNode(true);
 			
 			// --- Define TimeSeriesChart as second part of the GraphNode data model ----
 			TimeSeriesChart tsc = new TimeSeriesChart();
@@ -490,9 +494,11 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			
 			// --------------------------------------------------------------------------
 			// --- Set the data model to the GraphNode ----------------------------------
-			Object[] dataModel = new Object[2];
-			dataModel[0] = nodeDataModel;
-			dataModel[1] = tsc;
+			// TODO
+			Object[] dataModel = new Object[3];
+			dataModel[0] = nodeProps;
+			dataModel[1] = new TriPhaseElectricalNodeState();
+			dataModel[2] = tsc;
 			graphNode.setDataModel(dataModel);
 
 			// --------------------------------------------------------------------------
