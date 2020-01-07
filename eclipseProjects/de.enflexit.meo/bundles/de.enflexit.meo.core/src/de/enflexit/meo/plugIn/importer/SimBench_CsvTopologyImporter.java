@@ -11,13 +11,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.filechooser.FileFilter;
+
 import org.awb.env.networkModel.GraphNode;
 import org.awb.env.networkModel.NetworkComponent;
 import org.awb.env.networkModel.NetworkModel;
-import org.awb.env.networkModel.controller.GraphEnvironmentController;
 import org.awb.env.networkModel.helper.NetworkComponentFactory;
 import org.awb.env.networkModel.maps.MapSettings;
 import org.awb.env.networkModel.maps.MapSettings.MapScale;
+import org.awb.env.networkModel.persistence.NetworkModelImportService;
 import org.awb.env.networkModel.settings.GeneralGraphSettings4MAS;
 
 import agentgui.core.application.Application;
@@ -59,7 +61,7 @@ import hygrid.globalDataModel.ontology.UnitValue;
  * 
  * @author Christian Derksen - DAWIS - ICB - University of Duisburg-Essen
  */
-public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
+public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements NetworkModelImportService {
 
 	private static final String LAYOUT_DEFAULT_LAYOUT = GeneralGraphSettings4MAS.DEFAULT_LAYOUT_SETTINGS_NAME;
 	private static final String LAYOUT_GeoCoordinates_WGS84 = "Geo-Coordinates WGS84";
@@ -85,6 +87,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 	private String errTitle;
 	private String errMessage;
 
+	private List<FileFilter> fileFilterList;
 	
 	// --- From here variables for the topology import ------------------------
 	private NetworkModel networkModel;
@@ -111,15 +114,17 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 	private HashMap<String, Schedule> profileScheduleHashMap;
 	
 	
-	/**
-	 * Instantiates a new OAD networkType importer.
-	 *
-	 * @param graphController the graph controller
-	 * @param fileTypeExtension the file type extension
-	 * @param fileTypeDescription the file type description
+	
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelFileImporter#getFileFilters()
 	 */
-	public SimBench_CsvTopologyImporter(GraphEnvironmentController graphController, String fileTypeExtension, String fileTypeDescription) {
-		super(graphController, fileTypeExtension, fileTypeDescription);
+	@Override
+	public List<FileFilter> getFileFilters() {
+		if (fileFilterList==null) {
+			fileFilterList = new ArrayList<>();
+			fileFilterList.add(this.createFileFilter(".csv", "SimBench Low Voltage Eletrical Network (csv files)"));
+		}
+		return fileFilterList;
 	}
 	
 	/* (non-Javadoc)
@@ -1042,5 +1047,6 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter {
 			System.out.println("[" + this.getClass().getSimpleName() + "] " + message);
 		}
 	}
+
 	
 }

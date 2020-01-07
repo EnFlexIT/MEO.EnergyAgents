@@ -5,7 +5,9 @@ Bundle-SymbolicName: de.enflexit.meo.core;singleton:=true
 Automatic-Module-Name: de.enflexit.meo.core
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: EnFlex.IT - SOFTEC
-Service-Component: OSGI-INF/awbClassLoadService.xml,OSGI-INF/eomClassLoadService.xml
+Service-Component: OSGI-INF/awbClassLoadService.xml,
+ OSGI-INF/eomClassLoadService.xml,
+ OSGI-INF/SimBenchNetworkModelImportService.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.enflexit.api,
