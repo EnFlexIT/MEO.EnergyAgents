@@ -457,8 +457,10 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 					// --- Create ScheduleList as data model ----------------------------
 					String profile = loadRowHashMap.get("profile");
 					Schedule schedule = this.getScheduleOfProfile(profile);
-					ScheduleList sl = this.createScheduleList(nodeID);
+					ScheduleList sl = this.createScheduleList(nodeID, newNetCompID);
 					sl.getSchedules().add(schedule);
+					//TODO
+					
 					netCompDataModel = sl;
 				}
 				
@@ -660,13 +662,14 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 	 * Creates a ScheduleList with the specified systemID.
 	 *
 	 * @param systemID the system ID to use
+	 * @param netCompID the ID of the corresponding NetworkComponent 
 	 * @return the schedule list
 	 */
-	private ScheduleList createScheduleList(String systemID) {
+	private ScheduleList createScheduleList(String systemID, String netCompID) {
 		
 		ScheduleList sl = new ScheduleList();
 		sl.setSystemID(systemID);
-//		sl.setNetworkID(value); // TODO
+		sl.setNetworkID(netCompID);
 		sl.setDescription("Load data imported for " + systemID + "");
 		
 		// --- Define domain model and interface settings for all phases ----------------

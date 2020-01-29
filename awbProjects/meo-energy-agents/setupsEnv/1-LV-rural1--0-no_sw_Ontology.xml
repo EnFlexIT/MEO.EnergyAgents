@@ -6,7 +6,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -33,7 +33,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -60,7 +60,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -87,7 +87,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -114,7 +114,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -141,7 +141,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -168,7 +168,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -195,7 +195,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -222,7 +222,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<TransformerNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </TransformerNodeProperties>
 ]]>
@@ -249,7 +249,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -276,7 +276,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -303,7 +303,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -330,7 +330,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -357,7 +357,7 @@
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
 	<nominalPower>
-		<UnitValue value="0.0F" unit="W"/>
+		<UnitValue unit="W" value="0.0F"/>
 	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
@@ -383,18 +383,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="55.7667F" unit="m"/>
+		<UnitValue unit="m" value="55.7667F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -419,18 +419,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="132.499F" unit="m"/>
+		<UnitValue unit="m" value="132.499F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -455,18 +455,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="2.58257F" unit="m"/>
+		<UnitValue unit="m" value="2.58257F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -491,18 +491,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="16.2072F" unit="m"/>
+		<UnitValue unit="m" value="16.2072F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -527,18 +527,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="46.0153F" unit="m"/>
+		<UnitValue unit="m" value="46.0153F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -563,18 +563,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="53.5763F" unit="m"/>
+		<UnitValue unit="m" value="53.5763F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -599,18 +599,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="49.8145F" unit="m"/>
+		<UnitValue unit="m" value="49.8145F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -635,18 +635,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="17.8861F" unit="m"/>
+		<UnitValue unit="m" value="17.8861F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -671,18 +671,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="16.0892F" unit="m"/>
+		<UnitValue unit="m" value="16.0892F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -707,18 +707,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="24.7661F" unit="m"/>
+		<UnitValue unit="m" value="24.7661F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -743,18 +743,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="5.14112F" unit="m"/>
+		<UnitValue unit="m" value="5.14112F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -779,18 +779,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="2.14695F" unit="m"/>
+		<UnitValue unit="m" value="2.14695F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
@@ -815,18 +815,18 @@
 <Instances>
 <Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
-	<linearReactance>
-		<UnitValue value="0.0804248F" unit="Ω\km"/>
-	</linearReactance>
-	<linearResistance>
-		<UnitValue value="0.2067F" unit="Ω\km"/>
-	</linearResistance>
 	<length>
-		<UnitValue value="137.215F" unit="m"/>
+		<UnitValue unit="m" value="137.215F"/>
 	</length>
+	<linearReactance>
+		<UnitValue unit="Ω\km" value="0.0804248F"/>
+	</linearReactance>
 	<maxCurrent>
-		<UnitValue value="270.0F" unit="A"/>
+		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearResistance>
+		<UnitValue unit="Ω\km" value="0.2067F"/>
+	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>

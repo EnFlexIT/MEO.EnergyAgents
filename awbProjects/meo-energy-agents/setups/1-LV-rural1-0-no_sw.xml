@@ -86,7 +86,31 @@
             <startAsName>MV1.101-LV1.101-Trafo 1</startAsName>
         </agent>
     </agentSetup>
-    <timeModelSettings/>
+    <timeModelSettings>
+        <entry>
+            <key>TimeFormat</key>
+            <value>dd.MM.yy HH:mm:ss</value>
+        </entry>
+        <entry>
+            <key>TimeCurrent</key>
+            <value>1579989973243</value>
+        </entry>
+        <entry>
+            <key>TimeStop</key>
+            <value>1579474800000</value>
+        </entry>
+        <entry>
+            <key>DisplayUnitIndex</key>
+            <value>2</value>
+        </entry>
+        <entry>
+            <key>TimeStart</key>
+            <value>1577833200000</value>
+        </entry>
+        <entry>
+            <key>StepWidth</key>
+            <value>900000</value>
+        </entry>
+    </timeModelSettings>
     <userObjectClassName>hygrid.deployment.dataModel.SetupExtension</userObjectClassName>
-    <environmentFileName>1-LV-rural1--0-no_sw.graphml</environmentFileName>
 </simulationSetup>
