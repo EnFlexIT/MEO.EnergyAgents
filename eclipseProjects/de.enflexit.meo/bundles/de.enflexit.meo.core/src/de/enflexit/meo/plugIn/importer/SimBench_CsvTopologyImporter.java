@@ -964,9 +964,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 	private Vector<Vector<String>> getDataVectorOfCsvFile(String csvFileName) {
 		CsvDataController nodeCsvController = this.getCsvDataControllerOfCsvFile(csvFileName);
 		if (nodeCsvController!=null) {
-			@SuppressWarnings("unchecked")
-			Vector<Vector<String>> tableModel = nodeCsvController.getDataModel().getDataVector();
-			return tableModel;
+			return new Vector<>(nodeCsvController.getDataModel().getDataVector());
 		}
 		return null;
 	}
