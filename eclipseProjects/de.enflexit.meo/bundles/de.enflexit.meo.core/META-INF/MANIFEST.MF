@@ -19,7 +19,8 @@ Require-Bundle: de.enflexit.api,
  org.agentgui.lib.jFreeChart,
  org.agentgui.lib.jung,
  org.awb.env.networkModel,
- net.agenthygrid.core.globalDataModel
+ de.enflexit.ea.core.dataModel,
+ de.enflexit.eom.awbAdapter
 Export-Package: de.enflexit.meo,
  de.enflexit.meo.classLoadService,
  de.enflexit.meo.plugIn,

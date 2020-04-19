@@ -3,7 +3,7 @@
     <projectName>MEO.EnergyAgents</projectName>
     <projectStartTab>2|3</projectStartTab>
     <projectTreeVisible>true</projectTreeVisible>
-    <projectTabHeaderVisible>true</projectTabHeaderVisible>
+    <projectTabHeaderVisible>false</projectTabHeaderVisible>
     <version>0.0.1.20190903-1100</version>
     <versionTag>Complete Project</versionTag>
     <updateSite>?</updateSite>
@@ -12,10 +12,13 @@
     <environmentModel>gridEnvironment</environmentModel>
     <projectFeatures/>
     <plugins>
-        <className>hygrid.plugin.HyGridPlugIn</className>
+        <className>de.enflexit.ea.core.awbIntegration.plugin.AWBIntegrationPlugIn</className>
         <className>de.enflexit.meo.plugIn.MEOPlugin</className>
     </plugins>
     <subOntologies/>
+    <agentStartConfiguration>
+        <agentVector/>
+    </agentStartConfiguration>
     <jadeConfiguration>
         <skipUserRequestForJadeStart>false</skipUserRequestForJadeStart>
         <useLocalPort>1099</useLocalPort>
@@ -66,7 +69,7 @@
     </remoteContainerConfiguration>
     <userObjectClassName>hygrid.env.HyGridAbstractEnvironmentModel</userObjectClassName>
     <simulationSetupCurrent>1-LV-rural1--0-no_sw</simulationSetupCurrent>
-    <timeModelClass>agentgui.simulationService.time.TimeModelContinuous</timeModelClass>
+    <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
     <simulationSetups>
         <entry>
             <key>1-LV-rural1--0-no_sw</key>

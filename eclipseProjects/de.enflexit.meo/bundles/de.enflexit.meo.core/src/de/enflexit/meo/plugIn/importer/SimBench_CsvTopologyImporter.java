@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 import java.util.Vector;
 
 import javax.swing.filechooser.FileFilter;
@@ -19,10 +20,12 @@ import org.awb.env.networkModel.NetworkModel;
 import org.awb.env.networkModel.helper.NetworkComponentFactory;
 import org.awb.env.networkModel.maps.MapSettings;
 import org.awb.env.networkModel.maps.MapSettings.MapScale;
+import org.awb.env.networkModel.persistence.AbstractNetworkModelCsvImporter;
 import org.awb.env.networkModel.persistence.NetworkModelImportService;
 import org.awb.env.networkModel.settings.GeneralGraphSettings4MAS;
 
 import agentgui.core.application.Application;
+import agentgui.core.project.Project;
 import agentgui.ontology.TimeSeriesChart;
 import agentgui.ontology.TimeSeriesChartSettings;
 import agentgui.simulationService.environment.AbstractEnvironmentModel;
@@ -47,13 +50,15 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
 import energy.optionModel.TimeUnit;
 import energy.optionModel.UsageOfInterfaceEnergy;
 import energy.persistence.ScheduleList_StorageHandler;
-import hygrid.csvFileImport.CSV_FileImporter;
-import hygrid.globalDataModel.ontology.CableProperties;
-import hygrid.globalDataModel.ontology.ElectricalNodeProperties;
-import hygrid.globalDataModel.ontology.TransformerNodeProperties;
-import hygrid.globalDataModel.ontology.TriPhaseCableState;
-import hygrid.globalDataModel.ontology.TriPhaseElectricalNodeState;
-import hygrid.globalDataModel.ontology.UnitValue;
+import de.enflexit.ea.core.dataModel.ontology.CableProperties;
+import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeProperties;
+import de.enflexit.ea.core.dataModel.ontology.TransformerNodeProperties;
+import de.enflexit.ea.core.dataModel.ontology.TriPhaseCableState;
+import de.enflexit.ea.core.dataModel.ontology.TriPhaseElectricalNodeState;
+import de.enflexit.ea.core.dataModel.ontology.UnitValue;
+import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler;
+import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomModelType;
+import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomStorageLocation;
 
 
 /**
@@ -61,7 +66,7 @@ import hygrid.globalDataModel.ontology.UnitValue;
  * 
  * @author Christian Derksen - DAWIS - ICB - University of Duisburg-Essen
  */
-public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements NetworkModelImportService {
+public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporter implements NetworkModelImportService {
 
 	private static final String LAYOUT_DEFAULT_LAYOUT = GeneralGraphSettings4MAS.DEFAULT_LAYOUT_SETTINGS_NAME;
 	private static final String LAYOUT_GeoCoordinates_WGS84 = "Geo-Coordinates WGS84";
@@ -111,7 +116,8 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 	private static final String[] INTERFACE_IDs_Electricity = {"Electricity L1", "Electricity L2", "Electricity L3"};
 	
 	private SimpleDateFormat dateFormatter;
-	private HashMap<String, Schedule> profileScheduleHashMap;
+	private HashMap<String, ScheduleList> profileScheduleListHashMap;
+	private HashMap<String, TreeMap<String, String>> profileStorageSettingsHashMap;
 	
 	
 	
@@ -255,7 +261,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 		this.defaultPositionVector = null;
 		
 		this.dateFormatter = null;
-		this.profileScheduleHashMap = null;
+		this.profileStorageSettingsHashMap = null;
 		
 	}
 	
@@ -426,6 +432,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 			
 			// --- Create new NetworkComponent by using the NetworkComponentFactory -----
 			Object netCompDataModel = null;
+			TreeMap<String, String> netCompStorageSettings = null;
 			
 			// --- Case separation for NetworkCmponents ---------------------------------
 			boolean isCreatingTransformer = false;
@@ -456,14 +463,41 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 					newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Prosumer");
 					// --- Create ScheduleList as data model ----------------------------
 					String profile = loadRowHashMap.get("profile");
-					Schedule schedule = this.getScheduleOfProfile(profile);
-					ScheduleList sl = this.createScheduleList(nodeID, newNetCompID);
-					sl.getSchedules().add(schedule);
-					//TODO
-					
-					netCompDataModel = sl;
+					netCompStorageSettings = this.getStorageSettingsForProfile(profile);
+					if (netCompStorageSettings==null) {
+						// --------------------------------------------------------------
+						// --- Create ScheduleList and storage settings and save them ---
+						// --------------------------------------------------------------
+						Schedule schedule = this.getScheduleOfProfile(profile);
+						ScheduleList sl = this.createScheduleList(nodeID, newNetCompID);
+						sl.getSchedules().add(schedule);
+						this.setScheduleListForProfile(profile, sl);
+						netCompDataModel = sl;
+						
+						// --- Get the file location for the ScheduleList ---------------
+						String fileName = NetworkComponent.class.getSimpleName() + "_Prosumer_SL_" + profile + ".xml";
+						Project project = Application.getProjectFocused();
+						File slFile = EomDataModelStorageHandler.getFileSuggestion(project, fileName);
+						File slDirectory = slFile.getParentFile();
+						String relPath = EomDataModelStorageHandler.getRelativeProjectPath(project, slFile);
+						
+						// --- Create directory, if it not exists -----------------------
+						if (slDirectory.exists()==false) slDirectory.mkdirs();
+						
+						// --- Create storage settings ----------------------------------
+						netCompStorageSettings = new TreeMap<>();
+						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_MODEL_TYPE, EomModelType.ScheduleList.toString());
+						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.File.toString());
+						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_FILE_LOCATION, relPath);
+						
+						// --- Remind the storage settings ------------------------------
+						this.setStorageSettingsForProfile(profile, netCompStorageSettings);
+						
+					} else {
+						// --- Get the data model from reminder HashMap -----------------
+						netCompDataModel = this.getScheduleListForProfile(profile);
+					}
 				}
-				
 			}
 			
 			// --- Get the actual NetworkComponent --------------------------------------
@@ -479,7 +513,6 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 			double wgs84Long = this.parseDouble(coordXString);
 			double wgs84Lat  = this.parseDouble(coordYString);
 			this.setGraphNodeCoordinates(graphNode, wgs84Lat, wgs84Long);
-
 			
 			// --------------------------------------------------------------------------
 			// --- Define first part of the GraphNode's data model ----------------------
@@ -511,6 +544,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 			// --------------------------------------------------------------------------
 			// --- Set the data model to the NetworkComponent ---------------------------
 			newComp.setDataModel(netCompDataModel);
+			newComp.setDataModelStorageSettings(netCompStorageSettings);
 			
 			// --- Merge into the new NetworkModel --------------------------------------
 			this.getNetworkModel().mergeNetworkModel(newCompNM, null, false);
@@ -520,6 +554,8 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 		// --- Adjust the node positions for the default layout ------------------------- 
 		this.adjustDefaultPositions();
 	}
+	
+	
 	
 	/**
 	 * Checks if the specified node ID represents a transformer and returns either the 
@@ -658,6 +694,67 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 		return dateFormatter;
 	}
 	
+	
+	/**
+	 * Return the profile schedule list hash map.
+	 * @return the profile schedule list hash map
+	 */
+	private HashMap<String, ScheduleList> getProfileScheduleListHashMap() {
+		if (profileScheduleListHashMap==null) {
+			profileScheduleListHashMap = new HashMap<>();
+		}
+		return profileScheduleListHashMap;
+	}
+	/**
+	 * Returns the schedule list for profile.
+	 *
+	 * @param profileName the profile name
+	 * @return the schedule list for profile
+	 */
+	private ScheduleList getScheduleListForProfile(String profileName) {
+		return this.getProfileScheduleListHashMap().get(profileName);
+	}
+	/**
+	 * Sets the schedule list for profile.
+	 *
+	 * @param profileName the profile name
+	 * @param sl the ScheduleList
+	 */
+	private void setScheduleListForProfile(String profileName, ScheduleList sl) {
+		this.getProfileScheduleListHashMap().put(profileName, sl);
+	}
+	
+	
+	/**
+	 * Returns the profile to Schedule hash map.
+	 * @return the profile schedule hash map
+	 */
+	private HashMap<String, TreeMap<String, String>> getProfileStorageSettingsHashMap() {
+		if (profileStorageSettingsHashMap==null) {
+			profileStorageSettingsHashMap = new HashMap<>();
+		}	
+		return profileStorageSettingsHashMap;
+	}
+	/**
+	 * Returns the storage settings for the specified profile.
+	 *
+	 * @param profileName the profile name
+	 * @return the storage settings for profile
+	 */
+	private TreeMap<String, String> getStorageSettingsForProfile(String profileName) {
+		return this.getProfileStorageSettingsHashMap().get(profileName);
+	}
+	/**
+	 * Sets the storage settings for the specified simbench profile.
+	 *
+	 * @param profileName the profile name
+	 * @param storageSettings the storage settings
+	 */
+	private void setStorageSettingsForProfile(String profileName, TreeMap<String, String> storageSettings) {
+		this.getProfileStorageSettingsHashMap().put(profileName, storageSettings);
+	}
+	
+	
 	/**
 	 * Creates a ScheduleList with the specified systemID.
 	 *
@@ -712,27 +809,10 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 	}
 	
 	/**
-	 * Returns the profile to Schedule hash map.
-	 * @return the profile schedule hash map
-	 */
-	private HashMap<String, Schedule> getProfileScheduleHashMap() {
-		if (profileScheduleHashMap==null) {
-			profileScheduleHashMap = new HashMap<>();
-		}	
-		return profileScheduleHashMap;
-	}
-	
-	/**
 	 * Return a schedule for the specified profile .
 	 * @return the schedule of profile
 	 */
 	private Schedule getScheduleOfProfile(String profile) {
-		
-		// --- Check reminder HashMap first -----------------------------------  
-		Schedule schedule = this.getProfileScheduleHashMap().get(profile); 
-		if (schedule!=null) {
-			return schedule;
-		}
 		
 		// --- Get time series from load profile ------------------------------
 		CsvDataController loadProfileCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_LoadProfile);
@@ -753,7 +833,6 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 		List<TechnicalSystemStateEvaluation> tsseList = new ArrayList<>();
 		// --- Get data rows for the profile ----------------------------------
 		int iMax = loadProfileDataVector.size();
-		iMax = 10; // TODO 
 		for (int i = 0; i < iMax; i++) {
 
 			Vector<String> row = loadProfileDataVector.get(i);
@@ -789,7 +868,7 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 		} // end for
 		
 		// --- Finally, create Schedule ---------------------------------------
-		schedule = new Schedule();
+		Schedule schedule = new Schedule();
 		schedule.setStrategyClass(this.getClass().getSimpleName());
 		// --- Add List of TechnicalSystemStatesEvaluation to Schedule --------
 		for (int i = tsseList.size()-1; i >= 0; i--) {
@@ -797,9 +876,6 @@ public class SimBench_CsvTopologyImporter extends CSV_FileImporter implements Ne
 		}
 		// --- Create the usual tree structure of Schedules -------------------
 		ScheduleList_StorageHandler.convertToTreeSchedule(schedule);
-		
-		// --- Remind Schedule for multiple use -------------------------------
-		this.getProfileScheduleHashMap().put(profile, schedule);
 		
 		return schedule;
 	}

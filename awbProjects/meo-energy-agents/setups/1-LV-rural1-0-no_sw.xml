@@ -3,80 +3,86 @@
     <agentSetup>
         <agent>
             <postionNo>1</postionNo>
+            <listMembership>01 AgentStartManual</listMembership>
+            <agentClassReference>de.enflexit.ea.core.simulation.manager.SimulationManager</agentClassReference>
+            <startAsName>SiMa</startAsName>
+        </agent>
+        <agent>
+            <postionNo>1</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 1</startAsName>
         </agent>
         <agent>
             <postionNo>2</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 10</startAsName>
         </agent>
         <agent>
             <postionNo>3</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 11</startAsName>
         </agent>
         <agent>
             <postionNo>4</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 12</startAsName>
         </agent>
         <agent>
             <postionNo>5</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 13</startAsName>
         </agent>
         <agent>
             <postionNo>6</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 14</startAsName>
         </agent>
         <agent>
             <postionNo>7</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 2</startAsName>
         </agent>
         <agent>
             <postionNo>8</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 3</startAsName>
         </agent>
         <agent>
             <postionNo>9</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 5</startAsName>
         </agent>
         <agent>
             <postionNo>10</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 6</startAsName>
         </agent>
         <agent>
             <postionNo>11</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 7</startAsName>
         </agent>
         <agent>
             <postionNo>12</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 8</startAsName>
         </agent>
         <agent>
             <postionNo>13</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
-            <agentClassReference>hygrid.agent.prosumer.ProsumerAgent</agentClassReference>
+            <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
             <startAsName>LV1.101 Bus 9</startAsName>
         </agent>
         <agent>
@@ -89,15 +95,15 @@
     <timeModelSettings>
         <entry>
             <key>TimeFormat</key>
-            <value>dd.MM.yy HH:mm:ss</value>
+            <value>dd.MM.yyyy HH:mm</value>
         </entry>
         <entry>
             <key>TimeCurrent</key>
-            <value>1579989973243</value>
+            <value>0</value>
         </entry>
         <entry>
             <key>TimeStop</key>
-            <value>1579474800000</value>
+            <value>1483225200000</value>
         </entry>
         <entry>
             <key>DisplayUnitIndex</key>
@@ -105,12 +111,114 @@
         </entry>
         <entry>
             <key>TimeStart</key>
-            <value>1577833200000</value>
+            <value>1451602800000</value>
         </entry>
         <entry>
             <key>StepWidth</key>
             <value>900000</value>
         </entry>
     </timeModelSettings>
-    <userObjectClassName>hygrid.deployment.dataModel.SetupExtension</userObjectClassName>
+    <userObjectClassName>de.enflexit.ea.core.dataModel.deployment.SetupExtension</userObjectClassName>
+    <project>
+        <projectName>MEO.EnergyAgents</projectName>
+        <projectStartTab>2|3</projectStartTab>
+        <projectTreeVisible>true</projectTreeVisible>
+        <projectTabHeaderVisible>false</projectTabHeaderVisible>
+        <version>0.0.1.20190903-1100</version>
+        <versionTag>Complete Project</versionTag>
+        <updateSite>?</updateSite>
+        <updateAutoConfiguration>0</updateAutoConfiguration>
+        <updateDateLastChecked>0</updateDateLastChecked>
+        <environmentModel>gridEnvironment</environmentModel>
+        <projectFeatures/>
+        <plugins>
+            <className>de.enflexit.ea.core.awbIntegration.plugin.AWBIntegrationPlugIn</className>
+            <className>de.enflexit.meo.plugIn.MEOPlugin</className>
+        </plugins>
+        <subOntologies/>
+        <agentStartConfiguration>
+            <agentVector/>
+        </agentStartConfiguration>
+        <jadeConfiguration>
+            <skipUserRequestForJadeStart>false</skipUserRequestForJadeStart>
+            <useLocalPort>1099</useLocalPort>
+            <useLocalMtpPort>7778</useLocalMtpPort>
+            <mtpCreation>ConfiguredByJADE</mtpCreation>
+            <mtpIpAddress>Auto-Configuration</mtpIpAddress>
+            <mtpProtocol>HTTP</mtpProtocol>
+            <serviceList>
+                <service>agentgui.simulationService.LoadService</service>
+                <service>agentgui.simulationService.SimulationService</service>
+                <service>jade.core.mobility.AgentMobilityService</service>
+                <service>agentgui.logging.DebugService</service>
+                <service>jade.core.event.NotificationService</service>
+            </serviceList>
+        </jadeConfiguration>
+        <distributionSetup>
+            <autoSaveRealMetricsOnSimStop>false</autoSaveRealMetricsOnSimStop>
+            <doDynamicLoadBalancing>false</doDynamicLoadBalancing>
+            <doStaticLoadBalancing>true</doStaticLoadBalancing>
+            <dynamicLoadBalancingClass>agentgui.simulationService.balancing.DynamicLoadBalancing</dynamicLoadBalancingClass>
+            <evenDistribution>false</evenDistribution>
+            <immediatelyStartLoadRecording>false</immediatelyStartLoadRecording>
+            <loadRecordingInterval>500</loadRecordingInterval>
+            <numberOfAgents>0</numberOfAgents>
+            <numberOfContainer>0</numberOfContainer>
+            <remoteOnly>true</remoteOnly>
+            <showLoadMonitorAtPlatformStart>true</showLoadMonitorAtPlatformStart>
+            <showThreadMonitorAtPlatformStart>true</showThreadMonitorAtPlatformStart>
+            <staticLoadBalancingClass>agentgui.simulationService.balancing.PredictiveStaticLoadBalancing</staticLoadBalancingClass>
+            <useUserThresholds>true</useUserThresholds>
+            <userThresholds>
+                <thCpuH>80</thCpuH>
+                <thCpuL>5</thCpuL>
+                <thMemoH>80</thMemoH>
+                <thMemoL>5</thMemoL>
+                <thNoThreadsH>500</thNoThreadsH>
+                <thNoThreadsL>5</thNoThreadsL>
+            </userThresholds>
+        </distributionSetup>
+        <agentClassLoadMetricsTable>
+            <useRealLoadMetric>false</useRealLoadMetric>
+        </agentClassLoadMetricsTable>
+        <remoteContainerConfiguration>
+            <jvmMemAllocInitial>128m</jvmMemAllocInitial>
+            <jvmMemAllocMaximum>1g</jvmMemAllocMaximum>
+            <preventUsageOfAlreadyUsedComputers>true</preventUsageOfAlreadyUsedComputers>
+            <showJADErmaGUI>false</showJADErmaGUI>
+        </remoteContainerConfiguration>
+        <userObjectClassName>hygrid.env.HyGridAbstractEnvironmentModel</userObjectClassName>
+        <simulationSetupCurrent>1-LV-rural1--0-no_sw</simulationSetupCurrent>
+        <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
+        <simulationSetups>
+            <entry>
+                <key>1-LV-rural1--0-no_sw</key>
+                <value>1-LV-rural1-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>1-LV-rural2--0-no_sw</key>
+                <value>1-LV-rural2-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>1-LV-rural3--0-no_sw</key>
+                <value>1-LV-rural3-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>1-LV-semiurb4--0-no_sw</key>
+                <value>1-LV-semiurb4-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>1-LV-semiurb5--0-no_sw</key>
+                <value>1-LV-semiurb5-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>1-LV-urban6--0-no_sw</key>
+                <value>1-LV-urban6-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>SimBench-Import-Test</key>
+                <value>SimBench-Import-Test.xml</value>
+            </entry>
+        </simulationSetups>
+    </project>
 </simulationSetup>

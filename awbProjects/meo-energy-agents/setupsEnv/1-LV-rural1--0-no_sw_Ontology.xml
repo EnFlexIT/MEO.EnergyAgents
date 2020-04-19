@@ -3,15 +3,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 1</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -30,15 +27,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 10</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -57,15 +51,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 11</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -84,15 +75,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 12</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -111,15 +99,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 13</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -138,15 +123,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 14</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -165,15 +147,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 2</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -192,15 +171,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 3</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -219,15 +195,15 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 4</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TransformerNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
+	<ratedVoltage>
+		<UnitValue unit="V" value="400.0F"/>
+	</ratedVoltage>
 </TransformerNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -246,15 +222,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 5</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -273,15 +246,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 6</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -300,15 +270,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 7</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -327,15 +294,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 8</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -354,15 +318,12 @@
 <DataModel>
 	<NetworkElement>GraphNode,LV1.101 Bus 9</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<ElectricalNodeProperties isLoadNode="true">
-	<nominalPower>
-		<UnitValue unit="W" value="0.0F"/>
-	</nominalPower>
 </ElectricalNodeProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalNodeState>
 </TriPhaseElectricalNodeState>
 ]]>
@@ -381,24 +342,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 1</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="55.7667F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -417,24 +378,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 10</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="132.499F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -453,24 +414,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 11</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="2.58257F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -489,24 +450,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 12</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="16.2072F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -525,24 +486,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 13</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="46.0153F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -561,24 +522,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 2</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="53.5763F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -597,24 +558,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 3</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="49.8145F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -633,24 +594,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 4</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="17.8861F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -669,24 +630,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 5</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="16.0892F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -705,24 +666,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 6</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="24.7661F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -741,24 +702,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 7</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="5.14112F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -777,24 +738,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 8</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="2.14695F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
@@ -813,24 +774,24 @@
 <DataModel>
 	<NetworkElement>NetworkComponent,LV1.101 Line 9</NetworkElement>
 <Instances>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<length>
 		<UnitValue unit="m" value="137.215F"/>
 	</length>
-	<linearReactance>
-		<UnitValue unit="Ω\km" value="0.0804248F"/>
-	</linearReactance>
 	<maxCurrent>
 		<UnitValue unit="A" value="270.0F"/>
 	</maxCurrent>
+	<linearReactance>
+		<UnitValue unit="Ω/km" value="0.0804248F"/>
+	</linearReactance>
 	<linearResistance>
-		<UnitValue unit="Ω\km" value="0.2067F"/>
+		<UnitValue unit="Ω/km" value="0.2067F"/>
 	</linearResistance>
 </CableProperties>
 ]]>
 </Instance>
-<Instance Ontology="hygrid.globalDataModel.ontology.HyGridOntology">
+<Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseCableState>
 </TriPhaseCableState>
 ]]>
