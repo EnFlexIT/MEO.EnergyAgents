@@ -89,8 +89,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	private static final String SIMBENCH_Transformer	 = "Transformer.csv";
 	private static final String SIMBENCH_TransformerType = "TransformerType.csv";
 
-	private String errTitle;
-	private String errMessage;
 
 	private List<FileFilter> fileFilterList;
 	
@@ -246,9 +244,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		
 		super.cleanupImporter();
 		
-		this.errTitle = null;
-		this.errMessage = null;
-		
 		this.networkModel = null;
 		this.abstractEnvModel = null;
 		
@@ -366,8 +361,8 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 
 			// --- Rename NetworkComponent and GraphNode --------------------------------
 			newCompNM.renameNetworkComponent(newNetComp.getId(), lineID);
-			newCompNM.renameGraphNode(newGraphNodeFrom.getId(), nodeA);
-			newCompNM.renameGraphNode(newGraphNodeTo.getId(), nodeB);
+			newCompNM.renameGraphNode(newGraphNodeFrom.getId(), this.getLocalGraphNodeName(nodeA));
+			newCompNM.renameGraphNode(newGraphNodeTo.getId(), this.getLocalGraphNodeName(nodeB));
 			
 			
 			// --- Set the parameters for the component ------------------------
@@ -393,7 +388,42 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		} // end for
 		
 	}
-
+	/**
+	 * Returns the local graph node name by using the already created GraphNodes in the local NetworkModel.
+	 *
+	 * @param edgeNodeName the edge node name (from SimBench)
+	 * @return the local graph node name
+	 */
+	private String getLocalGraphNodeName(String edgeNodeName) {
+		
+		List<GraphNode> nodeList = new ArrayList<>(this.getNetworkModel().getGraph().getVertices());
+		for (int i = 0; i < nodeList.size(); i++) {
+			String localNodeName = nodeList.get(i).getId();
+			if (localNodeName.equals(edgeNodeName)==true) {
+				return localNodeName;
+			} else if (this.isLocalGraphNode(edgeNodeName, localNodeName)==true) {
+				return localNodeName;
+			}
+		}
+		return null;
+	}
+	/**
+	 * Checks if the specified edge node name matches the specified local graph node.
+	 *
+	 * @param edgeNodeName the edge node name
+	 * @param localGraphNodeName the local graph node name
+	 * @return true, if is local graph node
+	 */
+	private boolean isLocalGraphNode(String edgeNodeName, String localGraphNodeName) {
+		
+		boolean isLocalGraphNode = false;
+		if (edgeNodeName.startsWith(localGraphNodeName)==true) {
+			String verifyier = edgeNodeName.substring(localGraphNodeName.length());
+			isLocalGraphNode = verifyier.startsWith("_");
+		}
+		return isLocalGraphNode;
+	}
+	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: some methods for getting the nodes ------------------------------------------
 	// --------------------------------------------------------------------------------------------	
@@ -406,9 +436,11 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		Vector<Vector<String>> nodeDataVector = this.getDataVectorOfCsvFile(SIMBENCH_Node);
 			
 		String colNameID = "id";
+		String colNameType = "type";
 		String colNameCoord = "coordID";
 		
 		int ciID = nodeCsvController.getDataModel().findColumn(colNameID);
+		int ciType = nodeCsvController.getDataModel().findColumn(colNameType);
 		int ciCoordID = nodeCsvController.getDataModel().findColumn(colNameCoord);
 		
 		for (int i = 0; i < nodeDataVector.size(); i++) {
@@ -416,7 +448,10 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			// --- Get node data row ----------------------------------------------------
 			Vector<String> row = nodeDataVector.get(i);
 			String nodeID  = row.get(ciID);
+			String type = row.get(ciType);
 			String coordID = row.get(ciCoordID);
+			
+			if (type.equals("busbar")==false) continue;
 			
 			// --- Provide some user information ----------------------------------------
 			Application.setStatusBarMessage(this.getClass().getSimpleName() + ": Import node '" + nodeID  + "' - (" + (i+1) +  "/" + nodeDataVector.size() + ")");
@@ -442,10 +477,14 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 				HashMap<String, String> transformerRowHashMap = this.getDataRowHashMap(SIMBENCH_Transformer, "id", transformerID);
 				String nodeLV = transformerRowHashMap.get("nodeLV");
 				// --- Only create low voltage node of SimBench model ------------------- 
-				if (nodeLV.equals(nodeID) && this.getNetworkModel().getNetworkComponent(transformerID)==null) {
+				if ((nodeLV.equals(nodeID) || this.isLocalGraphNode(nodeLV, nodeID)) && this.getNetworkModel().getNetworkComponent(transformerID)==null) {
+					// --- Create transformer from factory ------------------------------
 					newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Transformer");
 					newNetCompID = transformerID;
 					isCreatingTransformer = true;
+					// --- Add the storage settings to the component --------------------
+					netCompStorageSettings = this.getTransformerStorageSettings();
+					
 				} else {
 					// --- Do not create this component again ---------------------------
 					continue;
@@ -584,13 +623,29 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			String idNodeHV = row.get(ciNodeHV);
 			String idNodeLV = row.get(ciNodeLV);
 			
-			if (idNodeHV.equals(nodeID) || idNodeLV.equals(nodeID)) {
+			if (idNodeHV.equals(nodeID) || this.isLocalGraphNode(idNodeHV, nodeID)) {
+				// --- High voltage node ------------------
 				return id;
+				
+			} else if (idNodeLV.equals(nodeID) || this.isLocalGraphNode(idNodeLV, nodeID)) {
+				// --- Low voltage node -------------------
+				return id;
+				
 			}
 		}
 		return null;
 	}
-	
+	/**
+	 * Returns the transformer storage settings.
+	 * @return the transformer storage settings
+	 */
+	private TreeMap<String, String> getTransformerStorageSettings() {
+		TreeMap<String, String> tSettings = new TreeMap<>();
+		tSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_MODEL_TYPE, EomModelType.TechnicalSystem.toString());
+		tSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.File.toString());
+		tSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_FILE_LOCATION, "/eomModels/EomModel_Transformer.xml");
+		return tSettings; 
+	}
 	
 	
 	/**
@@ -833,6 +888,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		List<TechnicalSystemStateEvaluation> tsseList = new ArrayList<>();
 		// --- Get data rows for the profile ----------------------------------
 		int iMax = loadProfileDataVector.size();
+		iMax = 20;
 		for (int i = 0; i < iMax; i++) {
 
 			Vector<String> row = loadProfileDataVector.get(i);
@@ -1037,10 +1093,11 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	 * @param csvFileName the csv file name
 	 * @return the data vector of csv file
 	 */
+	@SuppressWarnings("unchecked")
 	private Vector<Vector<String>> getDataVectorOfCsvFile(String csvFileName) {
 		CsvDataController nodeCsvController = this.getCsvDataControllerOfCsvFile(csvFileName);
 		if (nodeCsvController!=null) {
-			return new Vector<>(nodeCsvController.getDataModel().getDataVector());
+			return new Vector<Vector<String>>(nodeCsvController.getDataModel().getDataVector());
 		}
 		return null;
 	}
@@ -1101,29 +1158,4 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		return fValue;
 	}
 
-	// --------------------------------------------------------------------------------------------
-	// --- From here: some methods to display messages and errors on the console ------------------
-	// --------------------------------------------------------------------------------------------	
-	/**
-	 * Prints the specified debug line.
-	 * @param message the message
-	 */
-	private void printDebugLine(String message) {
-		this.printDebugLine(message, false);
-	}
-	/**
-	 * Prints the specified debug line.
-	 *
-	 * @param message the message
-	 * @param isError the is error
-	 */
-	private void printDebugLine(String message, boolean isError) {
-		if (isError) {
-			System.err.println("[" + this.getClass().getSimpleName() + "] " + message);
-		} else {
-			System.out.println("[" + this.getClass().getSimpleName() + "] " + message);
-		}
-	}
-
-	
 }
