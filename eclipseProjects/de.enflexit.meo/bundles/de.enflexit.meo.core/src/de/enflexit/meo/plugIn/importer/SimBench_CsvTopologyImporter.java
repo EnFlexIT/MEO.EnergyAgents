@@ -136,8 +136,9 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		return fileFilterList;
 	}
 	
+	
 	/* (non-Javadoc)
-	 * @see hygrid.csvFileImport.CSV_FileImporter#getListOfRequiredFileNames()
+	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelCsvImporter#getListOfRequiredFileNames()
 	 */
 	@Override
 	protected Vector<String> getListOfRequiredFileNames() {
