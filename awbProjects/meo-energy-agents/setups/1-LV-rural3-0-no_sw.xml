@@ -818,7 +818,7 @@
             <agentVector/>
         </agentStartConfiguration>
         <jadeConfiguration>
-            <skipUserRequestForJadeStart>false</skipUserRequestForJadeStart>
+            <skipUserRequestForJadeStart>true</skipUserRequestForJadeStart>
             <useLocalPort>1099</useLocalPort>
             <useLocalMtpPort>7778</useLocalMtpPort>
             <mtpCreation>ConfiguredByJADE</mtpCreation>
@@ -843,8 +843,8 @@
             <numberOfAgents>0</numberOfAgents>
             <numberOfContainer>0</numberOfContainer>
             <remoteOnly>true</remoteOnly>
-            <showLoadMonitorAtPlatformStart>true</showLoadMonitorAtPlatformStart>
-            <showThreadMonitorAtPlatformStart>true</showThreadMonitorAtPlatformStart>
+            <showLoadMonitorAtPlatformStart>false</showLoadMonitorAtPlatformStart>
+            <showThreadMonitorAtPlatformStart>false</showThreadMonitorAtPlatformStart>
             <staticLoadBalancingClass>agentgui.simulationService.balancing.PredictiveStaticLoadBalancing</staticLoadBalancingClass>
             <useUserThresholds>true</useUserThresholds>
             <userThresholds>
@@ -857,6 +857,104 @@
             </userThresholds>
         </distributionSetup>
         <agentClassLoadMetricsTable>
+            <agentClassMetricDescriptionVector>
+                <agentClass>
+                    <className>system.class.-Regular-Thread-</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>40.1120821662164</realMetricAverage>
+                    <realMetricMax>40.112082166216375</realMetricMax>
+                    <realMetricMin>40.112082166216375</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>de.enflexit.ea.prosumer.ProsumerAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.963757923991399</realMetricAverage>
+                    <realMetricMax>0.963757923991399</realMetricMax>
+                    <realMetricMin>0.963757923991399</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>org.awb.env.networkModel.visualisation.DisplayAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>agentgui.simulationService.agents.ServerClientAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>agentgui.simulationService.agents.LoadMeasureAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>jade.domain.df</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>agentgui.core.jade.ProjectFileManagerAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>de.enflexit.ea.core.simulation.manager.SimulationManager</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>42.458825819734535</realMetricAverage>
+                    <realMetricMax>42.458825819734535</realMetricMax>
+                    <realMetricMin>42.458825819734535</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>jade.domain.ams</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>hygrid.agent.transformer.TransformerAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>de.enflexit.ea.core.dataModel.blackboard.BlackboardAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>jade.core.ContainerMonitorAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>0.0</realMetricAverage>
+                    <realMetricMax>0.0</realMetricMax>
+                    <realMetricMin>0.0</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+            </agentClassMetricDescriptionVector>
             <useRealLoadMetric>false</useRealLoadMetric>
         </agentClassLoadMetricsTable>
         <remoteContainerConfiguration>
@@ -892,6 +990,10 @@
             <entry>
                 <key>1-LV-urban6--0-no_sw</key>
                 <value>1-LV-urban6-0-no_sw.xml</value>
+            </entry>
+            <entry>
+                <key>Base_Scene_0_1-LV-rural3--0-sw</key>
+                <value>Base_Scene_0_1-LV-rural3-0-sw.xml</value>
             </entry>
             <entry>
                 <key>SimBench-Import-Test</key>

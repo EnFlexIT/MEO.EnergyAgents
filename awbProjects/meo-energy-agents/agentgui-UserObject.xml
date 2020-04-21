@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
-    <simulationIntervalLength>5000</simulationIntervalLength>
-    <simulationIntervalUnitIndex>1</simulationIntervalUnitIndex>
+    <simulationIntervalLength>0</simulationIntervalLength>
+    <simulationIntervalUnitIndex>0</simulationIntervalUnitIndex>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
     <networkCalculationIntervalUnitIndex>1</networkCalculationIntervalUnitIndex>
     <executionDataBase>NodePowerFlows</executionDataBase>
@@ -12,7 +12,7 @@
         <timePeriodForLiveBit>600000</timePeriodForLiveBit>
     </energyTransmissionConfiguration>
     <displayUpdateConfiguration>
-        <updateMechanism>EnableUpdates</updateMechanism>
+        <updateMechanism>DisableUpdates</updateMechanism>
     </displayUpdateConfiguration>
     <graphElementLayoutSettingsPersisted domain="Electricity 10kV">
         <settingsTreeMap>
@@ -78,59 +78,23 @@
         <ns2:idScheduleLengthRestriction>0</ns2:idScheduleLengthRestriction>
         <ns2:Duration>
             <ns2:idDuration>0</ns2:idDuration>
-            <ns2:value>30</ns2:value>
-            <ns2:unit>minute, m</ns2:unit>
+            <ns2:value>35</ns2:value>
+            <ns2:unit>day, d</ns2:unit>
         </ns2:Duration>
-        <ns2:MaxNumberOfSystemStates>60</ns2:MaxNumberOfSystemStates>
+        <ns2:MaxNumberOfSystemStates>0</ns2:MaxNumberOfSystemStates>
     </scheduleLengthRestriction>
     <deploymentSettings>
         <ns3:centralAgentSpecifier>
-            <ns3:AgentName>CeExAg</ns3:AgentName>
-            <ns3:PlatformName>132.252.61.115:1099/JADE</ns3:PlatformName>
-            <ns3:UrlOrIp>132.252.61.115</ns3:UrlOrIp>
-            <ns3:JadePort>1099</ns3:JadePort>
-            <ns3:MtpPort>7778</ns3:MtpPort>
-            <ns3:MtpType>HTTP</ns3:MtpType>
+            <ns3:JadePort>0</ns3:JadePort>
+            <ns3:MtpPort>0</ns3:MtpPort>
         </ns3:centralAgentSpecifier>
         <ns3:certificate/>
-        <ns3:databaseSettings>
-            <databaseSystemName>MySQL</databaseSystemName>
-            <hibernateDatabaseSettings>
-                <entry>
-                    <key xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hibernate.connection.username</key>
-                    <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">logger</value>
-                </entry>
-                <entry>
-                    <key xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hibernate.connection.password</key>
-                    <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">T7ybqqwhXrHG7x5htnQ3</value>
-                </entry>
-                <entry>
-                    <key xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hibernate.connection.url</key>
-                    <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">jdbc:mysql://localhost:3306/hygrid?createDatabaseIfNotExist=true&amp;useSSL=false</value>
-                </entry>
-                <entry>
-                    <key xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hibernate.connection.driver_class</key>
-                    <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">com.mysql.jdbc.Driver</value>
-                </entry>
-                <entry>
-                    <key xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hibernate.default_catalog</key>
-                    <value xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hygrid</value>
-                </entry>
-            </hibernateDatabaseSettings>
-        </ns3:databaseSettings>
-        <ns3:defaultAgentOperatingMode>Real system</ns3:defaultAgentOperatingMode>
-        <ns3:deploymentMode>FULL</ns3:deploymentMode>
-        <ns3:jadePort>1099</ns3:jadePort>
+        <ns3:jadePort>0</ns3:jadePort>
         <ns3:keyStore/>
-        <ns3:mtpPort>7778</ns3:mtpPort>
-        <ns3:p2Repository>http://192.168.1.1/hygrid/mirrorP2</ns3:p2Repository>
-        <ns3:p2RepositoryEnabled>true</ns3:p2RepositoryEnabled>
-        <ns3:projectRepository>http://192.168.1.1/hygrid/mirrorProjects</ns3:projectRepository>
-        <ns3:projectRepositoryEnabled>true</ns3:projectRepositoryEnabled>
-        <ns3:projectTag>hygrid-ude-01</ns3:projectTag>
-        <ns3:targetOperatingSystem>linux64</ns3:targetOperatingSystem>
-        <ns3:targetSystemAutoIp>true</ns3:targetSystemAutoIp>
-        <ns3:targetSystemIpAddress>192.168.1.1</ns3:targetSystemIpAddress>
+        <ns3:mtpPort>0</ns3:mtpPort>
+        <ns3:p2RepositoryEnabled>false</ns3:p2RepositoryEnabled>
+        <ns3:projectRepositoryEnabled>false</ns3:projectRepositoryEnabled>
+        <ns3:targetSystemAutoIp>false</ns3:targetSystemAutoIp>
         <ns3:trustStore/>
     </deploymentSettings>
 </hyGridAbstractEnvironmentModel>

@@ -14,6 +14,7 @@ import java.util.Vector;
 
 import javax.swing.filechooser.FileFilter;
 
+import org.awb.env.networkModel.DataModelNetworkElement;
 import org.awb.env.networkModel.GraphNode;
 import org.awb.env.networkModel.NetworkComponent;
 import org.awb.env.networkModel.NetworkModel;
@@ -30,6 +31,15 @@ import agentgui.ontology.TimeSeriesChart;
 import agentgui.ontology.TimeSeriesChartSettings;
 import agentgui.simulationService.environment.AbstractEnvironmentModel;
 import de.enflexit.common.csv.CsvDataController;
+import de.enflexit.ea.core.dataModel.ontology.CableProperties;
+import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeProperties;
+import de.enflexit.ea.core.dataModel.ontology.TransformerNodeProperties;
+import de.enflexit.ea.core.dataModel.ontology.TriPhaseCableState;
+import de.enflexit.ea.core.dataModel.ontology.TriPhaseElectricalNodeState;
+import de.enflexit.ea.core.dataModel.ontology.UnitValue;
+import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler;
+import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomModelType;
+import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomStorageLocation;
 import de.enflexit.geography.coordinates.UTMCoordinate;
 import de.enflexit.geography.coordinates.WGS84LatLngCoordinate;
 import energy.GlobalInfo;
@@ -50,16 +60,6 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
 import energy.optionModel.TimeUnit;
 import energy.optionModel.UsageOfInterfaceEnergy;
 import energy.persistence.ScheduleList_StorageHandler;
-import de.enflexit.ea.core.dataModel.ontology.CableProperties;
-import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeProperties;
-import de.enflexit.ea.core.dataModel.ontology.TransformerNodeProperties;
-import de.enflexit.ea.core.dataModel.ontology.TriPhaseCableState;
-import de.enflexit.ea.core.dataModel.ontology.TriPhaseElectricalNodeState;
-import de.enflexit.ea.core.dataModel.ontology.UnitValue;
-import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler;
-import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomModelType;
-import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomStorageLocation;
-
 
 /**
  * The Class SimBench_CsvTopologyImporter.
@@ -89,12 +89,16 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	private static final String SIMBENCH_Transformer	 = "Transformer.csv";
 	private static final String SIMBENCH_TransformerType = "TransformerType.csv";
 
+	
+	public enum StorageDestination {
+		File,
+		Database
+	}
 
 	private List<FileFilter> fileFilterList;
 	
 	// --- From here variables for the topology import ------------------------
 	private NetworkModel networkModel;
-	private AbstractEnvironmentModel abstractEnvModel;
 	
 	private String layoutIdDefault;
 	private String layoutIdGeoCoordinateWGS84;
@@ -117,6 +121,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	private HashMap<String, ScheduleList> profileScheduleListHashMap;
 	private HashMap<String, TreeMap<String, String>> profileStorageSettingsHashMap;
 	
+	private StorageDestination storageDestination = StorageDestination.Database;
 	
 	
 	/* (non-Javadoc)
@@ -217,25 +222,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		return layoutIdGeoCoordinateUTM;
 	}
 	
-	
-	/* (non-Javadoc)
-	 * @see org.awb.env.networkModel.controller.NetworkModelFileImporter#getAbstractEnvironmentModel()
-	 */
-	@Override
-	public AbstractEnvironmentModel getAbstractEnvironmentModel() {
-		return abstractEnvModel;
-	}
-	/**
-	 * Sets the abstract environment model.
-	 */
-	private void setAbstractEnvironmentModel() {
-
-		// --- Define the abstract environment model ----------------
-		// TODO
-		this.abstractEnvModel = null;
-		
-	}
-	
 	/* (non-Javadoc)
 	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelFileImporter#cleanupImporter()
 	 */
@@ -245,7 +231,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		super.cleanupImporter();
 		
 		this.networkModel = null;
-		this.abstractEnvModel = null;
 		
 		this.layoutIdDefault = null;
 		this.layoutIdGeoCoordinateWGS84 = null;
@@ -282,9 +267,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			this.createNodes();
 			this.createLines();
 			
-			// --- Create the AWB NetworkModel --------------------------------
-			this.setAbstractEnvironmentModel();
-			
 			this.showError();
 			
 		} catch (Exception ex) {
@@ -295,6 +277,61 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		
 		// --- Return the NetworkModel ----------------------------------------
 		return this.getNetworkModel();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.controller.NetworkModelFileImporter#getAbstractEnvironmentModel()
+	 */
+	@Override
+	public AbstractEnvironmentModel getAbstractEnvironmentModel() {
+		return null;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.NetworkModelImportService#requiresToStoreNetworkElements()
+	 */
+	@Override
+	public boolean requiresToStoreNetworkElements() {
+		return true;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.NetworkModelImportService#getDataModelNetworkElementToSave()
+	 */
+	@Override
+	public Vector<DataModelNetworkElement> getDataModelNetworkElementToSave() {
+		
+		Vector<DataModelNetworkElement> elementsToSave = new Vector<>();
+		
+		List<String> profileList = new ArrayList<>(this.getProfileScheduleListHashMap().keySet());
+		for (int i = 0; i < profileList.size(); i++) {
+			
+			String profile = profileList.get(i);
+			ScheduleList sl = this.getProfileScheduleListHashMap().get(profile);
+			
+			NetworkComponent netComp = this.getNetworkComponentForScheduleList(sl);
+			if (netComp!=null) {
+				elementsToSave.add(netComp);
+			}
+		}
+		return elementsToSave;
+	}
+	/**
+	 * Returns the first NetworkComponent for the specified ScheduleList.
+	 *
+	 * @param sl the ScheduleList
+	 * @return the network component for schedule list
+	 */
+	private NetworkComponent getNetworkComponentForScheduleList(ScheduleList sl) {
+		
+		Vector<NetworkComponent> netCompVector = this.getNetworkModel().getNetworkComponentVectorSorted();
+		for (int i = 0; i < netCompVector.size(); i++) {
+			NetworkComponent netComp = netCompVector.get(i);
+			if (netComp.getDataModel()==sl) {
+				return netComp;
+			}
+		}
+		return null;
 	}
 
 	
@@ -469,7 +506,9 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			Object netCompDataModel = null;
 			TreeMap<String, String> netCompStorageSettings = null;
 			
+			// --------------------------------------------------------------------------
 			// --- Case separation for NetworkCmponents ---------------------------------
+			// --------------------------------------------------------------------------
 			boolean isCreatingTransformer = false;
 			String transformerID = this.getTransformerID(nodeID);
 			if (transformerID!=null) {
@@ -513,21 +552,29 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 						this.setScheduleListForProfile(profile, sl);
 						netCompDataModel = sl;
 						
-						// --- Get the file location for the ScheduleList ---------------
-						String fileName = NetworkComponent.class.getSimpleName() + "_Prosumer_SL_" + profile + ".xml";
-						Project project = Application.getProjectFocused();
-						File slFile = EomDataModelStorageHandler.getFileSuggestion(project, fileName);
-						File slDirectory = slFile.getParentFile();
-						String relPath = EomDataModelStorageHandler.getRelativeProjectPath(project, slFile);
-						
-						// --- Create directory, if it not exists -----------------------
-						if (slDirectory.exists()==false) slDirectory.mkdirs();
-						
 						// --- Create storage settings ----------------------------------
 						netCompStorageSettings = new TreeMap<>();
 						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_MODEL_TYPE, EomModelType.ScheduleList.toString());
-						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.File.toString());
-						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_FILE_LOCATION, relPath);
+						switch (this.storageDestination) {
+						case File:
+							// --- Get the file location for the ScheduleList ---------------
+							String fileName = NetworkComponent.class.getSimpleName() + "_Prosumer_SL_" + profile + ".xml";
+							Project project = Application.getProjectFocused();
+							File slFile = EomDataModelStorageHandler.getFileSuggestion(project, fileName);
+							File slDirectory = slFile.getParentFile();
+							String relPath = EomDataModelStorageHandler.getRelativeProjectPath(project, slFile);
+							
+							// --- Create directory, if it not exists -----------------------
+							if (slDirectory.exists()==false) slDirectory.mkdirs();
+							
+							netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.File.toString());
+							netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_FILE_LOCATION, relPath);
+							break;
+							
+						case Database:
+							netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.Database.toString());
+							break;
+						}
 						
 						// --- Remind the storage settings ------------------------------
 						this.setStorageSettingsForProfile(profile, netCompStorageSettings);
@@ -539,7 +586,9 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 				}
 			}
 			
+			// --------------------------------------------------------------------------
 			// --- Get the actual NetworkComponent --------------------------------------
+			// --------------------------------------------------------------------------
 			NetworkComponent newComp = newCompNM.getNetworkComponents().values().iterator().next();
 			String nodeName = newComp.getGraphElementIDs().iterator().next();
 			GraphNode graphNode = (GraphNode) newCompNM.getGraphElement(nodeName);
@@ -748,8 +797,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		}
 		return dateFormatter;
 	}
-	
-	
+
 	/**
 	 * Return the profile schedule list hash map.
 	 * @return the profile schedule list hash map
@@ -888,7 +936,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		List<TechnicalSystemStateEvaluation> tsseList = new ArrayList<>();
 		// --- Get data rows for the profile ----------------------------------
 		int iMax = loadProfileDataVector.size();
-		iMax = 20;
 		for (int i = 0; i < iMax; i++) {
 
 			Vector<String> row = loadProfileDataVector.get(i);
@@ -1157,5 +1204,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		}
 		return fValue;
 	}
+
 
 }

@@ -23,7 +23,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>11</value>
+                        <value>10</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -45,7 +45,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>11</value>
+                        <value>10</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -67,7 +67,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>14</value>
+                        <value>13</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -89,7 +89,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>12</value>
+                        <value>11</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -111,7 +111,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>15</value>
+                        <value>12</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -133,7 +133,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>12</value>
+                        <value>11</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -155,7 +155,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>12</value>
+                        <value>11</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -177,7 +177,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>12</value>
+                        <value>11</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -199,7 +199,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>11</value>
+                        <value>10</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -221,7 +221,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>12</value>
+                        <value>11</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -243,7 +243,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>11</value>
+                        <value>10</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -265,7 +265,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>13</value>
+                        <value>14</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -287,7 +287,7 @@
                 <dataModelStorageSettings>
                     <entry>
                         <key>Database-ID</key>
-                        <value>11</value>
+                        <value>10</value>
                     </entry>
                     <entry>
                         <key>EomModelType</key>
@@ -436,6 +436,20 @@
                 <id>MV1.101-LV1.101-Trafo 1</id>
                 <type>Transformer</type>
                 <graphElementIDs>LV1.101 Bus 4</graphElementIDs>
+                <dataModelStorageSettings>
+                    <entry>
+                        <key>EomFileLocation</key>
+                        <value>/eomModels/EomModel_Transformer.xml</value>
+                    </entry>
+                    <entry>
+                        <key>EomModelType</key>
+                        <value>TechnicalSystem</value>
+                    </entry>
+                    <entry>
+                        <key>EomStorageLocation</key>
+                        <value>File</value>
+                    </entry>
+                </dataModelStorageSettings>
             </value>
         </entry>
     </networkComponentList>
