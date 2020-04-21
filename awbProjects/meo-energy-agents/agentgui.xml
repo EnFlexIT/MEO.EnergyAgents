@@ -166,7 +166,7 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>hygrid.env.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>Meo.BaseScene.00_1-LV-rural3--0-sw</simulationSetupCurrent>
+    <simulationSetupCurrent>1-LV-rural1--0-no_sw</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
     <simulationSetups>
         <entry>
