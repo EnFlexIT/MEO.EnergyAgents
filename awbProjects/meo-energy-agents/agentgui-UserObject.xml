@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
-    <simulationIntervalLength>0</simulationIntervalLength>
-    <simulationIntervalUnitIndex>0</simulationIntervalUnitIndex>
+    <simulationIntervalLength>5000</simulationIntervalLength>
+    <simulationIntervalUnitIndex>1</simulationIntervalUnitIndex>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
     <networkCalculationIntervalUnitIndex>1</networkCalculationIntervalUnitIndex>
     <executionDataBase>NodePowerFlows</executionDataBase>
@@ -12,7 +12,7 @@
         <timePeriodForLiveBit>600000</timePeriodForLiveBit>
     </energyTransmissionConfiguration>
     <displayUpdateConfiguration>
-        <updateMechanism>DisableUpdates</updateMechanism>
+        <updateMechanism>EnableUpdates</updateMechanism>
     </displayUpdateConfiguration>
     <graphElementLayoutSettingsPersisted domain="Electricity 10kV">
         <settingsTreeMap>

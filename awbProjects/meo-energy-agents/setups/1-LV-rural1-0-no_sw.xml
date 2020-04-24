@@ -103,7 +103,7 @@
         </entry>
         <entry>
             <key>TimeStop</key>
-            <value>1483225200000</value>
+            <value>1451631600000</value>
         </entry>
         <entry>
             <key>DisplayUnitIndex</key>
@@ -285,7 +285,7 @@
             <preventUsageOfAlreadyUsedComputers>true</preventUsageOfAlreadyUsedComputers>
             <showJADErmaGUI>false</showJADErmaGUI>
         </remoteContainerConfiguration>
-        <userObjectClassName>hygrid.env.HyGridAbstractEnvironmentModel</userObjectClassName>
+        <userObjectClassName>de.enflexit.ea.core.dataModel.absEnvModel.HyGridAbstractEnvironmentModel</userObjectClassName>
         <simulationSetupCurrent>1-LV-rural1--0-no_sw</simulationSetupCurrent>
         <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
         <simulationSetups>
