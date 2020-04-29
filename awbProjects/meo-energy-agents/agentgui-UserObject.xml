@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
-    <simulationIntervalLength>5000</simulationIntervalLength>
+    <simulationIntervalLength>1000</simulationIntervalLength>
     <simulationIntervalUnitIndex>1</simulationIntervalUnitIndex>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
     <networkCalculationIntervalUnitIndex>1</networkCalculationIntervalUnitIndex>
@@ -78,7 +78,7 @@
         <ns2:idScheduleLengthRestriction>0</ns2:idScheduleLengthRestriction>
         <ns2:Duration>
             <ns2:idDuration>0</ns2:idDuration>
-            <ns2:value>35</ns2:value>
+            <ns2:value>12</ns2:value>
             <ns2:unit>day, d</ns2:unit>
         </ns2:Duration>
         <ns2:MaxNumberOfSystemStates>0</ns2:MaxNumberOfSystemStates>

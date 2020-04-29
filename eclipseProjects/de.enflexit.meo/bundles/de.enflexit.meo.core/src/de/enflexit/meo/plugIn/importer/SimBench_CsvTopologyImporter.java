@@ -118,9 +118,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	private static final String[] INTERFACE_IDs_Electricity = {"Electricity L1", "Electricity L2", "Electricity L3"};
 	
 	private SimpleDateFormat dateFormatter;
-	private HashMap<String, ScheduleList> profileScheduleListHashMap;
-	private HashMap<String, TreeMap<String, String>> profileStorageSettingsHashMap;
-	
 	private StorageDestination storageDestination = StorageDestination.Database;
 	
 	
@@ -242,7 +239,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		this.defaultPositionVector = null;
 		
 		this.dateFormatter = null;
-		this.profileStorageSettingsHashMap = null;
 		
 	}
 	
@@ -301,40 +297,8 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	 */
 	@Override
 	public Vector<DataModelNetworkElement> getDataModelNetworkElementToSave() {
-		
-		Vector<DataModelNetworkElement> elementsToSave = new Vector<>();
-		
-		List<String> profileList = new ArrayList<>(this.getProfileScheduleListHashMap().keySet());
-		for (int i = 0; i < profileList.size(); i++) {
-			
-			String profile = profileList.get(i);
-			ScheduleList sl = this.getProfileScheduleListHashMap().get(profile);
-			
-			NetworkComponent netComp = this.getNetworkComponentForScheduleList(sl);
-			if (netComp!=null) {
-				elementsToSave.add(netComp);
-			}
-		}
-		return elementsToSave;
-	}
-	/**
-	 * Returns the first NetworkComponent for the specified ScheduleList.
-	 *
-	 * @param sl the ScheduleList
-	 * @return the network component for schedule list
-	 */
-	private NetworkComponent getNetworkComponentForScheduleList(ScheduleList sl) {
-		
-		Vector<NetworkComponent> netCompVector = this.getNetworkModel().getNetworkComponentVectorSorted();
-		for (int i = 0; i < netCompVector.size(); i++) {
-			NetworkComponent netComp = netCompVector.get(i);
-			if (netComp.getDataModel()==sl) {
-				return netComp;
-			}
-		}
 		return null;
 	}
-
 	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: some methods for getting the lines ------------------------------------------
@@ -542,47 +506,39 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 					newCompNM = NetworkComponentFactory.getNetworkModel4NetworkComponent(this.getNetworkModel(), "Prosumer");
 					// --- Create ScheduleList as data model ----------------------------
 					String profile = loadRowHashMap.get("profile");
-					netCompStorageSettings = this.getStorageSettingsForProfile(profile);
-					if (netCompStorageSettings==null) {
-						// --------------------------------------------------------------
-						// --- Create ScheduleList and storage settings and save them ---
-						// --------------------------------------------------------------
-						Schedule schedule = this.getScheduleOfProfile(profile);
-						ScheduleList sl = this.createScheduleList(nodeID, newNetCompID);
-						sl.getSchedules().add(schedule);
-						this.setScheduleListForProfile(profile, sl);
-						netCompDataModel = sl;
+					double pLoadFactor = this.parseDouble(loadRowHashMap.get("pLoad"));
+					double qLoadFactor = this.parseDouble(loadRowHashMap.get("qLoad"));
+					
+					// ------------------------------------------------------------------
+					// --- Create ScheduleList and storage settings and save them -------
+					// ------------------------------------------------------------------
+					Schedule schedule = this.getScheduleOfProfile(profile, pLoadFactor, qLoadFactor);
+					ScheduleList sl = this.createScheduleList(nodeID, newNetCompID);
+					sl.getSchedules().add(schedule);
+					netCompDataModel = sl;
+					
+					// --- Create storage settings --------------------------------------
+					netCompStorageSettings = new TreeMap<>();
+					netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_MODEL_TYPE, EomModelType.ScheduleList.toString());
+					switch (this.storageDestination) {
+					case File:
+						// --- Get the file location for the ScheduleList ---------------
+						String fileName = NetworkComponent.class.getSimpleName() + "_Prosumer_SL_" + profile + ".xml";
+						Project project = Application.getProjectFocused();
+						File slFile = EomDataModelStorageHandler.getFileSuggestion(project, fileName);
+						File slDirectory = slFile.getParentFile();
+						String relPath = EomDataModelStorageHandler.getRelativeProjectPath(project, slFile);
 						
-						// --- Create storage settings ----------------------------------
-						netCompStorageSettings = new TreeMap<>();
-						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_MODEL_TYPE, EomModelType.ScheduleList.toString());
-						switch (this.storageDestination) {
-						case File:
-							// --- Get the file location for the ScheduleList ---------------
-							String fileName = NetworkComponent.class.getSimpleName() + "_Prosumer_SL_" + profile + ".xml";
-							Project project = Application.getProjectFocused();
-							File slFile = EomDataModelStorageHandler.getFileSuggestion(project, fileName);
-							File slDirectory = slFile.getParentFile();
-							String relPath = EomDataModelStorageHandler.getRelativeProjectPath(project, slFile);
-							
-							// --- Create directory, if it not exists -----------------------
-							if (slDirectory.exists()==false) slDirectory.mkdirs();
-							
-							netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.File.toString());
-							netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_FILE_LOCATION, relPath);
-							break;
-							
-						case Database:
-							netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.Database.toString());
-							break;
-						}
+						// --- Create directory, if it not exists -----------------------
+						if (slDirectory.exists()==false) slDirectory.mkdirs();
 						
-						// --- Remind the storage settings ------------------------------
-						this.setStorageSettingsForProfile(profile, netCompStorageSettings);
+						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.File.toString());
+						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_EOM_FILE_LOCATION, relPath);
+						break;
 						
-					} else {
-						// --- Get the data model from reminder HashMap -----------------
-						netCompDataModel = this.getScheduleListForProfile(profile);
+					case Database:
+						netCompStorageSettings.put(EomDataModelStorageHandler.EOM_SETTING_STORAGE_LOCATION, EomStorageLocation.Database.toString());
+						break;
 					}
 				}
 			}
@@ -798,66 +754,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		}
 		return dateFormatter;
 	}
-
-	/**
-	 * Return the profile schedule list hash map.
-	 * @return the profile schedule list hash map
-	 */
-	private HashMap<String, ScheduleList> getProfileScheduleListHashMap() {
-		if (profileScheduleListHashMap==null) {
-			profileScheduleListHashMap = new HashMap<>();
-		}
-		return profileScheduleListHashMap;
-	}
-	/**
-	 * Returns the schedule list for profile.
-	 *
-	 * @param profileName the profile name
-	 * @return the schedule list for profile
-	 */
-	private ScheduleList getScheduleListForProfile(String profileName) {
-		return this.getProfileScheduleListHashMap().get(profileName);
-	}
-	/**
-	 * Sets the schedule list for profile.
-	 *
-	 * @param profileName the profile name
-	 * @param sl the ScheduleList
-	 */
-	private void setScheduleListForProfile(String profileName, ScheduleList sl) {
-		this.getProfileScheduleListHashMap().put(profileName, sl);
-	}
-	
-	
-	/**
-	 * Returns the profile to Schedule hash map.
-	 * @return the profile schedule hash map
-	 */
-	private HashMap<String, TreeMap<String, String>> getProfileStorageSettingsHashMap() {
-		if (profileStorageSettingsHashMap==null) {
-			profileStorageSettingsHashMap = new HashMap<>();
-		}	
-		return profileStorageSettingsHashMap;
-	}
-	/**
-	 * Returns the storage settings for the specified profile.
-	 *
-	 * @param profileName the profile name
-	 * @return the storage settings for profile
-	 */
-	private TreeMap<String, String> getStorageSettingsForProfile(String profileName) {
-		return this.getProfileStorageSettingsHashMap().get(profileName);
-	}
-	/**
-	 * Sets the storage settings for the specified simbench profile.
-	 *
-	 * @param profileName the profile name
-	 * @param storageSettings the storage settings
-	 */
-	private void setStorageSettingsForProfile(String profileName, TreeMap<String, String> storageSettings) {
-		this.getProfileStorageSettingsHashMap().put(profileName, storageSettings);
-	}
-	
 	
 	/**
 	 * Creates a ScheduleList with the specified systemID.
@@ -914,9 +810,13 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	
 	/**
 	 * Return a schedule for the specified profile .
+	 *
+	 * @param profile the profile
+	 * @param pLoadFactor the load factor
+	 * @param qLoadFactor the q load factor
 	 * @return the schedule of profile
 	 */
-	private Schedule getScheduleOfProfile(String profile) {
+	private Schedule getScheduleOfProfile(String profile, double pLoadFactor, double qLoadFactor) {
 		
 		// --- Get time series from load profile ------------------------------
 		CsvDataController loadProfileCsvController = this.getCsvDataControllerOfCsvFile(SIMBENCH_LoadProfile);
@@ -948,8 +848,8 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 				
 				Date timeDate = this.getDateFormatter().parse(stringTime);
 				long timeStamp = timeDate.getTime();
-				double pLoadMWAllPhases = this.parseDouble(stringPLoad);
-				double qLoadMWAllPhases = this.parseDouble(stringQLoad);
+				double pLoadMWAllPhases = this.parseDouble(stringPLoad) * pLoadFactor;
+				double qLoadMWAllPhases = this.parseDouble(stringQLoad) * qLoadFactor;
 				
 				long durationMillis = 0;
 				if (timeStampPrev>0) {
@@ -1006,9 +906,8 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		double pLoadkWAllPhases = pLoadMWAllPhases * 1000.0;
 		double qLoadkWAllPhases = qLoadMWAllPhases * 1000.0;
 				
-		// TODO
-		double activePower = pLoadkWAllPhases;
-		double reactivePower = qLoadkWAllPhases;
+		double activePower   = pLoadkWAllPhases / 3.0;
+		double reactivePower = qLoadkWAllPhases / 3.0;
 		
 		// --- Iterate over interfaces --------------------
 		for (int i=0; i < INTERFACE_IDs_Electricity.length; i++) {
