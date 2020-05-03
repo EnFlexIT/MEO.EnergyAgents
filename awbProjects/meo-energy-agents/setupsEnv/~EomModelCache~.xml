@@ -8,8 +8,8 @@
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 1">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 1_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>1</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -17,15 +17,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 2">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 2_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>7</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -33,15 +33,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 3">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 3_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>8</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -49,15 +49,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 5">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 5_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>9</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -65,15 +65,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 6">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 6_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>10</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -81,15 +81,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 7">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 7_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>11</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -97,15 +97,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 8">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 8_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>12</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -113,15 +113,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 9">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 9_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>13</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -129,15 +129,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 10">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 10_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>2</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -145,15 +145,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 11">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 11_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>3</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -161,15 +161,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 12">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 12_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>4</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -177,15 +177,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 13">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 13_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>5</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -193,15 +193,15 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>
                     <element elementType="NetworkComponent" elementID="LV1.101 Bus 14">
                         <storageSettings>
                             <entry>
-                                <key>EomFileLocation</key>
-                                <value>/setupsEnv/1-LV-rural1--0-no_sw/NetworkComponent_LV1.101 Bus 14_SL_Prosumer.xml</value>
+                                <key>Database-ID</key>
+                                <value>6</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -209,7 +209,7 @@
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>File</value>
+                                <value>Database</value>
                             </entry>
                         </storageSettings>
                     </element>

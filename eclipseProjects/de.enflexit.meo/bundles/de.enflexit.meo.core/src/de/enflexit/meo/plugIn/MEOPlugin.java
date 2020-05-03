@@ -8,6 +8,7 @@ import org.awb.env.networkModel.controller.ui.toolbar.CustomToolbarComponentDesc
 import agentgui.core.application.Application;
 import agentgui.core.plugin.PlugIn;
 import agentgui.core.project.Project;
+import de.enflexit.meo.db.ui.JButtonDatabaseSettings;
 
 /**
  * The Class MEOPlugin provides specific control elements to Agent.Workbench.
@@ -16,11 +17,7 @@ import agentgui.core.project.Project;
  */
 public class MEOPlugin extends PlugIn {
 
-	/** The Constant that represents the regular expression for component ID's. */
-	public static final String REGEX_FOR_ELEMENT_ID = "^([\\w_-]+)$";
-	
 	private GraphEnvironmentController graphController;
-	
 	
 	/**
 	 * Instantiates the AWB web server plugin.
@@ -55,9 +52,9 @@ public class MEOPlugin extends PlugIn {
 	public void onPlugIn() {
 		
 		if (Application.isOperatingHeadless()==false) {
-			// --- Add the OAD state data importer --------
-			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonConstructionSite.class, null, true));
-			
+			// --- Add the MEO Result database settings --------
+			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonDatabaseSettings.class, null, true));
+			//this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonConstructionSite.class, null, true));
 		}
 		super.onPlugIn();
 	}

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MEO - Result DB Connector
+Bundle-SymbolicName: de.enflexit.meo.db
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: de.enflexit.meo.db
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Eclipse-RegisterBuddy: de.enflexit.db.hibernate
+Require-Bundle: de.enflexit.api,
+ de.enflexit.db.hibernate,
+ org.agentgui.core,
+ org.awb.env.networkModel,
+ org.eclipse.equinox.preferences,
+ org.eclipse.osgi
+Bundle-Activator: de.enflexit.meo.db.DatabaseActivator
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: EnFlex.IT
+Export-Package: de.enflexit.meo.db,
+ de.enflexit.meo.db.cfg,
+ de.enflexit.meo.db.dataModel,
+ de.enflexit.meo.db.mappings,
+ de.enflexit.meo.db.ui
