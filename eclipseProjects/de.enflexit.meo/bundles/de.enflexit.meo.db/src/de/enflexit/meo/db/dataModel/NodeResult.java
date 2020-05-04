@@ -1,9 +1,8 @@
 package de.enflexit.meo.db.dataModel;
 
-import java.io.Serializable;
 import java.util.Calendar;
 
-public class NodeResult implements Serializable {
+public class NodeResult  extends AbstractStateResult {
 
 	private static final long serialVersionUID = 1151410790396704632L;
 	
