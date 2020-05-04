@@ -5,7 +5,6 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
@@ -17,6 +16,7 @@ import agentgui.core.application.Application;
 import de.enflexit.db.hibernate.SessionFactoryMonitor.SessionFactoryState;
 import de.enflexit.db.hibernate.gui.DatabaseSettings;
 import de.enflexit.db.hibernate.gui.DatabaseSettingsDialog;
+import de.enflexit.meo.db.BundleHelper;
 import de.enflexit.meo.db.DatabaseSessionFactoryHandler;
 
 /**
@@ -40,7 +40,7 @@ public class JButtonDatabaseSettings extends AbstractCustomToolbarComponent impl
 	@Override
 	public JComponent getCustomComponent() {
 		JButton jButtonExportLoadProfile = new JButton();
-		jButtonExportLoadProfile.setIcon(new ImageIcon(getClass().getResource("/images/DatabaseSettings.png")));
+		jButtonExportLoadProfile.setIcon(BundleHelper.getImageIcon("DatabaseSettings.png"));
 		jButtonExportLoadProfile.setToolTipText("MEO Result - Database Settings");
 		jButtonExportLoadProfile.setPreferredSize(new Dimension(26, 26));
 		jButtonExportLoadProfile.addActionListener(this);

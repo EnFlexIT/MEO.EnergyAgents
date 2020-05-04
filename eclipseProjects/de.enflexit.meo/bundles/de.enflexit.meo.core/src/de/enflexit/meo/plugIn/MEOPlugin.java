@@ -9,6 +9,7 @@ import agentgui.core.application.Application;
 import agentgui.core.plugin.PlugIn;
 import agentgui.core.project.Project;
 import de.enflexit.meo.db.ui.JButtonDatabaseSettings;
+import de.enflexit.meo.db.ui.JButtonIdScenarioResult;
 
 /**
  * The Class MEOPlugin provides specific control elements to Agent.Workbench.
@@ -54,7 +55,7 @@ public class MEOPlugin extends PlugIn {
 		if (Application.isOperatingHeadless()==false) {
 			// --- Add the MEO Result database settings --------
 			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonDatabaseSettings.class, null, true));
-			//this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonConstructionSite.class, null, true));
+			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonIdScenarioResult.class, null, false));
 		}
 		super.onPlugIn();
 	}

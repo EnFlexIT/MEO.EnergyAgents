@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="de.enflexit.meo.db.blackboard.BlackboardListener">
+   <implementation class="de.enflexit.meo.db.blackboard.BlackboardListener"/>
+   <service>
+      <provide interface="de.enflexit.ea.core.dataModel.blackboard.BlackboardListenerService"/>
+   </service>
+</scr:component>
