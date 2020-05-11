@@ -152,4 +152,28 @@ public class TrafoResult  extends AbstractStateResult {
 		}
 		return hashCodeString.hashCode();
 	}
+	
+	@Override
+	public String getSQLInsertValueArray() {
+		
+		String valueString = "(";
+		valueString += this.getIdScenarioResult() + ",";
+		valueString += "'" + this.getIdTrafo() + "',";
+		valueString += "'" + AbstractStateResult.getTimeStampAsSQLString(this.getTimestamp()) + "',";
+		
+		valueString += this.getVoltageReal() + ",";
+		valueString += this.getVoltageComplex() + ",";
+		valueString += this.getVoltageViolations() + ",";		
+		
+		valueString += this.getResidualLoadP() + ",";
+		valueString += this.getResidualLoadQ() + ",";
+		
+		valueString += this.getTrafoUtilization() + ",";
+		
+		valueString += this.getTrafoLossesP() + ",";
+		valueString += this.getTrafoLossesQ() + ")";
+		
+		return valueString;
+	}
+	
 }

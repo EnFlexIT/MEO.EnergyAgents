@@ -73,8 +73,8 @@ public class BlackboardListener implements BlackboardListenerService {
 		this.setNetworkModel(blackboard.getNetworkModel());
 		
 		// --- Get the state time -------------------------
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(blackboard.getStateTime());
+		Calendar stateTime = Calendar.getInstance();
+		stateTime.setTimeInMillis(blackboard.getStateTime());
 			
 		// --- Get a quick copy of the sates --------------
 		HashMap<String, ElectricalNodeState> nodeStates = new HashMap<>(blackboard.getGraphNodeStates());
@@ -83,9 +83,10 @@ public class BlackboardListener implements BlackboardListenerService {
 
 		// --- Create lists to save to database -----------
 		NetworkState networkState = new NetworkState();
-		networkState.setNodeResultList(this.getNodeResults(nodeStates, calendar));
-		networkState.setEdgeResultList(this.getEdgeResults(cableStates, calendar));
-		networkState.setTrafoResultList(this.getTrafoResults(transformerStates, calendar));
+		networkState.setStateTime(stateTime);
+		networkState.setNodeResultList(this.getNodeResults(nodeStates, stateTime));
+		networkState.setEdgeResultList(this.getEdgeResults(cableStates, stateTime));
+		networkState.setTrafoResultList(this.getTrafoResults(transformerStates, stateTime));
 		
 		// --- Save to database ---------------------------
 		this.getDatabaseHandler().addNetworkStateToSave(networkState);

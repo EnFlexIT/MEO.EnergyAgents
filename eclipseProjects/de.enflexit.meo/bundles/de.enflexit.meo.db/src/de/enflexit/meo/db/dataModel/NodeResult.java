@@ -113,4 +113,19 @@ public class NodeResult  extends AbstractStateResult {
 		return hashCodeString.hashCode();
 	}
 	
+
+	@Override
+	public String getSQLInsertValueArray() {
+		
+		String valueString = "(";
+		valueString += this.getIdScenarioResult() + ",";
+		valueString += "'" + this.getIdNode() + "',";
+		valueString += "'" + AbstractStateResult.getTimeStampAsSQLString(this.getTimestamp()) + "',";
+		
+		valueString += this.getVoltageReal() + ",";
+		valueString += this.getVoltageComplex() + ",";
+		valueString += this.getVoltageViolations() + ")";		
+		return valueString;
+	}
+	
 }

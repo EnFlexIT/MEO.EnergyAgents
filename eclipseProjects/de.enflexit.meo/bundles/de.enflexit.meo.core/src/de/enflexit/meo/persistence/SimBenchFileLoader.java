@@ -1,0 +1,131 @@
+package de.enflexit.meo.persistence;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.filechooser.FileFilter;
+
+import org.awb.env.networkModel.NetworkModel;
+import org.awb.env.networkModel.persistence.AbstractNetworkModelCsvImporter;
+
+public class SimBenchFileLoader extends AbstractNetworkModelCsvImporter {
+
+	// ----------------------------------------------------
+	// --- The singleton construction ---------------------
+	// ----------------------------------------------------
+	private static SimBenchFileLoader thisInstance;
+	
+	private SimBenchFileLoader() { }
+	public static SimBenchFileLoader getInstance() {
+		if (thisInstance==null) {
+			thisInstance = new SimBenchFileLoader();
+		}
+		return thisInstance;
+	}
+	
+	// ----------------------------------------------------
+	// --- Instance handling ------------------------------
+	// ----------------------------------------------------
+	public static final String SIMBENCH_Coordinates	 	= "Coordinates.csv";
+	public static final String SIMBENCH_ExternalNet	 	= "ExternalNet.csv";
+	public static final String SIMBENCH_Line		 	= "Line.csv";
+	public static final String SIMBENCH_LineType	 	= "LineType.csv";
+	public static final String SIMBENCH_Load		 	= "Load.csv";
+	public static final String SIMBENCH_LoadProfile	 	= "LoadProfile.csv";
+	public static final String SIMBENCH_Measurement	 	= "Measurement.csv";
+	public static final String SIMBENCH_Node		 	= "Node.csv";
+	public static final String SIMBENCH_NodePFResult 	= "NodePFResult.csv";
+	public static final String SIMBENCH_RES			 	= "RES.csv";
+	public static final String SIMBENCH_RESProfile	 	= "RESProfile.csv";
+	public static final String SIMBENCH_Storage		 	= "Storage.csv";
+	public static final String SIMBENCH_StorageProfile  = "StorageProfile.csv";
+	public static final String SIMBENCH_StudyCases		= "StudyCases.csv";
+	public static final String SIMBENCH_Transformer	 	= "Transformer.csv";
+	public static final String SIMBENCH_TransformerType = "TransformerType.csv";
+	
+	
+	private List<FileFilter> fileFilterList;
+	private File simBenchDirecotry;  
+	
+	
+	/**
+	 * Set the currently selected SimBench file and thus the directory (parent). 
+	 * @param simBenchDirecotryFile the selected SimBench file
+	 * @param isDebug indicator if the current invocation is for debugging and if the import files should be shown
+	 */
+	public void setSimBenchDirectoryFile(File simBenchDirecotryFile, boolean isDebug) {
+		if (simBenchDirecotryFile!=null && simBenchDirecotryFile.exists()==true) {
+
+			// -- Get the parent directory to find all files --------  
+			File simBenchDirecotry = simBenchDirecotryFile.getParentFile();
+			boolean validDir = simBenchDirecotry!=null && simBenchDirecotry.exists() && simBenchDirecotry.isDirectory(); 
+			if (validDir==false) {
+				System.err.println("[" + this.getClass().getSimpleName() + "] Invalid SimBench directory '" + simBenchDirecotry.getAbsolutePath() + "', exit data load process.");
+				return;
+			}
+			
+			// --- Check if directory has changed -------------------
+			boolean isChangedDir = this.simBenchDirecotry==null || this.simBenchDirecotry.equals(simBenchDirecotry)==false;
+			if (isChangedDir==true) {
+				// --- Set to local variables and load files --------
+				this.simBenchDirecotry = simBenchDirecotry;
+				this.readCsvFiles(simBenchDirecotryFile, true);
+			}
+			
+			// --- Show import preview ? ----------------------------
+			this.debug = isDebug;
+			this.showImportPreview();
+		}
+	}
+	
+	
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelCsvImporter#getListOfRequiredFileNames()
+	 */
+	@Override
+	protected Vector<String> getListOfRequiredFileNames() {
+		
+		Vector<String> fileNameVector = new Vector<>(); 
+		fileNameVector.add(SIMBENCH_Coordinates);
+		fileNameVector.add(SIMBENCH_ExternalNet);
+		fileNameVector.add(SIMBENCH_Line);
+		fileNameVector.add(SIMBENCH_LineType);
+		fileNameVector.add(SIMBENCH_Load);
+		fileNameVector.add(SIMBENCH_LoadProfile);
+		fileNameVector.add(SIMBENCH_Measurement);
+		fileNameVector.add(SIMBENCH_Node);
+		fileNameVector.add(SIMBENCH_NodePFResult);
+		fileNameVector.add(SIMBENCH_RES);
+		fileNameVector.add(SIMBENCH_RESProfile);
+		fileNameVector.add(SIMBENCH_Storage);
+		fileNameVector.add(SIMBENCH_StorageProfile);
+		fileNameVector.add(SIMBENCH_StudyCases);
+		fileNameVector.add(SIMBENCH_Transformer);
+		fileNameVector.add(SIMBENCH_TransformerType);
+		return fileNameVector;
+	}
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelFileImporter#getFileFilters()
+	 */
+	@Override
+	public List<FileFilter> getFileFilters() {
+		if (fileFilterList==null) {
+			fileFilterList = new ArrayList<>();
+			fileFilterList.add(this.createFileFilter(".csv", "SimBench Low Voltage Eletrical Network (csv files)"));
+		}
+		return fileFilterList;
+	}
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelFileImporter#importNetworkModelFromFile(java.io.File)
+	 */
+	@Override
+	public NetworkModel importNetworkModelFromFile(File graphFile) {
+		return null; // --- Nothing to do here ---
+	}
+	
+}

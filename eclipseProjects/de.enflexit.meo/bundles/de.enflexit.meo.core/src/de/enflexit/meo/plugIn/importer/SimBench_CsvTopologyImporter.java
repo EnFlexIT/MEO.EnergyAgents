@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.Vector;
@@ -299,6 +300,15 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	public Vector<DataModelNetworkElement> getDataModelNetworkElementToSave() {
 		return null;
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.awb.env.networkModel.persistence.NetworkModelImportService#getMaxNumberOfThreadsForSaveAction()
+	 */
+	@Override
+	public Integer getMaxNumberOfThreadsForSaveAction() {
+		return 1;
+	}
+	
 	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: some methods for getting the lines ------------------------------------------
@@ -835,6 +845,9 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 
 		// --- Define list of system states -----------------------------------
 		List<TechnicalSystemStateEvaluation> tsseList = new ArrayList<>();
+		// --- Avoid double time stamps ---------------------------------------
+		HashSet<Long> timeStampHashSet = new HashSet<Long>();
+		
 		// --- Get data rows for the profile ----------------------------------
 		int iMax = loadProfileDataVector.size();
 		for (int i = 0; i < iMax; i++) {
@@ -846,8 +859,15 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			
 			try {
 				
+				// --- Avoid double time stamps -------------------------------
 				Date timeDate = this.getDateFormatter().parse(stringTime);
 				long timeStamp = timeDate.getTime();
+				if (timeStampHashSet.contains(timeStamp)==true) {
+					continue;
+				}
+				timeStampHashSet.add(timeStamp);
+				
+				// --- Calculate power values ---------------------------------
 				double pLoadMWAllPhases = this.parseDouble(stringPLoad) * pLoadFactor;
 				double qLoadMWAllPhases = this.parseDouble(stringQLoad) * qLoadFactor;
 				
@@ -1104,6 +1124,5 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		}
 		return fValue;
 	}
-
 
 }

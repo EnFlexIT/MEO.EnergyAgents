@@ -112,4 +112,20 @@ public class EdgeResult extends AbstractStateResult {
 		}
 		return hashCodeString.hashCode();
 	}
+	
+	
+	@Override
+	public String getSQLInsertValueArray() {
+		
+		String valueString = "(";
+		valueString += this.getIdScenarioResult() + ",";
+		valueString += "'" + this.getIdEdge() + "',";
+		valueString += "'" + AbstractStateResult.getTimeStampAsSQLString(this.getTimestamp()) + "',";
+		
+		valueString += this.getUtilization() + ",";
+		valueString += this.getLossesP() + ",";
+		valueString += this.getLossesQ() + ")";		
+		return valueString;
+	}
+	
 }

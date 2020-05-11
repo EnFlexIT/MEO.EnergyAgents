@@ -2,15 +2,18 @@ package de.enflexit.meo.db;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import agentgui.core.application.Application;
 import de.enflexit.meo.db.dataModel.AbstractStateResult;
+import de.enflexit.meo.db.dataModel.EdgeResult;
 import de.enflexit.meo.db.dataModel.NetworkState;
+import de.enflexit.meo.db.dataModel.NodeResult;
+import de.enflexit.meo.db.dataModel.TrafoResult;
 
 
 /**
@@ -138,12 +141,9 @@ public class DatabaseHandler {
 					// --- Get first NetworkState -------------------
 					if (DatabaseHandler.this.getNetworkStateListToSave().isEmpty()==false) {
 						NetworkState networkState = DatabaseHandler.this.getNetworkStateListToSave().remove(0);
-						if (doTerminateThread==true) {
-							Calendar calTimeStamp = networkState.getEdgeResultList().get(0).getTimestamp();
-							String timeText = new SimpleDateFormat("dd.MM.yy HH:mm").format(calTimeStamp.getTime());
-							String statusText = "Saving network state for " + timeText + " - " + DatabaseHandler.this.getNetworkStateListToSave().size() + " network states remaining.";
-							Application.setStatusBarMessage(statusText);
-						}
+						String timeText = new SimpleDateFormat("dd.MM.yy HH:mm").format(networkState.getStateTime().getTime());
+						String statusText = "Saving network state for " + timeText + " - " + DatabaseHandler.this.getNetworkStateListToSave().size() + " network states remaining in queue.";
+						Application.setStatusBarMessage(statusText);
 						DatabaseHandler.this.saveNetworkState(networkState);
 					}
 				} // end while
@@ -159,18 +159,112 @@ public class DatabaseHandler {
 	 */
 	public void saveNetworkState(NetworkState networkState) {
 		
-		Session session = this.getSession();
+		Session sessionToUse = this.getSession();
+		Transaction transaction = null;
 		try {
 
-			this.saveStateResult(networkState.getNodeResultList(), session);
-			this.saveStateResult(networkState.getEdgeResultList(), session);
-			this.saveStateResult(networkState.getTrafoResultList(), session);
+			if (sessionToUse.isOpen()==false) {
+				System.err.println("[" + this.getClass().getSimpleName() + "] Session not open - skip saving NetworkState.");
+				return;
+			}
+			
+			// --- Saving in own transaction? --- 
+			transaction = sessionToUse.beginTransaction();
+			
+			this.saveStateResultUsingNativeSQL(networkState.getNodeResultList(), sessionToUse);
+			this.saveStateResultUsingNativeSQL(networkState.getEdgeResultList(), sessionToUse);
+			this.saveStateResultUsingNativeSQL(networkState.getTrafoResultList(), sessionToUse);
+			
+			// --- Saving in own transaction? ---
+			sessionToUse.flush();
+			sessionToUse.clear();
+			transaction.commit();
 			
 		} catch (Exception ex) {
+			if (transaction!=null) transaction.rollback();
 			ex.printStackTrace();
 		}
 	}
 	
+	
+	/**
+	 * Saves the specified state results by using the native SQL interface.
+	 *
+	 * @param networkStateList the network state list
+	 * @return true, if successful
+	 */
+	public boolean saveStateResultUsingNativeSQL(List<? extends AbstractStateResult> networkStateList) {
+		return this.saveStateResultUsingNativeSQL(networkStateList, this.getSession());
+	}
+	/**
+	 * Saves the specified state results by using the native SQL interface.
+	 *
+	 * @param networkStateList the network state list
+	 * @return true, if successful
+	 */
+	public boolean saveStateResultUsingNativeSQL(List<? extends AbstractStateResult> networkStateList, Session sessionToUse) {
+		
+		if (networkStateList==null || networkStateList.size()==0) return false;
+		
+		boolean successful = false;
+		Transaction transaction = null;
+		boolean isOpenTransaction = sessionToUse.getTransaction()!=null && sessionToUse.getTransaction().isActive();
+		
+		try {
+			
+			// --------------------------------------------
+			// --- Create native SQL statement --  
+			String sql = "INSERT INTO "; 
+			if (networkStateList.get(0) instanceof NodeResult) {
+				sql += "noderesult";
+			} else if (networkStateList.get(0) instanceof EdgeResult) {
+				sql += "edgeresult";
+			} else if (networkStateList.get(0) instanceof TrafoResult) {
+				sql += "traforesult";
+			}
+			sql += " VALUES ";
+			
+			// --- Create value string ----------
+			String sqlValues = "";
+			for (int i = 0; i < networkStateList.size(); i++) {
+				String valuePart = networkStateList.get(i).getSQLInsertValueArray();
+				if (valuePart!=null) {
+					if (sqlValues.isEmpty()==false) {
+						sqlValues += ", ";
+					}
+					sqlValues += valuePart;
+				}
+			}
+			sql += sqlValues + ";";
+			
+			
+			// --------------------------------------------
+			// --- Saving in own transaction? --- 
+			if (isOpenTransaction==false) {
+				transaction = sessionToUse.beginTransaction();
+			}
+			
+			// --- Execute SQL statement --------
+			Query<?> query = sessionToUse.createNativeQuery(sql);
+			query.executeUpdate();
+			
+			// --- Saving in own transaction? ---
+			if (isOpenTransaction==false) {
+				sessionToUse.flush();
+				sessionToUse.clear();
+				transaction.commit();
+			}
+			successful = true;
+			
+		} catch (Exception ex) {
+			if (transaction!=null) transaction.rollback();
+			ex.printStackTrace();
+			successful = false;
+		}
+		return successful;
+	}
+	
+
 	/**
 	 * Saves the specified state results.
 	 *
@@ -232,6 +326,5 @@ public class DatabaseHandler {
 		}
 		return successful;
 	}
-	
 	
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" factory="de.enflexit.eom.PersistenceService.ScheduleList" name="de.enflexit.meo.persistence.SimBenchDataLoadService">
+   <implementation class="de.enflexit.meo.persistence.SimBenchDataLoadService"/>
+   <service>
+      <provide interface="energy.persistence.service.PersistenceServiceScheduleList"/>
+   </service>
+</scr:component>

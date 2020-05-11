@@ -7,6 +7,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: EnFlex.IT - SOFTEC
 Service-Component: OSGI-INF/awbClassLoadService.xml,
  OSGI-INF/eomClassLoadService.xml,
+ OSGI-INF/SimBenchDataLoadService.xml,
  OSGI-INF/SimBenchNetworkModelImportService.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
@@ -24,5 +25,6 @@ Require-Bundle: de.enflexit.api,
  de.enflexit.eom.awbAdapter
 Export-Package: de.enflexit.meo,
  de.enflexit.meo.classLoadService,
+ de.enflexit.meo.persistence,
  de.enflexit.meo.plugIn,
  de.enflexit.meo.plugIn.importer

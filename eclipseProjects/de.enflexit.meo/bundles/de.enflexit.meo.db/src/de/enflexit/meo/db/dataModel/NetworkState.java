@@ -1,14 +1,25 @@
 package de.enflexit.meo.db.dataModel;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class NetworkState {
+	
+	private Calendar stateTime;
 
 	private List<NodeResult> nodeResultList;
 	private List<EdgeResult> edgeResultList; 
 	private List<TrafoResult> trafoResultList;
 
+	
+	public Calendar getStateTime() {
+		return stateTime;
+	}
+	public void setStateTime(Calendar stateTime) {
+		this.stateTime = stateTime;
+	}
 
+	
 	public List<NodeResult> getNodeResultList() {
 		return nodeResultList;
 	}
@@ -29,5 +40,6 @@ public class NetworkState {
 	public void setTrafoResultList(List<TrafoResult> trafoResultList) {
 		this.trafoResultList = trafoResultList;
 	}
+	
 	
 }
