@@ -14,12 +14,14 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import agentgui.core.application.Application;
 import de.enflexit.common.csv.CSV_FilePreview;
+import de.enflexit.common.csv.CSV_FilePreview.CSV_FilePreviewSelection;
 import de.enflexit.meo.BundleHelper;
 import energy.GlobalInfo;
 import energy.optionModel.ScheduleList;
@@ -28,26 +30,27 @@ import energy.persistence.service.PersistenceHandler.PersistenceAction;
 import energy.persistence.service.PersistenceServiceScheduleList;
 import energy.schedule.ScheduleController;
 import energy.schedule.loading.ScheduleTimeRange;
-import energy.schedule.loading.gui.ScheduleTimeRangeSelectionPanel;
 
 /**
  * The SimBenchDataLoadService is used to read ScheduelList data from SimBench csv files. 
  * 
  * @author Christian Derksen - DAWIS - ICB - University of Duisburg-Essen
  */
-public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
+public class SimBenchScheduelListPersistenceService implements PersistenceServiceScheduleList {
 
-	private boolean isDebug = true;
 	private PersistenceConfigurator persistenceConfigurator;
+	private CSV_FilePreviewSelection csvSelection;
+	private ScheduleTimeRange scheduleTimeRange;
+	
 	
 	/**
 	 * Creates a new SimBenchDataLoadService.
 	 */
-	public SimBenchDataLoadService() { }
+	public SimBenchScheduelListPersistenceService() { }
 	
 	
 	// --------------------------------------------------------------------------------------------
-	// --- The visual elements for the database handling ------------------------------------------
+	// --- The visual elements EOM elements for the data handling ---------------------------------
 	// --------------------------------------------------------------------------------------------	
 	/* (non-Javadoc)
 	 * @see energy.persistence.service.PersistenceService#getJMenueItem(energy.persistence.service.PersistenceHandler.PersistenceAction)
@@ -59,7 +62,7 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 		switch (action) {
 		case LOAD:
 			jMenuItem = new JMenuItem();
-			jMenuItem.setText("Open SimBench csv-File");
+			jMenuItem.setText("Open SimBench csv-Files");
 			jMenuItem.setIcon(BundleHelper.getImageIcon("ImportSB.png"));
 			break;
 
@@ -85,44 +88,146 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 	
 	// --------------------------------------------------------------------------------------------
 	// --- The actual data loading method --------------------------------------------------------- 
-	// --------------------------------------------------------------------------------------------	
+	// --------------------------------------------------------------------------------------------
+	
 	/* (non-Javadoc)
 	 * @see energy.persistence.service.PersistenceServiceScheduleList#loadScheduleList(ScheduleController, ScheduleTimeRange, Component)
 	 */
 	@Override
 	public ScheduleList loadScheduleList(ScheduleController sc, ScheduleTimeRange scheduleTimeRange, Component invoker) {
 		
-		// --- Get file selection from user -----------------------------------
-		File simBenchFileSelected = this.selectFile(sc, PersistenceAction.LOAD, invoker);
+		// --------------------------------------------------------------------
+		// --- Get a SimBench data file ---------------------------------------
+		// --------------------------------------------------------------------
+		File simBenchFileSelected = null;
+		if (sc!=null && sc.isReloadScheduleList() && sc.getCurrentFile()!=null && sc.getCurrentFile().exists()) {
+			String loadProfileFilePath = sc.getCurrentFile().getAbsolutePath() + "/" + SimBenchFileStore.SIMBENCH_LoadProfile;
+			File loadProfileFile = new File(loadProfileFilePath); 
+			if (loadProfileFile.exists()==true) {
+				simBenchFileSelected = loadProfileFile;
+			}
+		} 
+		// --- Get from user if not defined -----------------------------------
+		if (simBenchFileSelected==null) {
+			simBenchFileSelected = this.selectFile(sc, PersistenceAction.LOAD, invoker);
+		}
 		if (simBenchFileSelected==null) return null;
-
-		// --- Ensure that the SimBench model will be loaded ------------------ 
-		SimBenchFileLoader.getInstance().setSimBenchDirectoryFile(simBenchFileSelected, this.isDebug);
 		
-		CSV_FilePreview preview = this.getCustomizedCsvFilePreview();
+		// --------------------------------------------------------------------
+		// --- Check for source file and row selection ------------------------
+		// --------------------------------------------------------------------
+		String sbFileSelection = null;
+		int sbRowIndexSelection = -1;
+		if (sc!=null && sc.isReloadScheduleList() && sc.getScheduleList().getDescription()!=null) {
+			// --- ... get from load description ------------------------------
+			try {
+				String loadDescription = sc.getScheduleList().getDescription();
+				String[] loadDescriptionArray = loadDescription.split("\\|");
+				sbFileSelection = loadDescriptionArray[0];
+				sbRowIndexSelection  = Integer.parseInt(loadDescriptionArray[1]);
+				
+			} catch (Exception ex) {
+				System.err.println("[" + this.getClass().getSimpleName() + "] Error while reading load description.");
+				sbFileSelection = null;
+				sbRowIndexSelection  = -1;
+			} 
+		}
 		
+		// --------------------------------------------------------------------
+		// --- Load ScheduleList ----------------------------------------------
+		// --------------------------------------------------------------------
+		ScheduleList scheduleList = this.loadScheduleList(simBenchFileSelected, sbFileSelection, sbRowIndexSelection, scheduleTimeRange);
 		
+		// --- Finally configure the ScheduleController -----------------------  
+		sc.setCurrentFile(simBenchFileSelected.getParentFile());
+		sc.setPersistenceServiceUsed(this.getClass());
+		sc.setBase64EncodedModel(null);
 		
-		
-		
-		return null;
+		return scheduleList;
 	}
-
+	
 	/**
-	 * Return the customized {@link CSV_FilePreview} that enables the further proceeding  
+	 * Provides an individual, SimBench specific load method 
+	 * @param simBenchFileSelected any file out of the SimBench source directory (e.g ExternalNet.csv) 
+	 * @param sbFileSelection the source file name for the element identification (Node.csv or Load.csv) 
+	 * @param sbRowIndexSelection the row index for element identification
+	 * @param scheduleTimeRange the {@link ScheduleTimeRange} to apply during the load process 
+	 * @return the ScheduelList as specified
+	 */
+	public ScheduleList loadScheduleList(File simBenchFileSelected, String sbFileSelection, int sbRowIndexSelection, ScheduleTimeRange scheduleTimeRange) {
+		
+		// --------------------------------------------------------------------
+		// --- Ensure that the SimBench model will be loaded ------------------
+		// --------------------------------------------------------------------
+		boolean showUserSelectionDialog = (sbFileSelection==null && sbRowIndexSelection==-1);
+		SimBenchFileStore.getInstance().setSimBenchDirectoryFile(simBenchFileSelected, showUserSelectionDialog);
+		if (showUserSelectionDialog==true) {
+			// --- ... let the user select ------------------------------------
+			this.setScheduleTimeRange(scheduleTimeRange);
+			this.doUserCsvSelection();
+			if (this.getCsvSelection()==null) return null;
+			
+			sbFileSelection   = this.getCsvSelection().getSelectedFile();
+			sbRowIndexSelection    = this.getCsvSelection().getSelectedModelRows()[0];
+			scheduleTimeRange = this.getScheduleTimeRange();
+		}
+		if (sbFileSelection==null && sbRowIndexSelection==-1) return null;
+		
+		// --------------------------------------------------------------------
+		// --- Load the ScheduleList from the SimBenchLoader ------------------
+		// --------------------------------------------------------------------
+		ScheduleList scheduleList = null;
+		SimBenchFileStoreReader fileStoreReader = new SimBenchFileStoreReader();
+		if (sbFileSelection.equals(SimBenchFileStore.SIMBENCH_Node)==true) {
+			scheduleList = fileStoreReader.getScheduleListByNode(sbRowIndexSelection, scheduleTimeRange);
+		} else if (sbFileSelection.equals(SimBenchFileStore.SIMBENCH_Load)==true) {
+			scheduleList = fileStoreReader.getScheduleListByLoad(sbRowIndexSelection, scheduleTimeRange);
+		}
+		// --- Set the load description ---------------------------------------
+		if (scheduleList!=null) scheduleList.setDescription(this.getLoadDescription(sbFileSelection, sbRowIndexSelection));
+		return scheduleList;
+	}
+	
+	/**
+	 * Returns the ScheduleList load description for the current ScheduleList
+	 * @param sbFileName the SimBench file name that serves as base
+	 * @param sbRowSelection the row number that was selected
+	 * 
+	 * @return the ScheduleList load description
+	 */
+	private String getLoadDescription(String sbFileName, int sbRowSelection) {
+		return sbFileName + "|" + sbRowSelection;
+	}
+	
+
+	private CSV_FilePreviewSelection getCsvSelection() {
+		return csvSelection;
+	}
+	private  void setCsvSelection(CSV_FilePreviewSelection csvSelection) {
+		this.csvSelection = csvSelection;
+	}
+	private ScheduleTimeRange getScheduleTimeRange() {
+		return scheduleTimeRange;
+	}
+	private void setScheduleTimeRange(ScheduleTimeRange scheduleTimeRange) {
+		this.scheduleTimeRange = scheduleTimeRange;
+	}
+	
+	/**
+	 * Return the customized {@link CSV_FilePreview} that enables the further proceeding
 	 * @return the customized CSV_FilePreview with an added control panel  
 	 */
-	private CSV_FilePreview getCustomizedCsvFilePreview() {
+	private void doUserCsvSelection() {
 		
 		// --- Get the current preview dialog ---------------------------------
-		CSV_FilePreview preview = SimBenchFileLoader.getInstance().getCSVFilePreviewDialog();
+		CSV_FilePreview preview = SimBenchFileStore.getInstance().getCSVFilePreviewDialog();
 		if (preview!=null) {
 			// --- Set temporary invisible ------------------------------------
 			preview.setVisible(false);
 			// --- Create SimBenchProceedSelectionPanel -----------------------
 			SimBenchProceedSelectionPanel proceedPanel = new SimBenchProceedSelectionPanel();
+			proceedPanel.setScheduleTimeRange(this.getScheduleTimeRange());
 			proceedPanel.addActionListener(new ActionListener() {
-				
 				@Override
 				public void actionPerformed(ActionEvent ae) {
 					
@@ -133,6 +238,7 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 					// --- Get the instance of the CSV_FilePreview ------------ 
 					Dialog parentDialog = Application.getGlobalInfo().getOwnerDialogForComponent((JComponent) ae.getSource());
 					if (parentDialog instanceof CSV_FilePreview) {
+						// --- Get the preview dialog -------------------------
 						CSV_FilePreview preview = (CSV_FilePreview) parentDialog;
 						if (proceedPanel.isCanceled()==true) {
 							preview.setVisible(false);
@@ -140,30 +246,49 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 						}
 						
 						// --- Check the selection in the 'node' table --------
+						CSV_FilePreviewSelection selection = preview.getSelection();
+						// --- Do some error checks ---------------------------
+						String title = "Missing selection";
+						String message = "";
+						String fileSelected = selection.getSelectedFile();
+						if (message.isEmpty()==true && fileSelected.equals(SimBenchFileStore.SIMBENCH_Node)==false && fileSelected.equals(SimBenchFileStore.SIMBENCH_Load)==false) {
+							message = "Please, select the node (" + SimBenchFileStore.SIMBENCH_Node + ") or the load (" + SimBenchFileStore.SIMBENCH_Load + ") that is to be imported!"; 
+						}
+						if (message.isEmpty()==true && (selection.getSelectedModelRows()==null || selection.getSelectedModelRows().length==0 )) {
+							message = "Please, select the node or the load row that is to be imported!"; 
+						}
+						if (message.isEmpty()==true && selection.getSelectedModelRows().length>1) {
+							message = "Please, only select a single row that is to be imported!"; 
+						}
+						if (message.isEmpty()==true && fileSelected.equals(SimBenchFileStore.SIMBENCH_Node)==true && new SimBenchFileStoreReader().isCableCabinetNodeSelection(selection.getSelectedModelRows()[0])) {
+							message = "The row selected describes a cable cabinet and thus provides no further profile information!"; 
+						}
 						
+						if (message.isEmpty()==false) {
+							JOptionPane.showMessageDialog(preview, message, title, JOptionPane.WARNING_MESSAGE, null);
+							return;
+						}
 						
-						
-						
+						// --- Close the CSV_FilePreview ----------------------
+						SimBenchScheduelListPersistenceService.this.setCsvSelection(selection);
+						SimBenchScheduelListPersistenceService.this.setScheduleTimeRange(proceedPanel.getScheduleTimeRange());
+						preview.setVisible(false);
 					}
 				}
 			});
 			// --- Add to CSV_FilePreview -------------------------------------
 			preview.getContentPane().add(proceedPanel, BorderLayout.SOUTH);
 			preview.validate();
-			preview.repaint();
 			
 			// --- Set focus to 'node' file -----------------------------------
-			preview.setTabFocusToFile(SimBenchFileLoader.SIMBENCH_Node);
+			preview.setTabFocusToFile(SimBenchFileStore.SIMBENCH_Node);
 			
 			// --- Set the dialog to appear modal -----------------------------
 			preview.setModal(true);
 			preview.setVisible(true);
 			// - - Wait for user - - - - - - - - - - - - - - - - - - - - - - -
 		}
-		return preview;
 	}
-	
-	
 	
 	
 	/**
@@ -210,9 +335,6 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 				break;
 			}
 			
-			// --- The possible time range selection ------
-			ScheduleTimeRangeSelectionPanel timeRangeSelectionPanel = null;
-			
 			//---------------------------------------------
 			// --- Create file choose instance ------------
 			//---------------------------------------------
@@ -236,14 +358,6 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 				fileChooser.setSelectedFile(fileSelected);	
 			}
 			
-			//---------------------------------------------
-			// --- Configure a ScheduleTimeRange? ---------
-			//---------------------------------------------
-			if (action==PersistenceAction.LOAD) {
-				timeRangeSelectionPanel = new ScheduleTimeRangeSelectionPanel(sc.getScheduleTimeRange());
-				fileChooser.setAccessory(timeRangeSelectionPanel);
-			}
-			
 			// --- Show file selection dialog -------------
 			int ret = fileChooser.showDialog(parentComponent, caption);
 			// - - - - - - - - - - - - - - - - - - - - - -  
@@ -258,16 +372,6 @@ public class SimBenchDataLoadService implements PersistenceServiceScheduleList {
 					fileSelected = new File(fileSelected.getAbsoluteFile() + fileExtension);	
 				}
 				GlobalInfo.setLastSelectedDirectory(fileChooser.getCurrentDirectory());
-				
-				// --- Valid time range selection? --------
-				if (timeRangeSelectionPanel!=null) {
-					ScheduleTimeRange scheduleTimeRange = timeRangeSelectionPanel.getScheduleTimeRange();
-					if (scheduleTimeRange==null || scheduleTimeRange.isValidScheduleTimeRange()==false) {
-						sc.setScheduleTimeRange(null);
-					} else {
-						sc.setScheduleTimeRange(scheduleTimeRange);
-					}
-				}
 				
 			} else {
 				fileSelected = null;

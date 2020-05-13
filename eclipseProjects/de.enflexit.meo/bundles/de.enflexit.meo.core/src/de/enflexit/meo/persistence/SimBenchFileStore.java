@@ -10,17 +10,23 @@ import javax.swing.filechooser.FileFilter;
 import org.awb.env.networkModel.NetworkModel;
 import org.awb.env.networkModel.persistence.AbstractNetworkModelCsvImporter;
 
-public class SimBenchFileLoader extends AbstractNetworkModelCsvImporter {
+/**
+ * The SimBenchFileLoader represents a singleton instance that enables to
+ * load SimBench data and translate it into ScheduleList's 
+ *  
+ * @author Christian Derksen - DAWIS - ICB - University of Duisburg-Essen
+ */
+public class SimBenchFileStore extends AbstractNetworkModelCsvImporter {
 
 	// ----------------------------------------------------
 	// --- The singleton construction ---------------------
 	// ----------------------------------------------------
-	private static SimBenchFileLoader thisInstance;
+	private static SimBenchFileStore thisInstance;
 	
-	private SimBenchFileLoader() { }
-	public static SimBenchFileLoader getInstance() {
+	private SimBenchFileStore() { }
+	public static SimBenchFileStore getInstance() {
 		if (thisInstance==null) {
-			thisInstance = new SimBenchFileLoader();
+			thisInstance = new SimBenchFileStore();
 		}
 		return thisInstance;
 	}
@@ -45,17 +51,20 @@ public class SimBenchFileLoader extends AbstractNetworkModelCsvImporter {
 	public static final String SIMBENCH_Transformer	 	= "Transformer.csv";
 	public static final String SIMBENCH_TransformerType = "TransformerType.csv";
 	
-	
 	private List<FileFilter> fileFilterList;
 	private File simBenchDirecotry;  
+
 	
-	
+	// --------------------------------------------------------------------------------------------
+	// --- From here: Methods to set and load the csv files ---------------------------------------
+	// --------------------------------------------------------------------------------------------
 	/**
-	 * Set the currently selected SimBench file and thus the directory (parent). 
+	 * Set the currently selected SimBench file and thus the directory (parent).
+	 * 
 	 * @param simBenchDirecotryFile the selected SimBench file
 	 * @param isDebug indicator if the current invocation is for debugging and if the import files should be shown
 	 */
-	public void setSimBenchDirectoryFile(File simBenchDirecotryFile, boolean isDebug) {
+	public synchronized void setSimBenchDirectoryFile(File simBenchDirecotryFile, boolean isDebug) {
 		if (simBenchDirecotryFile!=null && simBenchDirecotryFile.exists()==true) {
 
 			// -- Get the parent directory to find all files --------  
@@ -79,11 +88,11 @@ public class SimBenchFileLoader extends AbstractNetworkModelCsvImporter {
 			this.showImportPreview();
 		}
 	}
+
 	
-	
-	
-	
-	
+	// --------------------------------------------------------------------------------------------
+	// --- From here: Some configuration for the super class AbstractNetworkModelCsvImporter ------
+	// --------------------------------------------------------------------------------------------
 	/* (non-Javadoc)
 	 * @see org.awb.env.networkModel.persistence.AbstractNetworkModelCsvImporter#getListOfRequiredFileNames()
 	 */

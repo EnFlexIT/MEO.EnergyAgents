@@ -7,8 +7,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: EnFlex.IT - SOFTEC
 Service-Component: OSGI-INF/awbClassLoadService.xml,
  OSGI-INF/eomClassLoadService.xml,
- OSGI-INF/SimBenchDataLoadService.xml,
- OSGI-INF/SimBenchNetworkModelImportService.xml
+ OSGI-INF/SimBenchNetworkModelImportService.xml,
+ OSGI-INF/SimBenchScheduleListPersistenceService.xml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.enflexit.api,
