@@ -2,8 +2,8 @@
 <ns2:TechnicalSystem xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel">
     <ns2:SystemID>ControllableTransformer</ns2:SystemID>
     <ns2:InterfaceConfigurations>
-        <ns2:ConfigID>Conf</ns2:ConfigID>
-        <ns2:ConfigDescription>Description</ns2:ConfigDescription>
+        <ns2:ConfigID>1-to-3</ns2:ConfigID>
+        <ns2:ConfigDescription>1 Phase HV to 3 Phase LV</ns2:ConfigDescription>
         <ns2:TechnicalInterfaces xsi:type="ns2:EnergyInterface" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:InterfaceID>P1</ns2:InterfaceID>
             <ns2:Description></ns2:Description>
@@ -180,7 +180,7 @@
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:StaticModelClass>hygrid.agent.transformer.eomDataModel.TransformerStaticDataModel</ns2:StaticModelClass>
-        <ns2:StaticModelValue>rO0ABXNyADpoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJ5blx/JI7dACAANEAAlpbXBlZGFuY2VEACZudW1iZXJPZlZpb2xhdGlvbnNUb0FjdGl2YXRlQ29udHJvbGxlckQACnJhdGVkUG93ZXJ4cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ns2:StaticModelValue>
+        <ns2:StaticModelValue>rO0ABXNyADpoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJ5blx/JI7dACABBEABBjb3BwZXJMb3NzZXNfcEN1RAAVaWRsZUltcGVkYW5jZV9pTm9Mb2FkRAAOaXJvbkxvc3Nlc19wRmVEABFsb3dlclZvbHRhZ2Vfdm1MVkQAJm51bWJlck9mVmlvbGF0aW9uc1RvQWN0aXZhdGVDb250cm9sbGVyRAAUcGhhc2VTaGlmdFBlclRhcF9kVmFEAA5waGFzZVNoaWZ0X3ZhMEQADXJhdGVkUG93ZXJfc1JEABtzaG9ydENpcmN1aXRJbXBlZGFuY2Vfdm1JbXBJAAp0YXBNYXhpbXVtSQAKdGFwTWluaW11bUkACnRhcE5ldXRyYWxaAAd0YXBhYmxlRAARdXBwZXJWb2x0YWdlX3ZtSFZEABZ2b2x0YWdlRGVsdGFQZXJUYXBfZFZtTAAHdGFwU2lkZXQARExoeWdyaWQvYWdlbnQvdHJhbnNmb3JtZXIvZW9tRGF0YU1vZGVsL1RyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGU7eHBAGmZmZmZmZkAhmZmZmZmaQB7MzMzMzM1ACmZmZmZmZgAAAAAAAAAAQAAAAAAAAABAEZmZmZmZmj/xmZmZmZmaQBYAAAAAAAAAAAAK////9gAAAAAAQAGZmZmZmZo/8ZmZmZmZmn5yAEJoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AA5Mb3dWb2x0YWdlU2lkZQ==</ns2:StaticModelValue>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>transformerStep</ns2:VariableID>
@@ -206,11 +206,10 @@
         <ns2:DataRepetition>None</ns2:DataRepetition>
         <ns2:TimeFormat>dd.MM.yy HH:mm:ss</ns2:TimeFormat>
         <ns2:EvaluationStateList xsi:type="ns2:TechnicalSystemState" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <ns2:id>0</ns2:id>
             <ns2:idSchedule>0</ns2:idSchedule>
             <ns2:GlobalTime>1451602800000</ns2:GlobalTime>
             <ns2:Description>Initial State</ns2:Description>
-            <ns2:ConfigID>Conf</ns2:ConfigID>
+            <ns2:ConfigID>1-to-3</ns2:ConfigID>
             <ns2:StateID>On</ns2:StateID>
             <ns2:StateTime>1000</ns2:StateTime>
             <ns2:IOlist xsi:type="ns2:FixedInteger">
@@ -326,7 +325,6 @@
             </ns2:UsageOfInterfaces>
         </ns2:EvaluationStateList>
         <ns2:EvaluationStateList>
-            <ns2:id>0</ns2:id>
             <ns2:idSchedule>0</ns2:idSchedule>
             <ns2:GlobalTime>1568844000000</ns2:GlobalTime>
             <ns2:Description>Final State</ns2:Description>
