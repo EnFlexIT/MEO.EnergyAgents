@@ -11,12 +11,15 @@ import org.awb.env.networkModel.NetworkModel;
 
 import de.enflexit.ea.core.dataModel.blackboard.Blackboard;
 import de.enflexit.ea.core.dataModel.blackboard.BlackboardListenerService;
+import de.enflexit.ea.core.dataModel.blackboard.DomainBlackboard;
 import de.enflexit.ea.core.dataModel.ontology.CableState;
 import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeState;
 import de.enflexit.ea.core.dataModel.ontology.TriPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.TriPhaseElectricalNodeState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseElectricalNodeState;
+import de.enflexit.ea.electricity.aggregation.DomainBlackboardElectricity;
+import de.enflexit.ea.electricity.aggregation.triPhase.SubNetworkConfigurationElectricalDistributionGrids;
 import de.enflexit.meo.db.BundleHelper;
 import de.enflexit.meo.db.DatabaseHandler;
 import de.enflexit.meo.db.dataModel.EdgeResult;
@@ -75,11 +78,13 @@ public class BlackboardListener implements BlackboardListenerService {
 		// --- Get the state time -------------------------
 		Calendar stateTime = Calendar.getInstance();
 		stateTime.setTimeInMillis(blackboard.getStateTime());
-			
+		
+		DomainBlackboardElectricity domainBlackboard = (DomainBlackboardElectricity) blackboard.getDomainBlackboard(SubNetworkConfigurationElectricalDistributionGrids.SUBNET_DESCRIPTION_ELECTRICAL_DISTRIBUTION_GRIDS);
+		
 		// --- Get a quick copy of the sates --------------
-		HashMap<String, ElectricalNodeState> nodeStates = new HashMap<>(blackboard.getGraphNodeStates());
-		HashMap<String, CableState> cableStates = new HashMap<>(blackboard.getNetworkComponentStates());
-		HashMap<String, TechnicalSystemState> transformerStates = new HashMap<>(blackboard.getTransformerStates());	
+		HashMap<String, ElectricalNodeState> nodeStates = new HashMap<>(domainBlackboard.getGraphNodeStates());
+		HashMap<String, CableState> cableStates = new HashMap<>(domainBlackboard.getNetworkComponentStates());
+		HashMap<String, TechnicalSystemState> transformerStates = new HashMap<>(domainBlackboard.getTransformerStates());	
 
 		// --- Create lists to save to database -----------
 		NetworkState networkState = new NetworkState();
