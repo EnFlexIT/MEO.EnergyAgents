@@ -8,18 +8,18 @@ import java.util.Vector;
 
 import org.awb.env.networkModel.NetworkComponent;
 import org.awb.env.networkModel.NetworkModel;
-
-import de.enflexit.ea.core.dataModel.blackboard.Blackboard;
-import de.enflexit.ea.core.dataModel.blackboard.BlackboardListenerService;
-import de.enflexit.ea.core.dataModel.blackboard.DomainBlackboard;
+import de.enflexit.ea.core.aggregation.AbstractAggregationHandler;
+import de.enflexit.ea.core.blackboard.Blackboard;
+import de.enflexit.ea.core.blackboard.BlackboardListenerService;
 import de.enflexit.ea.core.dataModel.ontology.CableState;
 import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeState;
 import de.enflexit.ea.core.dataModel.ontology.TriPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.TriPhaseElectricalNodeState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseElectricalNodeState;
-import de.enflexit.ea.electricity.aggregation.DomainBlackboardElectricity;
+import de.enflexit.ea.electricity.aggregation.AbstractSubAggregationBuilderElectricity;
 import de.enflexit.ea.electricity.aggregation.triPhase.SubNetworkConfigurationElectricalDistributionGrids;
+import de.enflexit.ea.electricity.blackboard.SubBlackboardModelElectricity;
 import de.enflexit.meo.db.BundleHelper;
 import de.enflexit.meo.db.DatabaseHandler;
 import de.enflexit.meo.db.dataModel.EdgeResult;
@@ -79,12 +79,15 @@ public class BlackboardListener implements BlackboardListenerService {
 		Calendar stateTime = Calendar.getInstance();
 		stateTime.setTimeInMillis(blackboard.getStateTime());
 		
-		DomainBlackboardElectricity domainBlackboard = (DomainBlackboardElectricity) blackboard.getDomainBlackboard(SubNetworkConfigurationElectricalDistributionGrids.SUBNET_DESCRIPTION_ELECTRICAL_DISTRIBUTION_GRIDS);
+		// --- Get the sub blackboard model ---------------
+		//TODO Make sure to get the right blackboard! 
+		AbstractAggregationHandler aggregationHandler = blackboard.getAggregationHandler();
+		SubBlackboardModelElectricity subBlackboardModel = (SubBlackboardModelElectricity) aggregationHandler.getSubNetworkConfigurations().get(0).getSubBlackboardModel();
 		
 		// --- Get a quick copy of the sates --------------
-		HashMap<String, ElectricalNodeState> nodeStates = new HashMap<>(domainBlackboard.getGraphNodeStates());
-		HashMap<String, CableState> cableStates = new HashMap<>(domainBlackboard.getNetworkComponentStates());
-		HashMap<String, TechnicalSystemState> transformerStates = new HashMap<>(domainBlackboard.getTransformerStates());	
+		HashMap<String, ElectricalNodeState> nodeStates = new HashMap<>(subBlackboardModel.getGraphNodeStates());
+		HashMap<String, CableState> cableStates = new HashMap<>(subBlackboardModel.getNetworkComponentStates());
+		HashMap<String, TechnicalSystemState> transformerStates = new HashMap<>(subBlackboardModel.getTransformerStates());	
 
 		// --- Create lists to save to database -----------
 		NetworkState networkState = new NetworkState();
