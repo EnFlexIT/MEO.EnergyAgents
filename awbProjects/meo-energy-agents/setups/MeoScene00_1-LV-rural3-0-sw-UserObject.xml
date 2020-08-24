@@ -5,6 +5,6 @@
         <numberOfSystemStates>100</numberOfSystemStates>
         <rangeType>TimeRange</rangeType>
         <timeFrom>1451602800000</timeFrom>
-        <timeTo>1452726000000</timeTo>
+        <timeTo>1452812400000</timeTo>
     </ns2:scheduleTimeRange>
 </ns2:setupExtension>

@@ -8,6 +8,15 @@
             <startAsName>SiMa</startAsName>
         </agent>
         <agent>
+            <postionNo>2</postionNo>
+            <listMembership>01 AgentStartManual</listMembership>
+            <agentClassReference>de.enflexit.ea.core.ops.agent.CeaConnectorAgent</agentClassReference>
+            <startAsName>CeCoAg</startAsName>
+            <startArguments>
+                <argument>PFNpbXBsZV9Mb25nIFN0cmluZ0xvbmdWYWx1ZT0iNDIiLz4K</argument>
+            </startArguments>
+        </agent>
+        <agent>
             <postionNo>1</postionNo>
             <listMembership>02 AgentStartEnvironment</listMembership>
             <agentClassReference>de.enflexit.ea.prosumer.ProsumerAgent</agentClassReference>
@@ -821,6 +830,7 @@
         </plugins>
         <subOntologies>
             <subOntology>agentgui.ontology.AgentGUI_BaseOntology</subOntology>
+            <subOntology>de.enflexit.ea.core.dataModel.ontology.HyGridOntology</subOntology>
         </subOntologies>
         <agentStartConfiguration>
             <agentVector>

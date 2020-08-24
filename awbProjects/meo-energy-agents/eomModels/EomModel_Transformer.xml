@@ -204,9 +204,9 @@
             </ns2:StateTransitions>
             <ns2:StateEvaluationRanges xsi:type="ns2:RangeInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:id>0</ns2:id>
-                <ns2:VariableID>transformerStep</ns2:VariableID>
-                <ns2:ValueMin>-4</ns2:ValueMin>
-                <ns2:ValueMax>4</ns2:ValueMax>
+                <ns2:VariableID>tapPos</ns2:VariableID>
+                <ns2:ValueMin>-10</ns2:ValueMin>
+                <ns2:ValueMax>10</ns2:ValueMax>
             </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>On</ns2:InitialStateID>
@@ -329,6 +329,12 @@
                 <ns2:VariableID>transformerStep</ns2:VariableID>
                 <ns2:ValueMin>-4</ns2:ValueMin>
                 <ns2:ValueMax>4</ns2:ValueMax>
+            </ns2:StateEvaluationRanges>
+            <ns2:StateEvaluationRanges xsi:type="ns2:RangeInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>tapPos</ns2:VariableID>
+                <ns2:ValueMin>-10</ns2:ValueMin>
+                <ns2:ValueMax>10</ns2:ValueMax>
             </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>On</ns2:InitialStateID>
@@ -628,6 +634,12 @@
                 <ns2:ValueMin>-4</ns2:ValueMin>
                 <ns2:ValueMax>4</ns2:ValueMax>
             </ns2:StateEvaluationRanges>
+            <ns2:StateEvaluationRanges xsi:type="ns2:RangeInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>tapPos</ns2:VariableID>
+                <ns2:ValueMin>-10</ns2:ValueMin>
+                <ns2:ValueMax>10</ns2:ValueMax>
+            </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>On</ns2:InitialStateID>
     </ns2:InterfaceConfigurations>
@@ -641,37 +653,30 @@
         <ns2:StaticModelValue>rO0ABXNyADpoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJ5blx/JI7dACABBEABBjb3BwZXJMb3NzZXNfcEN1RAAVaWRsZUltcGVkYW5jZV9pTm9Mb2FkRAAOaXJvbkxvc3Nlc19wRmVEABFsb3dlclZvbHRhZ2Vfdm1MVkQAJm51bWJlck9mVmlvbGF0aW9uc1RvQWN0aXZhdGVDb250cm9sbGVyRAAUcGhhc2VTaGlmdFBlclRhcF9kVmFEAA5waGFzZVNoaWZ0X3ZhMEQADXJhdGVkUG93ZXJfc1JEABtzaG9ydENpcmN1aXRJbXBlZGFuY2Vfdm1JbXBJAAp0YXBNYXhpbXVtSQAKdGFwTWluaW11bUkACnRhcE5ldXRyYWxaAAd0YXBhYmxlRAARdXBwZXJWb2x0YWdlX3ZtSFZEABZ2b2x0YWdlRGVsdGFQZXJUYXBfZFZtTAAHdGFwU2lkZXQARExoeWdyaWQvYWdlbnQvdHJhbnNmb3JtZXIvZW9tRGF0YU1vZGVsL1RyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGU7eHBAGmZmZmZmZkAhmZmZmZmaQB7MzMzMzM0/2ZmZmZmZmgAAAAAAAAAAQAAAAAAAAABAEZmZmZmZmj/xmZmZmZmaQBYAAAAAAAAAAAAK////9gAAAAABQCQAAAAAAAA/8ZmZmZmZmn5yAEJoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AA5Mb3dWb2x0YWdlU2lkZQ==</ns2:StaticModelValue>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>vReal</ns2:VariableID>
-        <ns2:VariableDescription>Voltage Real</ns2:VariableDescription>
+        <ns2:VariableID>lvTotaCurrent</ns2:VariableID>
+        <ns2:VariableDescription>LV Total Current</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:ValueMin>0.0</ns2:ValueMin>
         <ns2:ValueMax>0.0</ns2:ValueMax>
         <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>V</ns2:Unit>
+        <ns2:Unit>A</ns2:Unit>
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>vComplex</ns2:VariableID>
-        <ns2:VariableDescription>Voltage Complex</ns2:VariableDescription>
+        <ns2:VariableID>lvTotalCosPhi</ns2:VariableID>
+        <ns2:VariableDescription>LV Total Cos Phi</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:ValueMin>0.0</ns2:ValueMin>
         <ns2:ValueMax>0.0</ns2:ValueMax>
         <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>V</ns2:Unit>
+        <ns2:Unit>°</ns2:Unit>
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>vViolation</ns2:VariableID>
-        <ns2:VariableDescription>Voltage Violation</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>resLoadP</ns2:VariableID>
@@ -700,19 +705,6 @@
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>tUtil</ns2:VariableID>
-        <ns2:VariableDescription>Trafo Utilization</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>-</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>tLossesP</ns2:VariableID>
         <ns2:VariableDescription>Trafo Losses P</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
@@ -737,6 +729,52 @@
         <ns2:Unit>VA</ns2:Unit>
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>tUtil</ns2:VariableID>
+        <ns2:VariableDescription>Trafo Utilization</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>-</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>vComplex</ns2:VariableID>
+        <ns2:VariableDescription>Voltage Complex</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>V</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>vReal</ns2:VariableID>
+        <ns2:VariableDescription>Voltage Real</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>V</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>vViolation</ns2:VariableID>
+        <ns2:VariableDescription>Voltage Violation</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>tapPos</ns2:VariableID>
@@ -767,28 +805,62 @@
             <ns2:Description>Initial State</ns2:Description>
             <ns2:ConfigID>1-to-3</ns2:ConfigID>
             <ns2:StateID>On</ns2:StateID>
-            <ns2:StateTime>1000</ns2:StateTime>
+            <ns2:StateTime>0</ns2:StateTime>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrent</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotalCosPhi</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>resLoadP</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>resLoadQ</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>tLossesP</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>tLossesQ</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>tUtil</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedInteger">
                 <ns2:id>0</ns2:id>
-                <ns2:VariableID>transformerStep</ns2:VariableID>
+                <ns2:VariableID>tapPos</ns2:VariableID>
                 <ns2:Value>0</ns2:Value>
             </ns2:IOlist>
-            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
-                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
-                <ns2:InterfaceID>LV-P1</ns2:InterfaceID>
-                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
-                <ns2:EnergyFlow unit="W">
-                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
-                    <ns2:value>0.0</ns2:value>
-                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
-                </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
-            </ns2:UsageOfInterfaces>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>vComplex</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>vReal</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedBoolean">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>vViolation</ns2:VariableID>
+                <ns2:Value>false</ns2:Value>
+            </ns2:IOlist>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
                 <ns2:InterfaceID>LV-P1</ns2:InterfaceID>
@@ -878,6 +950,44 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>HV-P</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>HV-Q</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
         </ns2:EvaluationStateList>
         <ns2:EvaluationStateList>

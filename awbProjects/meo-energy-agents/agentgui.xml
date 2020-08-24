@@ -17,6 +17,7 @@
     </plugins>
     <subOntologies>
         <subOntology>agentgui.ontology.AgentGUI_BaseOntology</subOntology>
+        <subOntology>de.enflexit.ea.core.dataModel.ontology.HyGridOntology</subOntology>
     </subOntologies>
     <agentStartConfiguration>
         <agentVector>
@@ -174,7 +175,7 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>de.enflexit.ea.core.dataModel.absEnvModel.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>Meo.Scene.00_1-LV-rural3--0-sw</simulationSetupCurrent>
+    <simulationSetupCurrent>SimBench-Import-Test</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
     <simulationSetups>
         <entry>

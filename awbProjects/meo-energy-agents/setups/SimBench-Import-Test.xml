@@ -137,6 +137,7 @@
         </plugins>
         <subOntologies>
             <subOntology>agentgui.ontology.AgentGUI_BaseOntology</subOntology>
+            <subOntology>de.enflexit.ea.core.dataModel.ontology.HyGridOntology</subOntology>
         </subOntologies>
         <agentStartConfiguration>
             <agentVector>
