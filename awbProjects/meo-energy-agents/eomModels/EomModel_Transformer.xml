@@ -205,8 +205,8 @@
             <ns2:StateEvaluationRanges xsi:type="ns2:RangeInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tapPos</ns2:VariableID>
-                <ns2:ValueMin>-10</ns2:ValueMin>
-                <ns2:ValueMax>10</ns2:ValueMax>
+                <ns2:ValueMin>-2</ns2:ValueMin>
+                <ns2:ValueMax>2</ns2:ValueMax>
             </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>On</ns2:InitialStateID>
@@ -333,8 +333,8 @@
             <ns2:StateEvaluationRanges xsi:type="ns2:RangeInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tapPos</ns2:VariableID>
-                <ns2:ValueMin>-10</ns2:ValueMin>
-                <ns2:ValueMax>10</ns2:ValueMax>
+                <ns2:ValueMin>-2</ns2:ValueMin>
+                <ns2:ValueMax>2</ns2:ValueMax>
             </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>On</ns2:InitialStateID>
@@ -637,8 +637,8 @@
             <ns2:StateEvaluationRanges xsi:type="ns2:RangeInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tapPos</ns2:VariableID>
-                <ns2:ValueMin>-10</ns2:ValueMin>
-                <ns2:ValueMax>10</ns2:ValueMax>
+                <ns2:ValueMin>-2</ns2:ValueMin>
+                <ns2:ValueMax>2</ns2:ValueMax>
             </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>On</ns2:InitialStateID>
@@ -650,7 +650,7 @@
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:StaticModelClass>hygrid.agent.transformer.eomDataModel.TransformerStaticDataModel</ns2:StaticModelClass>
-        <ns2:StaticModelValue>rO0ABXNyADpoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJ5blx/JI7dACABBEABBjb3BwZXJMb3NzZXNfcEN1RAAVaWRsZUltcGVkYW5jZV9pTm9Mb2FkRAAOaXJvbkxvc3Nlc19wRmVEABFsb3dlclZvbHRhZ2Vfdm1MVkQAJm51bWJlck9mVmlvbGF0aW9uc1RvQWN0aXZhdGVDb250cm9sbGVyRAAUcGhhc2VTaGlmdFBlclRhcF9kVmFEAA5waGFzZVNoaWZ0X3ZhMEQADXJhdGVkUG93ZXJfc1JEABtzaG9ydENpcmN1aXRJbXBlZGFuY2Vfdm1JbXBJAAp0YXBNYXhpbXVtSQAKdGFwTWluaW11bUkACnRhcE5ldXRyYWxaAAd0YXBhYmxlRAARdXBwZXJWb2x0YWdlX3ZtSFZEABZ2b2x0YWdlRGVsdGFQZXJUYXBfZFZtTAAHdGFwU2lkZXQARExoeWdyaWQvYWdlbnQvdHJhbnNmb3JtZXIvZW9tRGF0YU1vZGVsL1RyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGU7eHBAGmZmZmZmZkAhmZmZmZmaQB7MzMzMzM0/2ZmZmZmZmgAAAAAAAAAAQAAAAAAAAABAEZmZmZmZmj/xmZmZmZmaQBYAAAAAAAAAAAAK////9gAAAAABQCQAAAAAAAA/8ZmZmZmZmn5yAEJoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AA5Mb3dWb2x0YWdlU2lkZQ==</ns2:StaticModelValue>
+        <ns2:StaticModelValue>rO0ABXNyADpoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJ5blx/JI7dACABFEABBjb3BwZXJMb3NzZXNfcEN1RAAVaWRsZUltcGVkYW5jZV9pTm9Mb2FkRAAOaXJvbkxvc3Nlc19wRmVEABFsb3dlclZvbHRhZ2Vfdm1MVkQAJm51bWJlck9mVmlvbGF0aW9uc1RvQWN0aXZhdGVDb250cm9sbGVyRAAUcGhhc2VTaGlmdFBlclRhcF9kVmFEAA5waGFzZVNoaWZ0X3ZhMEQADXJhdGVkUG93ZXJfc1JEABtzaG9ydENpcmN1aXRJbXBlZGFuY2Vfdm1JbXBJAAp0YXBNYXhpbXVtSQAKdGFwTWluaW11bUkACnRhcE5ldXRyYWxaAAd0YXBhYmxlRAARdXBwZXJWb2x0YWdlX3ZtSFZEABZ2b2x0YWdlRGVsdGFQZXJUYXBfZFZtTAAJbGlicmFyeUlEdAASTGphdmEvbGFuZy9TdHJpbmc7TAAHdGFwU2lkZXQARExoeWdyaWQvYWdlbnQvdHJhbnNmb3JtZXIvZW9tRGF0YU1vZGVsL1RyYW5zZm9ybWVyRGF0YU1vZGVsJFRhcFNpZGU7eHBACmZmZmZmZj/Wh1Tzd1uBP+wo9cKPXCk/2ZmZmZmZmgAAAAAAAAAAAAAAAAAAAABAYsAAAAAAAD/QAAAAAAAAQBgAAAAAAAAAAAAC/////gAAAAABQDQAAAAAAABABAAAAAAAAHQAHDAuMjUgTVZBIDIwLzAuNCBrViBEeW41IEFTRUF+cgBCaHlncmlkLmFnZW50LnRyYW5zZm9ybWVyLmVvbURhdGFNb2RlbC5UcmFuc2Zvcm1lckRhdGFNb2RlbCRUYXBTaWRlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAPSGlnaFZvbHRhZ2VTaWRl</ns2:StaticModelValue>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>lvTotaCurrent</ns2:VariableID>
@@ -700,7 +700,7 @@
         <ns2:ValueMin>0.0</ns2:ValueMin>
         <ns2:ValueMax>0.0</ns2:ValueMax>
         <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>VA</ns2:Unit>
+        <ns2:Unit>var</ns2:Unit>
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
@@ -726,7 +726,7 @@
         <ns2:ValueMin>0.0</ns2:ValueMin>
         <ns2:ValueMax>0.0</ns2:ValueMax>
         <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>VA</ns2:Unit>
+        <ns2:Unit>var</ns2:Unit>
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
@@ -742,6 +742,24 @@
         <ns2:Unit>-</ns2:Unit>
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>tapPos</ns2:VariableID>
+        <ns2:VariableDescription>Tap position set-point</ns2:VariableDescription>
+        <ns2:SetPoint>true</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>true</ns2:StateIdentifier>
+        <ns2:ValueMin>-2</ns2:ValueMin>
+        <ns2:ValueMax>2</ns2:ValueMax>
+        <ns2:EvaluationStepSize>1</ns2:EvaluationStepSize>
+        <ns2:Unit>-</ns2:Unit>
+        <ns2:GradientTime>
+            <ns2:idDuration>0</ns2:idDuration>
+            <ns2:value>30</ns2:value>
+            <ns2:unit>second, s</ns2:unit>
+        </ns2:GradientTime>
+        <ns2:GradientValue>1</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>vComplex</ns2:VariableID>
@@ -775,24 +793,6 @@
         <ns2:SetPoint>false</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionInteger" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>tapPos</ns2:VariableID>
-        <ns2:VariableDescription>Tap position set-point</ns2:VariableDescription>
-        <ns2:SetPoint>true</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>true</ns2:StateIdentifier>
-        <ns2:ValueMin>-10</ns2:ValueMin>
-        <ns2:ValueMax>10</ns2:ValueMax>
-        <ns2:EvaluationStepSize>1</ns2:EvaluationStepSize>
-        <ns2:Unit>-</ns2:Unit>
-        <ns2:GradientTime>
-            <ns2:idDuration>0</ns2:idDuration>
-            <ns2:value>30</ns2:value>
-            <ns2:unit>second, s</ns2:unit>
-        </ns2:GradientTime>
-        <ns2:GradientValue>1</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
     <ns2:CalculationClass>hygrid.agent.transformer.TransformerPowerCalculation</ns2:CalculationClass>
     <ns2:EvaluationSettings>
