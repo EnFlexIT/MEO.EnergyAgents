@@ -582,8 +582,8 @@
                 <id>LV1.101 Line 9</id>
                 <type>Cable</type>
                 <graphElementIDs>LV1.101 Bus 6</graphElementIDs>
-                <graphElementIDs>LV1.101 Line 9</graphElementIDs>
                 <graphElementIDs>LV1.101 Bus 14</graphElementIDs>
+                <graphElementIDs>LV1.101 Line 9</graphElementIDs>
             </value>
         </entry>
         <entry>

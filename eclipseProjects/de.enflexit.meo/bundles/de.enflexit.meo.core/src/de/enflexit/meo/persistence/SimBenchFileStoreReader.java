@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Vector;
 
 import de.enflexit.common.csv.CsvDataController;
-import energy.UnitConverter;
 import energy.domain.DefaultDomainModelElectricity;
 import energy.domain.DefaultDomainModelElectricity.CurrentType;
 import energy.domain.DefaultDomainModelElectricity.Phase;
 import energy.domain.DefaultDomainModelElectricity.PowerType;
+import energy.helper.UnitConverter;
 import energy.optionModel.AbstractUsageOfInterface;
 import energy.optionModel.EnergyAmount;
 import energy.optionModel.EnergyCarrier;
