@@ -13,7 +13,9 @@ Require-Bundle: de.enflexit.api,
  de.enflexit.ea.core.dataModel,
  org.eclipse.equinox.preferences,
  org.eclipse.osgi,
- de.enflexit.eom.core
+ de.enflexit.eom.core,
+ de.enflexit.ea.electricity,
+ de.enflexit.ea.core.blackboard
 Bundle-Activator: de.enflexit.meo.db.DatabaseActivator
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: EnFlex.IT
@@ -23,3 +25,4 @@ Export-Package: de.enflexit.meo.db,
  de.enflexit.meo.db.mappings,
  de.enflexit.meo.db.ui
 Service-Component: OSGI-INF/BlackboardListenerService.xml
+Import-Package: de.enflexit.ea.core.aggregation
