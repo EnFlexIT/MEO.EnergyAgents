@@ -298,16 +298,16 @@ public class SimBenchFileStoreReader {
 	/**
 	 * Return the cumulated energy amount for the specified interface.
 	 *
-	 * @param tsse the tsse
+	 * @param tssePrev the previous {@link TechnicalSystemStateEvaluation} that serves as base for the calculations.
 	 * @param interfaceID the interface ID
 	 * @return the cumulated energy amount
 	 */
-	private EnergyAmount getCumulatedEnergyAmount(TechnicalSystemStateEvaluation tsse, String interfaceID) {
+	private EnergyAmount getCumulatedEnergyAmount(TechnicalSystemStateEvaluation tssePrev, String interfaceID) {
 		
 		EnergyAmount eaCum = null;
-		if (tsse!=null) {
-			for (int i = 0; i < tsse.getUsageOfInterfaces().size(); i++) {
-				AbstractUsageOfInterface uoi = tsse.getUsageOfInterfaces().get(i);
+		if (tssePrev!=null) {
+			for (int i = 0; i < tssePrev.getUsageOfInterfaces().size(); i++) {
+				AbstractUsageOfInterface uoi = tssePrev.getUsageOfInterfaces().get(i);
 				if (uoi instanceof UsageOfInterfaceEnergy) {
 					UsageOfInterfaceEnergy uoiEnergy = (UsageOfInterfaceEnergy) uoi;
 					if (uoiEnergy.getInterfaceID().equals(interfaceID)==true) {
