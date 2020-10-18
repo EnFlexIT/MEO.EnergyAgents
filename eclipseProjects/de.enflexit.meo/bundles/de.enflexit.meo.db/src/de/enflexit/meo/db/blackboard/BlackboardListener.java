@@ -11,6 +11,7 @@ import org.awb.env.networkModel.NetworkModel;
 import de.enflexit.ea.core.aggregation.AbstractAggregationHandler;
 import de.enflexit.ea.core.aggregation.AbstractSubNetworkConfiguration;
 import de.enflexit.ea.core.blackboard.Blackboard;
+import de.enflexit.ea.core.blackboard.Blackboard.BlackboardState;
 import de.enflexit.ea.core.blackboard.BlackboardListenerService;
 import de.enflexit.ea.core.dataModel.ontology.CableState;
 import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeState;
@@ -71,6 +72,9 @@ public class BlackboardListener implements BlackboardListenerService {
 		
 		// --- Check it the idScenarioResult was set ------
 		if (this.getIDScenarioResult()<=0) return;
+		// --- Only work on final blackboard states -------
+		if (blackboard.getBlackboardState()==null || blackboard.getBlackboardState()!=BlackboardState.Final) return;
+		
 		
 		// --- Set the NetworkModel -----------------------
 		this.setNetworkModel(blackboard.getNetworkModel());
@@ -82,7 +86,6 @@ public class BlackboardListener implements BlackboardListenerService {
 		// --- Get the sub blackboard model ---------------
 		AbstractAggregationHandler aggregationHandler = blackboard.getAggregationHandler();
 		SubBlackboardModelElectricity subBlackboardModel = this.getSubBlackboardModelElectricity(aggregationHandler);
-		
 		if (subBlackboardModel!=null) {
 			// --- Get a quick copy of the sates --------------
 			HashMap<String, ElectricalNodeState> nodeStates = new HashMap<>(subBlackboardModel.getGraphNodeStates());
@@ -98,6 +101,7 @@ public class BlackboardListener implements BlackboardListenerService {
 			
 			// --- Save to database ---------------------------
 			this.getDatabaseHandler().addNetworkStateToSave(networkState);
+			
 		} else {
 			System.err.println("[" + this.getClass().getSimpleName() + "] No SubBlackboardModel found for " + SubNetworkConfigurationElectricalDistributionGrids.SUBNET_DESCRIPTION_ELECTRICAL_DISTRIBUTION_GRIDS);
 		}
@@ -109,8 +113,9 @@ public class BlackboardListener implements BlackboardListenerService {
 	 * @return the sub blackboard model electricity
 	 */
 	private SubBlackboardModelElectricity getSubBlackboardModelElectricity(AbstractAggregationHandler aggregationHandler) {
+
+		// TODO what if there are several aggregations of the same kind?
 		List<AbstractSubNetworkConfiguration> subNetworkConfogurations = aggregationHandler.getSubNetworkConfiguration(SubNetworkConfigurationElectricalDistributionGrids.SUBNET_DESCRIPTION_ELECTRICAL_DISTRIBUTION_GRIDS);
-		//TODO what if there are several aggregations of the same kind?
 		if (subNetworkConfogurations.size()>0) {
 			return (SubBlackboardModelElectricity) subNetworkConfogurations.get(0).getSubBlackboardModel();
 		} else {
