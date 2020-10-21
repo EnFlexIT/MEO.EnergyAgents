@@ -2,6 +2,7 @@
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
     <simulationIntervalLength>0</simulationIntervalLength>
     <simulationIntervalUnitIndex>0</simulationIntervalUnitIndex>
+    <isDiscreteSnapshotSimulation>false</isDiscreteSnapshotSimulation>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
     <networkCalculationIntervalUnitIndex>1</networkCalculationIntervalUnitIndex>
     <executionDataBase>NodePowerFlows</executionDataBase>
