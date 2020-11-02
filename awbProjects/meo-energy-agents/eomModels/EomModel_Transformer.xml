@@ -9,7 +9,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -25,7 +24,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -41,7 +39,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -57,7 +54,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -73,7 +69,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -89,7 +84,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -105,7 +99,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -121,7 +114,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -219,7 +211,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>400.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -235,7 +226,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>400.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -251,7 +241,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -267,7 +256,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -347,7 +335,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -363,7 +350,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -379,7 +365,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -395,7 +380,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -411,7 +395,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -427,7 +410,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>230.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -443,7 +425,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -459,7 +440,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -475,7 +455,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -491,7 +470,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -507,7 +485,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -523,7 +500,6 @@
             <ns2:Description></ns2:Description>
             <ns2:Domain>Electricity</ns2:Domain>
             <ns2:DomainModel xsi:type="DefaultDomainModelElectricity">
-                <ns2:idDomainModel>0</ns2:idDomainModel>
                 <CurrentType>AC</CurrentType>
                 <RatedVoltage>10000.0</RatedVoltage>
                 <Frequency>50</Frequency>
@@ -1096,11 +1072,16 @@
             <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
             <ns2:TimeUnit>hour, h</ns2:TimeUnit>
         </ns2:CostModel>
-        <ns2:EvaluationClass>hygrid.agent.transformer.TransformerControlStrategyRT</ns2:EvaluationClass>
+        <ns2:EvaluationClass>hygrid.agent.transformer.TransformerSnapshotStrategy</ns2:EvaluationClass>
         <ns2:EvaluationClasses>
             <ns2:StrategyID>TransformerControl</ns2:StrategyID>
             <ns2:ClassName>hygrid.agent.transformer.TransformerControlStrategyRT</ns2:ClassName>
             <ns2:Description>Strategy to control transformer</ns2:Description>
+        </ns2:EvaluationClasses>
+        <ns2:EvaluationClasses>
+            <ns2:StrategyID>Snapshot</ns2:StrategyID>
+            <ns2:ClassName>hygrid.agent.transformer.TransformerSnapshotStrategy</ns2:ClassName>
+            <ns2:Description>Snapshot Strategy</ns2:Description>
         </ns2:EvaluationClasses>
     </ns2:EvaluationSettings>
 </ns2:TechnicalSystem>

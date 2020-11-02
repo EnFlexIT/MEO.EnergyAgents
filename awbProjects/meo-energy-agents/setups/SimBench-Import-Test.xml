@@ -171,8 +171,8 @@
             <evenDistribution>false</evenDistribution>
             <immediatelyStartLoadRecording>false</immediatelyStartLoadRecording>
             <loadRecordingInterval>500</loadRecordingInterval>
-            <numberOfAgents>0</numberOfAgents>
-            <numberOfContainer>0</numberOfContainer>
+            <numberOfAgents>100</numberOfAgents>
+            <numberOfContainer>2</numberOfContainer>
             <remoteOnly>true</remoteOnly>
             <showLoadMonitorAtPlatformStart>false</showLoadMonitorAtPlatformStart>
             <showThreadMonitorAtPlatformStart>false</showThreadMonitorAtPlatformStart>
@@ -192,81 +192,81 @@
                 <agentClass>
                     <className>system.class.-Regular-Thread-</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>20.96634478688022</realMetricAverage>
-                    <realMetricMax>20.966344786880246</realMetricMax>
-                    <realMetricMin>20.966344786880246</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>de.enflexit.ea.prosumer.ProsumerAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>41.00036322748081</realMetricAverage>
-                    <realMetricMax>41.00036322748081</realMetricMax>
-                    <realMetricMin>41.00036322748081</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>org.awb.env.networkModel.visualisation.DisplayAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>7.405586871450262</realMetricAverage>
-                    <realMetricMax>7.405586871450262</realMetricMax>
-                    <realMetricMin>7.405586871450262</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>agentgui.simulationService.agents.ServerClientAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>0.0</realMetricAverage>
-                    <realMetricMax>0.0</realMetricMax>
-                    <realMetricMin>0.0</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>agentgui.simulationService.agents.LoadMeasureAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>0.5700683268228655</realMetricAverage>
-                    <realMetricMax>0.5700683268228655</realMetricMax>
-                    <realMetricMin>0.5700683268228655</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>jade.domain.df</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>0.0</realMetricAverage>
-                    <realMetricMax>0.0</realMetricMax>
-                    <realMetricMin>0.0</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>agentgui.core.jade.ProjectFileManagerAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>0.0</realMetricAverage>
-                    <realMetricMax>0.0</realMetricMax>
-                    <realMetricMin>0.0</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>de.enflexit.ea.core.simulation.manager.SimulationManager</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>373.0035098085679</realMetricAverage>
-                    <realMetricMax>373.0035098085679</realMetricMax>
-                    <realMetricMin>373.0035098085679</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>jade.domain.ams</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>0.0</realMetricAverage>
-                    <realMetricMax>0.0</realMetricMax>
-                    <realMetricMin>0.0</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
                     <className>hygrid.agent.transformer.TransformerAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>480.3670296476724</realMetricAverage>
-                    <realMetricMax>480.3670296476724</realMetricMax>
-                    <realMetricMin>480.3670296476724</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
                 <agentClass>
@@ -280,9 +280,17 @@
                 <agentClass>
                     <className>jade.core.ContainerMonitorAgent</className>
                     <realMetric>1.0</realMetric>
-                    <realMetricAverage>0.0</realMetricAverage>
-                    <realMetricMax>0.0</realMetricMax>
-                    <realMetricMin>0.0</realMetricMin>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
+                    <userPredictedMetric>1.0</userPredictedMetric>
+                </agentClass>
+                <agentClass>
+                    <className>de.enflexit.ea.core.blackboard.BlackboardAgent</className>
+                    <realMetric>1.0</realMetric>
+                    <realMetricAverage>NaN</realMetricAverage>
+                    <realMetricMax>NaN</realMetricMax>
+                    <realMetricMin>NaN</realMetricMin>
                     <userPredictedMetric>1.0</userPredictedMetric>
                 </agentClass>
             </agentClassMetricDescriptionVector>

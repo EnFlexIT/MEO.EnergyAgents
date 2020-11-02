@@ -50,12 +50,5 @@
                 <unit>kWh</unit>
             </value>
         </entry>
-        <entry>
-            <key>Test</key>
-            <value>
-                <className>energy.domain.DefaultDomainModelCoal</className>
-                <unit>l</unit>
-            </value>
-        </entry>
     </domainModelSettings>
 </domainSettings>
