@@ -3,7 +3,8 @@
     <simulationIntervalLength>10</simulationIntervalLength>
     <simulationIntervalUnitIndex>0</simulationIntervalUnitIndex>
     <isDiscreteSnapshotSimulation>true</isDiscreteSnapshotSimulation>
-    <snapshotDecisionLocation>Decentral</snapshotDecisionLocation>
+    <snapshotDecisionLocation>Central</snapshotDecisionLocation>
+    <snapshotCentralDecisionClass>de.enflexit.ea.core.simulation.decisionControl.RandomCentralDecisionProcess</snapshotCentralDecisionClass>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
     <networkCalculationIntervalUnitIndex>1</networkCalculationIntervalUnitIndex>
     <executionDataBase>NodePowerFlows</executionDataBase>

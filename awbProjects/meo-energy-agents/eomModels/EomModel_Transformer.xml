@@ -1072,7 +1072,7 @@
             <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
             <ns2:TimeUnit>hour, h</ns2:TimeUnit>
         </ns2:CostModel>
-        <ns2:EvaluationClass>hygrid.agent.transformer.TransformerSnapshotStrategy</ns2:EvaluationClass>
+        <ns2:EvaluationClass>hygrid.agent.transformer.TransformerControlStrategyRT</ns2:EvaluationClass>
         <ns2:EvaluationClasses>
             <ns2:StrategyID>TransformerControl</ns2:StrategyID>
             <ns2:ClassName>hygrid.agent.transformer.TransformerControlStrategyRT</ns2:ClassName>
