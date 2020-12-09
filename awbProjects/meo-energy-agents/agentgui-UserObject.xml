@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
-    <simulationIntervalLength>10</simulationIntervalLength>
-    <simulationIntervalUnitIndex>0</simulationIntervalUnitIndex>
-    <isDiscreteSnapshotSimulation>true</isDiscreteSnapshotSimulation>
+    <simulationIntervalLength>1000</simulationIntervalLength>
+    <simulationIntervalUnitIndex>1</simulationIntervalUnitIndex>
+    <isDiscreteSnapshotSimulation>false</isDiscreteSnapshotSimulation>
     <snapshotDecisionLocation>Central</snapshotDecisionLocation>
     <snapshotCentralDecisionClass>de.enflexit.ea.core.simulation.decisionControl.RandomCentralDecisionProcess</snapshotCentralDecisionClass>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
@@ -15,7 +15,7 @@
         <timePeriodForLiveBit>600000</timePeriodForLiveBit>
     </energyTransmissionConfiguration>
     <displayUpdateConfiguration>
-        <updateMechanism>DisableUpdates</updateMechanism>
+        <updateMechanism>EnableUpdates</updateMechanism>
     </displayUpdateConfiguration>
     <graphElementLayoutSettingsPersisted domain="Electricity 10kV">
         <settingsTreeMap>
