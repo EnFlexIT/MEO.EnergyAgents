@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
-    <simulationIntervalLength>1000</simulationIntervalLength>
+    <simulationIntervalLength>0</simulationIntervalLength>
     <simulationIntervalUnitIndex>1</simulationIntervalUnitIndex>
     <isDiscreteSnapshotSimulation>false</isDiscreteSnapshotSimulation>
     <snapshotDecisionLocation>Central</snapshotDecisionLocation>
@@ -15,7 +15,7 @@
         <timePeriodForLiveBit>600000</timePeriodForLiveBit>
     </energyTransmissionConfiguration>
     <displayUpdateConfiguration>
-        <updateMechanism>EnableUpdates</updateMechanism>
+        <updateMechanism>DisableUpdates</updateMechanism>
     </displayUpdateConfiguration>
     <graphElementLayoutSettingsPersisted domain="Electricity 10kV">
         <settingsTreeMap>

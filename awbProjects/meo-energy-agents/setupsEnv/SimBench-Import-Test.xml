@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <networkModelFileContent>
-    <layoutID>23a46fb4-7fac-4801-8012-8a54d7152b58</layoutID>
+    <layoutID>CfaPOTkLOS</layoutID>
     <mapSettingsList>
         <entry>
             <key>CfaPOTkLOS</key>
@@ -8,8 +8,8 @@
                 <utmLongitudeZone>32</utmLongitudeZone>
                 <utmLatitudeZone>U</utmLatitudeZone>
                 <mapScale>km</mapScale>
-                <showMapTiles>true</showMapTiles>
-                <mapTileTransparency>50</mapTileTransparency>
+                <showMapTiles>false</showMapTiles>
+                <mapTileTransparency>100</mapTileTransparency>
             </value>
         </entry>
     </mapSettingsList>
@@ -582,8 +582,8 @@
                 <id>LV1.101 Line 9</id>
                 <type>Cable</type>
                 <graphElementIDs>LV1.101 Bus 6</graphElementIDs>
-                <graphElementIDs>LV1.101 Bus 14</graphElementIDs>
                 <graphElementIDs>LV1.101 Line 9</graphElementIDs>
+                <graphElementIDs>LV1.101 Bus 14</graphElementIDs>
             </value>
         </entry>
         <entry>
