@@ -23,6 +23,7 @@ import energy.optionModel.InterfaceSetting;
 import energy.optionModel.Schedule;
 import energy.optionModel.ScheduleList;
 import energy.optionModel.TechnicalSystemStateEvaluation;
+import energy.optionModel.TimeRange;
 import energy.optionModel.TimeUnit;
 import energy.optionModel.UsageOfInterfaceEnergy;
 import energy.persistence.ScheduleList_StorageHandler;
@@ -46,7 +47,6 @@ public class SimBenchFileStoreReader {
 	private static final String[] INTERFACE_IDs_Electricity = {"Electricity L1", "Electricity L2", "Electricity L3"};
 
 	private SimpleDateFormat dateFormatter;
-	
 	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: Methods to create ScheduelList's --------------------------------------------
@@ -194,8 +194,7 @@ public class SimBenchFileStoreReader {
 			
 			try {
 				// --- Get the time stamp -------------------------------------
-				Date timeDate = this.getDateFormatter().parse(stringTime);
-				long timeStamp = timeDate.getTime();
+				long timeStamp = this.getTimeStampFromString(stringTime);
 				
 				// --- Set time from-to ---------------------------------------
 				if (i==0) timeFrom = timeStamp;
@@ -238,8 +237,8 @@ public class SimBenchFileStoreReader {
 				timeStampPrev = timeStamp;
 				tssePrev = tsse;
 				
-			} catch (ParseException pEx) {
-				pEx.printStackTrace();
+			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
 		} // end for
 
@@ -402,6 +401,31 @@ public class SimBenchFileStoreReader {
 		return false;
 	}
 	
+
+	// --------------------------------------------------------------------------------------------
+	// --- From here: Method to get the time range of the data ------------------------------------
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Return the time range of the currently selected data.
+	 * @return the time range of data
+	 */
+	public TimeRange getTimeRangeOfData() {
+		
+		// --- Get start and end time as string each ------ 
+		CsvDataController csvController = getCsvDataControllerOfCsvFile(SimBenchFileStore.SIMBENCH_LoadProfile);
+		String timeStringStart = (String) csvController.getDataModel().getValueAt(0, 0);
+		String timeStringEnd = (String) csvController.getDataModel().getValueAt(csvController.getDataModel().getRowCount()-1, 0);
+		
+		long timeFrom = this.getTimeStampFromString(timeStringStart);
+		long timeTo   = this.getTimeStampFromString(timeStringEnd);
+		
+		// --- Define the return instance -----------------
+		TimeRange timeRange = new TimeRange();
+		timeRange.setTimeFrom(timeFrom);
+		timeRange.setTimeTo(timeTo);
+		return timeRange;
+	}
+	
 	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: Some general help methods ---------------------------------------------------
@@ -416,6 +440,40 @@ public class SimBenchFileStoreReader {
 		}
 		return dateFormatter;
 	}
+	/**
+	 * Returns the Date instance from the specified string by using the local date formatter.
+	 *
+	 * @param dateString the date string
+	 * @return the date from string
+	 * @see #getDateFormatter()
+	 */
+	public Date getDateFromString(String dateString) {
+		if (dateString!=null && dateString.isEmpty()==false) {
+			try {
+				return this.getDateFormatter().parse(dateString);
+			} catch (ParseException pEx) {
+				System.err.println("[" + this.getClass().getSimpleName() + "] Error while parsing '" + dateString + "' to Date insatnce:");
+				pEx.printStackTrace();
+			}
+		}
+		return null;
+	}
+	/**
+	 * Returns the time stamp as long from the specified string by using the local date formatter.
+	 * If null, an empty or an invalid string is specified, the method will return -1.
+	 *
+	 * @param dateString the date string
+	 * @return the time stamp from string
+	 * @see #getDateFormatter()
+	 */
+	public long getTimeStampFromString(String dateString) {
+		Date date = this.getDateFromString(dateString);
+		if (date!=null) {
+			return date.getTime();
+		}
+		return -1;
+	}
+	
 	/**
 	 * Return a data row as HashMap, where the key is the column name and the value the row value.
 	 *

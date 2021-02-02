@@ -23,10 +23,13 @@ import org.awb.env.networkModel.persistence.NetworkModelImportService;
 import org.awb.env.networkModel.settings.GeneralGraphSettings4MAS;
 
 import agentgui.core.application.Application;
+import agentgui.core.gui.projectwindow.simsetup.TimeModelController;
 import agentgui.core.project.Project;
 import agentgui.ontology.TimeSeriesChart;
 import agentgui.ontology.TimeSeriesChartSettings;
 import agentgui.simulationService.environment.AbstractEnvironmentModel;
+import agentgui.simulationService.time.TimeModel;
+import agentgui.simulationService.time.TimeModelDateBased;
 import de.enflexit.common.csv.CsvDataController;
 import de.enflexit.ea.core.dataModel.ontology.CableProperties;
 import de.enflexit.ea.core.dataModel.ontology.ElectricalNodeProperties;
@@ -40,10 +43,13 @@ import de.enflexit.eom.awb.adapter.EomDataModelStorageHandler.EomStorageLocation
 import de.enflexit.geography.coordinates.UTMCoordinate;
 import de.enflexit.geography.coordinates.WGS84LatLngCoordinate;
 import de.enflexit.meo.persistence.SimBenchFileStore;
+import de.enflexit.meo.persistence.SimBenchFileStoreReader;
 import de.enflexit.meo.persistence.SimBenchScheduelListPersistenceService;
 import de.enflexit.meo.persistence.SimBenchStorageHandler;
 import energy.GlobalInfo;
+import energy.optionModel.TimeRange;
 import energy.schedule.loading.ScheduleTimeRange;
+import energy.schedule.loading.ScheduleTimeRange.RangeType;
 import energy.schedule.loading.ScheduleTimeRangeController;
 
 /**
@@ -96,7 +102,6 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	
 	private StorageDestination storageDestination = StorageDestination.SimBenchService;
 	private SimBenchScheduelListPersistenceService persistenceService;
-
 	
 	
 	/* (non-Javadoc)
@@ -215,7 +220,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		
 		this.defaultPositionVector = null;
 		
-		
+		this.persistenceService = null;
 	}
 	
 	/* (non-Javadoc)
@@ -232,10 +237,14 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			
 			// --- Read the csv files -----------------------------------------
 			this.readCsvFiles(directoryFile, true); 
-			
 			// --- Show import preview if this.debug is set to true -----------
 			this.showImportPreview();
 		
+			// --- Set working directory of SimBenchFileStore -----------------
+			SimBenchFileStore.getInstance().setSimBenchDirectoryFile(directoryFile, false);
+			// --- Set setup TimeModel ----------------------------------------
+			this.setTimeRangeToSetupTimeModel();
+			
 			// --- The main import work to be done ----------------------------
 			this.createNodes(directoryFile);
 			this.createLines();
@@ -251,6 +260,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		// --- Return the NetworkModel ----------------------------------------
 		return this.getNetworkModel();
 	}
+
 
 	/* (non-Javadoc)
 	 * @see org.awb.env.networkModel.controller.NetworkModelFileImporter#getAbstractEnvironmentModel()
@@ -755,6 +765,49 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 		}
 		return persistenceService;
 	}
+	
+	/**
+	 * Sets the time range to time model.
+	 */
+	private void setTimeRangeToSetupTimeModel() {
+
+		TimeRange timeRange = this.getDataTimeRange();
+		if (timeRange!=null) {
+			// --- Get the current time model -----------------------
+			TimeModelController tmc = this.graphController.getProject().getTimeModelController();
+			TimeModel timeModel = tmc.getTimeModel();
+			if (timeModel instanceof TimeModelDateBased) {
+				// --- Adjust the current time model ----------------
+				TimeModelDateBased timeModelDateBased = (TimeModelDateBased) timeModel;
+				timeModelDateBased.setTimeStart(timeRange.getTimeFrom());
+				timeModelDateBased.setTimeStop(timeRange.getTimeTo());
+				// --- Refresh project settings ---------------------
+				tmc.saveTimeModelToSimulationSetup();
+			}
+		}
+	}
+	/**
+	 * Returns the data time range and will configure the current {@link ScheduleTimeRange}.
+	 * @return the data time range
+	 */
+	public TimeRange getDataTimeRange() {
+		TimeRange timeRange = new SimBenchFileStoreReader().getTimeRangeOfData();
+		if (timeRange!=null) {
+			// --- Adjust ScheduleTimeRange to max 100 states from start time -
+			ScheduleTimeRange str = new ScheduleTimeRange();
+			str.setRangeType(RangeType.StartTimeAndNumber);
+			str.setTimeFrom(timeRange.getTimeFrom());
+			str.setTimeTo(timeRange.getTimeTo());
+			str.setNumberOfSystemStates(100);
+			
+			ScheduleTimeRangeController.setScheduleTimeRange(str);
+		}
+		return timeRange;
+	}
+	/**
+	 * Returns the currently configures {@link ScheduleTimeRange}.
+	 * @return the schedule time range
+	 */
 	private ScheduleTimeRange getScheduleTimeRange() {
 		return ScheduleTimeRangeController.getScheduleTimeRange();
 	}
