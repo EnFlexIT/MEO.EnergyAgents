@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <hyGridAbstractEnvironmentModel xmlns:ns2="http://www.dawis.wiwi.uni-due.de/EnergyOptionModel" xmlns:ns3="http://www.dawis.wiwi.uni-due.de/HyGridAgentConfiguration">
-    <simulationIntervalLength>0</simulationIntervalLength>
+    <simulationIntervalLength>1000</simulationIntervalLength>
     <simulationIntervalUnitIndex>1</simulationIntervalUnitIndex>
     <isDiscreteSnapshotSimulation>true</isDiscreteSnapshotSimulation>
     <snapshotDecisionLocation>Decentral</snapshotDecisionLocation>

@@ -15,7 +15,8 @@ Require-Bundle: de.enflexit.api,
  org.eclipse.osgi,
  de.enflexit.eom.core,
  de.enflexit.ea.electricity,
- de.enflexit.ea.core.blackboard
+ de.enflexit.ea.core.blackboard,
+ net.agenthygrid.transformer
 Bundle-Activator: de.enflexit.meo.db.DatabaseActivator
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: EnFlex.IT
