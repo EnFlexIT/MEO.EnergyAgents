@@ -52,6 +52,18 @@
             </value>
         </entry>
         <entry>
+            <key>MediumVoltageCable</key>
+            <value>
+                <adapterClass>de.enflexit.ea.core.awbIntegration.adapter.uniPhase.UniPhaseCableAdapter</adapterClass>
+                <color>-16777216</color>
+                <domain>Electricity 10kV</domain>
+                <edgeImage>MissingIcon</edgeImage>
+                <edgeWidth>2.0</edgeWidth>
+                <graphPrototype>org.awb.env.networkModel.prototypes.SimpleGraphElement</graphPrototype>
+                <showLabel>true</showLabel>
+            </value>
+        </entry>
+        <entry>
             <key>Photovoltaic</key>
             <value>
                 <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
@@ -146,7 +158,7 @@
             <value>
                 <clusterShape>Rectangle</clusterShape>
                 <showLabel>false</showLabel>
-                <vertexColor>-3355444</vertexColor>
+                <vertexColor>-16724737</vertexColor>
                 <vertexColorPicked>-256</vertexColorPicked>
                 <vertexSize>10</vertexSize>
             </value>
@@ -154,6 +166,17 @@
         <entry>
             <key>Default Domain</key>
             <value>
+                <clusterShape>Rectangle</clusterShape>
+                <showLabel>true</showLabel>
+                <vertexColor>-65536</vertexColor>
+                <vertexColorPicked>-256</vertexColorPicked>
+                <vertexSize>10</vertexSize>
+            </value>
+        </entry>
+        <entry>
+            <key>Electricity 10kV</key>
+            <value>
+                <adapterClass>de.enflexit.ea.core.awbIntegration.adapter.uniPhase.UniPhaseElectricalNodeAdapter</adapterClass>
                 <clusterShape>Rectangle</clusterShape>
                 <showLabel>true</showLabel>
                 <vertexColor>-65536</vertexColor>

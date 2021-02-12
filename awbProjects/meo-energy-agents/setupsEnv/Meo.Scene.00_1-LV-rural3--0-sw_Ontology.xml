@@ -988,24 +988,125 @@
 	<NetworkElement>GraphNode,LV3.101 Bus 16</NetworkElement>
 <Instances>
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
-<![CDATA[<TransformerNodeProperties isLoadNode="true">
+<![CDATA[<TransformerNodeProperties description="" isLoadNode="false">
+	<nominalPower>
+		<UnitValue unit="" value="0.0F"/>
+	</nominalPower>
 	<ratedVoltage>
-		<UnitValue unit="V" value="400.0F"/>
+		<UnitValue unit="" value="0.0F"/>
 	</ratedVoltage>
 </TransformerNodeProperties>
 ]]>
 </Instance>
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
-<![CDATA[<TriPhaseElectricalNodeState>
-</TriPhaseElectricalNodeState>
+<![CDATA[<TriPhaseElectricalTransformerState>
+	<l1>
+		<UniPhaseElectricalNodeState cosPhi="0.0F">
+			<S>
+				<UnitValue unit="" value="0.0F"/>
+			</S>
+			<Q>
+				<UnitValue unit="" value="0.0F"/>
+			</Q>
+			<current>
+				<UnitValue unit="" value="0.0F"/>
+			</current>
+			<P>
+				<UnitValue unit="" value="0.0F"/>
+			</P>
+			<voltageReal>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageReal>
+			<voltageAbs>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageAbs>
+			<voltageImag>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageImag>
+		</UniPhaseElectricalNodeState>
+	</l1>
+	<l2>
+		<UniPhaseElectricalNodeState cosPhi="0.0F">
+			<S>
+				<UnitValue unit="" value="0.0F"/>
+			</S>
+			<Q>
+				<UnitValue unit="" value="0.0F"/>
+			</Q>
+			<current>
+				<UnitValue unit="" value="0.0F"/>
+			</current>
+			<P>
+				<UnitValue unit="" value="0.0F"/>
+			</P>
+			<voltageReal>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageReal>
+			<voltageAbs>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageAbs>
+			<voltageImag>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageImag>
+		</UniPhaseElectricalNodeState>
+	</l2>
+	<l3>
+		<UniPhaseElectricalNodeState cosPhi="0.0F">
+			<S>
+				<UnitValue unit="" value="0.0F"/>
+			</S>
+			<Q>
+				<UnitValue unit="" value="0.0F"/>
+			</Q>
+			<current>
+				<UnitValue unit="" value="0.0F"/>
+			</current>
+			<P>
+				<UnitValue unit="" value="0.0F"/>
+			</P>
+			<voltageReal>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageReal>
+			<voltageAbs>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageAbs>
+			<voltageImag>
+				<UnitValue unit="" value="0.0F"/>
+			</voltageImag>
+		</UniPhaseElectricalNodeState>
+	</l3>
+	<ratedVoltage>
+		<UnitValue unit="" value="0.0F"/>
+	</ratedVoltage>
+</TriPhaseElectricalTransformerState>
 ]]>
 </Instance>
 <Instance Ontology="agentgui.ontology.AgentGUI_BaseOntology">
 <![CDATA[<TimeSeriesChart realTime="false">
 	<timeSeriesVisualisationSettings>
-		<TimeSeriesChartSettings>
+		<TimeSeriesChartSettings yAxisLabel="" rendererType="" xAxisLabel="" chartTitle="" timeFormat="">
+			<yAxisColors>
+				<primitive type="STRING" value=""/>
+			</yAxisColors>
+			<yAxisLineWidth>
+				<primitive type="FLOAT" value="0.0F"/>
+			</yAxisLineWidth>
 		</TimeSeriesChartSettings>
 	</timeSeriesVisualisationSettings>
+	<timeSeriesChartData>
+		<TimeSeries label="" unit="">
+			<timeSeriesValuePairs>
+				<TimeSeriesValuePair>
+					<timestamp>
+						<Simple_Long StringLongValue=""/>
+					</timestamp>
+					<value>
+						<Simple_Float FloatValue="0.0F"/>
+					</value>
+				</TimeSeriesValuePair>
+			</timeSeriesValuePairs>
+		</TimeSeries>
+	</timeSeriesChartData>
 </TimeSeriesChart>
 ]]>
 </Instance>
