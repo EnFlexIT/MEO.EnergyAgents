@@ -9,6 +9,9 @@
     <updateSite>?</updateSite>
     <updateAutoConfiguration>0</updateAutoConfiguration>
     <updateDateLastChecked>0</updateDateLastChecked>
+    <updateAuthorization>
+        <authorizationType>NONE</authorizationType>
+    </updateAuthorization>
     <environmentModel>gridEnvironment</environmentModel>
     <projectFeatures/>
     <plugins>

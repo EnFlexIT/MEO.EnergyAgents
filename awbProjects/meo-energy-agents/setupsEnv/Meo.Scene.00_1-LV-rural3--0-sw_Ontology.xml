@@ -990,93 +990,93 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TransformerNodeProperties description="" isLoadNode="false">
 	<nominalPower>
-		<UnitValue unit="" value="0.0F"/>
+		<UnitValue value="0.0F" unit=""/>
 	</nominalPower>
 	<ratedVoltage>
-		<UnitValue unit="" value="0.0F"/>
+		<UnitValue value="0.0F" unit=""/>
 	</ratedVoltage>
 </TransformerNodeProperties>
 ]]>
 </Instance>
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<TriPhaseElectricalTransformerState>
-	<l1>
-		<UniPhaseElectricalNodeState cosPhi="0.0F">
-			<S>
-				<UnitValue unit="" value="0.0F"/>
-			</S>
-			<Q>
-				<UnitValue unit="" value="0.0F"/>
-			</Q>
-			<current>
-				<UnitValue unit="" value="0.0F"/>
-			</current>
-			<P>
-				<UnitValue unit="" value="0.0F"/>
-			</P>
-			<voltageReal>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageReal>
-			<voltageAbs>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageAbs>
-			<voltageImag>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageImag>
-		</UniPhaseElectricalNodeState>
-	</l1>
 	<l2>
 		<UniPhaseElectricalNodeState cosPhi="0.0F">
-			<S>
-				<UnitValue unit="" value="0.0F"/>
-			</S>
-			<Q>
-				<UnitValue unit="" value="0.0F"/>
-			</Q>
-			<current>
-				<UnitValue unit="" value="0.0F"/>
-			</current>
-			<P>
-				<UnitValue unit="" value="0.0F"/>
-			</P>
-			<voltageReal>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageReal>
-			<voltageAbs>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageAbs>
 			<voltageImag>
-				<UnitValue unit="" value="0.0F"/>
+				<UnitValue value="0.0F" unit=""/>
 			</voltageImag>
+			<voltageAbs>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageAbs>
+			<P>
+				<UnitValue value="0.0F" unit=""/>
+			</P>
+			<current>
+				<UnitValue value="0.0F" unit=""/>
+			</current>
+			<Q>
+				<UnitValue value="0.0F" unit=""/>
+			</Q>
+			<voltageReal>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageReal>
+			<S>
+				<UnitValue value="0.0F" unit=""/>
+			</S>
 		</UniPhaseElectricalNodeState>
 	</l2>
 	<l3>
 		<UniPhaseElectricalNodeState cosPhi="0.0F">
-			<S>
-				<UnitValue unit="" value="0.0F"/>
-			</S>
-			<Q>
-				<UnitValue unit="" value="0.0F"/>
-			</Q>
-			<current>
-				<UnitValue unit="" value="0.0F"/>
-			</current>
-			<P>
-				<UnitValue unit="" value="0.0F"/>
-			</P>
-			<voltageReal>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageReal>
-			<voltageAbs>
-				<UnitValue unit="" value="0.0F"/>
-			</voltageAbs>
 			<voltageImag>
-				<UnitValue unit="" value="0.0F"/>
+				<UnitValue value="0.0F" unit=""/>
 			</voltageImag>
+			<voltageAbs>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageAbs>
+			<P>
+				<UnitValue value="0.0F" unit=""/>
+			</P>
+			<current>
+				<UnitValue value="0.0F" unit=""/>
+			</current>
+			<Q>
+				<UnitValue value="0.0F" unit=""/>
+			</Q>
+			<voltageReal>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageReal>
+			<S>
+				<UnitValue value="0.0F" unit=""/>
+			</S>
 		</UniPhaseElectricalNodeState>
 	</l3>
+	<l1>
+		<UniPhaseElectricalNodeState cosPhi="0.0F">
+			<voltageImag>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageImag>
+			<voltageAbs>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageAbs>
+			<P>
+				<UnitValue value="0.0F" unit=""/>
+			</P>
+			<current>
+				<UnitValue value="0.0F" unit=""/>
+			</current>
+			<Q>
+				<UnitValue value="0.0F" unit=""/>
+			</Q>
+			<voltageReal>
+				<UnitValue value="0.0F" unit=""/>
+			</voltageReal>
+			<S>
+				<UnitValue value="0.0F" unit=""/>
+			</S>
+		</UniPhaseElectricalNodeState>
+	</l1>
 	<ratedVoltage>
-		<UnitValue unit="" value="0.0F"/>
+		<UnitValue value="0.0F" unit=""/>
 	</ratedVoltage>
 </TriPhaseElectricalTransformerState>
 ]]>
@@ -3182,16 +3182,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.3343201F"/>
+		<UnitValue value="1.3343201F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3218,16 +3218,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="50.4014F"/>
+		<UnitValue value="50.4014F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3254,16 +3254,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="23.8476F"/>
+		<UnitValue value="23.8476F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3290,16 +3290,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="2.23413F"/>
+		<UnitValue value="2.23413F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3326,16 +3326,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="40.7432F"/>
+		<UnitValue value="40.7432F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3362,16 +3362,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="82.251495F"/>
+		<UnitValue value="82.251495F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3398,16 +3398,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="52.9F"/>
+		<UnitValue value="52.9F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3434,16 +3434,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.2224097F"/>
+		<UnitValue value="4.2224097F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3470,16 +3470,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="21.6051F"/>
+		<UnitValue value="21.6051F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3506,16 +3506,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.3517F"/>
+		<UnitValue value="11.3517F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3542,16 +3542,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="10.6382F"/>
+		<UnitValue value="10.6382F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3578,16 +3578,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.3761F"/>
+		<UnitValue value="1.3761F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3614,16 +3614,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="17.9292F"/>
+		<UnitValue value="17.9292F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3650,16 +3650,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="2.75758F"/>
+		<UnitValue value="2.75758F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3686,16 +3686,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.5305201F"/>
+		<UnitValue value="1.5305201F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3722,16 +3722,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="35.3929F"/>
+		<UnitValue value="35.3929F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3758,16 +3758,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="10.4802F"/>
+		<UnitValue value="10.4802F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3794,16 +3794,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.125501F"/>
+		<UnitValue value="11.125501F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3830,16 +3830,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.84121F"/>
+		<UnitValue value="7.84121F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3866,16 +3866,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.7453101F"/>
+		<UnitValue value="1.7453101F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3902,16 +3902,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="28.4746F"/>
+		<UnitValue value="28.4746F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3938,16 +3938,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.68286F"/>
+		<UnitValue value="3.68286F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -3974,16 +3974,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.23807F"/>
+		<UnitValue value="1.23807F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4010,16 +4010,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="22.5228F"/>
+		<UnitValue value="22.5228F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4046,16 +4046,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.51298F"/>
+		<UnitValue value="1.51298F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4082,16 +4082,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="10.7857F"/>
+		<UnitValue value="10.7857F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4118,16 +4118,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="8.76741F"/>
+		<UnitValue value="8.76741F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4154,16 +4154,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="76.2474F"/>
+		<UnitValue value="76.2474F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4190,16 +4190,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.91506F"/>
+		<UnitValue value="4.91506F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4226,16 +4226,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="12.8602F"/>
+		<UnitValue value="12.8602F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4262,16 +4262,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="82.0309F"/>
+		<UnitValue value="82.0309F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4298,16 +4298,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.0807F"/>
+		<UnitValue value="11.0807F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4334,16 +4334,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="53.218F"/>
+		<UnitValue value="53.218F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4370,16 +4370,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="5.32133F"/>
+		<UnitValue value="5.32133F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4406,16 +4406,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.16572F"/>
+		<UnitValue value="7.16572F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4442,16 +4442,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="40.3499F"/>
+		<UnitValue value="40.3499F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4478,16 +4478,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.9035897F"/>
+		<UnitValue value="4.9035897F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4514,16 +4514,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="17.81F"/>
+		<UnitValue value="17.81F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4550,16 +4550,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.3309402F"/>
+		<UnitValue value="4.3309402F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4586,16 +4586,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.96229F"/>
+		<UnitValue value="3.96229F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4622,16 +4622,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.95877F"/>
+		<UnitValue value="1.95877F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4658,16 +4658,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="15.7142F"/>
+		<UnitValue value="15.7142F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4694,16 +4694,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="28.300001F"/>
+		<UnitValue value="28.300001F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4730,16 +4730,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="12.7928F"/>
+		<UnitValue value="12.7928F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4766,16 +4766,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="22.686699F"/>
+		<UnitValue value="22.686699F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4802,16 +4802,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.5508003F"/>
+		<UnitValue value="7.5508003F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4838,16 +4838,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="58.534203F"/>
+		<UnitValue value="58.534203F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4874,16 +4874,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.80553F"/>
+		<UnitValue value="3.80553F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4910,16 +4910,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="8.24156F"/>
+		<UnitValue value="8.24156F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4946,16 +4946,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="38.7F"/>
+		<UnitValue value="38.7F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -4982,16 +4982,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.30877F"/>
+		<UnitValue value="3.30877F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5018,16 +5018,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="41.2435F"/>
+		<UnitValue value="41.2435F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5054,16 +5054,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.1575303F"/>
+		<UnitValue value="7.1575303F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5090,16 +5090,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.0938797F"/>
+		<UnitValue value="4.0938797F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5126,16 +5126,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="22.4202F"/>
+		<UnitValue value="22.4202F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5162,16 +5162,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="25.5392F"/>
+		<UnitValue value="25.5392F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5198,16 +5198,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="10.8022F"/>
+		<UnitValue value="10.8022F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5234,16 +5234,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="40.3745F"/>
+		<UnitValue value="40.3745F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5270,16 +5270,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="48.199F"/>
+		<UnitValue value="48.199F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5306,16 +5306,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.6901798F"/>
+		<UnitValue value="3.6901798F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5342,16 +5342,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="12.2898F"/>
+		<UnitValue value="12.2898F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5378,16 +5378,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="14.715099F"/>
+		<UnitValue value="14.715099F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5414,16 +5414,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.3302F"/>
+		<UnitValue value="11.3302F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5450,16 +5450,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="15.992999F"/>
+		<UnitValue value="15.992999F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5486,16 +5486,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="2.88436F"/>
+		<UnitValue value="2.88436F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5522,16 +5522,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.81371F"/>
+		<UnitValue value="4.81371F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5558,16 +5558,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.0385401F"/>
+		<UnitValue value="3.0385401F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5594,16 +5594,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.42573F"/>
+		<UnitValue value="1.42573F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5630,16 +5630,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.6377697F"/>
+		<UnitValue value="4.6377697F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5666,16 +5666,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="4.03932F"/>
+		<UnitValue value="4.03932F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5702,16 +5702,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="15.5897F"/>
+		<UnitValue value="15.5897F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5738,16 +5738,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.4532995F"/>
+		<UnitValue value="11.4532995F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5774,16 +5774,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="20.668F"/>
+		<UnitValue value="20.668F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5810,16 +5810,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.54519F"/>
+		<UnitValue value="1.54519F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5846,16 +5846,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="16.6045F"/>
+		<UnitValue value="16.6045F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5882,16 +5882,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.4281F"/>
+		<UnitValue value="1.4281F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5918,16 +5918,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="8.42342F"/>
+		<UnitValue value="8.42342F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5954,16 +5954,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="24.290602F"/>
+		<UnitValue value="24.290602F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -5990,16 +5990,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="17.02F"/>
+		<UnitValue value="17.02F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6026,16 +6026,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.62851F"/>
+		<UnitValue value="3.62851F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6062,16 +6062,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="24.021101F"/>
+		<UnitValue value="24.021101F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6098,16 +6098,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.90262F"/>
+		<UnitValue value="1.90262F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6134,16 +6134,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="9.94912F"/>
+		<UnitValue value="9.94912F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6170,16 +6170,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="16.0F"/>
+		<UnitValue value="16.0F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6206,16 +6206,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.763F"/>
+		<UnitValue value="11.763F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6242,16 +6242,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="8.76997F"/>
+		<UnitValue value="8.76997F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6278,16 +6278,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.4508F"/>
+		<UnitValue value="7.4508F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6314,16 +6314,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="16.844398F"/>
+		<UnitValue value="16.844398F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6350,16 +6350,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="56.4F"/>
+		<UnitValue value="56.4F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6386,16 +6386,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.7273F"/>
+		<UnitValue value="11.7273F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6422,16 +6422,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="2.7099102F"/>
+		<UnitValue value="2.7099102F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6458,16 +6458,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="45.2348F"/>
+		<UnitValue value="45.2348F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6494,16 +6494,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="19.041801F"/>
+		<UnitValue value="19.041801F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6530,16 +6530,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="3.8972F"/>
+		<UnitValue value="3.8972F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6566,16 +6566,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="23.5563F"/>
+		<UnitValue value="23.5563F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6602,16 +6602,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="39.21F"/>
+		<UnitValue value="39.21F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6638,16 +6638,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="23.2896F"/>
+		<UnitValue value="23.2896F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6674,16 +6674,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.66335F"/>
+		<UnitValue value="7.66335F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6710,16 +6710,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="5.88979F"/>
+		<UnitValue value="5.88979F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6746,16 +6746,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="34.299103F"/>
+		<UnitValue value="34.299103F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6782,16 +6782,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="7.9706097F"/>
+		<UnitValue value="7.9706097F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6818,16 +6818,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.63878F"/>
+		<UnitValue value="1.63878F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6854,16 +6854,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="11.8001995F"/>
+		<UnitValue value="11.8001995F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6890,16 +6890,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="139.526F"/>
+		<UnitValue value="139.526F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6926,16 +6926,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="35.3475F"/>
+		<UnitValue value="35.3475F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6962,16 +6962,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="15.969999F"/>
+		<UnitValue value="15.969999F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -6998,16 +6998,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.28597F"/>
+		<UnitValue value="1.28597F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7034,16 +7034,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="52.4F"/>
+		<UnitValue value="52.4F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7070,16 +7070,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="25.8995F"/>
+		<UnitValue value="25.8995F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7106,16 +7106,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="2.2179F"/>
+		<UnitValue value="2.2179F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7142,16 +7142,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="10.1905F"/>
+		<UnitValue value="10.1905F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7178,16 +7178,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="15.7887F"/>
+		<UnitValue value="15.7887F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7214,16 +7214,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.58515F"/>
+		<UnitValue value="1.58515F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7250,16 +7250,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.6149701F"/>
+		<UnitValue value="1.6149701F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7286,16 +7286,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="9.77874F"/>
+		<UnitValue value="9.77874F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7322,16 +7322,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="2.90215F"/>
+		<UnitValue value="2.90215F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7358,16 +7358,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="14.484301F"/>
+		<UnitValue value="14.484301F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7394,16 +7394,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="9.6864F"/>
+		<UnitValue value="9.6864F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7430,16 +7430,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="100.395996F"/>
+		<UnitValue value="100.395996F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7466,16 +7466,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="36.1795F"/>
+		<UnitValue value="36.1795F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7502,16 +7502,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="5.7586503F"/>
+		<UnitValue value="5.7586503F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7538,16 +7538,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="22.946499F"/>
+		<UnitValue value="22.946499F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7574,16 +7574,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="44.7696F"/>
+		<UnitValue value="44.7696F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7610,16 +7610,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="13.8869F"/>
+		<UnitValue value="13.8869F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7646,16 +7646,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.80162F"/>
+		<UnitValue value="1.80162F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7682,16 +7682,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.19689F"/>
+		<UnitValue value="1.19689F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
@@ -7718,16 +7718,16 @@
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
 <![CDATA[<CableProperties>
 	<linearResistance>
-		<UnitValue unit="Ω/km" value="0.2067F"/>
+		<UnitValue value="0.2067F" unit="Ω/km"/>
 	</linearResistance>
 	<linearReactance>
-		<UnitValue unit="Ω/km" value="0.0804248F"/>
+		<UnitValue value="0.0804248F" unit="Ω/km"/>
 	</linearReactance>
 	<maxCurrent>
-		<UnitValue unit="A" value="270.0F"/>
+		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
 	<length>
-		<UnitValue unit="m" value="1.18994F"/>
+		<UnitValue value="1.18994F" unit="m"/>
 	</length>
 </CableProperties>
 ]]>
