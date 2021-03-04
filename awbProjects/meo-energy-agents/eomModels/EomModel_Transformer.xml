@@ -629,6 +629,45 @@
         <ns2:StaticModelValue>rO0ABXNyADpoeWdyaWQuYWdlbnQudHJhbnNmb3JtZXIuZW9tRGF0YU1vZGVsLlRyYW5zZm9ybWVyRGF0YU1vZGVsJ5blx/JI7dACABVEABBjb3BwZXJMb3NzZXNfcEN1RAAVaWRsZUltcGVkYW5jZV9pTm9Mb2FkRAAOaXJvbkxvc3Nlc19wRmVaABZsb3dlclZvbHRhZ2VfVGhyaVBoYXNlRAARbG93ZXJWb2x0YWdlX3ZtTFZEACZudW1iZXJPZlZpb2xhdGlvbnNUb0FjdGl2YXRlQ29udHJvbGxlckQAFHBoYXNlU2hpZnRQZXJUYXBfZFZhRAAOcGhhc2VTaGlmdF92YTBEAA1yYXRlZFBvd2VyX3NSRAAbc2hvcnRDaXJjdWl0SW1wZWRhbmNlX3ZtSW1wSQAKdGFwTWF4aW11bUkACnRhcE1pbmltdW1JAAp0YXBOZXV0cmFsWgAHdGFwYWJsZVoAFnVwcGVyVm9sdGFnZV9UaHJpUGhhc2VEABF1cHBlclZvbHRhZ2Vfdm1IVkQAFnZvbHRhZ2VEZWx0YVBlclRhcF9kVm1MAAlsaWJyYXJ5SUR0ABJMamF2YS9sYW5nL1N0cmluZztMAA1zbGFja05vZGVTaWRldABETGh5Z3JpZC9hZ2VudC90cmFuc2Zvcm1lci9lb21EYXRhTW9kZWwvVHJhbnNmb3JtZXJEYXRhTW9kZWwkVGFwU2lkZTtMABVzbGFja05vZGVWb2x0YWdlTGV2ZWx0ABJMamF2YS9sYW5nL0RvdWJsZTtMAAd0YXBTaWRlcQB+AAJ4cEATMzMzMzMzP9MzXSSeRPo/8zMzMzMzMwE/2ZmZmZmZmgAAAAAAAAAAAAAAAAAAAABAYsAAAAAAAD/ZmZmZmZmaQBgAAAAAAAAAAAAC/////gAAAAABAEA0AAAAAAAAQAQAAAAAAAB0ABswLjQgTVZBIDIwLzAuNCBrViBEeW41IEFTRUF+cgBCaHlncmlkLmFnZW50LnRyYW5zZm9ybWVyLmVvbURhdGFNb2RlbC5UcmFuc2Zvcm1lckRhdGFNb2RlbCRUYXBTaWRlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAPSGlnaFZvbHRhZ2VTaWRlc3IAEGphdmEubGFuZy5Eb3VibGWAs8JKKWv7BAIAAUQABXZhbHVleHIAEGphdmEubGFuZy5OdW1iZXKGrJUdC5TgiwIAAHhwQNQFAAAAAABxAH4ACA==</ns2:StaticModelValue>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>lvTotaCurrentImagL1</ns2:VariableID>
+        <ns2:VariableDescription>LV L1 Total Imaginary Current</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>A</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>lvTotaCurrentImagL2</ns2:VariableID>
+        <ns2:VariableDescription>LV L2 Total Imaginary Current</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>A</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>lvTotaCurrentImagL3</ns2:VariableID>
+        <ns2:VariableDescription>LV L3 Total Imaginary Current</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>A</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>lvTotaCurrentL1</ns2:VariableID>
         <ns2:VariableDescription>LV L1 Total Current</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
@@ -657,6 +696,45 @@
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>lvTotaCurrentL3</ns2:VariableID>
         <ns2:VariableDescription>LV L3 Total Current</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>A</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>lvTotaCurrentRealL1</ns2:VariableID>
+        <ns2:VariableDescription>LV L1 Total Real Current</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>A</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>lvTotaCurrentRealL2</ns2:VariableID>
+        <ns2:VariableDescription>LV L2 Total Real Current</ns2:VariableDescription>
+        <ns2:SetPoint>false</ns2:SetPoint>
+        <ns2:SetPointForUser>false</ns2:SetPointForUser>
+        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:ValueMin>0.0</ns2:ValueMin>
+        <ns2:ValueMax>0.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
+        <ns2:Unit>A</ns2:Unit>
+        <ns2:GradientValue>0.0</ns2:GradientValue>
+        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
+    </ns2:SystemVariables>
+    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns2:VariableID>lvTotaCurrentRealL3</ns2:VariableID>
+        <ns2:VariableDescription>LV L3 Total Real Current</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
@@ -926,84 +1004,6 @@
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
     </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentRealL1</ns2:VariableID>
-        <ns2:VariableDescription>LV L1 Total Real Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentRealL2</ns2:VariableID>
-        <ns2:VariableDescription>LV L2 Total Real Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentRealL3</ns2:VariableID>
-        <ns2:VariableDescription>LV L3 Total Real Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentImagL1</ns2:VariableID>
-        <ns2:VariableDescription>LV L1 Total Imaginary Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentImagL2</ns2:VariableID>
-        <ns2:VariableDescription>LV L2 Total Imaginary Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentImagL3</ns2:VariableID>
-        <ns2:VariableDescription>LV L3 Total Imaginary Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
     <ns2:CalculationClass>hygrid.agent.transformer.TransformerPowerCalculation</ns2:CalculationClass>
     <ns2:EvaluationSettings>
         <ns2:RoundingPrecision>-1</ns2:RoundingPrecision>
@@ -1018,6 +1018,21 @@
             <ns2:StateTime>0</ns2:StateTime>
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrentImagL1</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrentImagL2</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrentImagL3</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
                 <ns2:VariableID>lvTotaCurrentL1</ns2:VariableID>
                 <ns2:Value>0.0</ns2:Value>
             </ns2:IOlist>
@@ -1029,6 +1044,21 @@
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>lvTotaCurrentL3</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrentRealL1</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrentRealL2</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>lvTotaCurrentRealL3</ns2:VariableID>
                 <ns2:Value>0.0</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedDouble">
@@ -1375,7 +1405,7 @@
         </ns2:EvaluationClasses>
         <ns2:EvaluationClasses>
             <ns2:StrategyID>Snapshot Random</ns2:StrategyID>
-            <ns2:ClassName>hygrid.agent.transformer.SnapshotStrategyRandlom</ns2:ClassName>
+            <ns2:ClassName>hygrid.agent.transformer.SnapshotStrategyRandom</ns2:ClassName>
             <ns2:Description>Random Snapshot Strategy</ns2:Description>
         </ns2:EvaluationClasses>
         <ns2:EvaluationClasses>
