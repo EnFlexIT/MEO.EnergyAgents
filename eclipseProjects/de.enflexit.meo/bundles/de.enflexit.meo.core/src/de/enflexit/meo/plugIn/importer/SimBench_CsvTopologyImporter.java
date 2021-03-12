@@ -337,8 +337,9 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			HashMap<String, String> dataRowHashMap = this.getDataRowHashMap(SIMBENCH_LineType, "id", lineType);
 			Float linResistance = this.parseFloat(dataRowHashMap.get("r"));
 			Float linReactance = this.parseFloat(dataRowHashMap.get("x"));
+			//Float linearConductance = this.parseFloat(dataRowHashMap.get("b"));
 			Float maxCurrent = this.parseFloat(dataRowHashMap.get("iMax"));
-			
+
 			
 			// --- Prepare new NetworkComponent -----------------------------------------
 			NetworkModel newCompNM = null;
@@ -366,6 +367,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			cableProperties.setLength(new UnitValue(lengthInMeter, "m"));
 			cableProperties.setLinearResistance(new UnitValue(linResistance, "Ω/km"));
 			cableProperties.setLinearReactance(new UnitValue(linReactance, "Ω/km"));
+			//cableProperties.setLinearConductance(new UnitValue(linearConductance, "µS/km"));
 			cableProperties.setMaxCurrent(new UnitValue(maxCurrent, "A"));
 
 			// --- Add an empty time series chart object to match the requirements of the adapter ------

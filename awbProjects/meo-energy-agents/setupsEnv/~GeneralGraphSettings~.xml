@@ -116,17 +116,6 @@
             </value>
         </entry>
         <entry>
-            <key>SlagNode</key>
-            <value>
-                <color>-16777216</color>
-                <domain>ElectricityThriPhase</domain>
-                <edgeImage>/images/SlackNode.png</edgeImage>
-                <edgeWidth>2.0</edgeWidth>
-                <graphPrototype>org.awb.env.networkModel.prototypes.DistributionNode</graphPrototype>
-                <showLabel>true</showLabel>
-            </value>
-        </entry>
-        <entry>
             <key>Sleeve</key>
             <value>
                 <adapterClass>de.enflexit.eom.awb.adapter.EomAdapter</adapterClass>
