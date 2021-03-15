@@ -13074,6 +13074,28 @@
             </value>
         </entry>
         <entry>
+            <key>PV-Synthese</key>
+            <value>
+                <networkElements>
+                    <element elementType="NetworkComponent" elementID="n0">
+                        <storageSettings>
+                            <entry>
+                                <key>EomFileLocation</key>
+                            </entry>
+                            <entry>
+                                <key>EomModelType</key>
+                                <value>TechnicalSystem</value>
+                            </entry>
+                            <entry>
+                                <key>EomStorageLocation</key>
+                                <value>File</value>
+                            </entry>
+                        </storageSettings>
+                    </element>
+                </networkElements>
+            </value>
+        </entry>
+        <entry>
             <key>SimBench-Import-Test</key>
             <value>
                 <networkElements>

@@ -340,7 +340,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			//Herleitung der Capacitance
 			//double b / 1E-6= 2 * 50 * Math.PI * matGridData.get(i).getdC()*1E-9;
 			//Float linCapacitance = this.parseFloat(dataRowHashMap.get("b")) / (float)(1E6 * 2 * 50 * Math.PI * 1E-9);
-			Float linCapacitance = this.parseFloat(dataRowHashMap.get("b")) / (float)(100 * Math.PI * 1E-3);
+			Float linCapacitance = this.parseFloat(dataRowHashMap.get("b")) / ((float)(100 * Math.PI * 1E-3));
 			Float maxCurrent = this.parseFloat(dataRowHashMap.get("iMax"));
 			
 			

@@ -194,6 +194,10 @@
             <value>MeoScene00_1-LV-rural3-0-sw.xml</value>
         </entry>
         <entry>
+            <key>PV-Synthese</key>
+            <value>PV-Synthese.xml</value>
+        </entry>
+        <entry>
             <key>SimBench-Import-Test</key>
             <value>SimBench-Import-Test.xml</value>
         </entry>
