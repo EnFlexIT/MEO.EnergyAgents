@@ -988,125 +988,24 @@
 	<NetworkElement>GraphNode,LV3.101 Bus 16</NetworkElement>
 <Instances>
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
-<![CDATA[<TransformerNodeProperties description="" isLoadNode="false">
-	<nominalPower>
-		<UnitValue value="0.0F" unit=""/>
-	</nominalPower>
+<![CDATA[<TransformerNodeProperties isLoadNode="true">
 	<ratedVoltage>
-		<UnitValue value="0.0F" unit=""/>
+		<UnitValue value="400.0F" unit="V"/>
 	</ratedVoltage>
 </TransformerNodeProperties>
 ]]>
 </Instance>
 <Instance Ontology="de.enflexit.ea.core.dataModel.ontology.HyGridOntology">
-<![CDATA[<TriPhaseElectricalTransformerState>
-	<l2>
-		<UniPhaseElectricalNodeState cosPhi="0.0F">
-			<voltageImag>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageImag>
-			<voltageAbs>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageAbs>
-			<P>
-				<UnitValue value="0.0F" unit=""/>
-			</P>
-			<current>
-				<UnitValue value="0.0F" unit=""/>
-			</current>
-			<Q>
-				<UnitValue value="0.0F" unit=""/>
-			</Q>
-			<voltageReal>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageReal>
-			<S>
-				<UnitValue value="0.0F" unit=""/>
-			</S>
-		</UniPhaseElectricalNodeState>
-	</l2>
-	<l3>
-		<UniPhaseElectricalNodeState cosPhi="0.0F">
-			<voltageImag>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageImag>
-			<voltageAbs>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageAbs>
-			<P>
-				<UnitValue value="0.0F" unit=""/>
-			</P>
-			<current>
-				<UnitValue value="0.0F" unit=""/>
-			</current>
-			<Q>
-				<UnitValue value="0.0F" unit=""/>
-			</Q>
-			<voltageReal>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageReal>
-			<S>
-				<UnitValue value="0.0F" unit=""/>
-			</S>
-		</UniPhaseElectricalNodeState>
-	</l3>
-	<l1>
-		<UniPhaseElectricalNodeState cosPhi="0.0F">
-			<voltageImag>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageImag>
-			<voltageAbs>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageAbs>
-			<P>
-				<UnitValue value="0.0F" unit=""/>
-			</P>
-			<current>
-				<UnitValue value="0.0F" unit=""/>
-			</current>
-			<Q>
-				<UnitValue value="0.0F" unit=""/>
-			</Q>
-			<voltageReal>
-				<UnitValue value="0.0F" unit=""/>
-			</voltageReal>
-			<S>
-				<UnitValue value="0.0F" unit=""/>
-			</S>
-		</UniPhaseElectricalNodeState>
-	</l1>
-	<ratedVoltage>
-		<UnitValue value="0.0F" unit=""/>
-	</ratedVoltage>
-</TriPhaseElectricalTransformerState>
+<![CDATA[<TriPhaseElectricalNodeState>
+</TriPhaseElectricalNodeState>
 ]]>
 </Instance>
 <Instance Ontology="agentgui.ontology.AgentGUI_BaseOntology">
 <![CDATA[<TimeSeriesChart realTime="false">
 	<timeSeriesVisualisationSettings>
-		<TimeSeriesChartSettings yAxisLabel="" rendererType="" xAxisLabel="" chartTitle="" timeFormat="">
-			<yAxisColors>
-				<primitive type="STRING" value=""/>
-			</yAxisColors>
-			<yAxisLineWidth>
-				<primitive type="FLOAT" value="0.0F"/>
-			</yAxisLineWidth>
+		<TimeSeriesChartSettings>
 		</TimeSeriesChartSettings>
 	</timeSeriesVisualisationSettings>
-	<timeSeriesChartData>
-		<TimeSeries label="" unit="">
-			<timeSeriesValuePairs>
-				<TimeSeriesValuePair>
-					<timestamp>
-						<Simple_Long StringLongValue=""/>
-					</timestamp>
-					<value>
-						<Simple_Float FloatValue="0.0F"/>
-					</value>
-				</TimeSeriesValuePair>
-			</timeSeriesValuePairs>
-		</TimeSeries>
-	</timeSeriesChartData>
 </TimeSeriesChart>
 ]]>
 </Instance>
@@ -3190,6 +3089,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.3343201F" unit="m"/>
 	</length>
@@ -3226,6 +3128,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="50.4014F" unit="m"/>
 	</length>
@@ -3262,6 +3167,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="23.8476F" unit="m"/>
 	</length>
@@ -3298,6 +3206,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="2.23413F" unit="m"/>
 	</length>
@@ -3334,6 +3245,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="40.7432F" unit="m"/>
 	</length>
@@ -3370,6 +3284,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="82.251495F" unit="m"/>
 	</length>
@@ -3406,6 +3323,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="52.9F" unit="m"/>
 	</length>
@@ -3442,6 +3362,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.2224097F" unit="m"/>
 	</length>
@@ -3478,6 +3401,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="21.6051F" unit="m"/>
 	</length>
@@ -3514,6 +3440,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.3517F" unit="m"/>
 	</length>
@@ -3550,6 +3479,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="10.6382F" unit="m"/>
 	</length>
@@ -3586,6 +3518,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.3761F" unit="m"/>
 	</length>
@@ -3622,6 +3557,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="17.9292F" unit="m"/>
 	</length>
@@ -3658,6 +3596,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="2.75758F" unit="m"/>
 	</length>
@@ -3694,6 +3635,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.5305201F" unit="m"/>
 	</length>
@@ -3730,6 +3674,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="35.3929F" unit="m"/>
 	</length>
@@ -3766,6 +3713,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="10.4802F" unit="m"/>
 	</length>
@@ -3802,6 +3752,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.125501F" unit="m"/>
 	</length>
@@ -3838,6 +3791,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.84121F" unit="m"/>
 	</length>
@@ -3874,6 +3830,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.7453101F" unit="m"/>
 	</length>
@@ -3910,6 +3869,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="28.4746F" unit="m"/>
 	</length>
@@ -3946,6 +3908,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.68286F" unit="m"/>
 	</length>
@@ -3982,6 +3947,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.23807F" unit="m"/>
 	</length>
@@ -4018,6 +3986,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="22.5228F" unit="m"/>
 	</length>
@@ -4054,6 +4025,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.51298F" unit="m"/>
 	</length>
@@ -4090,6 +4064,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="10.7857F" unit="m"/>
 	</length>
@@ -4126,6 +4103,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="8.76741F" unit="m"/>
 	</length>
@@ -4162,6 +4142,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="76.2474F" unit="m"/>
 	</length>
@@ -4198,6 +4181,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.91506F" unit="m"/>
 	</length>
@@ -4234,6 +4220,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="12.8602F" unit="m"/>
 	</length>
@@ -4270,6 +4259,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="82.0309F" unit="m"/>
 	</length>
@@ -4306,6 +4298,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.0807F" unit="m"/>
 	</length>
@@ -4342,6 +4337,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="53.218F" unit="m"/>
 	</length>
@@ -4378,6 +4376,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="5.32133F" unit="m"/>
 	</length>
@@ -4414,6 +4415,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.16572F" unit="m"/>
 	</length>
@@ -4450,6 +4454,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="40.3499F" unit="m"/>
 	</length>
@@ -4486,6 +4493,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.9035897F" unit="m"/>
 	</length>
@@ -4522,6 +4532,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="17.81F" unit="m"/>
 	</length>
@@ -4558,6 +4571,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.3309402F" unit="m"/>
 	</length>
@@ -4594,6 +4610,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.96229F" unit="m"/>
 	</length>
@@ -4630,6 +4649,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.95877F" unit="m"/>
 	</length>
@@ -4666,6 +4688,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="15.7142F" unit="m"/>
 	</length>
@@ -4702,6 +4727,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="28.300001F" unit="m"/>
 	</length>
@@ -4738,6 +4766,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="12.7928F" unit="m"/>
 	</length>
@@ -4774,6 +4805,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="22.686699F" unit="m"/>
 	</length>
@@ -4810,6 +4844,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.5508003F" unit="m"/>
 	</length>
@@ -4846,6 +4883,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="58.534203F" unit="m"/>
 	</length>
@@ -4882,6 +4922,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.80553F" unit="m"/>
 	</length>
@@ -4918,6 +4961,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="8.24156F" unit="m"/>
 	</length>
@@ -4954,6 +5000,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="38.7F" unit="m"/>
 	</length>
@@ -4990,6 +5039,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.30877F" unit="m"/>
 	</length>
@@ -5026,6 +5078,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="41.2435F" unit="m"/>
 	</length>
@@ -5062,6 +5117,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.1575303F" unit="m"/>
 	</length>
@@ -5098,6 +5156,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.0938797F" unit="m"/>
 	</length>
@@ -5134,6 +5195,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="22.4202F" unit="m"/>
 	</length>
@@ -5170,6 +5234,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="25.5392F" unit="m"/>
 	</length>
@@ -5206,6 +5273,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="10.8022F" unit="m"/>
 	</length>
@@ -5242,6 +5312,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="40.3745F" unit="m"/>
 	</length>
@@ -5278,6 +5351,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="48.199F" unit="m"/>
 	</length>
@@ -5314,6 +5390,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.6901798F" unit="m"/>
 	</length>
@@ -5350,6 +5429,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="12.2898F" unit="m"/>
 	</length>
@@ -5386,6 +5468,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="14.715099F" unit="m"/>
 	</length>
@@ -5422,6 +5507,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.3302F" unit="m"/>
 	</length>
@@ -5458,6 +5546,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="15.992999F" unit="m"/>
 	</length>
@@ -5494,6 +5585,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="2.88436F" unit="m"/>
 	</length>
@@ -5530,6 +5624,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.81371F" unit="m"/>
 	</length>
@@ -5566,6 +5663,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.0385401F" unit="m"/>
 	</length>
@@ -5602,6 +5702,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.42573F" unit="m"/>
 	</length>
@@ -5638,6 +5741,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.6377697F" unit="m"/>
 	</length>
@@ -5674,6 +5780,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="4.03932F" unit="m"/>
 	</length>
@@ -5710,6 +5819,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="15.5897F" unit="m"/>
 	</length>
@@ -5746,6 +5858,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.4532995F" unit="m"/>
 	</length>
@@ -5782,6 +5897,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="20.668F" unit="m"/>
 	</length>
@@ -5818,6 +5936,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.54519F" unit="m"/>
 	</length>
@@ -5854,6 +5975,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="16.6045F" unit="m"/>
 	</length>
@@ -5890,6 +6014,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.4281F" unit="m"/>
 	</length>
@@ -5926,6 +6053,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="8.42342F" unit="m"/>
 	</length>
@@ -5962,6 +6092,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="24.290602F" unit="m"/>
 	</length>
@@ -5998,6 +6131,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="17.02F" unit="m"/>
 	</length>
@@ -6034,6 +6170,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.62851F" unit="m"/>
 	</length>
@@ -6070,6 +6209,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="24.021101F" unit="m"/>
 	</length>
@@ -6106,6 +6248,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.90262F" unit="m"/>
 	</length>
@@ -6142,6 +6287,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="9.94912F" unit="m"/>
 	</length>
@@ -6178,6 +6326,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="16.0F" unit="m"/>
 	</length>
@@ -6214,6 +6365,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.763F" unit="m"/>
 	</length>
@@ -6250,6 +6404,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="8.76997F" unit="m"/>
 	</length>
@@ -6286,6 +6443,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.4508F" unit="m"/>
 	</length>
@@ -6322,6 +6482,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="16.844398F" unit="m"/>
 	</length>
@@ -6358,6 +6521,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="56.4F" unit="m"/>
 	</length>
@@ -6394,6 +6560,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.7273F" unit="m"/>
 	</length>
@@ -6430,6 +6599,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="2.7099102F" unit="m"/>
 	</length>
@@ -6466,6 +6638,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="45.2348F" unit="m"/>
 	</length>
@@ -6502,6 +6677,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="19.041801F" unit="m"/>
 	</length>
@@ -6538,6 +6716,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="3.8972F" unit="m"/>
 	</length>
@@ -6574,6 +6755,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="23.5563F" unit="m"/>
 	</length>
@@ -6610,6 +6794,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="39.21F" unit="m"/>
 	</length>
@@ -6646,6 +6833,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="23.2896F" unit="m"/>
 	</length>
@@ -6682,6 +6872,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.66335F" unit="m"/>
 	</length>
@@ -6718,6 +6911,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="5.88979F" unit="m"/>
 	</length>
@@ -6754,6 +6950,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="34.299103F" unit="m"/>
 	</length>
@@ -6790,6 +6989,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="7.9706097F" unit="m"/>
 	</length>
@@ -6826,6 +7028,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.63878F" unit="m"/>
 	</length>
@@ -6862,6 +7067,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="11.8001995F" unit="m"/>
 	</length>
@@ -6898,6 +7106,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="139.526F" unit="m"/>
 	</length>
@@ -6934,6 +7145,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="35.3475F" unit="m"/>
 	</length>
@@ -6970,6 +7184,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="15.969999F" unit="m"/>
 	</length>
@@ -7006,6 +7223,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.28597F" unit="m"/>
 	</length>
@@ -7042,6 +7262,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="52.4F" unit="m"/>
 	</length>
@@ -7078,6 +7301,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="25.8995F" unit="m"/>
 	</length>
@@ -7114,6 +7340,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="2.2179F" unit="m"/>
 	</length>
@@ -7150,6 +7379,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="10.1905F" unit="m"/>
 	</length>
@@ -7186,6 +7418,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="15.7887F" unit="m"/>
 	</length>
@@ -7222,6 +7457,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.58515F" unit="m"/>
 	</length>
@@ -7258,6 +7496,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.6149701F" unit="m"/>
 	</length>
@@ -7294,6 +7535,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="9.77874F" unit="m"/>
 	</length>
@@ -7330,6 +7574,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="2.90215F" unit="m"/>
 	</length>
@@ -7366,6 +7613,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="14.484301F" unit="m"/>
 	</length>
@@ -7402,6 +7652,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="9.6864F" unit="m"/>
 	</length>
@@ -7438,6 +7691,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="100.395996F" unit="m"/>
 	</length>
@@ -7474,6 +7730,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="36.1795F" unit="m"/>
 	</length>
@@ -7510,6 +7769,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="5.7586503F" unit="m"/>
 	</length>
@@ -7546,6 +7808,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="22.946499F" unit="m"/>
 	</length>
@@ -7582,6 +7847,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="44.7696F" unit="m"/>
 	</length>
@@ -7618,6 +7886,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="13.8869F" unit="m"/>
 	</length>
@@ -7654,6 +7925,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.80162F" unit="m"/>
 	</length>
@@ -7690,6 +7964,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.19689F" unit="m"/>
 	</length>
@@ -7726,6 +8003,9 @@
 	<maxCurrent>
 		<UnitValue value="270.0F" unit="A"/>
 	</maxCurrent>
+	<linearCapacitance>
+		<UnitValue value="829.9994F" unit="nF/km"/>
+	</linearCapacitance>
 	<length>
 		<UnitValue value="1.18994F" unit="m"/>
 	</length>

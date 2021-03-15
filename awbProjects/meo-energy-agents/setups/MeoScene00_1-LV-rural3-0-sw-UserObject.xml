@@ -3,8 +3,8 @@
     <ns2:deploymentGroups/>
     <ns2:scheduleTimeRange>
         <numberOfSystemStates>100</numberOfSystemStates>
-        <rangeType>TimeRange</rangeType>
+        <rangeType>StartTimeAndNumber</rangeType>
         <timeFrom>1451602800000</timeFrom>
-        <timeTo>1451948400000</timeTo>
+        <timeTo>1483224300000</timeTo>
     </ns2:scheduleTimeRange>
 </ns2:setupExtension>

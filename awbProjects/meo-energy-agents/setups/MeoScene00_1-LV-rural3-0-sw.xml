@@ -787,7 +787,7 @@
         </entry>
         <entry>
             <key>TimeStop</key>
-            <value>1451689200000</value>
+            <value>1483224300000</value>
         </entry>
         <entry>
             <key>DisplayUnitIndex</key>
@@ -996,6 +996,10 @@
             <entry>
                 <key>Meo.Scene.00_1-LV-rural3--0-sw</key>
                 <value>MeoScene00_1-LV-rural3-0-sw.xml</value>
+            </entry>
+            <entry>
+                <key>PV-Synthese</key>
+                <value>PV-Synthese.xml</value>
             </entry>
             <entry>
                 <key>SimBench-Import-Test</key>
