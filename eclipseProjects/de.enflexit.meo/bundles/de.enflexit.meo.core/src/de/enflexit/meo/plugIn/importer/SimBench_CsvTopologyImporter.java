@@ -337,6 +337,10 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			HashMap<String, String> dataRowHashMap = this.getDataRowHashMap(SIMBENCH_LineType, "id", lineType);
 			Float linResistance = this.parseFloat(dataRowHashMap.get("r"));
 			Float linReactance = this.parseFloat(dataRowHashMap.get("x"));
+			//Herleitung der Capacitance
+			//double b / 1E-6= 2 * 50 * Math.PI * matGridData.get(i).getdC()*1E-9;
+			//Float linCapacitance = this.parseFloat(dataRowHashMap.get("b")) / (float)(1E6 * 2 * 50 * Math.PI * 1E-9);
+			Float linCapacitance = this.parseFloat(dataRowHashMap.get("b")) / (float)(100 * Math.PI * 1E-3);
 			Float maxCurrent = this.parseFloat(dataRowHashMap.get("iMax"));
 			
 			
@@ -366,6 +370,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			cableProperties.setLength(new UnitValue(lengthInMeter, "m"));
 			cableProperties.setLinearResistance(new UnitValue(linResistance, "Ω/km"));
 			cableProperties.setLinearReactance(new UnitValue(linReactance, "Ω/km"));
+			cableProperties.setLinearCapacitance(new UnitValue(linCapacitance, "nF/km"));
 			cableProperties.setMaxCurrent(new UnitValue(maxCurrent, "A"));
 
 			// --- Add an empty time series chart object to match the requirements of the adapter ------
