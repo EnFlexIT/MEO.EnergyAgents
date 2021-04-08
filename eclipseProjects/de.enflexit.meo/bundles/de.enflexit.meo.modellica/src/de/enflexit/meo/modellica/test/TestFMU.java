@@ -5,6 +5,10 @@ import java.io.File;
 import org.javafmi.proxy.FmuFile;
 import org.javafmi.wrapper.Simulation;
 
+import com.sun.jna.Library;
+import com.sun.jna.Native;
+import com.sun.jna.Platform;
+
 public class TestFMU extends Thread {
 
 	public TestFMU() {
@@ -14,9 +18,27 @@ public class TestFMU extends Thread {
 	@Override
 	public void run() {
 		super.run();
+		this.printProcessID();
 		this.test();
 	}
+
 	
+	private void printProcessID() {
+		System.setProperty("debug.native", "true");
+		System.setProperty("jna.debug_load", "true");
+		System.setProperty("jna.debug_load.jna", "true");
+
+		MeinInterface.INSTANCE.puts("Helle World ... !");
+	}
+	public interface MeinInterface extends Library {
+	    // Windows will wieder Sonderwurst beim Namen der Standardbibliothek
+	    String libName = Platform.isWindows() ? "msvcrt" : "c";
+	    MeinInterface INSTANCE = (MeinInterface) Native.loadLibrary(libName, MeinInterface.class);
+	    // Es folgen die aufrufbaren C-Funktionen der Bibliothek 
+	    void puts(String s);
+	}
+	
+
 	private void test() {
 		
 		int startTime = 1;
@@ -37,11 +59,12 @@ public class TestFMU extends Thread {
 			
 			Simulation simulation = new Simulation(fmuFile);
 			simulation.init(startTime, stopTime);
-			for(int i=0; i < 2000; i++) {
+			int i = 0;
+			for (i=0; i < 2000; i++) {
 				simulation.doStep(stepSize);
-				System.err.println("[" + this.getClass().getName() + "] Do simulation step no" + i+1 + "  ");
 			}
 			simulation.terminate();
+			System.err.println("[" + this.getClass().getName() + "] Did " + (i) + " simulation steps!");
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();

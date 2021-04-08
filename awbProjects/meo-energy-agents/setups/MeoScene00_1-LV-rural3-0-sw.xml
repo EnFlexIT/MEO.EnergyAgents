@@ -821,6 +821,7 @@
         <plugins>
             <className>de.enflexit.ea.core.awbIntegration.plugin.AWBIntegrationPlugIn</className>
             <className>de.enflexit.meo.plugIn.MEOPlugin</className>
+            <className>de.enflexit.meo.modellica.test.ModellicaTestPlugIn</className>
         </plugins>
         <subOntologies>
             <subOntology>agentgui.ontology.AgentGUI_BaseOntology</subOntology>
@@ -993,6 +994,10 @@
         <simulationSetupCurrent>Meo.Scene.00_1-LV-rural3--0-sw</simulationSetupCurrent>
         <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
         <simulationSetups>
+            <entry>
+                <key>CoSimulation</key>
+                <value>CoSimulation.xml</value>
+            </entry>
             <entry>
                 <key>Meo.Scene.00_1-LV-rural3--0-sw</key>
                 <value>MeoScene00_1-LV-rural3-0-sw.xml</value>
