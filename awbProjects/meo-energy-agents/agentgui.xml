@@ -187,7 +187,7 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>de.enflexit.ea.core.dataModel.absEnvModel.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>CoSimulation</simulationSetupCurrent>
+    <simulationSetupCurrent>Meo.Scene.01a_1-LV-rural3--2-sw</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
     <simulationSetups>
         <entry>
@@ -197,6 +197,14 @@
         <entry>
             <key>Meo.Scene.00_1-LV-rural3--0-sw</key>
             <value>MeoScene00_1-LV-rural3-0-sw.xml</value>
+        </entry>
+        <entry>
+            <key>Meo.Scene.01a_1-LV-rural3--2-sw</key>
+            <value>MeoScene01a_1-LV-rural3-2-sw.xml</value>
+        </entry>
+        <entry>
+            <key>Meo.Scene.01b_1-LV-rural3--2-sw</key>
+            <value>MeoScene01b_1-LV-rural3-2-sw.xml</value>
         </entry>
         <entry>
             <key>PV-Synthese</key>
