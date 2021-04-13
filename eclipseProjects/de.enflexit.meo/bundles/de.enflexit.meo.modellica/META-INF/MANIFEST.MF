@@ -12,17 +12,20 @@ Require-Bundle: org.eclipse.osgi,
  org.agentgui.core,
  org.agentgui.lib.jade,
  org.awb.env.networkModel,
- de.enflexit.ea.core.dataModel
+ de.enflexit.ea.core.dataModel,
+ de.enflexit.eom.core
 Bundle-ClassPath: .,
  lib/fmu-wrapper-2.26.3.jar,
  lib/jna-4.1.0.jar,
  lib/simple-xml-safe-2.7.1.jar
-Service-Component: OSGI-INF/awbClassLoadService.xml
+Service-Component: OSGI-INF/awbClassLoadService.xml,
+ OSGI-INF/eomClassLoadService.xml
 Export-Package: com.sun.jna,
  com.sun.jna.ptr,
  com.sun.jna.win32,
  de.enflexit.meo.modellica,
  de.enflexit.meo.modellica.classLoadService,
+ de.enflexit.meo.modellica.eomIntegration,
  de.enflexit.meo.modellica.test,
  org.javafmi.framework,
  org.javafmi.kernel,
