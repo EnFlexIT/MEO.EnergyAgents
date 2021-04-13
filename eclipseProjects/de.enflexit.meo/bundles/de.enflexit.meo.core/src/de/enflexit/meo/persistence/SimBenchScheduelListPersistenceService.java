@@ -167,9 +167,9 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 			this.doUserCsvSelection();
 			if (this.getCsvSelection()==null) return null;
 			
-			sbFileSelection   = this.getCsvSelection().getSelectedFile();
-			sbRowIndexSelection    = this.getCsvSelection().getSelectedModelRows()[0];
-			scheduleTimeRange = this.getScheduleTimeRange();
+			sbFileSelection     = this.getCsvSelection().getSelectedFile();
+			sbRowIndexSelection = this.getCsvSelection().getSelectedModelRows()[0];
+			scheduleTimeRange   = this.getScheduleTimeRange();
 		}
 		if (sbFileSelection==null && sbRowIndexSelection==-1) return null;
 		
