@@ -90,7 +90,7 @@ public class TestFMU extends Thread {
 	 */
 	private String getFmuFilePath() {
 		if (fmuFilePath==null) {
-			fmuFilePath = Application.getProjectFocused().getProjectFolderFullPath() + "fmuModels/mGRiDS_CoSimFMI_HPSystem/mGRiDS_CoSimFMI_HPSystem.fmu";
+			fmuFilePath = Application.getProjectFocused().getProjectFolderFullPath() + "fmuModels/mGRiDS_CoSimFMI_HPSystem/mGRiDS_CoSimFMI.HPSystem.fmu";
 		}
 		return fmuFilePath;
 	}
