@@ -63,7 +63,17 @@ public class TestFMU extends Thread {
 			simulation.write(NOMINAL_POWER_HEAT, NOMINAL_POWER_ELECTRIC, NOMINAL_POWER_COIL).with(10.0, 3.5, 10.0);
 			
 			ModelDescription md = this.getSimulation().getModelDescription();
-			System.out.println(md.getFmiVersion());
+			System.out.println("FMI version " + md.getFmiVersion());
+			System.out.println("--- Input variables: ---");
+			for (String var : this.getInputVariableNames()) {
+				System.out.println(var);
+			}
+			System.out.println();
+			System.out.println("--- Output variables: ---");
+			for (String var : this.getOutputVariableNames()) {
+				System.out.println(var);
+			}
+			System.out.println();
 			
 			this.printOutputHeaders();
 			
