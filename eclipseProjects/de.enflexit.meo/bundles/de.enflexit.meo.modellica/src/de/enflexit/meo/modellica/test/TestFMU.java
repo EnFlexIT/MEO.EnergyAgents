@@ -64,30 +64,35 @@ public class TestFMU extends Thread {
 			
 			ModelDescription md = this.getSimulation().getModelDescription();
 			System.out.println("FMI version " + md.getFmiVersion());
-			System.out.println("--- Input variables: ---");
-			for (String var : this.getInputVariableNames()) {
-				System.out.println(var);
-			}
-			System.out.println();
-			System.out.println("--- Output variables: ---");
-			for (String var : this.getOutputVariableNames()) {
-				System.out.println(var);
-			}
-			System.out.println();
 			
 			this.printOutputHeaders();
 			
 			int i = 0;
-			for (i=0; i < 2000; i++) {
-				double hpState = 1.0 * (i%2);
-//				double onOff = 0.0;
-				simulation.write("Schaltsignal_Waermepumpe").with(hpState);
-				simulation.doStep(stepSize);
-				this.printFmuState();
-			}
+//			for (i=0; i < 2000; i++) {
+//				double hpState = 1.0 * (i%2);
+////				double onOff = 0.0;
+//				simulation.write("Schaltsignal_Waermepumpe").with(hpState);
+//				simulation.doStep(stepSize);
+//				this.printFmuState();
+//			}
+			
+			System.out.println("Initial state");
+			this.printFmuState();
+			simulation.write("Schaltsignal_Waermepumpe").with(1.0);
+			simulation.doStep(60);
+			System.out.println("After doStep(60)");
+			this.printFmuState();
+			this.getSimulation().reset();
+			simulation.init(startTime, stopTime);
+			simulation.write(NOMINAL_POWER_HEAT, NOMINAL_POWER_ELECTRIC, NOMINAL_POWER_COIL).with(10.0, 3.5, 10.0);
+			System.out.println("After reset()");
+			this.printFmuState();
+			
+			
+			
 			simulation.terminate();
 			System.err.println("[" + this.getClass().getName() + "] Did " + (i) + " simulation steps!");
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -119,28 +124,6 @@ public class TestFMU extends Thread {
 			simulation = new Simulation(new FmuFile(fmuFile));
 		}
 		return simulation;
-	}
-	
-	/**
-	 * Gets the input variable names.
-	 * @return the input variable names
-	 */
-	private Vector<String> getInputVariableNames() {
-		if (inputVariableNames==null) {
-			inputVariableNames = this.getVariableNamesByCausality("input");
-		}
-		return inputVariableNames;
-	}
-	
-	/**
-	 * Gets the output variables.
-	 * @return the output variables
-	 */
-	private Vector<String> getOutputVariableNames() {
-		if (outputVariables==null) {
-			outputVariables = this.getVariableNamesByCausality("output");
-		}
-		return outputVariables;
 	}
 	
 	/**
@@ -181,7 +164,6 @@ public class TestFMU extends Thread {
 		double pElHP = this.getSimulation().read(ELECTRICAL_LOAD_HEATPUMP).asDouble();
 		double pElCoil = this.getSimulation().read(ELECTRICAL_LOAD_COIL).asDouble();
 		double soc = this.getSimulation().read(STORAGE_LOAD).asDouble();
-		
 		System.out.println(time + "\t" + tAmb + "\t" + pTh + "\t" + heatPump + "\t" + this.getNumberFormatShort().format(pElHP) + "\t" + coil + "\t" + this.getNumberFormatShort().format(pElCoil) + "\t" + this.getNumberFormatLong().format(soc));
 	}
 	

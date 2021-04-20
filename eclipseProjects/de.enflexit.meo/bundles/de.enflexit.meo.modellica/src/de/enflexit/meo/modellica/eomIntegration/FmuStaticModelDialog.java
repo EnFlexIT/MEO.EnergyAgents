@@ -1,4 +1,4 @@
-package de.enflexit.meo.modellica.heatPump;
+package de.enflexit.meo.modellica.eomIntegration;
 
 import java.awt.Frame;
 
@@ -9,7 +9,7 @@ import energy.optionModel.gui.sysVariables.AbstractStaticModelDialog;
  * A dialog to edit the heatpump's static data model.
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class HeatPumpFmuStaticModelDialog extends AbstractStaticModelDialog {
+public class FmuStaticModelDialog extends AbstractStaticModelDialog {
 	
 	private static final long serialVersionUID = -879697198569914579L;
 
@@ -18,9 +18,8 @@ public class HeatPumpFmuStaticModelDialog extends AbstractStaticModelDialog {
 	 * @param owner the owner
 	 * @param staticModel the static model
 	 */
-	public HeatPumpFmuStaticModelDialog(Frame owner, AbstractStaticModel staticModel) {
+	public FmuStaticModelDialog(Frame owner, AbstractStaticModel staticModel) {
 		super(owner, staticModel);
-		// TODO Auto-generated constructor stub
 	}
 
 }

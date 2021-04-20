@@ -3,36 +3,33 @@ package de.enflexit.meo.modellica.eomIntegration;
 import energy.optionModel.AbstractDomainModel;
 
 /**
- * The Class defines a variable mapping for interface flows (energy or good).
+ * This class describes the mapping for an FMU variable that represents an EOM interface flow. 
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class VariableMappingInterfaceFlow extends AbstractVariableMapping {
+public class FmuVariableMappingInterfaceFlow extends AbstractFmuVariableMapping {
 
-	private static final long serialVersionUID = 6840522592071561395L;
+	private static final long serialVersionUID = -5019215289964512272L;
 	
+	private String domain;
 	private AbstractDomainModel domainModel;
 	private Object unit;
-
+	
 	/**
-	 * Instantiates a new variable mapping interface flow.
+	 * Gets the domain.
+	 * @return the domain
 	 */
-	public VariableMappingInterfaceFlow() {
-		this.variableType = VariableType.INTERFACE_FLOW;
+	public String getDomain() {
+		return domain;
 	}
 	
 	/**
-	 * Instantiates a new variable mapping interface flow.
-	 * @param eomVariableName the eom variable name
-	 * @param fmuVariableName the fmu variable name
-	 * @param unit the unit
+	 * Sets the domain.
+	 * @param domain the new domain
 	 */
-	public VariableMappingInterfaceFlow(String eomVariableName, String fmuVariableName, Object unit) {
-		this.eomVariableName = eomVariableName;
-		this.fmuVariableName = fmuVariableName;
-		this.unit = unit;
-		this.variableType = VariableType.INTERFACE_FLOW;
+	public void setDomain(String domain) {
+		this.domain = domain;
 	}
-
+	
 	/**
 	 * Gets the domain model.
 	 * @return the domain model
@@ -40,7 +37,7 @@ public class VariableMappingInterfaceFlow extends AbstractVariableMapping {
 	public AbstractDomainModel getDomainModel() {
 		return domainModel;
 	}
-
+	
 	/**
 	 * Sets the domain model.
 	 * @param domainModel the new domain model
@@ -48,7 +45,7 @@ public class VariableMappingInterfaceFlow extends AbstractVariableMapping {
 	public void setDomainModel(AbstractDomainModel domainModel) {
 		this.domainModel = domainModel;
 	}
-
+	
 	/**
 	 * Gets the unit.
 	 * @return the unit
@@ -56,13 +53,14 @@ public class VariableMappingInterfaceFlow extends AbstractVariableMapping {
 	public Object getUnit() {
 		return unit;
 	}
-
+	
 	/**
 	 * Sets the unit.
 	 * @param unit the new unit
 	 */
 	public void setUnit(Object unit) {
 		this.unit = unit;
-	}
-
+	}	
+	
+	
 }

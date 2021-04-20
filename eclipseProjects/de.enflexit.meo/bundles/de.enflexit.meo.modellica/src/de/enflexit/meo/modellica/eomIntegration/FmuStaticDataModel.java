@@ -3,9 +3,6 @@ package de.enflexit.meo.modellica.eomIntegration;
 import java.io.Serializable;
 import java.util.Vector;
 
-import de.enflexit.meo.modellica.eomIntegration.AbstractVariableMapping.VariableType;
-
-
 /**
  * General static data model for FMU integration.
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
@@ -16,8 +13,10 @@ public class FmuStaticDataModel implements Serializable{
 	
 	private String fmuFilePath;
 	private long modelStepSizeMilliSeconds = 1000;
-	
-	private Vector<AbstractVariableMapping> variableMappings;
+
+	private Vector<FmuVariableMappingStaticParameter> systemParameters;
+	private Vector<FmuVariableMappingIoList> ioVariables;
+	private Vector<FmuVariableMappingInterfaceFlow> flowVariables;
 
 	/**
 	 * Gets the fmu file path.
@@ -52,57 +51,36 @@ public class FmuStaticDataModel implements Serializable{
 	}
 
 	/**
-	 * Gets the variable mappings.
-	 * @return the variable mappings
+	 * Gets the system parameters.
+	 * @return the system parameters
 	 */
-	public Vector<AbstractVariableMapping> getVariableMappings() {
-		if (variableMappings==null) {
-			variableMappings = new Vector<AbstractVariableMapping>();
+	public Vector<FmuVariableMappingStaticParameter> getSystemParameters() {
+		if (systemParameters==null) {
+			systemParameters = new Vector<FmuVariableMappingStaticParameter>();
 		}
-		return variableMappings;
+		return systemParameters;
 	}
 	
 	/**
-	 * Gets the variable mapping with the specified EOM variable name
-	 * @param eomName the EOM variable name
-	 * @return the variable mapping, null if not found
+	 * Gets the io variables.
+	 * @return the io variables
 	 */
-	public AbstractVariableMapping getVariableMappingByEomName(String eomName) {
-		for (int i=0; i<this.getVariableMappings().size(); i++) {
-			if (this.getVariableMappings().get(i).getEomVariableName().equals(eomName)) {
-				return this.getVariableMappings().get(i);
-			}
+	public Vector<FmuVariableMappingIoList> getIoVariables() {
+		if (ioVariables==null) {
+			ioVariables = new Vector<FmuVariableMappingIoList>();
 		}
-		return null;
+		return ioVariables;
 	}
 	
 	/**
-	 * Gets the variable mapping with the specified FMU variable name.
-	 * @param fmuName the FMU variable name
-	 * @return the variable mapping, null if not found
+	 * Gets the flow variables.
+	 * @return the flow variables
 	 */
-	public AbstractVariableMapping getVariableMappingByFmuName(String fmuName) {
-		for (int i=0; i<this.getVariableMappings().size(); i++) {
-			if (this.getVariableMappings().get(i).getFmuVariableName().equals(fmuName)) {
-				return this.getVariableMappings().get(i);
-			}
+	public Vector<FmuVariableMappingInterfaceFlow> getInterfaceFlowVariables() {
+		if (flowVariables==null) {
+			flowVariables = new Vector<FmuVariableMappingInterfaceFlow>();
 		}
-		return null;
-	}
-	
-	/**
-	 * Gets all mappings for variables of the specified type.
-	 * @param type the type
-	 * @return the variable mappings
-	 */
-	public Vector<AbstractVariableMapping> getVariableMappingsByType(VariableType type){
-		Vector<AbstractVariableMapping> mappings = new Vector<AbstractVariableMapping>();
-		for (int i=0; i<this.getVariableMappings().size(); i++) {
-			if (this.getVariableMappings().get(i).getVariableType() == type) {
-				mappings.add(this.getVariableMappings().get(i));
-			}
-		}
-		return mappings;
+		return flowVariables;
 	}
 	
 }
