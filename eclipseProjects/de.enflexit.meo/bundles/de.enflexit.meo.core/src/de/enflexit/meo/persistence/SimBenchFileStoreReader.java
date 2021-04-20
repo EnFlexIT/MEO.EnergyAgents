@@ -59,15 +59,22 @@ public class SimBenchFileStoreReader {
 	 */
 	public ScheduleList getScheduleListByNode(int rowSelected, ScheduleTimeRange scheduleTimeRange) {
 		
-		// --- Get the profile and load factors -----------
 		String nodeID = this.getNodeID(rowSelected);
+
+		// --- Get the profile and load factors -----------
 		HashMap<String, String> loadRowHashMap = this.getDataRowHashMap(SimBenchFileStore.SIMBENCH_Load, "node", nodeID);
 		String profile = loadRowHashMap.get("profile");
 		double pLoadFactor = this.parseDouble(loadRowHashMap.get("pLoad"));
 		double qLoadFactor = this.parseDouble(loadRowHashMap.get("qLoad"));
 		
+		// --- Get the profile and load factors for PV ----
+		HashMap<String, String> pvRowHashMap = this.getDataRowHashMap(SimBenchFileStore.SIMBENCH_RES, "node", nodeID);
+		String profilePV = pvRowHashMap==null ? null : pvRowHashMap.get("profile");
+		double pLoadFactorPV = pvRowHashMap==null ? 0.0 : this.parseDouble(pvRowHashMap.get("pRES"));
+		double qLoadFactorPV = pvRowHashMap==null ? 0.0 : this.parseDouble(pvRowHashMap.get("qRES"));
+		
 		// --- Create ScheduleList ------------------------
-		Schedule schedule = this.getScheduleOfProfile(profile, pLoadFactor, qLoadFactor, scheduleTimeRange);
+		Schedule schedule = this.getScheduleOfProfile(profile, pLoadFactor, qLoadFactor, profilePV, pLoadFactorPV, qLoadFactorPV, scheduleTimeRange);
 		ScheduleList sl = this.createScheduleList("Profile " + profile, nodeID);
 		sl.getSchedules().add(schedule);
 		return sl;
@@ -80,15 +87,23 @@ public class SimBenchFileStoreReader {
 	 */
 	public ScheduleList getScheduleListByLoad(int rowSelected, ScheduleTimeRange scheduleTimeRange) {
 		
-		// --- Get the profile and load factors -----------
 		String loadID = this.getLoadID(rowSelected);
+
+		// --- Get the profile and load factors -----------
 		HashMap<String, String> loadRowHashMap = this.getDataRowHashMap(SimBenchFileStore.SIMBENCH_Load, "id", loadID);
 		String profile = loadRowHashMap.get("profile");
 		double pLoadFactor = this.parseDouble(loadRowHashMap.get("pLoad"));
 		double qLoadFactor = this.parseDouble(loadRowHashMap.get("qLoad"));
 		
+		// --- Get the profile and load factors for PV ----
+		String nodeID = loadRowHashMap.get("node");
+		HashMap<String, String> pvRowHashMap = this.getDataRowHashMap(SimBenchFileStore.SIMBENCH_RES, "node", nodeID);
+		String profilePV = pvRowHashMap==null ? null : pvRowHashMap.get("profile");
+		double pLoadFactorPV = pvRowHashMap==null ? 0.0 : this.parseDouble(pvRowHashMap.get("pRES"));
+		double qLoadFactorPV = pvRowHashMap==null ? 0.0 : this.parseDouble(pvRowHashMap.get("qRES"));
+		
 		// --- Create ScheduleList ------------------------
-		Schedule schedule = this.getScheduleOfProfile(profile, pLoadFactor, qLoadFactor, scheduleTimeRange);
+		Schedule schedule = this.getScheduleOfProfile(profile, pLoadFactor, qLoadFactor, profilePV, pLoadFactorPV, qLoadFactorPV, scheduleTimeRange);
 		ScheduleList sl = this.createScheduleList("Profile " + profile, null);
 		sl.getSchedules().add(schedule);
 		return sl;
@@ -153,11 +168,15 @@ public class SimBenchFileStoreReader {
 	 * @param profile the profile
 	 * @param pLoadFactor the load factor
 	 * @param qLoadFactor the q load factor
+	 * @param profilePV the PV profile 
+	 * @param pLoadFactorPV the p load factor for PV 
+	 * @param qLoadFactorPV the q load factor for PV
 	 * @param scheduleTimeRange the ScheduleTimeRange to be considered
 	 * @return the schedule of profile
 	 */
-	private Schedule getScheduleOfProfile(String profile, double pLoadFactor, double qLoadFactor, ScheduleTimeRange scheduleTimeRange) {
+	private Schedule getScheduleOfProfile(String profile, double pLoadFactor, double qLoadFactor, String profilePV, double pLoadFactorPV, double qLoadFactorPV, ScheduleTimeRange scheduleTimeRange) {
 		
+		// --------------------------------------------------------------------
 		// --- Get time series from load profile ------------------------------
 		CsvDataController loadProfileCsvController = this.getCsvDataControllerOfCsvFile(SimBenchFileStore.SIMBENCH_LoadProfile);
 		Vector<Vector<String>> loadProfileDataVector = this.getDataVectorOfCsvFile(SimBenchFileStore.SIMBENCH_LoadProfile);
@@ -170,6 +189,19 @@ public class SimBenchFileStoreReader {
 		int ciPLoad = loadProfileCsvController.getDataModel().findColumn(colNamePLoad);
 		int ciQLoad = loadProfileCsvController.getDataModel().findColumn(colNameQLoad);
 		
+		// --------------------------------------------------------------------
+		// --- Get time series from PV profile --------------------------------
+		CsvDataController pvProfileCsvController = this.getCsvDataControllerOfCsvFile(SimBenchFileStore.SIMBENCH_RESProfile);
+		Vector<Vector<String>> pvProfileDataVector = this.getDataVectorOfCsvFile(SimBenchFileStore.SIMBENCH_RESProfile);
+
+		String colNamePLoadPV = profilePV;
+		String colNameQLoadPV = profilePV;
+		
+		int ciPLoadPV = colNamePLoadPV==null ? -1 : pvProfileCsvController.getDataModel().findColumn(colNamePLoadPV);
+		int ciQLoadPV = colNameQLoadPV==null ? -1 : pvProfileCsvController.getDataModel().findColumn(colNameQLoadPV);
+
+		
+		// --- Set initial variable state ------------------------------------- 
 		long timeStampPrev = -1;
 		TechnicalSystemStateEvaluation tssePrev = null;
 
@@ -195,7 +227,7 @@ public class SimBenchFileStoreReader {
 			try {
 				// --- Get the time stamp -------------------------------------
 				long timeStamp = this.getTimeStampFromString(stringTime);
-				
+
 				// --- Set time from-to ---------------------------------------
 				if (i==0) timeFrom = timeStamp;
 				timeTo = Math.max(timeTo, timeStamp) ;
@@ -220,9 +252,25 @@ public class SimBenchFileStoreReader {
 					}
 				}
 				
-				// --- Calculate power values ---------------------------------
-				double pLoadMWAllPhases = this.parseDouble(stringPLoad) * pLoadFactor;
-				double qLoadMWAllPhases = this.parseDouble(stringQLoad) * qLoadFactor;
+				// ------------------------------------------------------------
+				// --- Calculate PV feed-in -----------------------------------
+				// ------------------------------------------------------------
+				double pPV = 0.0;
+				double qPV = 0.0;
+				if (profilePV!=null) {
+					// --- Get the possible PV feed ---------------------------
+					Vector<String> rowPV = this.getPVLoadDataRow(pvProfileDataVector, timeTo, i);
+					String stringPLoadPV = rowPV.get(ciPLoadPV);
+					String stringQLoadPV = rowPV.get(ciQLoadPV);
+					
+					pPV = - (this.parseDouble(stringPLoadPV) * pLoadFactorPV); 
+					qPV = - (this.parseDouble(stringQLoadPV) * qLoadFactorPV);
+				}
+				// ------------------------------------------------------------
+				
+				// --- Calculate over all power values ------------------------
+				double pLoadMWAllPhases = (this.parseDouble(stringPLoad) * pLoadFactor) + pPV;
+				double qLoadMWAllPhases = (this.parseDouble(stringQLoad) * qLoadFactor) + qPV;
 				
 				long durationMillis = 0;
 				if (timeStampPrev>0) {
@@ -252,6 +300,35 @@ public class SimBenchFileStoreReader {
 		
 		return schedule;
 	}
+	
+	/**
+	 * Return the PV load data row.
+	 *
+	 * @param pvProfileDataVector the PV profile data vector
+	 * @param currentTime the current time
+	 * @param searchStartIndex the search start index
+	 * @return the PV load data row
+	 */
+	private Vector<String> getPVLoadDataRow(Vector<Vector<String>> pvProfileDataVector, long currentTime, int searchStartIndex) {
+		
+		Vector<String> pvRow = null;
+		
+		// --- Get the initial data row that corresponds to the current search index ----
+		Vector<String> dataRowPV = pvProfileDataVector.get(searchStartIndex);
+		String stringTime = dataRowPV.get(0);
+		long timeStamp = this.getTimeStampFromString(stringTime);
+		
+		// --- Check if we have a match -------------------------------------------------
+		if (timeStamp!=currentTime) {
+			
+			System.out.println("Stop");
+			
+		} else {
+			pvRow = dataRowPV;
+		}
+		return pvRow;
+	}
+	
 	
 	/**
 	 * Creates the technical system state evaluation.
