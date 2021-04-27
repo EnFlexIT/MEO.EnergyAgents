@@ -177,7 +177,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 		TreeMap<String, String> storageSettings = networkElement.getDataModelStorageSettings();
 
 		String modelTypeString = storageSettings.get(EOM_SETTING_EOM_MODEL_TYPE);
-		String sbPathName = storageSettings.get(SIM_BENCH_SETTING_PATH_NAME);
+		String sbPathName = PathHandling.getPathName4LocalOS(storageSettings.get(SIM_BENCH_SETTING_PATH_NAME));
 		String sbFileSelection = storageSettings.get(SIM_BENCH_SETTING_FILE_NAME);
 		String sbRowIndexString = storageSettings.get(SIM_BENCH_SETTING_ROW_INDEX);
 		
@@ -201,7 +201,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 			this.printToConsole("No source directory was specified for the data of network element " + networkElement.getClass().getSimpleName() + " '" + networkElement.getId() + "'.", true);
 			return null;
 		}
-		File sbPath = new File(PathHandling.getPathName4LocalOS(sbPathName));
+		File sbPath = new File(sbPathName);
 		if (sbPath.exists()==false) {
 			// --- Try project location ---------
 			String projectPathName = this.getProject().getProjectFolderFullPath();
