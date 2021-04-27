@@ -89,6 +89,15 @@ public class SimBenchFileStore extends AbstractNetworkModelCsvImporter {
 		}
 	}
 
+	/**
+	 * Show the SimBench data.
+	 */
+	public void showSimbenchData() {
+		boolean isDebug = this.isDebug();
+		this.setDebug(true);
+		super.showImportPreview();
+		this.setDebug(isDebug);
+	}
 	
 	// --------------------------------------------------------------------------------------------
 	// --- From here: Some configuration for the super class AbstractNetworkModelCsvImporter ------

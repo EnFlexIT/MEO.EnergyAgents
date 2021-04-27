@@ -54,6 +54,7 @@ public class MEOPlugin extends PlugIn {
 		
 		if (Application.isOperatingHeadless()==false) {
 			// --- Add the MEO Result database settings --------
+			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonSimBenchData.class, null, true));
 			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonDatabaseSettings.class, null, true));
 			this.getGraphController().addCustomToolbarComponentDescription(new CustomToolbarComponentDescription(ToolBarType.EditControl, ToolBarSurrounding.ConfigurationOnly, JButtonIdScenarioResult.class, null, false));
 		}

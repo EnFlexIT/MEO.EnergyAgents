@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
  */
 public class BundleHelper {
 
-	private static final String imagePackage = "/icons/";
+	private static final String imagePackage = "/images/";
 	
 	/**
 	 * Gets the image package location as String.
