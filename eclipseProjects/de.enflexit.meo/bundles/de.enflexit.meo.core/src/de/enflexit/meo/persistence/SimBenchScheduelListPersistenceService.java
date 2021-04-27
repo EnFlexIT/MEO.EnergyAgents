@@ -174,7 +174,7 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 		if (sbFileSelection==null && sbRowIndexSelection==-1) return null;
 		
 		// --------------------------------------------------------------------
-		// --- Load the ScheduleList from the SimBenchLoader ------------------
+		// --- Load the ScheduleList from the SimBenchFileStoreReader ---------
 		// --------------------------------------------------------------------
 		ScheduleList scheduleList = null;
 		SimBenchFileStoreReader fileStoreReader = new SimBenchFileStoreReader();

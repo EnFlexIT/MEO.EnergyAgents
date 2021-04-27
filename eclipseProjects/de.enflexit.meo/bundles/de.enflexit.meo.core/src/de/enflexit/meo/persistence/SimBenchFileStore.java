@@ -67,7 +67,7 @@ public class SimBenchFileStore extends AbstractNetworkModelCsvImporter {
 	public synchronized void setSimBenchDirectoryFile(File simBenchDirecotryFile, boolean isDebug) {
 		if (simBenchDirecotryFile!=null && simBenchDirecotryFile.exists()==true) {
 
-			// -- Get the parent directory to find all files --------  
+			// --- Get the parent directory to find all files -------  
 			File simBenchDirecotry = simBenchDirecotryFile.getParentFile();
 			boolean validDir = simBenchDirecotry!=null && simBenchDirecotry.exists() && simBenchDirecotry.isDirectory(); 
 			if (validDir==false) {

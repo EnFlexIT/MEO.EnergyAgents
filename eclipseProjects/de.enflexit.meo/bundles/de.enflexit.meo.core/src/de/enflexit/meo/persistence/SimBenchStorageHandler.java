@@ -9,6 +9,7 @@ import org.awb.env.networkModel.DataModelNetworkElement;
 import org.awb.env.networkModel.NetworkComponent;
 
 import agentgui.core.application.Application;
+import de.enflexit.common.PathHandling;
 import de.enflexit.eom.awb.adapter.AbstractEomStorageHandler;
 import de.enflexit.eom.awb.adapter.EomDataModelAdapter;
 import energy.EomController;
@@ -200,7 +201,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 			this.printToConsole("No source directory was specified for the data of network element " + networkElement.getClass().getSimpleName() + " '" + networkElement.getId() + "'.", true);
 			return null;
 		}
-		File sbPath = new File(sbPathName);
+		File sbPath = new File(PathHandling.getPathName4LocalOS(sbPathName));
 		if (sbPath.exists()==false) {
 			// --- Try project location ---------
 			String projectPathName = this.getProject().getProjectFolderFullPath();
