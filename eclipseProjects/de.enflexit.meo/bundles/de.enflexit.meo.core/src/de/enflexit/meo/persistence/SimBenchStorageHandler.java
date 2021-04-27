@@ -221,7 +221,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 			this.printToConsole("No source file for the component identification was found in the settings of network element " + networkElement.getClass().getSimpleName() + " '" + networkElement.getId() + "'.", true);	
 			return null;
 		}
-		File sourceFile = new File(sbPathName + "/" + sbFileSelection);
+		File sourceFile = new File(sbPathName + File.separator + sbFileSelection);
 		if (sourceFile.exists()==false) {
 			this.printToConsole("The specified source file '" + sbFileSelection + "' for the component identification of network element " + networkElement.getClass().getSimpleName() + " '" + networkElement.getId() + "' could not be found.", true);
 			return null;
