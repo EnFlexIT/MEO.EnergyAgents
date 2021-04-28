@@ -17,7 +17,7 @@ public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
 	private IoVariableType variableType;
 	
 	/**
-	 * Instantiates a new FMU variable mapping for an IO list variables
+	 * Instantiates a new FMU variable mapping for an IO list variable
 	 * @param eomVariableName the EOM variable name
 	 * @param fmuVariableName the FMU variable name
 	 * @param variableType the variable type
@@ -26,6 +26,13 @@ public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
 		this(eomVariableName, fmuVariableName, variableType, null);
 	}
 
+	/**
+	 * Instantiates a new FMU variable mapping for an IO list variable
+	 * @param eomVariableName the EOM variable name
+	 * @param fmuVariableName the TMU variable name
+	 * @param variableType the variable type
+	 * @param unit the unit
+	 */
 	public FmuVariableMappingIoList(String eomVariableName, String fmuVariableName, IoVariableType variableType, String unit) {
 		this.setFmuVariableName(fmuVariableName);
 		this.eomVariableName = eomVariableName;
