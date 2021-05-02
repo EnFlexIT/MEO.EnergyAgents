@@ -22,9 +22,14 @@ public class FmuSimulationWrapper {
 	private Simulation simulation;
 	private FmuStaticDataModel fmuStaticModel;
 	
+	private boolean singleStepMode = true;
+	private boolean firstExecution = true;
+	
 	private Vector<FmuVariableMappingIoList> setpointMappings;
 	private Vector<FmuVariableMappingIoList> measurementMappings;
 	private Vector<FmuVariableMappingIoList> resultMappings;
+	
+	private boolean debug = false;
 	
 	/**
 	 * Instantiates a new fmu simulation wrapper.
@@ -41,7 +46,10 @@ public class FmuSimulationWrapper {
 	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
 
 		// --- Reset the simulation first -----------------
-		this.initializeFmuSimulation();
+		if (this.isSingleStepMode()==true || this.firstExecution==true) {
+			this.resetFmuSimulation();
+			this.firstExecution = false;
+		}
 		// --- Prepare static and dynamic inputs ----------
 		for (int i=0; i<this.getSetpointMappings().size(); i++) {
 			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
@@ -52,7 +60,7 @@ public class FmuSimulationWrapper {
 		
 		// --- Perform the actual simulation --------------
 		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
-		this.getFmuSimulation().doStep(stepSize);
+		this.getSimulation().doStep(stepSize);
 
 		for (int i=0; i<this.getResultMappings().size(); i++) {
 			this.readVariableFromFMU(this.getResultMappings().get(i), tsse);
@@ -62,20 +70,22 @@ public class FmuSimulationWrapper {
 	/**
 	 * Initialize simulation.
 	 */
-	private void initializeFmuSimulation() {
-		this.getFmuSimulation().reset();
+	private void resetFmuSimulation() {
+		this.getSimulation().reset();
 		
 		//TODO figure out how to handle time
+		this.getSimulation().init(0);
+		
 		// --- Initialize the FMU with the static parameters --------
 		for (int i=0; i<this.getStaticParameters().size(); i++) {
 			String fmuName = this.getStaticParameters().get(i).getFmuVariableName();
 			Object parameter = this.getStaticParameters().get(i).getValue();
 			if (parameter instanceof Double) {
-				this.getFmuSimulation().write(fmuName).with((Double)parameter);
+				this.getSimulation().write(fmuName).with((Double)parameter);
 			} else if (parameter instanceof Integer) {
-				this.getFmuSimulation().write(fmuName).with((Integer)parameter);
+				this.getSimulation().write(fmuName).with((Integer)parameter);
 			} else if (parameter instanceof Boolean) {
-				this.getFmuSimulation().write(fmuName).with((Boolean)parameter);
+				this.getSimulation().write(fmuName).with((Boolean)parameter);
 			} 
 		}
 		
@@ -89,11 +99,15 @@ public class FmuSimulationWrapper {
 	private void writeVariableToFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		if (eomVariable instanceof FixedDouble) {
-			this.getFmuSimulation().write(variableMapping.getFmuVariableName()).with(((FixedDouble)eomVariable).getValue());
+			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedDouble)eomVariable).getValue());
 		} else if (eomVariable instanceof FixedInteger) {
-			this.getFmuSimulation().write(variableMapping.getFmuVariableName()).with(((FixedInteger)eomVariable).getValue());
+			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedInteger)eomVariable).getValue());
 		} else if (eomVariable instanceof FixedBoolean) {
-			this.getFmuSimulation().write(variableMapping.getFmuVariableName()).with(((FixedBoolean)eomVariable).isValue());
+			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedBoolean)eomVariable).isValue());
+		}
+		
+		if (this.debug==true) {
+			System.out.println("Set variable " + variableMapping.getFmuVariableName() + " to FMU: " + this.getVariableString(eomVariable));
 		}
 	}
 	
@@ -105,15 +119,20 @@ public class FmuSimulationWrapper {
 	 */
 	private void readVariableFromFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
+		
 		if (eomVariable instanceof FixedDouble) {
-			double fmuValue = this.getFmuSimulation().read(variableMapping.getFmuVariableName()).asDouble();
+			double fmuValue = this.getSimulation().read(variableMapping.getFmuVariableName()).asDouble();
 			((FixedDouble)eomVariable).setValue(fmuValue);
 		} else if (eomVariable instanceof FixedInteger) {
-			int fmuValue = this.getFmuSimulation().read(variableMapping.getFmuVariableName()).asInteger();
+			int fmuValue = this.getSimulation().read(variableMapping.getFmuVariableName()).asInteger();
 			((FixedInteger)eomVariable).setValue(fmuValue);
 		} else if (eomVariable instanceof FixedBoolean) {
-			boolean fmuValue = this.getFmuSimulation().read(variableMapping.getFmuVariableName()).asBoolean();
+			boolean fmuValue = this.getSimulation().read(variableMapping.getFmuVariableName()).asBoolean();
 			((FixedBoolean)eomVariable).setValue(fmuValue);
+		}
+		
+		if (this.debug==true) {
+			System.out.println("Read variable " + variableMapping.getFmuVariableName() + " from FMU: " + this.getVariableString(eomVariable));
 		}
 	}
 	
@@ -129,7 +148,7 @@ public class FmuSimulationWrapper {
 	 * Gets the simulation.
 	 * @return the simulation
 	 */
-	public Simulation getFmuSimulation() {
+	public Simulation getSimulation() {
 		
 		if (simulation==null) {
 			File fmuFile = new File(this.getStaticModel().getFmuFilePath());
@@ -181,5 +200,53 @@ public class FmuSimulationWrapper {
 			resultMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.RESULT);
 		}
 		return resultMappings;
+	}
+
+	/**
+	 * Checks if this wrapper is single step mode. If true, the simulation is performed step-wise,
+	 * i.e. it is reset and re-initialized for each simulation step, which is required for the 
+	 * typical EOM evaluation behavior to check all alternatives for the next step. If false, the
+	 * simulation is performed in the "regular" sequential way, which will not work for EOM 
+	 * evaluations if there is more than one possible next step.    
+	 * @return true, if is single step mode
+	 */
+	public boolean isSingleStepMode() {
+		return singleStepMode;
+	}
+	
+	/**
+	 * Terminates the FMU simulation.
+	 */
+	public void terminateSimulation() {
+		this.getSimulation().terminate();
+	}
+
+	/**
+	 * Enabled or disables single step mode. If enabled, the simulation is performed step-wise,
+	 * i.e. it is reset and re-initialized for each simulation step, which is required for the 
+	 * typical EOM evaluation behavior to check all alternatives for the next step. If disabled, 
+	 * the simulation is performed in the "regular" sequential way, which will not work for EOM 
+	 * evaluations if there is more than one possible next step.
+	 * @param singleStepMode the new single step mode
+	 */
+	public void setSingleStepMode(boolean singleStepMode) {
+		this.singleStepMode = singleStepMode;
+	}
+	
+	/**
+	 * Returns a String representation of the {@link FixedVariable}'s value
+	 * @param variable the variable
+	 * @return the string
+	 */
+	private String getVariableString(FixedVariable variable) {
+		if (variable instanceof FixedBoolean) {
+			return "" + ((FixedBoolean)variable).isValue();
+		} else if (variable instanceof FixedDouble){
+			return "" + ((FixedDouble)variable).getValue();
+		} else if (variable instanceof FixedInteger) {
+			return "" + ((FixedInteger)variable).getValue();
+		} else {
+			return "";
+		}
 	}
 }

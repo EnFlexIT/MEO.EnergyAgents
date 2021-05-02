@@ -1,4 +1,4 @@
 /**
- * This package contains classes related to the specific heat pump model. 
+ * This package contains classes related to the working version of the HetaPump FMU. 
  */
 package de.enflexit.meo.modellica.heatPump;

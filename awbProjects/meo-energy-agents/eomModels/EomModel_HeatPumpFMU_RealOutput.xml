@@ -153,14 +153,6 @@
                     <ns2:unit>second, s</ns2:unit>
                 </ns2:MaxDuration>
             </ns2:StateTransitions>
-            <ns2:StateEvaluationRanges xsi:type="ns2:RangeBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ns2:id>0</ns2:id>
-                <ns2:VariableID>coilState</ns2:VariableID>
-            </ns2:StateEvaluationRanges>
-            <ns2:StateEvaluationRanges xsi:type="ns2:RangeBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ns2:id>0</ns2:id>
-                <ns2:VariableID>heatPumpState</ns2:VariableID>
-            </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
         <ns2:InitialStateID>CoSimulating</ns2:InitialStateID>
     </ns2:InterfaceConfigurations>
@@ -171,8 +163,8 @@
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>100.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.5</ns2:EvaluationStepSize>
+        <ns2:ValueMax>1.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.01</ns2:EvaluationStepSize>
         <ns2:Unit>%</ns2:Unit>
         <ns2:GradientTime>
             <ns2:idDuration>0</ns2:idDuration>
@@ -183,32 +175,8 @@
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>coilState</ns2:VariableID>
-        <ns2:VariableDescription>The state of the coil (on/off)</ns2:VariableDescription>
-        <ns2:SetPoint>true</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:GradientTime>
-            <ns2:idDuration>0</ns2:idDuration>
-            <ns2:value>1</ns2:value>
-            <ns2:unit>second, s</ns2:unit>
-        </ns2:GradientTime>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>heatPumpState</ns2:VariableID>
         <ns2:VariableDescription>The state of the heatpump (on/off)</ns2:VariableDescription>
-        <ns2:SetPoint>true</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>true</ns2:StateIdentifier>
-        <ns2:GradientTime>
-            <ns2:idDuration>0</ns2:idDuration>
-            <ns2:value>1</ns2:value>
-            <ns2:unit>second, s</ns2:unit>
-        </ns2:GradientTime>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>hpState</ns2:VariableID>
-        <ns2:VariableDescription>The heat pump state provided as measurement</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
@@ -237,7 +205,7 @@
         <ns2:SetPoint>false</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:StaticModelClass>de.enflexit.meo.modellica.heatPump.HeatPumpFmuStaticModel</ns2:StaticModelClass>
+        <ns2:StaticModelClass>de.enflexit.meo.modellica.heatPump.realOutput.HeatPumpFmuStaticModel</ns2:StaticModelClass>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>tAmb</ns2:VariableID>
@@ -257,14 +225,14 @@
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
-    <ns2:CalculationClass>de.enflexit.meo.modellica.heatPump.HeatPumpFmuOptionModelCalculation</ns2:CalculationClass>
+    <ns2:CalculationClass>de.enflexit.meo.modellica.heatPump.realOutput.HeatPumpFmuOptionModelCalculation</ns2:CalculationClass>
     <ns2:EvaluationSettings>
         <ns2:RoundingPrecision>-1</ns2:RoundingPrecision>
         <ns2:DataRepetition>None</ns2:DataRepetition>
         <ns2:TimeFormat>dd.MM.yy HH:mm:ss</ns2:TimeFormat>
         <ns2:EvaluationStateList xsi:type="ns2:TechnicalSystemState" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:idSchedule>0</ns2:idSchedule>
-            <ns2:GlobalTime>1618275600000</ns2:GlobalTime>
+            <ns2:GlobalTime>1618264800000</ns2:GlobalTime>
             <ns2:Description>Initial State</ns2:Description>
             <ns2:ConfigID>Conf</ns2:ConfigID>
             <ns2:StateID>CoSimulating</ns2:StateID>
@@ -276,7 +244,7 @@
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedBoolean">
                 <ns2:id>0</ns2:id>
-                <ns2:VariableID>coilState</ns2:VariableID>
+                <ns2:VariableID>heatPumpState</ns2:VariableID>
                 <ns2:Value>false</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedBoolean">
@@ -284,20 +252,15 @@
                 <ns2:VariableID>heatPumpState</ns2:VariableID>
                 <ns2:Value>false</ns2:Value>
             </ns2:IOlist>
-            <ns2:IOlist xsi:type="ns2:FixedBoolean">
-                <ns2:id>0</ns2:id>
-                <ns2:VariableID>hpState</ns2:VariableID>
-                <ns2:Value>false</ns2:Value>
-            </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>pTh</ns2:VariableID>
-                <ns2:Value>16.2</ns2:Value>
+                <ns2:Value>12.5</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tAmb</ns2:VariableID>
-                <ns2:Value>28.8</ns2:Value>
+                <ns2:Value>22.8</ns2:Value>
             </ns2:IOlist>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -384,10 +347,117 @@
                 </ns2:EnergyFlow>
             </ns2:UsageOfInterfaces>
         </ns2:EvaluationStateList>
-        <ns2:EvaluationStateList>
+        <ns2:EvaluationStateList xsi:type="ns2:TechnicalSystemState" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:idSchedule>0</ns2:idSchedule>
-            <ns2:GlobalTime>1618286400000</ns2:GlobalTime>
+            <ns2:GlobalTime>1618527600000</ns2:GlobalTime>
             <ns2:Description>Final State</ns2:Description>
+            <ns2:ConfigID>Conf</ns2:ConfigID>
+            <ns2:StateID>CoSimulating</ns2:StateID>
+            <ns2:StateTime>0</ns2:StateTime>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>SOC</ns2:VariableID>
+                <ns2:Value>0.0</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedBoolean">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>heatPumpState</ns2:VariableID>
+                <ns2:Value>false</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>pTh</ns2:VariableID>
+                <ns2:Value>9.8</ns2:Value>
+            </ns2:IOlist>
+            <ns2:IOlist xsi:type="ns2:FixedDouble">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>tAmb</ns2:VariableID>
+                <ns2:Value>24.9</ns2:Value>
+            </ns2:IOlist>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>L1 P</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>L1 Q</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>L2 P</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>L2 Q</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+            </ns2:UsageOfInterfaces>
+            <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
+                <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
+                <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
+                <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
+                <ns2:EnergyFlow unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+            </ns2:UsageOfInterfaces>
         </ns2:EvaluationStateList>
         <ns2:InputMeasurements xsi:type="ns2:InputMeasurement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:VariableID>pTh</ns2:VariableID>
@@ -7429,6 +7499,2354 @@
                 <ns2:Value xsi:type="ns2:FixedBoolean">
                     <ns2:id>0</ns2:id>
                     <ns2:VariableID>hpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+        </ns2:InputMeasurements>
+        <ns2:InputMeasurements xsi:type="ns2:InputMeasurement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ns2:VariableID>heatPumpState</ns2:VariableID>
+            <ns2:StepSeries>true</ns2:StepSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618264800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618265700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618266600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618267500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618268400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618269300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618270200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618271100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618272000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618272900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618273800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618274700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618275600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618276500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618277400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618278300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618279200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618280100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618281000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618281900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618282800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618283700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618284600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618285500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618286400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618287300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618288200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618289100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618290000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618290900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618291800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618292700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618293600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618294500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618295400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618296300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618297200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618298100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618299000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618299900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618300800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618301700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618302600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618303500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618304400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618305300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618306200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618307100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618308000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618308900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618309800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618310700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618311600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618312500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618313400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618314300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618315200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618316100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618317000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618317900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618318800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618319700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618320600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618321500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618322400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618323300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618324200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618325100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618326000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618326900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618327800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618328700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618329600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618330500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618331400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618332300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618333200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618334100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618335000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618335900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618336800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618337700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618338600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618339500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618340400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618341300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618342200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618343100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618344000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618344900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618345800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618346700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618347600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618348500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618349400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618350300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618351200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618352100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618353000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618353900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618354800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618355700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618356600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618357500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618358400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618359300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618360200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618361100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618362000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618362900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618363800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618364700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618365600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618366500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618367400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618368300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618369200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618370100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618371000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618371900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618372800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618373700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618374600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618375500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618376400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618377300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618378200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618379100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618380000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618380900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618381800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618382700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618383600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618384500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618385400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618386300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618387200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618388100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618389000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618389900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618390800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618391700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618392600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618393500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618394400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618395300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618396200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618397100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618398000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618398900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618399800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618400700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618401600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618402500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618403400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618404300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618405200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618406100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618407000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618407900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618408800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618409700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618410600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618411500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618412400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618413300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618414200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618415100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618416000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618416900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618417800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618418700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618419600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618420500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618421400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618422300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618423200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618424100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618425000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618425900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618426800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618427700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618428600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618429500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618430400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618431300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618432200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618433100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618434000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618434900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618435800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618436700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618437600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618438500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618439400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618440300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618441200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618442100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618443000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618443900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618444800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618445700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618446600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618447500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618448400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618449300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618450200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618451100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618452000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618452900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618453800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618454700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618455600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618456500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618457400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>true</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618458300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618459200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618460100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618461000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618461900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618462800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618463700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618464600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618465500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618466400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618467300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618468200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618469100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618470000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618470900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618471800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618472700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618473600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618474500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618475400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618476300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618477200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618478100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618479000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618479900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618480800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618481700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618482600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618483500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618484400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618485300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618486200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618487100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618488000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618488900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618489800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618490700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618491600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618492500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618493400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618494300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618495200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618496100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618497000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618497900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618498800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618499700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618500600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618501500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618502400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618503300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618504200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618505100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618506000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618506900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618507800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618508700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618509600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618510500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618511400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618512300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618513200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618514100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618515000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618515900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618516800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618517700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618518600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618519500000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618520400000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618521300000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618522200000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618523100000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618524000000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618524900000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618525800000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618526700000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
+                    <ns2:Value>false</ns2:Value>
+                </ns2:Value>
+            </ns2:InputMeasurementByTimeSeries>
+            <ns2:InputMeasurementByTimeSeries>
+                <ns2:PointInTime>1618527600000</ns2:PointInTime>
+                <ns2:Value xsi:type="ns2:FixedBoolean">
+                    <ns2:id>0</ns2:id>
+                    <ns2:VariableID>heatPumpState</ns2:VariableID>
                     <ns2:Value>false</ns2:Value>
                 </ns2:Value>
             </ns2:InputMeasurementByTimeSeries>
