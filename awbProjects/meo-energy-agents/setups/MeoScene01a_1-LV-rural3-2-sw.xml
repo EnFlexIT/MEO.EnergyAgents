@@ -779,27 +779,27 @@
     <timeModelSettings>
         <entry>
             <key>TimeFormat</key>
-            <value>dd.MM.yyyy HH:mm:ss.SSS</value>
+            <value>dd.MM.yyyy HH:mm</value>
         </entry>
         <entry>
             <key>TimeCurrent</key>
-            <value>1451602800000</value>
+            <value>1456354800000</value>
         </entry>
         <entry>
             <key>TimeStop</key>
-            <value>1483224300000</value>
+            <value>1456613100000</value>
         </entry>
         <entry>
             <key>DisplayUnitIndex</key>
-            <value>1</value>
+            <value>2</value>
         </entry>
         <entry>
             <key>TimeStart</key>
-            <value>1451602800000</value>
+            <value>1456354800000</value>
         </entry>
         <entry>
             <key>StepWidth</key>
-            <value>60000</value>
+            <value>900000</value>
         </entry>
     </timeModelSettings>
     <userObjectClassName>de.enflexit.ea.core.dataModel.deployment.SetupExtension</userObjectClassName>
