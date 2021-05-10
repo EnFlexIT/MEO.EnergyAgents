@@ -63,7 +63,7 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 		case LOAD:
 			jMenuItem = new JMenuItem();
 			jMenuItem.setText("Open SimBench csv-Files");
-			jMenuItem.setIcon(BundleHelper.getImageIcon("ImportSB.png"));
+			jMenuItem.setIcon(BundleHelper.getImageIcon("SimBenchData.png"));
 			break;
 
 		default:

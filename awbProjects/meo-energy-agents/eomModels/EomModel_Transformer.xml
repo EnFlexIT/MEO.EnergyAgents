@@ -1154,7 +1154,7 @@
             <ns2:IOlist xsi:type="ns2:FixedInteger">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tapPos</ns2:VariableID>
-                <ns2:Value>1</ns2:Value>
+                <ns2:Value>-1</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedBoolean">
                 <ns2:id>0</ns2:id>
