@@ -9,6 +9,7 @@ import org.awb.env.networkModel.DataModelNetworkElement;
 import org.awb.env.networkModel.NetworkComponent;
 
 import agentgui.core.application.Application;
+import de.enflexit.common.PathHandling;
 import de.enflexit.eom.awb.adapter.AbstractEomStorageHandler;
 import de.enflexit.eom.awb.adapter.EomDataModelAdapter;
 import energy.EomController;
@@ -176,7 +177,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 		TreeMap<String, String> storageSettings = networkElement.getDataModelStorageSettings();
 
 		String modelTypeString = storageSettings.get(EOM_SETTING_EOM_MODEL_TYPE);
-		String sbPathName = storageSettings.get(SIM_BENCH_SETTING_PATH_NAME);
+		String sbPathName = PathHandling.getPathName4LocalOS(storageSettings.get(SIM_BENCH_SETTING_PATH_NAME));
 		String sbFileSelection = storageSettings.get(SIM_BENCH_SETTING_FILE_NAME);
 		String sbRowIndexString = storageSettings.get(SIM_BENCH_SETTING_ROW_INDEX);
 		
@@ -220,7 +221,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 			this.printToConsole("No source file for the component identification was found in the settings of network element " + networkElement.getClass().getSimpleName() + " '" + networkElement.getId() + "'.", true);	
 			return null;
 		}
-		File sourceFile = new File(sbPathName + "/" + sbFileSelection);
+		File sourceFile = new File(sbPathName + File.separator + sbFileSelection);
 		if (sourceFile.exists()==false) {
 			this.printToConsole("The specified source file '" + sbFileSelection + "' for the component identification of network element " + networkElement.getClass().getSimpleName() + " '" + networkElement.getId() + "' could not be found.", true);
 			return null;

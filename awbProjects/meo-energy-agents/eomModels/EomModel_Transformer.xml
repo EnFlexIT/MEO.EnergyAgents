@@ -1154,7 +1154,7 @@
             <ns2:IOlist xsi:type="ns2:FixedInteger">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tapPos</ns2:VariableID>
-                <ns2:Value>0</ns2:Value>
+                <ns2:Value>-1</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedBoolean">
                 <ns2:id>0</ns2:id>
@@ -1183,15 +1183,9 @@
                 <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
                 <ns2:EnergyFlow unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
-                    <ns2:value>0.0</ns2:value>
+                    <ns2:value>-0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -1218,12 +1212,6 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -1231,15 +1219,9 @@
                 <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
                 <ns2:EnergyFlow unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
-                    <ns2:value>0.0</ns2:value>
+                    <ns2:value>-0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -1247,15 +1229,9 @@
                 <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
                 <ns2:EnergyFlow unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
-                    <ns2:value>0.0</ns2:value>
+                    <ns2:value>-0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
