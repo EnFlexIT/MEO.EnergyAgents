@@ -34,9 +34,9 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 	 */
 	private void initializeVariableDescriptions() {
 		// --- Add static system parameters -----------
-		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Waermepumpe_Elektrischeverbrauch_Nominal", 3.5, "kW"));
-		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Waermepumpe_ThermischeLeistung_Nominal", 10.0, "kW"));
-		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Heizstab_Nominal_Leistung", 10.0, "kW"));
+		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Waermepumpe_Elektrischeverbrauch_Nominal", 2.0, "kW"));
+		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Waermepumpe_ThermischeLeistung_Nominal", 7.0, "kW"));
+		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Heizstab_Nominal_Leistung", 3.0, "kW"));
 		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Tinit_bottom", 50.0, "°C"));
 		
 		// --- Add IO variables -----------------------

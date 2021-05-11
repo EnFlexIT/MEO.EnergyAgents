@@ -62,7 +62,7 @@ public class TestFMU extends Thread {
 		double npHeatPumpThermal = 7.0;			// Nominal thermal power of the HeatPump
 		double npHeatPumpElectrical = 2.0;		// Nominal electrical power of the HeatPump
 		double npCoil = 3.0;					// Nominal power of the Coil
-		double tInit = 0.0;					// Initial storage temperature
+		double tInit = 40.0;					// Initial storage temperature
 		
 		try {
 			
