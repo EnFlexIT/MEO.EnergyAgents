@@ -45,23 +45,34 @@ public class FmuSimulationWrapper {
 	 */
 	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
 
-		// --- Reset the simulation first -----------------
+		// --- Reset the simulation first ---------------------------
 		if (this.isSingleStepMode()==true || this.firstExecution==true) {
-			this.resetFmuSimulation();
+			
+			this.getSimulation().reset();
+			this.initializeParameters();
+			if (this.isSingleStepMode()) {
+				// --- Simulate one single TSSE ---------------------
+				this.getSimulation().init(0, tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds());
+			} else {
+				// --- Simulate the whole time without reset --------
+				this.getSimulation().init(0);	//TODO end time necessary? If so, use evaluation end time here.
+			}
 			this.firstExecution = false;
 		}
-		// --- Prepare static and dynamic inputs ----------
-		for (int i=0; i<this.getSetpointMappings().size(); i++) {
-			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
-		}
+		
+		// --- Set values for measurements and setpoints ------------
 		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
 			this.writeVariableToFMU(this.getMeasurementMappings().get(i), tsse);
 		}
+		for (int i=0; i<this.getSetpointMappings().size(); i++) {
+			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
+		}
 		
-		// --- Perform the actual simulation --------------
+		// --- Perform the actual simulation ------------------------
 		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
 		this.getSimulation().doStep(stepSize);
 
+		// --- Get "result measurements" from the FMU ---------------
 		for (int i=0; i<this.getResultMappings().size(); i++) {
 			this.readVariableFromFMU(this.getResultMappings().get(i), tsse);
 		}
@@ -70,11 +81,7 @@ public class FmuSimulationWrapper {
 	/**
 	 * Initialize simulation.
 	 */
-	private void resetFmuSimulation() {
-		this.getSimulation().reset();
-		
-		//TODO figure out how to handle time
-		this.getSimulation().init(0);
+	private void initializeParameters() {
 		
 		// --- Initialize the FMU with the static parameters --------
 		for (int i=0; i<this.getStaticParameters().size(); i++) {
@@ -103,7 +110,11 @@ public class FmuSimulationWrapper {
 		} else if (eomVariable instanceof FixedInteger) {
 			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedInteger)eomVariable).getValue());
 		} else if (eomVariable instanceof FixedBoolean) {
-			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedBoolean)eomVariable).isValue());
+			if (((FixedBoolean)eomVariable).isValue()==true) {
+				this.getSimulation().write(variableMapping.getFmuVariableName()).with(1.0);
+			} else {
+				this.getSimulation().write(variableMapping.getFmuVariableName()).with(0.0);
+			}
 		}
 		
 		if (this.debug==true) {

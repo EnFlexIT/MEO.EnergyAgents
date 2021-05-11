@@ -19,7 +19,9 @@ public class FmuRandomDecisionStrategy extends RandomDecisionStrategy {
 	 */
 	@Override
 	public void runEvaluation() {
+		// --- Let the superclass perform the evaluation ------------
 		super.runEvaluation();
+		// --- Terminate the FMU after the evaluation is done -------
 		((FmuOptionModelCalculation)this.getOptionModelCalculation()).getSimulationWrapper().terminateSimulation();
 	}
 

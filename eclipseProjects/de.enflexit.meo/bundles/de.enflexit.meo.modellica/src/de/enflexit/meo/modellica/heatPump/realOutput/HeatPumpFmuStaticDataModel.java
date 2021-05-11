@@ -21,6 +21,7 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 	 * Instantiates a new heat pump FMU data model.
 	 */
 	public HeatPumpFmuStaticDataModel() {
+		System.out.println("Initializing HeatPump FMU, RealOutput Version");
 		this.setFmuFilePath(Application.getProjectFocused().getProjectFolderFullPath() + "fmuModels/HeatPumpFMU_RealOutputs/mGRiDS_CoSimFMI_HPSystem.fmu");
 		this.setModelStepSizeMilliSeconds(1000);
 		this.initializeVariableDescriptions();

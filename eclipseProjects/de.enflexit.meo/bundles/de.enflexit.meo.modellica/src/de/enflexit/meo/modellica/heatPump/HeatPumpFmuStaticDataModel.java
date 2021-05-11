@@ -22,6 +22,7 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 	 * Instantiates a new heat pump fmu data model.
 	 */
 	public HeatPumpFmuStaticDataModel() {
+		System.out.println("Initializing HeatPump FMU, Verison 3.0");
 		this.setFmuFilePath(Application.getProjectFocused().getProjectFolderFullPath() + "fmuModels/HeatPumpFMU_Version3.0/mGRiDS_CoSimFMI.HPSystem.fmu");
 		this.setModelStepSizeMilliSeconds(1000);
 		this.initializeVariableDescriptions();
@@ -40,8 +41,8 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 		
 		// --- Add IO variables -----------------------
 		this.getIoListMappings().add(new FmuVariableMappingIoList("SOC", "SOC", IoVariableType.RESULT, "%"));
-		this.getIoListMappings().add(new FmuVariableMappingIoList("coilState", "Schaltsignal_Heizstab", IoVariableType.SETPOINT));
-		this.getIoListMappings().add(new FmuVariableMappingIoList("heatPumpState", "Schaltsignal_Waermepumpe", IoVariableType.SETPOINT));
+		this.getIoListMappings().add(new FmuVariableMappingIoList("coilSetpoint", "Schaltsignal_Heizstab", IoVariableType.SETPOINT));
+		this.getIoListMappings().add(new FmuVariableMappingIoList("hpSetpoint", "Schaltsignal_Waermepumpe", IoVariableType.SETPOINT));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("pTh", "ThermischeLast", IoVariableType.MEASUREMENT, "°C"));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("tAmb", "UmgebungsTemperatur", IoVariableType.MEASUREMENT, "°C"));
 		
