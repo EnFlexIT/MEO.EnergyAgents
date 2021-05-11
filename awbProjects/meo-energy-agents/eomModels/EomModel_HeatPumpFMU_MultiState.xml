@@ -96,7 +96,7 @@
             <ns2:EnergyCarrier>Electricity</ns2:EnergyCarrier>
         </ns2:TechnicalInterfaces>
         <ns2:SystemStates x="480.0" y="80.0">
-            <ns2:StateID>CoSimulating</ns2:StateID>
+            <ns2:StateID>BothOff</ns2:StateID>
             <ns2:StateDescription>Description</ns2:StateDescription>
             <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:InterfaceID>L1 P</ns2:InterfaceID>
@@ -141,7 +141,7 @@
             </ns2:Duration>
             <ns2:FormatTimeUnit>minute, m</ns2:FormatTimeUnit>
             <ns2:StateTransitions>
-                <ns2:NextStateID>CoSimulating</ns2:NextStateID>
+                <ns2:NextStateID>BothOff</ns2:NextStateID>
                 <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                     <ns2:idDuration>0</ns2:idDuration>
                     <ns2:value>0</ns2:value>
@@ -153,16 +153,381 @@
                     <ns2:unit>second, s</ns2:unit>
                 </ns2:MaxDuration>
             </ns2:StateTransitions>
-            <ns2:StateEvaluationRanges xsi:type="ns2:RangeBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ns2:StateTransitions>
+                <ns2:NextStateID>HeatPumpOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>CoilOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>hpSetpoint</ns2:VariableID>
+                <ns2:Value>false</ns2:Value>
             </ns2:StateEvaluationRanges>
-            <ns2:StateEvaluationRanges xsi:type="ns2:RangeBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>coilSetpoint</ns2:VariableID>
+                <ns2:Value>false</ns2:Value>
             </ns2:StateEvaluationRanges>
         </ns2:SystemStates>
-        <ns2:InitialStateID>CoSimulating</ns2:InitialStateID>
+        <ns2:SystemStates x="610.0" y="80.0">
+            <ns2:StateID>HeatPumpOn</ns2:StateID>
+            <ns2:StateDescription>Description</ns2:StateDescription>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L1 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L1 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L2 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L2 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Duration>
+                <ns2:idDuration>0</ns2:idDuration>
+                <ns2:value>60000</ns2:value>
+                <ns2:unit>millisecond, ms</ns2:unit>
+            </ns2:Duration>
+            <ns2:FormatTimeUnit>minute, m</ns2:FormatTimeUnit>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>HeatPumpOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOff</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>CoilOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>hpSetpoint</ns2:VariableID>
+                <ns2:Value>true</ns2:Value>
+            </ns2:StateEvaluationRanges>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>coilSetpoint</ns2:VariableID>
+                <ns2:Value>false</ns2:Value>
+            </ns2:StateEvaluationRanges>
+        </ns2:SystemStates>
+        <ns2:SystemStates x="480.0" y="190.0">
+            <ns2:StateID>CoilOn</ns2:StateID>
+            <ns2:StateDescription>Description</ns2:StateDescription>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L1 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L1 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L2 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L2 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Duration>
+                <ns2:idDuration>0</ns2:idDuration>
+                <ns2:value>60000</ns2:value>
+                <ns2:unit>millisecond, ms</ns2:unit>
+            </ns2:Duration>
+            <ns2:FormatTimeUnit>minute, m</ns2:FormatTimeUnit>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>CoilOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOff</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>HeatPumpOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>coilSetpoint</ns2:VariableID>
+                <ns2:Value>true</ns2:Value>
+            </ns2:StateEvaluationRanges>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>hpSetpoint</ns2:VariableID>
+                <ns2:Value>false</ns2:Value>
+            </ns2:StateEvaluationRanges>
+        </ns2:SystemStates>
+        <ns2:SystemStates x="610.0" y="190.0">
+            <ns2:StateID>BothOn</ns2:StateID>
+            <ns2:StateDescription>Description</ns2:StateDescription>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L1 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L1 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L2 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L2 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Duration>
+                <ns2:idDuration>0</ns2:idDuration>
+                <ns2:value>60000</ns2:value>
+                <ns2:unit>millisecond, ms</ns2:unit>
+            </ns2:Duration>
+            <ns2:FormatTimeUnit>minute, m</ns2:FormatTimeUnit>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>CoilOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>HeatPumpOn</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateTransitions>
+                <ns2:NextStateID>BothOff</ns2:NextStateID>
+                <ns2:MinDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MinDuration>
+                <ns2:MaxDuration xsi:type="ns2:Duration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns2:idDuration>0</ns2:idDuration>
+                    <ns2:value>0</ns2:value>
+                    <ns2:unit>second, s</ns2:unit>
+                </ns2:MaxDuration>
+            </ns2:StateTransitions>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>coilSetpoint</ns2:VariableID>
+                <ns2:Value>true</ns2:Value>
+            </ns2:StateEvaluationRanges>
+            <ns2:StateEvaluationRanges xsi:type="ns2:FixedBoolean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:id>0</ns2:id>
+                <ns2:VariableID>hpSetpoint</ns2:VariableID>
+                <ns2:Value>true</ns2:Value>
+            </ns2:StateEvaluationRanges>
+        </ns2:SystemStates>
+        <ns2:InitialStateID>BothOff</ns2:InitialStateID>
     </ns2:InterfaceConfigurations>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>SOC</ns2:VariableID>
@@ -267,7 +632,7 @@
             <ns2:GlobalTime>1618275600000</ns2:GlobalTime>
             <ns2:Description>Initial State</ns2:Description>
             <ns2:ConfigID>Conf</ns2:ConfigID>
-            <ns2:StateID>CoSimulating</ns2:StateID>
+            <ns2:StateID>BothOff</ns2:StateID>
             <ns2:StateTime>0</ns2:StateTime>
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
