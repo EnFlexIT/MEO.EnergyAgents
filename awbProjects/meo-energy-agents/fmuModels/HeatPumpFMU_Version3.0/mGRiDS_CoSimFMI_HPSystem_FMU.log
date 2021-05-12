@@ -1,0 +1,6 @@
+mingw32-make: Entering directory 'C:/Users/psawant/AppData/Local/Temp/OPENMO~1/OMEdit/MGRIDS~1.HPS'
+rm -f mGRiDS_CoSimFMI_HPSystem.fmutmp/sources/mGRiDS_CoSimFMI_HPSystem_init.xml
+cp -a "C:/Program Files/OpenModelica1.17.0-64bit/share/omc/runtime/c/fmi/buildproject/"* mGRiDS_CoSimFMI_HPSystem.fmutmp/sources
+cp -a mGRiDS_CoSimFMI_HPSystem_FMU.libs mGRiDS_CoSimFMI_HPSystem.fmutmp/sources/
+mingw32-make: Leaving directory 'C:/Users/psawant/AppData/Local/Temp/OPENMO~1/OMEdit/MGRIDS~1.HPS'
+RESULT: 0 

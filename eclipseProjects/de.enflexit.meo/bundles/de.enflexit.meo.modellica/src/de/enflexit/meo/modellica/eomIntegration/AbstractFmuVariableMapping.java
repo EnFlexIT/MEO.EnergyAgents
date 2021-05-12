@@ -11,7 +11,6 @@ public abstract class AbstractFmuVariableMapping implements Serializable{
 	private static final long serialVersionUID = -8288847937265359631L;
 	
 	private String fmuVariableName;
-	private String fmuDataType;
 
 	/**
 	 * Gets the fmu variable name.
@@ -28,22 +27,5 @@ public abstract class AbstractFmuVariableMapping implements Serializable{
 	public void setFmuVariableName(String fmuVariableName) {
 		this.fmuVariableName = fmuVariableName;
 	}
-
-	/**
-	 * Gets the fmu data type.
-	 * @return the fmu data type
-	 */
-	public String getFmuDataType() {
-		return fmuDataType;
-	}
-
-	/**
-	 * Sets the fmu data type.
-	 * @param fmuDataType the new fmu data type
-	 */
-	public void setFmuDataType(String fmuDataType) {
-		this.fmuDataType = fmuDataType;
-	}
-	
 	
 }

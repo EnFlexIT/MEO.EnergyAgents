@@ -14,7 +14,7 @@ import energy.optionModel.gui.sysVariables.AbstractStaticModelDialog;
  */
 public class HeatPumpFmuStaticModel extends AbstractStaticModel {
 	
-	private HeatPumpFmuDataModel staticModel;
+	private HeatPumpFmuStaticDataModel staticModel;
 
 	/**
 	 * Instantiates a new heat pump fmu static model.
@@ -37,7 +37,7 @@ public class HeatPumpFmuStaticModel extends AbstractStaticModel {
 	 */
 	@Override
 	public void setStaticDataModel(Serializable staticModel) {
-		this.staticModel = (HeatPumpFmuDataModel) staticModel;
+		this.staticModel = (HeatPumpFmuStaticDataModel) staticModel;
 	}
 
 	/* (non-Javadoc)
