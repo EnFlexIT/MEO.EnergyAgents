@@ -153,6 +153,9 @@ public class TrafoResult  extends AbstractStateResult {
 		return hashCodeString.hashCode();
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.enflexit.meo.db.dataModel.AbstractStateResult#getSQLInsertValueArray()
+	 */
 	@Override
 	public String getSQLInsertValueArray() {
 		

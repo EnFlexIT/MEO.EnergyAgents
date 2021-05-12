@@ -45,7 +45,7 @@ public class SimBenchFileStoreReader {
 	private static final String DEFAULT_TSSE_CONFIG_ID = "Config";
 	private static final String DEFAULT_TSSE_STATE_ID = "Prosuming";
 	private static final String[] INTERFACE_IDs_Electricity = {"Electricity L1", "Electricity L2", "Electricity L3"};
-
+	
 	private SimpleDateFormat dateFormatter;
 	
 	// --------------------------------------------------------------------------------------------
@@ -217,7 +217,7 @@ public class SimBenchFileStoreReader {
 
 		// --- Get data rows for the profile ----------------------------------
 		int iMax = loadProfileDataVector.size();
-		for (int i = 0; i < iMax; i++) {
+		rowLoop: for (int i = 0; i < iMax; i++) {
 
 			Vector<String> row = loadProfileDataVector.get(i);
 			String stringTime = row.get(ciTime);
@@ -238,15 +238,19 @@ public class SimBenchFileStoreReader {
 				
 				// --- Consider the ScheduleTimeRange? ------------------------
 				if (scheduleTimeRange!=null && scheduleTimeRange.getRangeType()!=null) {
+					
+					// --- Ahead time? ----------------------------------------
+					if (timeStamp < scheduleTimeRange.getTimeFrom()) continue;
+					// --- Check RangeType ------------------------------------
 					switch (scheduleTimeRange.getRangeType()) {
 					case TimeRange: 
-						if (timeStamp < scheduleTimeRange.getTimeFrom() || timeStamp > scheduleTimeRange.getTimeTo()) {
-							continue;
+						if (timeStamp > scheduleTimeRange.getTimeTo()) {
+							break rowLoop;
 						}
 						break;
 					case StartTimeAndNumber:
-						if (timeStamp < scheduleTimeRange.getTimeFrom() || tsseList.size() >= scheduleTimeRange.getNumberOfSystemStates()) {
-							continue;
+						if (tsseList.size() >= scheduleTimeRange.getNumberOfSystemStates()) {
+							break rowLoop;
 						}
 						break;
 					}

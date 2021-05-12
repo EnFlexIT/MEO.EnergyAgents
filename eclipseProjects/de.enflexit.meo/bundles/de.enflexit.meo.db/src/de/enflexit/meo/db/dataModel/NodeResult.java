@@ -114,6 +114,9 @@ public class NodeResult  extends AbstractStateResult {
 	}
 	
 
+	/* (non-Javadoc)
+	 * @see de.enflexit.meo.db.dataModel.AbstractStateResult#getSQLInsertValueArray()
+	 */
 	@Override
 	public String getSQLInsertValueArray() {
 		
