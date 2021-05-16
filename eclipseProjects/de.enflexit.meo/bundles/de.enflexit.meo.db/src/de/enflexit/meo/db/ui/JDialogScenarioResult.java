@@ -48,7 +48,7 @@ public class JDialogScenarioResult extends JDialog implements ActionListener {
 		
 		this.setTitle("Database Settings for MEO-Results");
 		this.setModal(true);
-		this.setSize(600, 150);
+		this.setSize(600, 160);
 		this.setLocationRelativeTo(null);
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
