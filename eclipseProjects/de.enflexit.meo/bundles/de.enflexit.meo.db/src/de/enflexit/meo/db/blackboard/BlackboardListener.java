@@ -34,6 +34,7 @@ import energy.helper.UnitConverter;
 import energy.optionModel.EnergyFlowInWatt;
 import energy.optionModel.EnergyUnitFactorPrefixSI;
 import energy.optionModel.FixedDouble;
+import energy.optionModel.FixedInteger;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 import energy.optionModel.UsageOfInterfaceEnergy;
 import hygrid.agent.transformer.eomDataModel.TransformerDataModel.HighVoltageUniPhase;
@@ -64,6 +65,7 @@ public class BlackboardListener implements BlackboardListenerService {
 	private List<String> transformerList;
 	
 	private DatabaseHandler dbHandler;
+	private Boolean trafoResultContainsTapPosition;
 	
 	
 	/* (non-Javadoc)
@@ -82,6 +84,7 @@ public class BlackboardListener implements BlackboardListenerService {
 		
 		this.getDatabaseHandler().stopNetworkStateSaveThread();
 		this.dbHandler = null;
+		this.trafoResultContainsTapPosition = null;
 	}
 	
 	/* (non-Javadoc)
@@ -211,6 +214,7 @@ public class BlackboardListener implements BlackboardListenerService {
 			double trafoUtilization = 0.0;
 			double trafoLossesP = 0.0;
 			double trafoLossesQ = 0.0;
+			Integer tapPosition = null; 
 
 			if (tsse!=null) {
 				// System.out.println(TechnicalSystemStateHelper.toString(tsse, true));
@@ -222,12 +226,14 @@ public class BlackboardListener implements BlackboardListenerService {
 				FixedDouble fdTrafoUtilization = (FixedDouble) TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), TransformerSystemVariable.tUtil.name());
 				FixedDouble fdTrafoLossesP = (FixedDouble) TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), TransformerSystemVariable.tLossesPAllPhases.name());
 				FixedDouble fdTrafoLossesQ = (FixedDouble) TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), TransformerSystemVariable.tLossesQAllPhases.name());
-
+				FixedInteger fiTapPosition =  (FixedInteger) TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), TransformerSystemVariable.tapPos.name());
+				
 				residualLoadP = efiwHV_P==null ? 0.0 : efiwHV_P.getValue();
 				residualLoadQ = efiwHV_Q==null ? 0.0 : efiwHV_Q.getValue();
 				trafoUtilization = fdTrafoUtilization==null ? 0.0 : fdTrafoUtilization.getValue();
 				trafoLossesP = fdTrafoLossesP==null ? 0.0 : fdTrafoLossesP.getValue();
 				trafoLossesQ = fdTrafoLossesQ==null ? 0.0 : fdTrafoLossesQ.getValue();
+				tapPosition = fiTapPosition==null ? null : fiTapPosition.getValue();
 			}
 			
 			// --- Create TrafoResult -------------------------------
@@ -246,12 +252,25 @@ public class BlackboardListener implements BlackboardListenerService {
 			trafoResult.setTrafoLossesP(trafoLossesP);
 			trafoResult.setTrafoLossesQ(trafoLossesQ);
 			
+			trafoResult.setTapPos(tapPosition);
+			trafoResult.setSaveTapPos(this.isTrafoResultContainsTapPosition());
+			
 			// --- Add to list ------------------------
 			trafoResultList.add(trafoResult);
 		}
 		return trafoResultList;
 	}
-
+	/**
+	 * Checks if the transformer tap position is to save.
+	 * @return true, if is save transformer tap position
+	 */
+	private boolean isTrafoResultContainsTapPosition() {
+		if (trafoResultContainsTapPosition==null) {
+			trafoResultContainsTapPosition = this.getDatabaseHandler().containsTableColumn(new TrafoResult(), "tapPos");
+		}
+		return trafoResultContainsTapPosition;
+	}
+	
 	/**
 	 * Return the GraphNode ID from the specified NetworkCompont ID.
 	 *

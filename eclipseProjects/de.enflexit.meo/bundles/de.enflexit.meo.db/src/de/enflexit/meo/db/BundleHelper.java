@@ -71,6 +71,7 @@ public class BundleHelper {
 			System.err.println("[" + BundleHelper.class.getSimpleName() + "] Error while receiving the preference key for the current idScenarioResult");
 		}
 	}
+	
 	/**
 	 * Returns the key for the id scenario result of the current setup.
 	 * @return the id scenario result key

@@ -44,5 +44,9 @@
             <column name="trafoLossesQ" />
         </property>
         
+        <property name="tapPos" type="int">
+            <column name="tapPos" />
+        </property> 
+        
     </class>
 </hibernate-mapping>

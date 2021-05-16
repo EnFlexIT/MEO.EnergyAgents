@@ -326,5 +326,103 @@ public class DatabaseHandler {
 		}
 		return successful;
 	}
+
+	// -------------------------------------------------------------
+	// --- Some help functions -------------------------------------
+	// -------------------------------------------------------------	
+	
+	public static final int COLUMN_Field = 0;
+	public static final int COLUMN_Type = 1;
+	public static final int COLUMN_Nullable = 2;
+	public static final int COLUMN_Key = 3;
+	public static final int COLUMN_DefaultValue = 4;
+	public static final int COLUMN_Extra = 5;
+	
+	/**
+	 * Returns the table columns of the specified instance of an {@link AbstractStateResult} as list, where the sub list elements 
+	 * contain the description for each column. Here, the elements are 'Field', 'Type', 'Nullable', 'Key', 'DefaultValue' and 'Extra'.
+	 * 
+	 * @param stateResult the abstract state result instance
+	 * @return the table column list
+	 */
+	public Object[][] getTableColumns(AbstractStateResult stateResult) {
+		
+		if (stateResult==null ) return null;
+
+		Object[][] coulmnDescriptionArray = null;
+		
+		Session sessionToUse = this.getSession();
+		
+		Transaction transaction = null;
+		boolean isOpenTransaction = sessionToUse.getTransaction()!=null && sessionToUse.getTransaction().isActive();
+		
+		try {
+			
+			// --------------------------------------------
+			// --- Create native SQL statement --  
+			String sql = "DESCRIBE "; 
+			if (stateResult instanceof NodeResult) {
+				sql += "noderesult";
+			} else if (stateResult instanceof EdgeResult) {
+				sql += "edgeresult";
+			} else if (stateResult instanceof TrafoResult) {
+				sql += "traforesult";
+			}
+			sql += ";";
+			
+			// --------------------------------------------
+			// --- Saving in own transaction? --- 
+			if (isOpenTransaction==false) {
+				transaction = sessionToUse.beginTransaction();
+			}
+			
+			// --- Execute SQL statement --------
+			Query<?> query = sessionToUse.createNativeQuery(sql);
+			List<?> columnResult = query.getResultList();
+			
+			// --- Commit read action? --------------------
+			if (isOpenTransaction==false) {
+				transaction.commit();
+			}
+			
+			// --- Prepare result list --------------------
+			coulmnDescriptionArray = new Object[columnResult.size()][6];
+			for (int i = 0; i < columnResult.size(); i++) {
+				Object[] singleCoulmnArray = (Object[]) columnResult.get(i);
+				for (int j = 0; j < singleCoulmnArray.length; j++) {
+					coulmnDescriptionArray[i][j] = singleCoulmnArray[j]; 
+				}
+			}
+			
+		} catch (Exception ex) {
+			if (transaction!=null) transaction.rollback();
+			ex.printStackTrace();
+			coulmnDescriptionArray = null;
+		}
+		return coulmnDescriptionArray;
+	}
+	/**
+	 * Checks if the specified column (column name) is part of the {@link AbstractStateResult}.
+	 *
+	 * @param stateResult the instance of an abstract state result
+	 * @param coumnNameToCheck the column name to check
+	 * @return true, if successful
+	 */
+	public boolean containsTableColumn(AbstractStateResult stateResult, String coumnNameToCheck) {
+		
+		boolean containsColumn = false;
+		
+		Object[][] coulmnDescriptionArray = this.getTableColumns(stateResult);
+		if (coulmnDescriptionArray!=null) {
+			for (int i = 0; i < coulmnDescriptionArray.length; i++) {
+				String columnName = (String) coulmnDescriptionArray[i][COLUMN_Field];
+				if (columnName.equals(coumnNameToCheck)==true) {
+					containsColumn = true;
+					break;
+				}
+			}
+		}
+		return containsColumn;
+	}
 	
 }

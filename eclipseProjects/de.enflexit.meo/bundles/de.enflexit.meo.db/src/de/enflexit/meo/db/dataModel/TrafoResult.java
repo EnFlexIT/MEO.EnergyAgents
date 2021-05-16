@@ -19,6 +19,9 @@ public class TrafoResult  extends AbstractStateResult {
 	private double trafoLossesP;
 	private double trafoLossesQ;
 	
+	private int tapPos;
+	private transient boolean saveTapPos;
+	
 	
 	public int getIdScenarioResult() {
 		return idScenarioResult;
@@ -98,6 +101,20 @@ public class TrafoResult  extends AbstractStateResult {
 		this.trafoLossesQ = trafoLossesQ;
 	}
 	
+	public int getTapPos() {
+		return tapPos;
+	}
+	public void setTapPos(int tapPos) {
+		this.tapPos = tapPos;
+	}
+	
+	public boolean isSaveTapPos() {
+		return saveTapPos;
+	}
+	public void setSaveTapPos(boolean saveTapPos) {
+		this.saveTapPos = saveTapPos;
+	}
+	
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -127,7 +144,6 @@ public class TrafoResult  extends AbstractStateResult {
 		} else if (trComp.getTimestamp().equals(this.getTimestamp())==false) {
 			return false;
 		}
-		
 		return true;
 	}
 	
@@ -174,7 +190,15 @@ public class TrafoResult  extends AbstractStateResult {
 		valueString += this.getTrafoUtilization() + ",";
 		
 		valueString += this.getTrafoLossesP() + ",";
-		valueString += this.getTrafoLossesQ() + ")";
+		valueString += this.getTrafoLossesQ();
+		
+		// --- Check if we have to write the tap position -----------
+		if (this.isSaveTapPos()==true) {
+			valueString += "," + this.getTapPos();
+		}
+
+		// --- Finalize SQL values ----------------------------------
+		valueString += ")";
 		
 		return valueString;
 	}

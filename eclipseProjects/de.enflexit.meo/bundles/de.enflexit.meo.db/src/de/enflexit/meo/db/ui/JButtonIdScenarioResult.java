@@ -9,11 +9,11 @@ import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JOptionPane;
 
 import org.awb.env.networkModel.controller.GraphEnvironmentController;
 import org.awb.env.networkModel.controller.ui.toolbar.AbstractCustomToolbarComponent;
 
+import agentgui.core.application.Application;
 import agentgui.core.project.Project;
 import agentgui.core.project.setup.SimulationSetupNotification;
 import agentgui.core.project.setup.SimulationSetupNotification.SimNoteReason;
@@ -69,25 +69,10 @@ public class JButtonIdScenarioResult extends AbstractCustomToolbarComponent impl
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
-		int oldID = BundleHelper.getIdScenarioResultForSetup();
-		
-		String title = "Set database-ID for MEO result database";
-		String message = "Please, set the MEO databasse-ID to be used as key for the results of the state calculations.";
-		Object newIDObject = JOptionPane.showInputDialog(this.getCustomComponent(), message, title, JOptionPane.INFORMATION_MESSAGE, null, null, oldID);
-		if (newIDObject!=null) {
-			String newIDString = (String) newIDObject;
-			if (newIDString.isEmpty()==false) {
-				try {
-					int newID = Integer.parseInt(newIDString); 
-					if (newID!=oldID) {
-						BundleHelper.setIdScenarioResultForSetup(newID);
-						this.getJButtonIdScenarioResult().setText(newID + "");
-					}
-					
-				} catch (Exception e) {
-				}
-			}
-		}
+		JDialogScenarioResult jDialog = new JDialogScenarioResult(Application.getMainWindow());
+		jDialog.setVisible(true);
+		// --- Wait for the user interaction -------------- 
+		this.loadIDScenarioResult();
 	}
 
 	/* (non-Javadoc)
@@ -107,7 +92,6 @@ public class JButtonIdScenarioResult extends AbstractCustomToolbarComponent impl
 					this.loadIDScenarioResult();
 				}
 			}
-			
 		}
 	}
 	/**
