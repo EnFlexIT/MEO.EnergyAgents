@@ -536,9 +536,9 @@
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>100.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.5</ns2:EvaluationStepSize>
-        <ns2:Unit>%</ns2:Unit>
+        <ns2:ValueMax>1.0</ns2:ValueMax>
+        <ns2:EvaluationStepSize>0.1</ns2:EvaluationStepSize>
+        <ns2:Unit>-</ns2:Unit>
         <ns2:GradientTime>
             <ns2:idDuration>0</ns2:idDuration>
             <ns2:value>1</ns2:value>
@@ -629,7 +629,7 @@
         <ns2:TimeFormat>dd.MM.yy HH:mm:ss</ns2:TimeFormat>
         <ns2:EvaluationStateList xsi:type="ns2:TechnicalSystemState" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:idSchedule>0</ns2:idSchedule>
-            <ns2:GlobalTime>1618275600000</ns2:GlobalTime>
+            <ns2:GlobalTime>1618264800000</ns2:GlobalTime>
             <ns2:Description>Initial State</ns2:Description>
             <ns2:ConfigID>Conf</ns2:ConfigID>
             <ns2:StateID>BothOff</ns2:StateID>
@@ -637,7 +637,7 @@
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>SOC</ns2:VariableID>
-                <ns2:Value>0.0</ns2:Value>
+                <ns2:Value>1.0</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedBoolean">
                 <ns2:id>0</ns2:id>
@@ -657,12 +657,12 @@
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>pTh</ns2:VariableID>
-                <ns2:Value>16.2</ns2:Value>
+                <ns2:Value>12.5</ns2:Value>
             </ns2:IOlist>
             <ns2:IOlist xsi:type="ns2:FixedDouble">
                 <ns2:id>0</ns2:id>
                 <ns2:VariableID>tAmb</ns2:VariableID>
-                <ns2:Value>28.8</ns2:Value>
+                <ns2:Value>22.8</ns2:Value>
             </ns2:IOlist>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -737,6 +737,12 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -751,7 +757,7 @@
         </ns2:EvaluationStateList>
         <ns2:EvaluationStateList>
             <ns2:idSchedule>0</ns2:idSchedule>
-            <ns2:GlobalTime>1618286400000</ns2:GlobalTime>
+            <ns2:GlobalTime>1618351200000</ns2:GlobalTime>
             <ns2:Description>Final State</ns2:Description>
         </ns2:EvaluationStateList>
         <ns2:InputMeasurements xsi:type="ns2:InputMeasurement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -7809,6 +7815,11 @@
             <ns2:StrategyID>Random</ns2:StrategyID>
             <ns2:ClassName>de.enflexit.meo.modellica.eomIntegration.FmuRandomDecisionStrategy</ns2:ClassName>
             <ns2:Description>Random decision srategy for FMU models</ns2:Description>
+        </ns2:EvaluationClasses>
+        <ns2:EvaluationClasses>
+            <ns2:StrategyID>MeasurementStrategy</ns2:StrategyID>
+            <ns2:ClassName>de.enflexit.meo.modellica.heatPump.FollowMeasurementEvaluationStrategy</ns2:ClassName>
+            <ns2:Description>A strategy that always sets the setpoint according to the measurement series</ns2:Description>
         </ns2:EvaluationClasses>
     </ns2:EvaluationSettings>
 </ns2:TechnicalSystem>

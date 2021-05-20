@@ -129,7 +129,7 @@ public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation
 	 */
 	public FmuSimulationWrapper getSimulationWrapper() {
 		if (simulationWrapper==null) {
-			simulationWrapper = new FmuSimulationWrapper(this.getStaticModel());
+			simulationWrapper = this.getStaticModel().getFmuSimulationWrapper();
 		}
 		return simulationWrapper;
 	}

@@ -3,6 +3,8 @@ package de.enflexit.meo.modellica.eomIntegration;
 import java.io.Serializable;
 import java.util.Vector;
 
+import org.simpleframework.xml.Transient;
+
 import de.enflexit.meo.modellica.eomIntegration.FmuVariableMappingIoList.IoVariableType;
 
 /**
@@ -19,6 +21,9 @@ public class FmuStaticDataModel implements Serializable{
 	private Vector<FmuVariableMappingStaticParameter> staticParameters;
 	private Vector<FmuVariableMappingIoList> ioListMappings;
 	private Vector<FmuVariableMappingInterfaceFlow> interfaceFlowMappings;
+	
+	@Transient
+	private FmuSimulationWrapper fmuSimulationWrapper;
 
 	/**
 	 * Gets the fmu file path.
@@ -100,4 +105,17 @@ public class FmuStaticDataModel implements Serializable{
 		return variablesByType;
 	}
 	
+	/**
+	 * Gets the {@link FmuSimulationWrapper} for the FMU. This implementation returns a generic implementation,
+	 * that can be used if all variables can be exchanged between the FMU and EOM models without any changes.
+	 * If a pre- or postprocessing of variables is required, override this method to specify a model-specific
+	 * implementation, which takes care of the necessary adjustments.  
+	 * @return the fmu simulation wrapper
+	 */
+	public FmuSimulationWrapper getFmuSimulationWrapper() {
+		if (fmuSimulationWrapper==null) {
+			fmuSimulationWrapper = new FmuSimulationWrapper(this);
+		}
+		return fmuSimulationWrapper;
+	}
 }
