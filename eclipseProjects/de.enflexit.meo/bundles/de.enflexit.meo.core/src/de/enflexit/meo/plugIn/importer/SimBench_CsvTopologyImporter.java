@@ -46,7 +46,7 @@ import de.enflexit.meo.persistence.SimBenchFileStore;
 import de.enflexit.meo.persistence.SimBenchFileStoreReader;
 import de.enflexit.meo.persistence.SimBenchScheduelListPersistenceService;
 import de.enflexit.meo.persistence.SimBenchStorageHandler;
-import energy.GlobalInfo;
+import energy.helper.NumberHelper;
 import energy.optionModel.TimeRange;
 import energy.schedule.loading.ScheduleTimeRange;
 import energy.schedule.loading.ScheduleTimeRange.RangeType;
@@ -704,8 +704,8 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 	 * @return the default layout position
 	 */
 	private Point2D getDefaultLayoutPosition(Point2D wgs84Point) {
-		double xPos = GlobalInfo.round(wgs84Point.getY() *  100000.0, 1);
-		double yPos = GlobalInfo.round(wgs84Point.getX() * -100000.0, 1);
+		double xPos = NumberHelper.round(wgs84Point.getY() *  100000.0, 1);
+		double yPos = NumberHelper.round(wgs84Point.getX() * -100000.0, 1);
 		return new Point2D.Double(xPos, yPos);
 	}
 	/**
