@@ -99,11 +99,13 @@ public class FmuSimulationWrapper {
 	}
 	
 	/**
-	 * Writes the value of a {@link FixedVariable} from a {@link TechnicalSystemStateEvaluation} to the corresponding FMU input variable
+	 * Writes the value of a {@link FixedVariable} from a {@link TechnicalSystemStateEvaluation} to the corresponding FMU input variable.
+	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMappingIoList}.
+	 * If a variable requires a special pre-processing, this can be implemented in a model-specific subclass. 
 	 * @param variableMapping the variable mapping
 	 * @param tsse the tsse
 	 */
-	private void writeVariableToFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
+	protected void writeVariableToFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		if (eomVariable instanceof FixedDouble) {
 			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedDouble)eomVariable).getValue());
@@ -124,11 +126,13 @@ public class FmuSimulationWrapper {
 	
 	
 	/**
-	 * Reads the value from a FMU output variable and writes it to the corresponding {@link FixedVariable} of the {@link TechnicalSystemStateEvaluation}
+	 * Reads the value from a FMU output variable and writes it to the corresponding {@link FixedVariable} of the {@link TechnicalSystemStateEvaluation}.
+	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMappingIoList}.
+	 * If a variable requires a special post-processing, this can be implemented in a model-specific subclass. 
 	 * @param variableMapping the variable mapping
 	 * @param tsse the tsse
 	 */
-	private void readVariableFromFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
+	protected void readVariableFromFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		
 		if (eomVariable instanceof FixedDouble) {

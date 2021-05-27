@@ -3,6 +3,7 @@ package de.enflexit.meo.modellica.heatPump;
 import java.io.Serializable;
 
 import agentgui.core.application.Application;
+import de.enflexit.meo.modellica.eomIntegration.FmuSimulationWrapper;
 import de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel;
 import de.enflexit.meo.modellica.eomIntegration.FmuVariableMappingInterfaceFlow;
 import de.enflexit.meo.modellica.eomIntegration.FmuVariableMappingIoList;
@@ -17,6 +18,8 @@ import energy.optionModel.EnergyUnitFactorPrefixSI;
 public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Serializable {
 
 	private static final long serialVersionUID = -1847258408954464865L;
+	
+	HeatPumpFmuSimulationWrapper simulationWrapper;
 	
 	/**
 	 * Instantiates a new heat pump fmu data model.
@@ -45,6 +48,7 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 		this.getIoListMappings().add(new FmuVariableMappingIoList("hpSetpoint", "Schaltsignal_Waermepumpe", IoVariableType.SETPOINT));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("pTh", "ThermischeLast", IoVariableType.MEASUREMENT, "°C"));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("tAmb", "UmgebungsTemperatur", IoVariableType.MEASUREMENT, "°C"));
+		this.getIoListMappings().add(new FmuVariableMappingIoList("SOC", "Tinit_bottom", IoVariableType.MEASUREMENT, "°C"));
 		
 		// --- Add interface flows --------------------
 		FmuVariableMappingInterfaceFlow energyFlowHeatPump = new FmuVariableMappingInterfaceFlow();
@@ -60,5 +64,16 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 		energyFlowCoil.setUnit(EnergyUnitFactorPrefixSI.KILO_K_3);
 		//TODO add domain model?
 		this.getInterfaceFlowMappings().add(energyFlowCoil);
+	}
+	
+	/* (non-Javadoc)
+	 * @see de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel#getFmuSimulationWrapper()
+	 */
+	@Override
+	public FmuSimulationWrapper getFmuSimulationWrapper() {
+		if (simulationWrapper==null) {
+			simulationWrapper = new HeatPumpFmuSimulationWrapper(this);
+		}
+		return simulationWrapper;
 	}
 }
