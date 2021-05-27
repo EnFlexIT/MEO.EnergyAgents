@@ -91,6 +91,8 @@
             <ns3:MtpPort>0</ns3:MtpPort>
         </ns3:centralAgentSpecifier>
         <ns3:certificate/>
+        <ns3:defaultAgentOperatingMode>Testbed application - real</ns3:defaultAgentOperatingMode>
+        <ns3:deploymentMode>FULL</ns3:deploymentMode>
         <ns3:jadePort>0</ns3:jadePort>
         <ns3:keyStore/>
         <ns3:mtpPort>0</ns3:mtpPort>
