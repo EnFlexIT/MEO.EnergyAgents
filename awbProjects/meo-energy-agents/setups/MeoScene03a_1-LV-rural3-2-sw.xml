@@ -1015,6 +1015,10 @@
                 <value>MeoScene03a_1-LV-rural3-2-sw.xml</value>
             </entry>
             <entry>
+                <key>Meo.Scene.03b_1-LV-rural3--2-sw</key>
+                <value>MeoScene03b_1-LV-rural3-2-sw.xml</value>
+            </entry>
+            <entry>
                 <key>PV-Synthese</key>
                 <value>PV-Synthese.xml</value>
             </entry>
