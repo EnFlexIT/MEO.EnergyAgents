@@ -668,45 +668,6 @@
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentL1</ns2:VariableID>
-        <ns2:VariableDescription>LV L1 Total Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentL2</ns2:VariableID>
-        <ns2:VariableDescription>LV L2 Total Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <ns2:VariableID>lvTotaCurrentL3</ns2:VariableID>
-        <ns2:VariableDescription>LV L3 Total Current</ns2:VariableDescription>
-        <ns2:SetPoint>false</ns2:SetPoint>
-        <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
-        <ns2:ValueMin>0.0</ns2:ValueMin>
-        <ns2:ValueMax>0.0</ns2:ValueMax>
-        <ns2:EvaluationStepSize>0.0</ns2:EvaluationStepSize>
-        <ns2:Unit>A</ns2:Unit>
-        <ns2:GradientValue>0.0</ns2:GradientValue>
-        <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
-    </ns2:SystemVariables>
-    <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>lvTotaCurrentRealL1</ns2:VariableID>
         <ns2:VariableDescription>LV L1 Total Real Current</ns2:VariableDescription>
         <ns2:SetPoint>false</ns2:SetPoint>
@@ -1373,21 +1334,26 @@
             <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
             <ns2:TimeUnit>hour, h</ns2:TimeUnit>
         </ns2:CostModels>
-        <ns2:EvaluationClass>hygrid.agent.transformer.SnapshotStrategyConstantTapPos</ns2:EvaluationClass>
+        <ns2:EvaluationClass>hygrid.agent.transformer.strategies.SnapshotStrategyConstantTapPos</ns2:EvaluationClass>
         <ns2:EvaluationClasses>
-            <ns2:StrategyID>TransformerControl</ns2:StrategyID>
-            <ns2:ClassName>hygrid.agent.transformer.TransformerControlStrategyRT</ns2:ClassName>
-            <ns2:Description>Strategy to control transformer</ns2:Description>
+            <ns2:StrategyID>RT-Control</ns2:StrategyID>
+            <ns2:ClassName>hygrid.agent.transformer.strategies.TransformerControlStrategyRT</ns2:ClassName>
+            <ns2:Description>RT Strategy to control transformer</ns2:Description>
         </ns2:EvaluationClasses>
         <ns2:EvaluationClasses>
-            <ns2:StrategyID>Snapshot Random</ns2:StrategyID>
-            <ns2:ClassName>hygrid.agent.transformer.SnapshotStrategyRandom</ns2:ClassName>
-            <ns2:Description>Random Snapshot Strategy</ns2:Description>
+            <ns2:StrategyID>Snap-Random</ns2:StrategyID>
+            <ns2:ClassName>hygrid.agent.transformer.strategies.SnapshotStrategyRandom</ns2:ClassName>
+            <ns2:Description>Snapshot Strategy Random</ns2:Description>
         </ns2:EvaluationClasses>
         <ns2:EvaluationClasses>
-            <ns2:StrategyID>Snapshot Const Tap Pos</ns2:StrategyID>
-            <ns2:ClassName>hygrid.agent.transformer.SnapshotStrategyConstantTapPos</ns2:ClassName>
-            <ns2:Description>Constant Tap Position Snapshot Strategy</ns2:Description>
+            <ns2:StrategyID>Snap Const Tap Pos</ns2:StrategyID>
+            <ns2:ClassName>hygrid.agent.transformer.strategies.SnapshotStrategyConstantTapPos</ns2:ClassName>
+            <ns2:Description>Snapshot Strategy Constant Tap Position</ns2:Description>
+        </ns2:EvaluationClasses>
+        <ns2:EvaluationClasses>
+            <ns2:StrategyID>Snap Control Node</ns2:StrategyID>
+            <ns2:ClassName>hygrid.agent.transformer.strategies.SnapshotStrategyControlledVoltageLevel</ns2:ClassName>
+            <ns2:Description>Snapshot Strategy Control Node</ns2:Description>
         </ns2:EvaluationClasses>
     </ns2:EvaluationSettings>
 </ns2:TechnicalSystem>
