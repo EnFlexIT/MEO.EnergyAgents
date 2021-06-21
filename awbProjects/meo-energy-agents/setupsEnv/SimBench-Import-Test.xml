@@ -8,7 +8,6 @@
                 <utmLongitudeZone>32</utmLongitudeZone>
                 <utmLatitudeZone>U</utmLatitudeZone>
                 <mapScale>km</mapScale>
-                <showMapTiles>true</showMapTiles>
                 <mapTileTransparency>50</mapTileTransparency>
             </value>
         </entry>

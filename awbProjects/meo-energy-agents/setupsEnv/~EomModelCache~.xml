@@ -23045,7 +23045,7 @@
                         <storageSettings>
                             <entry>
                                 <key>EomFileLocation</key>
-                                <value>/eomModels/EomModel_Transformer_Scene3-ab.xml</value>
+                                <value>/eomModels/EomModel_Transformer_Scene3a.xml</value>
                             </entry>
                             <entry>
                                 <key>EomModelType</key>
@@ -26371,12 +26371,16 @@
                     <element elementType="NetworkComponent" elementID="MV1.101-LV3.101-Trafo">
                         <storageSettings>
                             <entry>
+                                <key>EomFileLocation</key>
+                                <value>/eomModels/EomModel_Transformer_Scene3b.xml</value>
+                            </entry>
+                            <entry>
                                 <key>EomModelType</key>
                                 <value>TechnicalSystem</value>
                             </entry>
                             <entry>
                                 <key>EomStorageLocation</key>
-                                <value>NetworkElementBase64</value>
+                                <value>File</value>
                             </entry>
                         </storageSettings>
                     </element>
