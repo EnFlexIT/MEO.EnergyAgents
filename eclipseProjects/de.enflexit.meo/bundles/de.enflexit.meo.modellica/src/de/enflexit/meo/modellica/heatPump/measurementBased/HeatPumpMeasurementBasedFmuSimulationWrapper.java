@@ -1,4 +1,4 @@
-package de.enflexit.meo.modellica.heatPump;
+package de.enflexit.meo.modellica.heatPump.measurementBased;
 
 import de.enflexit.meo.modellica.eomIntegration.FmuSimulationWrapper;
 import de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel;
@@ -12,7 +12,7 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
  * necessary pre- and postprocessing on some variables. 
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class HeatPumpFmuSimulationWrapper extends FmuSimulationWrapper {
+public class HeatPumpMeasurementBasedFmuSimulationWrapper extends FmuSimulationWrapper {
 	
 	private static final String FMU_VARIABLE_T_INIT_BOTTOM = "Tinit_bottom";
 	private static final String EOM_VARIABLE_SOC = "SOC";
@@ -22,8 +22,9 @@ public class HeatPumpFmuSimulationWrapper extends FmuSimulationWrapper {
 	 * Instantiates a new heat pump FMU simulation wrapper.
 	 * @param fmuStaticModel the FMU static model
 	 */
-	public HeatPumpFmuSimulationWrapper(FmuStaticDataModel fmuStaticModel) {
+	public HeatPumpMeasurementBasedFmuSimulationWrapper(FmuStaticDataModel fmuStaticModel) {
 		super(fmuStaticModel);
+		this.setSingleStepMode(false);
 	}
 	
 	/* (non-Javadoc)
@@ -31,22 +32,24 @@ public class HeatPumpFmuSimulationWrapper extends FmuSimulationWrapper {
 	 */
 	@Override
 	protected void performCustomInitializations(TechnicalSystemStateEvaluation tsse) {
-		
-		// --- Initialize the FMU with the SOC from the parent TSSE -----------
-		FixedVariable initialSOC = null;
-		if (tsse.getParent()==null) {
-			// --- For the initial state, use the configured SOC --------------
-			initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), EOM_VARIABLE_SOC);
-		} else {
-			// --- For later states, use the SOC from the parent state --------
-			initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getParent().getIOlist(), EOM_VARIABLE_SOC);
-		}
-		
-		// --- Calculate the corresponding tInit for the current state --------
-		if (initialSOC!=null) {
-			double parentSOCValue = ((FixedDouble)initialSOC).getValue();
-			double tInitValue = T_INIT_SOC_100 * parentSOCValue;
-			this.getSimulation().write(FMU_VARIABLE_T_INIT_BOTTOM).with(tInitValue);
+
+		if (this.isSingleStepMode()) {
+			// --- Initialize the FMU with the SOC from the parent TSSE -----------
+			FixedVariable initialSOC = null;
+			if (tsse.getParent()==null) {
+				// --- For the initial state, use the configured SOC --------------
+				initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), EOM_VARIABLE_SOC);
+			} else {
+				// --- For later states, use the SOC from the parent state --------
+				initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getParent().getIOlist(), EOM_VARIABLE_SOC);
+			}
+			
+			// --- Calculate the corresponding tInit for the current state --------
+			if (initialSOC!=null) {
+				double initialSOCValue = ((FixedDouble)initialSOC).getValue();
+				double tInitValue = T_INIT_SOC_100 * initialSOCValue;
+				this.getSimulation().write(FMU_VARIABLE_T_INIT_BOTTOM).with(tInitValue);
+			}
 		}
 	}
 }

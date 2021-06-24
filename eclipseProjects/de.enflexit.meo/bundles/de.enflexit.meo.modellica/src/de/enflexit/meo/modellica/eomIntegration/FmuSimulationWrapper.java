@@ -1,6 +1,12 @@
 package de.enflexit.meo.modellica.eomIntegration;
 
 import java.io.File;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Vector;
 
 import org.javafmi.proxy.FmuFile;
@@ -46,16 +52,20 @@ public class FmuSimulationWrapper {
 	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
 
 		// --- Reset the simulation first ---------------------------
-		if (this.isSingleStepMode()==true || this.firstExecution==true) {
+		if (this.isSingleStepMode()==true || this.firstExecution==true || tsse.getDescription().equals("Initial State")) {
 			
 			this.getSimulation().reset();
 			this.initializeParameters();
+			this.performCustomInitializations(tsse);
 			if (this.isSingleStepMode()) {
 				// --- Simulate one single TSSE ---------------------
 				this.getSimulation().init(0, tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds());
 			} else {
 				// --- Simulate the whole time without reset --------
 				this.getSimulation().init(0);	//TODO end time necessary? If so, use evaluation end time here.
+			}
+			if (this.firstExecution==true) {
+				this.printFmuStateHeader();
 			}
 			this.firstExecution = false;
 		}
@@ -70,7 +80,10 @@ public class FmuSimulationWrapper {
 		
 		// --- Perform the actual simulation ------------------------
 		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
+		
+//		this.printFmuState(tsse);
 		this.getSimulation().doStep(stepSize);
+		this.printFmuState(tsse);
 
 		// --- Get "result measurements" from the FMU ---------------
 		for (int i=0; i<this.getResultMappings().size(); i++) {
@@ -95,7 +108,15 @@ public class FmuSimulationWrapper {
 				this.getSimulation().write(fmuName).with((Boolean)parameter);
 			} 
 		}
-		
+	}
+	
+	/**
+	 * This method can be overridden to implement FMU-specific initialization tasks that go beyond
+	 * just initializing parameters with static values. The default implementation is empty.
+	 * @param tsse the tsse to be simulated
+	 */
+	protected void performCustomInitializations(TechnicalSystemStateEvaluation tsse) {
+		// --- Empty default implementation.  
 	}
 	
 	/**
@@ -263,5 +284,83 @@ public class FmuSimulationWrapper {
 		} else {
 			return "";
 		}
+	}
+	
+	
+	// --------------------------------------------------------------
+	// --- From here, stuff for debugging TODO remove!!! ------------
+	// --------------------------------------------------------------
+	
+	private static final String NUMBER_FORMAT_SHORT = "0.00";
+	private static final String NUMBER_FORMAT_LONG = "0.00000";
+	private static final String TIME_FORMAT = "HH:mm";
+	private DecimalFormat numberFormatShort;
+	private DecimalFormat numberFormatLong;
+	private SimpleDateFormat timeFormat;
+	
+	private void printFmuStateHeader() {
+		System.out.print("timeEOM\t");
+		System.out.print("timeFMU\t");
+		System.out.print("tAmb\t");
+		System.out.print("pTh\t");
+		System.out.print("tInit\t");
+		System.out.print("hp\t");
+		System.out.print("coil\t");
+		System.out.print("pElHp\t");
+		System.out.print("pElCoil\t");
+		System.out.print("pRes\t");
+		System.out.println("SOC\t");
+	}
+	
+	
+	private void printFmuState(TechnicalSystemStateEvaluation tsse) {
+		
+		double tAmp = this.getSimulation().read("UmgebungsTemperatur").asDouble();
+		double pTh = this.getSimulation().read("ThermischeLast").asDouble();
+		double tInit = this.getSimulation().read("Tinit_bottom").asDouble();
+		double setpointHeatpump = this.getSimulation().read("Schaltsignal_Waermepumpe").asDouble();
+		double setpointCoil = this.getSimulation().read("Schaltsignal_Heizstab").asDouble();
+		double pElHeatPump = this.getSimulation().read("Pel_HP").asDouble();
+		double pElCoil = this.getSimulation().read("Pel_COIL").asDouble();
+		double pRes = this.getSimulation().read("Pth_Residual").asDouble();
+		double soc = this.getSimulation().read("SOC").asDouble();
+		
+		
+		System.out.print(this.getTimeFormat().format(new Date(tsse.getGlobalTime())) + "\t");
+		System.out.print(this.getSimulation().getCurrentTime() + "\t");
+		System.out.print(this.getNumberFormatShort().format(tAmp) + "\t");
+		System.out.print(this.getNumberFormatShort().format(pTh) + "\t");
+		System.out.print(this.getNumberFormatShort().format(tInit) + "\t");
+		System.out.print(setpointHeatpump + "\t");
+		System.out.print(setpointCoil + "\t");
+		System.out.print(this.getNumberFormatShort().format(pElHeatPump) + "\t");
+		System.out.print(this.getNumberFormatShort().format(pElCoil) + "\t");
+		System.out.print(this.getNumberFormatShort().format(pRes) + "\t");
+		System.out.println(this.getNumberFormatLong().format(soc));
+	}
+	
+	private DecimalFormat getNumberFormatShort() {
+		if (numberFormatShort==null) {
+			numberFormatShort = new DecimalFormat(NUMBER_FORMAT_SHORT);
+			numberFormatShort.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.US));
+			numberFormatShort.setRoundingMode(RoundingMode.HALF_UP);
+		}
+		return numberFormatShort;
+	}
+	
+	private DecimalFormat getNumberFormatLong() {
+		if (numberFormatLong==null) {
+			numberFormatLong = new DecimalFormat(NUMBER_FORMAT_LONG);
+			numberFormatLong.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.US));
+			numberFormatLong.setRoundingMode(RoundingMode.HALF_UP);
+		}
+		return numberFormatLong;
+	}
+	
+	public SimpleDateFormat getTimeFormat() {
+		if (timeFormat==null) {
+			timeFormat = new SimpleDateFormat(TIME_FORMAT);
+		}
+		return timeFormat;
 	}
 }

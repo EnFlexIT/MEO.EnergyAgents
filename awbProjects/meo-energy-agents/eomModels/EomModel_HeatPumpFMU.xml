@@ -187,7 +187,7 @@
         <ns2:VariableDescription>The state of the coil (on/off)</ns2:VariableDescription>
         <ns2:SetPoint>true</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:StateIdentifier>true</ns2:StateIdentifier>
         <ns2:GradientTime>
             <ns2:idDuration>0</ns2:idDuration>
             <ns2:value>1</ns2:value>
@@ -206,7 +206,7 @@
         <ns2:VariableDescription>The state of the heatpump (on/off)</ns2:VariableDescription>
         <ns2:SetPoint>true</ns2:SetPoint>
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
-        <ns2:StateIdentifier>false</ns2:StateIdentifier>
+        <ns2:StateIdentifier>true</ns2:StateIdentifier>
         <ns2:GradientTime>
             <ns2:idDuration>0</ns2:idDuration>
             <ns2:value>1</ns2:value>
@@ -391,7 +391,7 @@
         </ns2:EvaluationStateList>
         <ns2:InputMeasurements xsi:type="ns2:InputMeasurement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:VariableID>pTh</ns2:VariableID>
-            <ns2:StepSeries>false</ns2:StepSeries>
+            <ns2:StepSeries>true</ns2:StepSeries>
             <ns2:InputMeasurementByTimeSeries>
                 <ns2:PointInTime>1618264800000</ns2:PointInTime>
                 <ns2:Value xsi:type="ns2:FixedDouble">
@@ -2739,7 +2739,7 @@
         </ns2:InputMeasurements>
         <ns2:InputMeasurements xsi:type="ns2:InputMeasurement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:VariableID>tAmb</ns2:VariableID>
-            <ns2:StepSeries>false</ns2:StepSeries>
+            <ns2:StepSeries>true</ns2:StepSeries>
             <ns2:InputMeasurementByTimeSeries>
                 <ns2:PointInTime>1618264800000</ns2:PointInTime>
                 <ns2:Value xsi:type="ns2:FixedDouble">
@@ -5087,7 +5087,7 @@
         </ns2:InputMeasurements>
         <ns2:InputMeasurements xsi:type="ns2:InputMeasurement" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <ns2:VariableID>hpMeasurement</ns2:VariableID>
-            <ns2:StepSeries>false</ns2:StepSeries>
+            <ns2:StepSeries>true</ns2:StepSeries>
             <ns2:InputMeasurementByTimeSeries>
                 <ns2:PointInTime>1618264800000</ns2:PointInTime>
                 <ns2:Value xsi:type="ns2:FixedBoolean">
@@ -7439,11 +7439,16 @@
             <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
             <ns2:TimeUnit>hour, h</ns2:TimeUnit>
         </ns2:CostModels>
-        <ns2:EvaluationClass>de.enflexit.meo.modellica.eomIntegration.FmuRandomDecisionStrategy</ns2:EvaluationClass>
+        <ns2:EvaluationClass>de.enflexit.meo.modellica.heatPump.FollowMeasurementEvaluationStrategy</ns2:EvaluationClass>
         <ns2:EvaluationClasses>
             <ns2:StrategyID>Random</ns2:StrategyID>
             <ns2:ClassName>de.enflexit.meo.modellica.eomIntegration.FmuRandomDecisionStrategy</ns2:ClassName>
             <ns2:Description>Random decision srategy for FMU models</ns2:Description>
+        </ns2:EvaluationClasses>
+        <ns2:EvaluationClasses>
+            <ns2:StrategyID>Measurement based</ns2:StrategyID>
+            <ns2:ClassName>de.enflexit.meo.modellica.heatPump.FollowMeasurementEvaluationStrategy</ns2:ClassName>
+            <ns2:Description>This strategy sets the setpoint according to a time series provided as measurement</ns2:Description>
         </ns2:EvaluationClasses>
     </ns2:EvaluationSettings>
 </ns2:TechnicalSystem>

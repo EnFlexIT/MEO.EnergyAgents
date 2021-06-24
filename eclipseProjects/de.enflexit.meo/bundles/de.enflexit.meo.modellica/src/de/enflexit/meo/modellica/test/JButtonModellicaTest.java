@@ -50,7 +50,8 @@ public class JButtonModellicaTest extends AbstractCustomToolbarComponent impleme
 	public void actionPerformed(ActionEvent ae) {
 		
 		TestFMU testFMU = new TestFMU();
-		System.out.println("[" + this.getClass().getSimpleName() + "] Executed " + testFMU.toString());
+		testFMU.start();
+//		System.out.println("[" + this.getClass().getSimpleName() + "] Executed " + testFMU.toString());
 	}
 	
 }

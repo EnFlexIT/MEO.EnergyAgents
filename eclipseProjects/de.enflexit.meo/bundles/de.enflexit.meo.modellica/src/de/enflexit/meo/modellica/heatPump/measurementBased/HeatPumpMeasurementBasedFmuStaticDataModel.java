@@ -1,4 +1,4 @@
-package de.enflexit.meo.modellica.heatPump;
+package de.enflexit.meo.modellica.heatPump.measurementBased;
 
 import java.io.Serializable;
 
@@ -15,17 +15,16 @@ import energy.optionModel.EnergyUnitFactorPrefixSI;
  * The static data model for the heat pump FMU 
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Serializable {
+public class HeatPumpMeasurementBasedFmuStaticDataModel extends FmuStaticDataModel implements Serializable {
 
 	private static final long serialVersionUID = -1847258408954464865L;
 	
-	HeatPumpFmuSimulationWrapper simulationWrapper;
+	HeatPumpMeasurementBasedFmuSimulationWrapper simulationWrapper;
 	
 	/**
 	 * Instantiates a new heat pump fmu data model.
 	 */
-	public HeatPumpFmuStaticDataModel() {
-		System.out.println("Initializing HeatPump FMU, Verison 3.0");
+	public HeatPumpMeasurementBasedFmuStaticDataModel() {
 		this.setFmuFilePath(Application.getProjectFocused().getProjectFolderFullPath() + "fmuModels/HeatPumpFMU_Version3.0/mGRiDS_CoSimFMI.HPSystem.fmu");
 		this.setModelStepSizeMilliSeconds(1000);
 		this.initializeVariableDescriptions();
@@ -40,12 +39,12 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Waermepumpe_Elektrischeverbrauch_Nominal", 2.0, "kW"));
 		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Waermepumpe_ThermischeLeistung_Nominal", 7.0, "kW"));
 		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Heizstab_Nominal_Leistung", 3.0, "kW"));
-//		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Tinit_bottom", 50.0, "°C"));
+		this.getStaticParameters().add(new FmuVariableMappingStaticParameter("Tinit_bottom", 50.0, "°C"));
 		
 		// --- Add IO variables -----------------------
 		this.getIoListMappings().add(new FmuVariableMappingIoList("SOC", "SOC", IoVariableType.RESULT, "%"));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("coilSetpoint", "Schaltsignal_Heizstab", IoVariableType.SETPOINT));
-		this.getIoListMappings().add(new FmuVariableMappingIoList("hpSetpoint", "Schaltsignal_Waermepumpe", IoVariableType.SETPOINT));
+		this.getIoListMappings().add(new FmuVariableMappingIoList("hpMeasurement", "Schaltsignal_Waermepumpe", IoVariableType.MEASUREMENT));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("pTh", "ThermischeLast", IoVariableType.MEASUREMENT, "°C"));
 		this.getIoListMappings().add(new FmuVariableMappingIoList("tAmb", "UmgebungsTemperatur", IoVariableType.MEASUREMENT, "°C"));
 		
@@ -71,7 +70,7 @@ public class HeatPumpFmuStaticDataModel extends FmuStaticDataModel implements Se
 	@Override
 	public FmuSimulationWrapper getFmuSimulationWrapper() {
 		if (simulationWrapper==null) {
-			simulationWrapper = new HeatPumpFmuSimulationWrapper(this);
+			simulationWrapper = new HeatPumpMeasurementBasedFmuSimulationWrapper(this);
 		}
 		return simulationWrapper;
 	}

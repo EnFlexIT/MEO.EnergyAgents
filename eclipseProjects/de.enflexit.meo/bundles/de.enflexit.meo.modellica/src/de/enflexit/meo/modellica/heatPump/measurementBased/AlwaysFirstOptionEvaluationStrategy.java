@@ -1,4 +1,4 @@
-package de.enflexit.meo.modellica.heatPump;
+package de.enflexit.meo.modellica.heatPump.measurementBased;
 
 import java.util.Vector;
 
@@ -8,25 +8,19 @@ import de.enflexit.meo.modellica.eomIntegration.FmuOptionModelCalculation;
 import energy.OptionModelController;
 import energy.evaluation.AbstractEvaluationStrategy;
 import energy.evaluation.TechnicalSystemStateDeltaEvaluation;
-import energy.helper.TechnicalSystemStateHelper;
-import energy.optionModel.FixedBoolean;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 
 /**
- * A simple evaluation strategy for the HeatPump-FMU that sets the setpoint according to the measurement series.
+ * A simple evaluation strategy that always chooses the first possible delta evaluation.
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class FollowMeasurementEvaluationStrategy extends AbstractEvaluationStrategy {
+public class AlwaysFirstOptionEvaluationStrategy extends AbstractEvaluationStrategy {
 	
-	private static final String VARIABLE_ID_HEATPUMP_MEASUREMENT = "hpMeasurement";
-	private static final String VARIABLE_ID_HEATPUMP_SETPOINT = "hpSetpoint";
-	private static final String VARIABLE_ID_COIL_SETPOINT = "coilSetpoint";
-
 	/**
 	 * Instantiates a new follow measurement evaluation strategy.
 	 * @param optionModelController the option model controller
 	 */
-	public FollowMeasurementEvaluationStrategy(OptionModelController optionModelController) {
+	public AlwaysFirstOptionEvaluationStrategy(OptionModelController optionModelController) {
 		super(optionModelController);
 	}
 
@@ -57,22 +51,8 @@ public class FollowMeasurementEvaluationStrategy extends AbstractEvaluationStrat
 				break;
 			}
 			
-			// --- Get the setpoint value for the heatpump from the measurement (same for all deltas)
-			TechnicalSystemStateEvaluation nextTSSE = deltaSteps.get(0).getTechnicalSystemStateEvaluation();
-			FixedBoolean hpMeasurement = (FixedBoolean) TechnicalSystemStateHelper.getFixedVariable(nextTSSE.getIOlist(), VARIABLE_ID_HEATPUMP_MEASUREMENT);
-			
 			// --- Find the delta step with the corresponding setpoint value ------------
-			int decisionIndex = -1;
-			for (int i=0; i<deltaSteps.size(); i++) {
-				TechnicalSystemStateEvaluation deltaTSSE = deltaSteps.get(i).getTechnicalSystemStateEvaluation();
-				FixedBoolean heatPumpSetpoint = (FixedBoolean) TechnicalSystemStateHelper.getFixedVariable(deltaTSSE.getIOlist(), VARIABLE_ID_HEATPUMP_SETPOINT);
-				FixedBoolean coilSetpoint = (FixedBoolean) TechnicalSystemStateHelper.getFixedVariable(deltaTSSE.getIOlist(), VARIABLE_ID_COIL_SETPOINT);
-				if (heatPumpSetpoint.isValue()==hpMeasurement.isValue() && coilSetpoint.isValue()==false) {
-					decisionIndex = i;
-					break;
-				}
-			}
-			
+			int decisionIndex = 0;
 			// --- Set new current TechnicalSystemStateEvaluation -----------------------
 			TechnicalSystemStateDeltaEvaluation tssDeltaDecision = deltaSteps.get(decisionIndex);
 			TechnicalSystemStateEvaluation tsseNext = this.getNextTechnicalSystemStateEvaluation(tsse, tssDeltaDecision);

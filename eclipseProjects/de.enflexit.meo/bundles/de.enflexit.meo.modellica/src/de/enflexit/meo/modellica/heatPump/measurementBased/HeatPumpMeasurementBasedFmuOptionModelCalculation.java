@@ -1,8 +1,5 @@
-package de.enflexit.meo.modellica.heatPump.realOutput;
+package de.enflexit.meo.modellica.heatPump.measurementBased;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import de.enflexit.meo.modellica.eomIntegration.FmuOptionModelCalculation;
@@ -11,12 +8,10 @@ import de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel;
 import energy.OptionModelController;
 import energy.domain.DefaultDomainModelElectricity;
 import energy.domain.DefaultDomainModelElectricity.PowerType;
-import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.AbstractInterfaceFlow;
 import energy.optionModel.Duration;
 import energy.optionModel.EnergyFlowInWatt;
 import energy.optionModel.EnergyUnitFactorPrefixSI;
-import energy.optionModel.FixedBoolean;
 import energy.optionModel.SystemVariableDefinition;
 import energy.optionModel.SystemVariableDefinitionStaticModel;
 import energy.optionModel.TechnicalInterface;
@@ -27,9 +22,7 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  *
  */
-public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation {
-	
-	private DateFormat dateFormat;
+public class HeatPumpMeasurementBasedFmuOptionModelCalculation extends FmuOptionModelCalculation {
 	
 	private TechnicalSystemStateEvaluation tsseLastCalculated;
 	
@@ -39,7 +32,7 @@ public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation
 	 * Instantiates a new fmu option model calculation.
 	 * @param optionModelController the option model controller
 	 */
-	public HeatPumpFmuOptionModelCalculation(OptionModelController optionModelController) {
+	public HeatPumpMeasurementBasedFmuOptionModelCalculation(OptionModelController optionModelController) {
 		super(optionModelController);
 	}
 
@@ -124,7 +117,7 @@ public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation
 			
 			//TODO workaround until the null problem is fixed -------
 			if (staticModel==null) {
-				staticModel = new HeatPumpFmuStaticDataModel();
+				staticModel = new HeatPumpMeasurementBasedFmuStaticDataModel();
 			}
 		}
 		return staticModel;
@@ -136,8 +129,7 @@ public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation
 	 */
 	public FmuSimulationWrapper getSimulationWrapper() {
 		if (simulationWrapper==null) {
-			simulationWrapper = new FmuSimulationWrapper(this.getStaticModel());
-			simulationWrapper.setSingleStepMode(false);
+			simulationWrapper = this.getStaticModel().getFmuSimulationWrapper();
 		}
 		return simulationWrapper;
 	}
