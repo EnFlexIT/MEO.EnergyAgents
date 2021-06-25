@@ -51,7 +51,6 @@ public class FollowMeasurementEvaluationStrategy extends AbstractEvaluationStrat
 			
 			// --- Get the possible subsequent steps and states -------------------------
 			Vector<TechnicalSystemStateDeltaEvaluation> deltaSteps = this.getAllDeltaEvaluationsStartingFromTechnicalSystemState(tsse);
-//			System.out.println("[" + this.getClass().getSimpleName() + "] " + deltaSteps.size() + " possible next steps");
 			if (deltaSteps.size()==0) {
 				this.print(this.getEvaluationThread().getName() + ": => No further delta steps possible => interrupt search!", true);
 				break;

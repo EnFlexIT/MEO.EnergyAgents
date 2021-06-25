@@ -20,21 +20,36 @@ import energy.optionModel.FixedInteger;
 import energy.optionModel.FixedVariable;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 
+// TODO: Auto-generated Javadoc
 /**
- * A generic wrapper for FMU simulations in the context of an EOM OptionModelCalculation
+ * A generic wrapper for FMU simulations in the context of an EOM OptionModelCalculation.
+ *
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
 public class FmuSimulationWrapper {
+	
+	/** The simulation. */
 	private Simulation simulation;
+	
+	/** The fmu static model. */
 	private FmuStaticDataModel fmuStaticModel;
 	
+	/** The single step mode. */
 	private boolean singleStepMode = true;
+	
+	/** The first execution. */
 	private boolean firstExecution = true;
 	
+	/** The setpoint mappings. */
 	private Vector<FmuVariableMappingIoList> setpointMappings;
+	
+	/** The measurement mappings. */
 	private Vector<FmuVariableMappingIoList> measurementMappings;
+	
+	/** The result mappings. */
 	private Vector<FmuVariableMappingIoList> resultMappings;
 	
+	/** The debug. */
 	private boolean debug = false;
 	
 	/**
@@ -65,7 +80,7 @@ public class FmuSimulationWrapper {
 				this.getSimulation().init(0);	//TODO end time necessary? If so, use evaluation end time here.
 			}
 			if (this.firstExecution==true) {
-				this.printFmuStateHeader();
+//				this.printFmuStateHeader();
 			}
 			this.firstExecution = false;
 		}
@@ -83,7 +98,7 @@ public class FmuSimulationWrapper {
 		
 //		this.printFmuState(tsse);
 		this.getSimulation().doStep(stepSize);
-		this.printFmuState(tsse);
+//		this.printFmuState(tsse);
 
 		// --- Get "result measurements" from the FMU ---------------
 		for (int i=0; i<this.getResultMappings().size(); i++) {
@@ -270,7 +285,8 @@ public class FmuSimulationWrapper {
 	}
 	
 	/**
-	 * Returns a String representation of the {@link FixedVariable}'s value
+	 * Returns a String representation of the {@link FixedVariable}'s value.
+	 *
 	 * @param variable the variable
 	 * @return the string
 	 */
@@ -291,13 +307,28 @@ public class FmuSimulationWrapper {
 	// --- From here, stuff for debugging TODO remove!!! ------------
 	// --------------------------------------------------------------
 	
+	/** The Constant NUMBER_FORMAT_SHORT. */
 	private static final String NUMBER_FORMAT_SHORT = "0.00";
+	
+	/** The Constant NUMBER_FORMAT_LONG. */
 	private static final String NUMBER_FORMAT_LONG = "0.00000";
+	
+	/** The Constant TIME_FORMAT. */
 	private static final String TIME_FORMAT = "HH:mm";
+	
+	/** The number format short. */
 	private DecimalFormat numberFormatShort;
+	
+	/** The number format long. */
 	private DecimalFormat numberFormatLong;
+	
+	/** The time format. */
 	private SimpleDateFormat timeFormat;
 	
+	/**
+	 * Prints the header for the debug output of FMU variables - see printFmuState method below.
+	 */
+	@SuppressWarnings("unused")
 	private void printFmuStateHeader() {
 		System.out.print("timeEOM\t");
 		System.out.print("timeFMU\t");
@@ -313,8 +344,15 @@ public class FmuSimulationWrapper {
 	}
 	
 	
+	/**
+	 * Prints the current state of the relevant variables of the Heatpump-FMU.
+	 *
+	 * @param tsse the tsse
+	 */
+	@SuppressWarnings("unused")
 	private void printFmuState(TechnicalSystemStateEvaluation tsse) {
-		
+
+		// --- Get the values from the FMU ----------------
 		double tAmp = this.getSimulation().read("UmgebungsTemperatur").asDouble();
 		double pTh = this.getSimulation().read("ThermischeLast").asDouble();
 		double tInit = this.getSimulation().read("Tinit_bottom").asDouble();
@@ -325,7 +363,7 @@ public class FmuSimulationWrapper {
 		double pRes = this.getSimulation().read("Pth_Residual").asDouble();
 		double soc = this.getSimulation().read("SOC").asDouble();
 		
-		
+		// --- Print the values ---------------------------
 		System.out.print(this.getTimeFormat().format(new Date(tsse.getGlobalTime())) + "\t");
 		System.out.print(this.getSimulation().getCurrentTime() + "\t");
 		System.out.print(this.getNumberFormatShort().format(tAmp) + "\t");
@@ -339,6 +377,10 @@ public class FmuSimulationWrapper {
 		System.out.println(this.getNumberFormatLong().format(soc));
 	}
 	
+	/**
+	 * Gets the number format short.
+	 * @return the number format short
+	 */
 	private DecimalFormat getNumberFormatShort() {
 		if (numberFormatShort==null) {
 			numberFormatShort = new DecimalFormat(NUMBER_FORMAT_SHORT);
@@ -348,6 +390,10 @@ public class FmuSimulationWrapper {
 		return numberFormatShort;
 	}
 	
+	/**
+	 * Gets the number format long.
+	 * @return the number format long
+	 */
 	private DecimalFormat getNumberFormatLong() {
 		if (numberFormatLong==null) {
 			numberFormatLong = new DecimalFormat(NUMBER_FORMAT_LONG);
@@ -357,6 +403,10 @@ public class FmuSimulationWrapper {
 		return numberFormatLong;
 	}
 	
+	/**
+	 * Gets the time format.
+	 * @return the time format
+	 */
 	public SimpleDateFormat getTimeFormat() {
 		if (timeFormat==null) {
 			timeFormat = new SimpleDateFormat(TIME_FORMAT);
