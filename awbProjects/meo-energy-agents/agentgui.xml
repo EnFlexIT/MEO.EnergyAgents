@@ -187,13 +187,9 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>de.enflexit.ea.core.dataModel.absEnvModel.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>Meo.Scene.03b_1-LV-rural3--2-sw</simulationSetupCurrent>
+    <simulationSetupCurrent>Meo.Scene.02_Co-Simulation</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
     <simulationSetups>
-        <entry>
-            <key>CoSimulation</key>
-            <value>CoSimulation.xml</value>
-        </entry>
         <entry>
             <key>Meo.Scene.00_1-LV-rural3--0-sw</key>
             <value>MeoScene00_1-LV-rural3-0-sw.xml</value>
@@ -205,6 +201,10 @@
         <entry>
             <key>Meo.Scene.01b_1-LV-rural3--2-sw</key>
             <value>MeoScene01b_1-LV-rural3-2-sw.xml</value>
+        </entry>
+        <entry>
+            <key>Meo.Scene.02_Co-Simulation</key>
+            <value>MeoScene02_Co-Simulation.xml</value>
         </entry>
         <entry>
             <key>Meo.Scene.03a_1-LV-rural3--2-sw</key>
