@@ -24,7 +24,6 @@ public class HeatPumpMeasurementBasedFmuSimulationWrapper extends FmuSimulationW
 	 */
 	public HeatPumpMeasurementBasedFmuSimulationWrapper(FmuStaticDataModel fmuStaticModel) {
 		super(fmuStaticModel);
-		this.setSingleStepMode(false);
 	}
 	
 	/* (non-Javadoc)
@@ -33,23 +32,14 @@ public class HeatPumpMeasurementBasedFmuSimulationWrapper extends FmuSimulationW
 	@Override
 	protected void performCustomInitializations(TechnicalSystemStateEvaluation tsse) {
 
-		if (this.isSingleStepMode()) {
-			// --- Initialize the FMU with the SOC from the parent TSSE -----------
-			FixedVariable initialSOC = null;
-			if (tsse.getParent()==null) {
-				// --- For the initial state, use the configured SOC --------------
-				initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), EOM_VARIABLE_SOC);
-			} else {
-				// --- For later states, use the SOC from the parent state --------
-				initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getParent().getIOlist(), EOM_VARIABLE_SOC);
-			}
-			
-			// --- Calculate the corresponding tInit for the current state --------
-			if (initialSOC!=null) {
-				double initialSOCValue = ((FixedDouble)initialSOC).getValue();
-				double tInitValue = T_INIT_SOC_100 * initialSOCValue;
-				this.getSimulation().write(FMU_VARIABLE_T_INIT_BOTTOM).with(tInitValue);
-			}
+		// --- Initialize the FMU with the SOC from the parent TSSE -----------
+		FixedVariable initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), EOM_VARIABLE_SOC);
+		
+		// --- Calculate the corresponding tInit for the current state --------
+		if (initialSOC!=null) {
+			double initialSOCValue = ((FixedDouble)initialSOC).getValue();
+			double tInitValue = T_INIT_SOC_100 * initialSOCValue;
+			this.getSimulation().write(FMU_VARIABLE_T_INIT_BOTTOM).with(tInitValue);
 		}
 	}
 }

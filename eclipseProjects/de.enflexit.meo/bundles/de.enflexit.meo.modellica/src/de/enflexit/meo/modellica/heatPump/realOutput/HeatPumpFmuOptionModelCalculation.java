@@ -1,8 +1,5 @@
 package de.enflexit.meo.modellica.heatPump.realOutput;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import de.enflexit.meo.modellica.eomIntegration.FmuOptionModelCalculation;
@@ -11,12 +8,10 @@ import de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel;
 import energy.OptionModelController;
 import energy.domain.DefaultDomainModelElectricity;
 import energy.domain.DefaultDomainModelElectricity.PowerType;
-import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.AbstractInterfaceFlow;
 import energy.optionModel.Duration;
 import energy.optionModel.EnergyFlowInWatt;
 import energy.optionModel.EnergyUnitFactorPrefixSI;
-import energy.optionModel.FixedBoolean;
 import energy.optionModel.SystemVariableDefinition;
 import energy.optionModel.SystemVariableDefinitionStaticModel;
 import energy.optionModel.TechnicalInterface;
@@ -28,8 +23,6 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
  *
  */
 public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation {
-	
-	private DateFormat dateFormat;
 	
 	private TechnicalSystemStateEvaluation tsseLastCalculated;
 	
@@ -137,7 +130,6 @@ public class HeatPumpFmuOptionModelCalculation extends FmuOptionModelCalculation
 	public FmuSimulationWrapper getSimulationWrapper() {
 		if (simulationWrapper==null) {
 			simulationWrapper = new FmuSimulationWrapper(this.getStaticModel());
-			simulationWrapper.setSingleStepMode(false);
 		}
 		return simulationWrapper;
 	}

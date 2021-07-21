@@ -34,12 +34,6 @@ public class FmuSimulationWrapper {
 	/** The fmu static model. */
 	private FmuStaticDataModel fmuStaticModel;
 	
-	/** The single step mode. */
-	private boolean singleStepMode = true;
-	
-	/** The first execution. */
-	private boolean firstExecution = true;
-	
 	/** The setpoint mappings. */
 	private Vector<FmuVariableMappingIoList> setpointMappings;
 	
@@ -59,58 +53,14 @@ public class FmuSimulationWrapper {
 	public FmuSimulationWrapper(FmuStaticDataModel fmuStaticModel) {
 		this.fmuStaticModel = fmuStaticModel;
 	}
-
-	/**
-	 * Simulate a single {@link TechnicalSystemStateEvaluation} with the FMU.
-	 * @param tsse the tsse
-	 */
-	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
-
-		// --- Reset the simulation first ---------------------------
-		if (this.isSingleStepMode()==true || this.firstExecution==true || tsse.getDescription().equals("Initial State")) {
-			
-			this.getSimulation().reset();
-			this.initializeParameters();
-			this.performCustomInitializations(tsse);
-			if (this.isSingleStepMode()) {
-				// --- Simulate one single TSSE ---------------------
-				this.getSimulation().init(0, tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds());
-			} else {
-				// --- Simulate the whole time without reset --------
-				this.getSimulation().init(0);	//TODO end time necessary? If so, use evaluation end time here.
-			}
-			if (this.firstExecution==true) {
-//				this.printFmuStateHeader();
-			}
-			this.firstExecution = false;
-		}
-		
-		// --- Set values for measurements and setpoints ------------
-		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
-			this.writeVariableToFMU(this.getMeasurementMappings().get(i), tsse);
-		}
-		for (int i=0; i<this.getSetpointMappings().size(); i++) {
-			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
-		}
-		
-		// --- Perform the actual simulation ------------------------
-		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
-		
-//		this.printFmuState(tsse);
-		this.getSimulation().doStep(stepSize);
-//		this.printFmuState(tsse);
-
-		// --- Get "result measurements" from the FMU ---------------
-		for (int i=0; i<this.getResultMappings().size(); i++) {
-			this.readVariableFromFMU(this.getResultMappings().get(i), tsse);
-		}
-	}
 	
 	/**
-	 * Initialize simulation.
+	 * Initialize the FMU.
+	 * @param initialTsse the initial {@link TechnicalSystemStateEvaluation} of the evaluation period
+	 * @param evaluationEndTime the end of the evaluation period (Java timestamp)
 	 */
-	private void initializeParameters() {
-		
+	public void initializeFmu(TechnicalSystemStateEvaluation initialTsse, long evaluationEndTime) {
+
 		// --- Initialize the FMU with the static parameters --------
 		for (int i=0; i<this.getStaticParameters().size(); i++) {
 			String fmuName = this.getStaticParameters().get(i).getFmuVariableName();
@@ -122,6 +72,51 @@ public class FmuSimulationWrapper {
 			} else if (parameter instanceof Boolean) {
 				this.getSimulation().write(fmuName).with((Boolean)parameter);
 			} 
+		}
+		this.performCustomInitializations(initialTsse);
+		
+		// --- Set values for measurements and setpoints ------------
+		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
+			this.writeVariableToFMU(this.getMeasurementMappings().get(i), initialTsse);
+		}
+		for (int i=0; i<this.getSetpointMappings().size(); i++) {
+			this.writeVariableToFMU(this.getSetpointMappings().get(i), initialTsse);
+		}
+		
+		if (evaluationEndTime>0) {
+			double fmuEndTime = (evaluationEndTime-initialTsse.getGlobalTime()) / this.getStaticModel().getModelStepSizeMilliSeconds();
+			this.getSimulation().init(0, fmuEndTime);
+		} else {
+			this.getSimulation().init(0);
+		}
+		
+//		this.printFmuStateHeader();
+//		this.printFmuState(initialTsse);
+	}
+
+	/**
+	 * Simulate a single {@link TechnicalSystemStateEvaluation} with the FMU.
+	 * @param tsse the tsse
+	 */
+	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
+
+		// --- Set values for measurements and setpoints ------------
+		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
+			this.writeVariableToFMU(this.getMeasurementMappings().get(i), tsse);
+		}
+		for (int i=0; i<this.getSetpointMappings().size(); i++) {
+			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
+		}
+		
+		// --- Perform the actual simulation ------------------------
+		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
+		
+		this.getSimulation().doStep(stepSize);
+//		this.printFmuState(tsse);
+
+		// --- Get "result measurements" from the FMU ---------------
+		for (int i=0; i<this.getResultMappings().size(); i++) {
+			this.readVariableFromFMU(this.getResultMappings().get(i), tsse);
 		}
 	}
 	
@@ -254,36 +249,12 @@ public class FmuSimulationWrapper {
 	}
 
 	/**
-	 * Checks if this wrapper is single step mode. If true, the simulation is performed step-wise,
-	 * i.e. it is reset and re-initialized for each simulation step, which is required for the 
-	 * typical EOM evaluation behavior to check all alternatives for the next step. If false, the
-	 * simulation is performed in the "regular" sequential way, which will not work for EOM 
-	 * evaluations if there is more than one possible next step.    
-	 * @return true, if is single step mode
-	 */
-	public boolean isSingleStepMode() {
-		return singleStepMode;
-	}
-	
-	/**
 	 * Terminates the FMU simulation.
 	 */
 	public void terminateSimulation() {
 		this.getSimulation().terminate();
 	}
 
-	/**
-	 * Enabled or disables single step mode. If enabled, the simulation is performed step-wise,
-	 * i.e. it is reset and re-initialized for each simulation step, which is required for the 
-	 * typical EOM evaluation behavior to check all alternatives for the next step. If disabled, 
-	 * the simulation is performed in the "regular" sequential way, which will not work for EOM 
-	 * evaluations if there is more than one possible next step.
-	 * @param singleStepMode the new single step mode
-	 */
-	public void setSingleStepMode(boolean singleStepMode) {
-		this.singleStepMode = singleStepMode;
-	}
-	
 	/**
 	 * Returns a String representation of the {@link FixedVariable}'s value.
 	 *

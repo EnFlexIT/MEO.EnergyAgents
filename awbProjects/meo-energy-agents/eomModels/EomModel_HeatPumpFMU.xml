@@ -100,38 +100,50 @@
             <ns2:StateDescription>Description</ns2:StateDescription>
             <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:InterfaceID>L1 P</ns2:InterfaceID>
-                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWatt" unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
                 </ns2:EnergyFlow>
             </ns2:Flows>
             <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:InterfaceID>L1 Q</ns2:InterfaceID>
-                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWatt" unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
                 </ns2:EnergyFlow>
             </ns2:Flows>
             <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:InterfaceID>L2 P</ns2:InterfaceID>
-                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWatt" unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
                 </ns2:EnergyFlow>
             </ns2:Flows>
             <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:InterfaceID>L2 Q</ns2:InterfaceID>
-                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWatt" unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
-                </ns2:EnergyFlow>
-            </ns2:Flows>
-            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
-                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
-                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
                 </ns2:EnergyFlow>
             </ns2:Flows>
             <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
-                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWattCalculated" unit="W">
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWatt" unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                </ns2:EnergyFlow>
+            </ns2:Flows>
+            <ns2:Flows xsi:type="ns2:EnergyFlowGeneral" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
+                <ns2:EnergyFlow xsi:type="ns2:EnergyFlowInWatt" unit="W">
+                    <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
+                    <ns2:value>0.0</ns2:value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
                 </ns2:EnergyFlow>
             </ns2:Flows>
             <ns2:Duration>
@@ -257,7 +269,7 @@
         <ns2:GradientValue>0.0</ns2:GradientValue>
         <ns2:StateIdentifierPrecision>0.0</ns2:StateIdentifierPrecision>
     </ns2:SystemVariables>
-    <ns2:CalculationClass>de.enflexit.meo.modellica.heatPump.HeatPumpFmuOptionModelCalculation</ns2:CalculationClass>
+    <ns2:CalculationClass></ns2:CalculationClass>
     <ns2:EvaluationSettings>
         <ns2:RoundingPrecision>-1</ns2:RoundingPrecision>
         <ns2:DataRepetition>None</ns2:DataRepetition>
@@ -308,12 +320,6 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -324,12 +330,6 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -365,7 +365,7 @@
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
-                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
+                <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
                 <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
                 <ns2:EnergyFlow unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
@@ -381,13 +381,19 @@
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
-                <ns2:InterfaceID>L3 Q</ns2:InterfaceID>
+                <ns2:InterfaceID>L3 P</ns2:InterfaceID>
                 <ns2:CostsCumulated>0.0</ns2:CostsCumulated>
                 <ns2:EnergyFlow unit="W">
                     <ns2:idInterfaceFlow>0</ns2:idInterfaceFlow>
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
         </ns2:EvaluationStateList>
         <ns2:EvaluationStateList>

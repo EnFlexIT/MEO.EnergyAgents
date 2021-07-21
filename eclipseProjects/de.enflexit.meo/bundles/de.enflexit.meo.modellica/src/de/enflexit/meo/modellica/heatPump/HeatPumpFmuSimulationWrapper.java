@@ -32,17 +32,10 @@ public class HeatPumpFmuSimulationWrapper extends FmuSimulationWrapper {
 	@Override
 	protected void performCustomInitializations(TechnicalSystemStateEvaluation tsse) {
 		
-		// --- Initialize the FMU with the SOC from the parent TSSE -----------
-		FixedVariable initialSOC = null;
-		if (tsse.getParent()==null) {
-			// --- For the initial state, use the configured SOC --------------
-			initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), EOM_VARIABLE_SOC);
-		} else {
-			// --- For later states, use the SOC from the parent state --------
-			initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getParent().getIOlist(), EOM_VARIABLE_SOC);
-		}
+		// --- Get the initial SOC from the initial evaluation state ----------
+		FixedVariable initialSOC = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), EOM_VARIABLE_SOC);
 		
-		// --- Calculate the corresponding tInit for the current state --------
+		// --- Calculate the corresponding tInit for the FMU storage model ----
 		if (initialSOC!=null) {
 			double parentSOCValue = ((FixedDouble)initialSOC).getValue();
 			double tInitValue = T_INIT_SOC_100 * parentSOCValue;
