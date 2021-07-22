@@ -4,9 +4,8 @@ import java.util.Vector;
 
 import javax.swing.JComponent;
 
-import de.enflexit.meo.modellica.eomIntegration.FmuOptionModelCalculation;
+import de.enflexit.meo.modellica.eomIntegration.AbstractEvaluationStrategyForFMU;
 import energy.OptionModelController;
-import energy.evaluation.AbstractEvaluationStrategy;
 import energy.evaluation.TechnicalSystemStateDeltaEvaluation;
 import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.FixedBoolean;
@@ -16,7 +15,7 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
  * A simple evaluation strategy for the HeatPump-FMU that sets the setpoint according to the measurement series.
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class AlwaysOnEvaluationStrategy extends AbstractEvaluationStrategy {
+public class AlwaysOnEvaluationStrategy extends AbstractEvaluationStrategyForFMU {
 	
 	private static final String VARIABLE_ID_HEATPUMP_SETPOINT = "hpSetpoint";
 	private static final String VARIABLE_ID_COIL_SETPOINT = "coilSetpoint";
@@ -85,7 +84,7 @@ public class AlwaysOnEvaluationStrategy extends AbstractEvaluationStrategy {
 		this.addStateToResults(tsse);
 		// --- Done ! -------------------------------------------------------------------
 		
-		((FmuOptionModelCalculation)this.getOptionModelCalculation()).getSimulationWrapper().terminateSimulation();
+		this.getSimulationWrapper().terminateSimulation();
 	}
 
 }

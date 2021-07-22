@@ -1,17 +1,13 @@
 package de.enflexit.meo.modellica.heatPump;
 
-import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JComponent;
 
-import de.enflexit.meo.modellica.eomIntegration.FmuOptionModelCalculation;
-import de.enflexit.meo.modellica.eomIntegration.FmuSimulationWrapper;
-import de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel;
+import de.enflexit.meo.modellica.eomIntegration.AbstractEvaluationStrategyForFMU;
 import energy.OptionModelController;
 import energy.domain.DefaultDomainModelElectricity;
 import energy.domain.DefaultDomainModelElectricity.PowerType;
-import energy.evaluation.AbstractEvaluationStrategy;
 import energy.evaluation.TechnicalSystemStateDeltaEvaluation;
 import energy.helper.TechnicalSystemStateHelper;
 import energy.helper.UnitConverter;
@@ -19,8 +15,6 @@ import energy.optionModel.EnergyAmount;
 import energy.optionModel.EnergyFlowInWatt;
 import energy.optionModel.EnergyUnitFactorPrefixSI;
 import energy.optionModel.FixedBoolean;
-import energy.optionModel.SystemVariableDefinition;
-import energy.optionModel.SystemVariableDefinitionStaticModel;
 import energy.optionModel.TechnicalInterface;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 import energy.optionModel.TimeUnit;
@@ -30,14 +24,12 @@ import energy.optionModel.UsageOfInterfaceEnergy;
  * A simple evaluation strategy for the HeatPump-FMU that sets the setpoint according to the measurement series.
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class FollowMeasurementEvaluationStrategy extends AbstractEvaluationStrategy {
+public class FollowMeasurementEvaluationStrategy extends AbstractEvaluationStrategyForFMU {
 	
 	private static final String VARIABLE_ID_HEATPUMP_MEASUREMENT = "hpMeasurement";
 	private static final String VARIABLE_ID_HEATPUMP_SETPOINT = "hpSetpoint";
 	private static final String VARIABLE_ID_COIL_SETPOINT = "coilSetpoint";
 	
-	private FmuStaticDataModel staticModel;
-	private FmuSimulationWrapper simulationWapper;
 
 	/**
 	 * Instantiates a new follow measurement evaluation strategy.
@@ -53,45 +45,6 @@ public class FollowMeasurementEvaluationStrategy extends AbstractEvaluationStrat
 	@Override
 	public Vector<JComponent> getCustomToolBarElements() {
 		return null;
-	}
-	
-	/**
-	 * Gets the static model.
-	 * @return the static model
-	 */
-	private FmuStaticDataModel getStaticModel() {
-		if (staticModel==null) {
-			// --- Find the static model from the list of system variable definitions
-			List<SystemVariableDefinition> systemVariableDefinitions = this.optionModelController.getTechnicalSystem().getSystemVariables();
-			for (int i=0; i<systemVariableDefinitions.size(); i++) {
-				if (systemVariableDefinitions.get(i) instanceof SystemVariableDefinitionStaticModel) {
-					SystemVariableDefinitionStaticModel sysVarDefStaticModel = (SystemVariableDefinitionStaticModel) systemVariableDefinitions.get(i);
-					Object sysVar = this.optionModelController.getStaticModelInstance(sysVarDefStaticModel);
-					if (sysVar instanceof FmuStaticDataModel) {
-						staticModel = (FmuStaticDataModel) sysVar;
-						break;
-					}
-				}
-			}
-			
-			//TODO workaround until the null problem is fixed -------
-			if (staticModel==null) {
-				staticModel = new HeatPumpFmuStaticDataModel();
-			}
-		}
-		return staticModel;
-	}
-	
-	/**
-	 * Gets the simulation wapper.
-	 * @return the simulation wapper
-	 */
-	private FmuSimulationWrapper getSimulationWrapper() {
-		if (simulationWapper==null) {
-			simulationWapper = this.getStaticModel().getFmuSimulationWrapper();
-		}
-		
-		return simulationWapper;
 	}
 	
 	/* (non-Javadoc)
