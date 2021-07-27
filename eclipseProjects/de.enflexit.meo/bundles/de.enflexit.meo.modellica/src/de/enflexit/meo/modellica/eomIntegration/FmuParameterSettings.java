@@ -1,14 +1,17 @@
 package de.enflexit.meo.modellica.eomIntegration;
 
+import java.io.Serializable;
 
 /**
- * This class describes the mapping for an FMU variable that represents a static parameer of the system.
+ * This class describes the configuration of a system parameter of an FMU model, i.e. a
+ * variable describing a system property, that is set once when the FMU is initialized.
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class FmuVariableMappingStaticParameter extends AbstractFmuVariableMapping {
+public class FmuParameterSettings implements Serializable {
 
 	private static final long serialVersionUID = 7195937285623102830L;
 	
+	private String fmuVariableName;
 	private Object value;
 	private String unit;
 
@@ -18,10 +21,26 @@ public class FmuVariableMappingStaticParameter extends AbstractFmuVariableMappin
 	 * @param value the value
 	 * @param unit the unit
 	 */
-	public FmuVariableMappingStaticParameter(String fmuVariableName, Object value, String unit) {
+	public FmuParameterSettings(String fmuVariableName, Object value, String unit) {
 		this.setFmuVariableName(fmuVariableName);
 		this.value = value;
 		this.unit = unit;
+	}
+	
+	/**
+	 * Gets the FMU variable name for this system parameter.
+	 * @return the FMU variable name
+	 */
+	public String getFmuVariableName() {
+		return fmuVariableName;
+	}
+
+	/**
+	 * Sets the FMU variable name for this system parameter.
+	 * @param fmuVariableName the new FMU variable name
+	 */
+	public void setFmuVariableName(String fmuVariableName) {
+		this.fmuVariableName = fmuVariableName;
 	}
 
 	/**

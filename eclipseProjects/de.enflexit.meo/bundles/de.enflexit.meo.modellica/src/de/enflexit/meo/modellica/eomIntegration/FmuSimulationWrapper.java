@@ -12,7 +12,7 @@ import java.util.Vector;
 import org.javafmi.proxy.FmuFile;
 import org.javafmi.wrapper.Simulation;
 
-import de.enflexit.meo.modellica.eomIntegration.FmuVariableMappingIoList.IoVariableType;
+import de.enflexit.meo.modellica.eomIntegration.FmuVariableMapping.IoVariableType;
 import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.FixedBoolean;
 import energy.optionModel.FixedDouble;
@@ -35,13 +35,13 @@ public class FmuSimulationWrapper {
 	private FmuStaticDataModel fmuStaticModel;
 	
 	/** The setpoint mappings. */
-	private Vector<FmuVariableMappingIoList> setpointMappings;
+	private Vector<FmuVariableMapping> setpointMappings;
 	
 	/** The measurement mappings. */
-	private Vector<FmuVariableMappingIoList> measurementMappings;
+	private Vector<FmuVariableMapping> measurementMappings;
 	
 	/** The result mappings. */
-	private Vector<FmuVariableMappingIoList> resultMappings;
+	private Vector<FmuVariableMapping> resultMappings;
 	
 	/** The debug. */
 	private boolean debug = false;
@@ -131,12 +131,12 @@ public class FmuSimulationWrapper {
 	
 	/**
 	 * Writes the value of a {@link FixedVariable} from a {@link TechnicalSystemStateEvaluation} to the corresponding FMU input variable.
-	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMappingIoList}.
+	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMapping}.
 	 * If a variable requires a special pre-processing, this can be implemented in a model-specific subclass. 
 	 * @param variableMapping the variable mapping
 	 * @param tsse the tsse
 	 */
-	protected void writeVariableToFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
+	protected void writeVariableToFMU(FmuVariableMapping variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		if (eomVariable instanceof FixedDouble) {
 			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedDouble)eomVariable).getValue());
@@ -158,12 +158,12 @@ public class FmuSimulationWrapper {
 	
 	/**
 	 * Reads the value from a FMU output variable and writes it to the corresponding {@link FixedVariable} of the {@link TechnicalSystemStateEvaluation}.
-	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMappingIoList}.
+	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMapping}.
 	 * If a variable requires a special post-processing, this can be implemented in a model-specific subclass. 
 	 * @param variableMapping the variable mapping
 	 * @param tsse the tsse
 	 */
-	protected void readVariableFromFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
+	protected void readVariableFromFMU(FmuVariableMapping variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		
 		if (eomVariable instanceof FixedDouble) {
@@ -211,15 +211,15 @@ public class FmuSimulationWrapper {
 	 * Gets the static parameters.
 	 * @return the static parameters
 	 */
-	private Vector<FmuVariableMappingStaticParameter> getStaticParameters() {
-		return this.getStaticModel().getStaticParameters();
+	private Vector<FmuParameterSettings> getStaticParameters() {
+		return this.getStaticModel().getParameterSettings();
 	}
 	
 	/**
 	 * Gets the FMU variable mappings for setpoint variables.
 	 * @return the setpoint mappings
 	 */
-	private Vector<FmuVariableMappingIoList> getSetpointMappings() {
+	private Vector<FmuVariableMapping> getSetpointMappings() {
 		if (setpointMappings==null) {
 			setpointMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.SETPOINT);
 		}
@@ -230,7 +230,7 @@ public class FmuSimulationWrapper {
 	 * Gets the FMU variable mappings for measurement variables.
 	 * @return the measurement mappings
 	 */
-	private Vector<FmuVariableMappingIoList> getMeasurementMappings() {
+	private Vector<FmuVariableMapping> getMeasurementMappings() {
 		if (measurementMappings==null) {
 			measurementMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.MEASUREMENT);
 		}
@@ -241,7 +241,7 @@ public class FmuSimulationWrapper {
 	 * Gets the FMU variable mappings for result variables.
 	 * @return the result mappings
 	 */
-	public Vector<FmuVariableMappingIoList> getResultMappings() {
+	public Vector<FmuVariableMapping> getResultMappings() {
 		if (resultMappings==null) {
 			resultMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.RESULT);
 		}

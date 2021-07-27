@@ -1,10 +1,19 @@
 package de.enflexit.meo.modellica.eomIntegration;
 
+import java.io.Serializable;
+
 /**
- * This class describes the mapping between a variable from an EOM technical system's IO list and the corresponding FMU variable.  
+ * This class describes the mapping between the variables in an EOM TSSE's I/O list and the input or output variables of an FMU. 
+ * Each variable has one of three types, that are distinguished by the {@link IoVariableType} enumeration:
+ * <ul>
+ * 	<li>Setpoints, that can be set by the control strategy. Input variables for the FMU.</li>
+ * 	<li>Measurements, that describe relevant environment information. Input variables for the FMU.</li>
+ * 	<li>Results, that describes outcomes of the simulation. Output variables of the FMU.</li>
+ * </ul>
+ * 
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
-public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
+public class FmuVariableMapping implements Serializable {
 
 	private static final long serialVersionUID = -6112678420685751272L;
 	
@@ -13,8 +22,9 @@ public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
 	}
 	
 	private String eomVariableName;
-	private String unit;
+	private String fmuVariableName;
 	private IoVariableType variableType;
+	private String unit;
 	
 	/**
 	 * Instantiates a new FMU variable mapping for an IO list variable
@@ -22,7 +32,7 @@ public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
 	 * @param fmuVariableName the FMU variable name
 	 * @param variableType the variable type
 	 */
-	public FmuVariableMappingIoList(String eomVariableName, String fmuVariableName, IoVariableType variableType) {
+	public FmuVariableMapping(String eomVariableName, String fmuVariableName, IoVariableType variableType) {
 		this(eomVariableName, fmuVariableName, variableType, null);
 	}
 
@@ -33,9 +43,9 @@ public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
 	 * @param variableType the variable type
 	 * @param unit the unit
 	 */
-	public FmuVariableMappingIoList(String eomVariableName, String fmuVariableName, IoVariableType variableType, String unit) {
+	public FmuVariableMapping(String eomVariableName, String fmuVariableName, IoVariableType variableType, String unit) {
 		this.setFmuVariableName(fmuVariableName);
-		this.eomVariableName = eomVariableName;
+		this.setEomVariableName(eomVariableName);
 		this.setVariableType(variableType);
 		this.setUnit(unit);
 	}
@@ -54,6 +64,22 @@ public class FmuVariableMappingIoList extends AbstractFmuVariableMapping {
 	 */
 	public void setEomVariableName(String eomVariableName) {
 		this.eomVariableName = eomVariableName;
+	}
+
+	/**
+	 * Gets the fmu variable name.
+	 * @return the fmu variable name
+	 */
+	public String getFmuVariableName() {
+		return fmuVariableName;
+	}
+
+	/**
+	 * Sets the fmu variable name.
+	 * @param fmuVariableName the new fmu variable name
+	 */
+	public void setFmuVariableName(String fmuVariableName) {
+		this.fmuVariableName = fmuVariableName;
 	}
 
 	/**

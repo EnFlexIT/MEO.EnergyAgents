@@ -5,7 +5,8 @@ import java.util.Vector;
 
 import org.simpleframework.xml.Transient;
 
-import de.enflexit.meo.modellica.eomIntegration.FmuVariableMappingIoList.IoVariableType;
+import de.enflexit.meo.modellica.eomIntegration.FmuVariableMapping.IoVariableType;
+import energy.optionModel.TimeUnit;
 
 /**
  * General static data model for FMU integration.
@@ -17,10 +18,11 @@ public class FmuStaticDataModel implements Serializable{
 	
 	private String fmuFilePath;
 	private long modelStepSizeMilliSeconds = 1000;
+	private TimeUnit stepSizeDisplayTimeUnit;
 
-	private Vector<FmuVariableMappingStaticParameter> staticParameters;
-	private Vector<FmuVariableMappingIoList> ioListMappings;
-	private Vector<FmuVariableMappingInterfaceFlow> interfaceFlowMappings;
+	private Vector<FmuParameterSettings> parameterSettings;
+	private Vector<FmuVariableMapping> variableMappings;
+	private Vector<FmuInterfaceFlowMapping> interfaceFlowMappings;
 	
 	@Transient
 	private FmuSimulationWrapper fmuSimulationWrapper;
@@ -58,34 +60,50 @@ public class FmuStaticDataModel implements Serializable{
 	}
 
 	/**
+	 * Gets the step size display time unit.
+	 * @return the step size display time unit
+	 */
+	public TimeUnit getStepSizeDisplayTimeUnit() {
+		return stepSizeDisplayTimeUnit;
+	}
+
+	/**
+	 * Sets the step size display time unit.
+	 * @param stepSizeDisplayTimeUnit the new step size display time unit
+	 */
+	public void setStepSizeDisplayTimeUnit(TimeUnit stepSizeDisplayTimeUnit) {
+		this.stepSizeDisplayTimeUnit = stepSizeDisplayTimeUnit;
+	}
+
+	/**
 	 * Gets the static parameters.
 	 * @return the static parameters
 	 */
-	public Vector<FmuVariableMappingStaticParameter> getStaticParameters() {
-		if (staticParameters==null) {
-			staticParameters = new Vector<FmuVariableMappingStaticParameter>();
+	public Vector<FmuParameterSettings> getParameterSettings() {
+		if (parameterSettings==null) {
+			parameterSettings = new Vector<FmuParameterSettings>();
 		}
-		return staticParameters;
+		return parameterSettings;
 	}
 	
 	/**
 	 * Gets the io list mappings.
 	 * @return the io list mappings
 	 */
-	public Vector<FmuVariableMappingIoList> getIoListMappings() {
-		if (ioListMappings==null) {
-			ioListMappings = new Vector<FmuVariableMappingIoList>();
+	public Vector<FmuVariableMapping> getVariableMappings() {
+		if (variableMappings==null) {
+			variableMappings = new Vector<FmuVariableMapping>();
 		}
-		return ioListMappings;
+		return variableMappings;
 	}
 	
 	/**
 	 * Gets the interface flow mappings.
 	 * @return the interface flow mappings
 	 */
-	public Vector<FmuVariableMappingInterfaceFlow> getInterfaceFlowMappings() {
+	public Vector<FmuInterfaceFlowMapping> getInterfaceFlowMappings() {
 		if (interfaceFlowMappings==null) {
-			interfaceFlowMappings = new Vector<FmuVariableMappingInterfaceFlow>();
+			interfaceFlowMappings = new Vector<FmuInterfaceFlowMapping>();
 		}
 		return interfaceFlowMappings;
 	}
@@ -95,11 +113,11 @@ public class FmuStaticDataModel implements Serializable{
 	 * @param variableType the variable type
 	 * @return the IO variables by type
 	 */
-	public Vector<FmuVariableMappingIoList> getIoVariablesByType(IoVariableType variableType){
-		Vector<FmuVariableMappingIoList> variablesByType = new Vector<FmuVariableMappingIoList>();
-		for (int i=0; i<this.getIoListMappings().size(); i++){
-			if (this.getIoListMappings().get(i).getVariableType()==variableType) {
-				variablesByType.add(this.getIoListMappings().get(i));
+	public Vector<FmuVariableMapping> getIoVariablesByType(IoVariableType variableType){
+		Vector<FmuVariableMapping> variablesByType = new Vector<FmuVariableMapping>();
+		for (int i=0; i<this.getVariableMappings().size(); i++){
+			if (this.getVariableMappings().get(i).getVariableType()==variableType) {
+				variablesByType.add(this.getVariableMappings().get(i));
 			}
 		}
 		return variablesByType;
