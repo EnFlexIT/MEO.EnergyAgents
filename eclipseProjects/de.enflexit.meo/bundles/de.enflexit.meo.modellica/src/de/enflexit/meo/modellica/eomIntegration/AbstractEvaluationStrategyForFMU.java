@@ -2,7 +2,6 @@ package de.enflexit.meo.modellica.eomIntegration;
 
 import java.util.List;
 
-import de.enflexit.meo.modellica.heatPump.HeatPumpFmuStaticDataModel;
 import energy.OptionModelController;
 import energy.evaluation.AbstractEvaluationStrategy;
 import energy.optionModel.SystemVariableDefinition;
@@ -44,11 +43,6 @@ public abstract class AbstractEvaluationStrategyForFMU extends AbstractEvaluatio
 					}
 				}
 			}
-			
-			//TODO workaround until the null problem is fixed -------
-			if (staticModel==null) {
-				staticModel = new HeatPumpFmuStaticDataModel();
-			}
 		}
 		return staticModel;
 	}
@@ -59,7 +53,7 @@ public abstract class AbstractEvaluationStrategyForFMU extends AbstractEvaluatio
 	 */
 	protected FmuSimulationWrapper getSimulationWrapper() {
 		if (simulationWapper==null) {
-			simulationWapper = this.getStaticModel().getFmuSimulationWrapper();
+			simulationWapper = this.getStaticModel().getSimulationWrapper();
 		}
 		
 		return simulationWapper;

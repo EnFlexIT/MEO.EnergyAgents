@@ -29,6 +29,7 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 	private static final long serialVersionUID = 7827581176335868406L;
 	
 	private Vector<FmuVariableMapping> variableMappings;
+	private FmuStaticModelConfigurationPanel parentPanel;
 	
 	private JButton jButtonAdd;
 	private JButton jButtonRemove;
@@ -40,8 +41,9 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 	/**
 	 * Instantiates a new fmu static model sub panel variables.
 	 */
-	public FmuStaticModelSubPanelVariables() {
+	public FmuStaticModelSubPanelVariables(FmuStaticModelConfigurationPanel parentPanel) {
 		super();
+		this.parentPanel = parentPanel;
 		this.initialize();
 	}
 	
@@ -143,6 +145,15 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 		}
 	}
 	
+	/**
+	 * Discards the currently defined variable mappings.
+	 */
+	protected void clear() {
+		this.getVariableMappings().clear();
+		this.updateTableModel();
+		this.getTableModelVariables().fireTableDataChanged();
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -189,7 +200,7 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 	private FmuVariableMapping createNewVariableMapping() {
 		
 		// --- Find an initial EOM variable name that is not a duplicate ------
-		String eomBaseName = "EomVar";
+		String eomBaseName = "Select EOM Variable";
 		String eomName = eomBaseName;
 		int suffix = 1;
 		while (this.getVariableMappingByEomName(eomName)!=null) {
@@ -198,7 +209,7 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 		}
 		
 		// --- Find an initial FMU variable name that is not a duplicate ------
-		String fmuBaseName = "FmuVar";
+		String fmuBaseName = "Select FMU Variable";
 		String fmuName = fmuBaseName;
 		suffix = 1;
 		while (this.getVariableMappingByFmuName(fmuName)!=null) {
@@ -252,5 +263,21 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 		dataRow.add(variableMapping.getUnit());
 		
 		this.getTableModelVariables().addRow(dataRow);
+	}
+
+	/**
+	 * Gets the fmu variables list.
+	 * @return the fmu variables list
+	 */
+	protected Vector<String> getFmuVariablesList(){
+		return this.parentPanel.getFmuVariablesList();
+	}
+	
+	/**
+	 * Gets the eom variables list.
+	 * @return the eom variables list
+	 */
+	protected Vector<String> getEomVariablesList(){
+		return this.parentPanel.getEomVariablesList();
 	}
 }

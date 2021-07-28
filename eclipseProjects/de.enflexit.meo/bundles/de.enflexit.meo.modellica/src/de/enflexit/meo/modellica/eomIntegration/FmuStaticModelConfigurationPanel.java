@@ -3,21 +3,37 @@ package de.enflexit.meo.modellica.eomIntegration;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.javafmi.modeldescription.ModelDescription;
+import org.javafmi.modeldescription.ScalarVariable;
+import org.javafmi.proxy.FmuFile;
+import org.javafmi.wrapper.Simulation;
 
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import java.awt.Dimension;
 import java.awt.Font;
 import agentgui.core.application.Application;
 import agentgui.core.config.GlobalInfo;
+import energy.OptionModelController;
 import energy.helper.UnitConverter;
+import energy.optionModel.SystemVariableDefinition;
+import energy.optionModel.SystemVariableDefinitionBoolean;
+import energy.optionModel.SystemVariableDefinitionDouble;
+import energy.optionModel.SystemVariableDefinitionInteger;
 import energy.optionModel.TimeUnit;
 import energy.optionModel.gui.components.TimeUnitComboBox;
 import javax.swing.JSeparator;
@@ -30,6 +46,9 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 
 	private static final long serialVersionUID = -9051900502061409565L;
 	
+	private static final String IMAGE_ICON_FMU_FAIL = "MBcheckRed.png";
+	private static final String IMAGE_ICON_FMU_OK = "MBcheckGreen.png";
+	
 	private FmuStaticDataModel staticDataModel;
 
 	private JLabel jLabelFmuFile;
@@ -39,22 +58,26 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	
 	private JLabel jLabelFmuStepSize;
 	private JTextField jTextFieldFmuStepSize;
-	
-	private JLabel jLabelSimulationWrapper;
-	private JTextField jTextFieldSImulationWrapper;
-	private JButton jButtonSimulationWrapper;
 	private TimeUnitComboBox comboBoxTimeUnit;
 	private FmuStaticModelSubPanelParameters subPanelParameters;
 	private FmuStaticModelSubPanelVariables subPanelVariables;
 	private JSeparator jSeparator2;
 	private JSeparator jSeparator1;
+	private JLabel jLabelFmuState;
+	
+	private Simulation fmuModel;
+	private Vector<String> fmuVariablesList;
+	private Vector<String> eomVariablesList;
+	
+	private OptionModelController optionModelController;
 	
 	/**
 	 * Instantiates a new FMU static model configuration panel.
 	 * @param staticDataModel the static data model
 	 */
-	public FmuStaticModelConfigurationPanel(FmuStaticDataModel staticDataModel) {
+	public FmuStaticModelConfigurationPanel(FmuStaticDataModel staticDataModel, OptionModelController optionModelController) {
 		this.setStaticDataModel(staticDataModel);
+		this.optionModelController = optionModelController;
 		this.initialize();
 		if (this.staticDataModel!=null) {
 			this.loadStaticModelToForm();
@@ -74,10 +97,10 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	 */
 	private void initialize() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		GridBagConstraints gbc_jLabelFmuFile = new GridBagConstraints();
 		gbc_jLabelFmuFile.insets = new Insets(5, 5, 5, 5);
@@ -92,9 +115,14 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		gbc_jTextFieldFmuFile.gridx = 1;
 		gbc_jTextFieldFmuFile.gridy = 0;
 		add(getJTextFieldFmuFile(), gbc_jTextFieldFmuFile);
+		GridBagConstraints gbc_jLabelFmuState = new GridBagConstraints();
+		gbc_jLabelFmuState.insets = new Insets(0, 0, 5, 5);
+		gbc_jLabelFmuState.gridx = 3;
+		gbc_jLabelFmuState.gridy = 0;
+		add(getJLabelFmuState(), gbc_jLabelFmuState);
 		GridBagConstraints gbc_jButtonFmuFile = new GridBagConstraints();
-		gbc_jButtonFmuFile.insets = new Insets(5, 0, 5, 5);
-		gbc_jButtonFmuFile.gridx = 3;
+		gbc_jButtonFmuFile.insets = new Insets(5, 0, 5, 0);
+		gbc_jButtonFmuFile.gridx = 4;
 		gbc_jButtonFmuFile.gridy = 0;
 		add(getJButtonFmuFile(), gbc_jButtonFmuFile);
 		GridBagConstraints gbc_jLabelFmuStepSize = new GridBagConstraints();
@@ -115,48 +143,30 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		gbc_comboBoxTimeUnit.gridx = 2;
 		gbc_comboBoxTimeUnit.gridy = 1;
 		add(getComboBoxTimeUnit(), gbc_comboBoxTimeUnit);
-		GridBagConstraints gbc_jLabelSimulationWrapper = new GridBagConstraints();
-		gbc_jLabelSimulationWrapper.anchor = GridBagConstraints.EAST;
-		gbc_jLabelSimulationWrapper.insets = new Insets(0, 5, 5, 5);
-		gbc_jLabelSimulationWrapper.gridx = 0;
-		gbc_jLabelSimulationWrapper.gridy = 2;
-		add(getJLabelSimulationWrapper(), gbc_jLabelSimulationWrapper);
-		GridBagConstraints gbc_jTextFieldSImulationWrapper = new GridBagConstraints();
-		gbc_jTextFieldSImulationWrapper.gridwidth = 2;
-		gbc_jTextFieldSImulationWrapper.insets = new Insets(0, 0, 5, 5);
-		gbc_jTextFieldSImulationWrapper.fill = GridBagConstraints.HORIZONTAL;
-		gbc_jTextFieldSImulationWrapper.gridx = 1;
-		gbc_jTextFieldSImulationWrapper.gridy = 2;
-		add(getJTextFieldSImulationWrapper(), gbc_jTextFieldSImulationWrapper);
-		GridBagConstraints gbc_jButtonSimulationWrapper = new GridBagConstraints();
-		gbc_jButtonSimulationWrapper.insets = new Insets(5, 0, 5, 5);
-		gbc_jButtonSimulationWrapper.gridx = 3;
-		gbc_jButtonSimulationWrapper.gridy = 2;
-		add(getJButtonSimulationWrapper(), gbc_jButtonSimulationWrapper);
 		GridBagConstraints gbc_jSeparator1 = new GridBagConstraints();
-		gbc_jSeparator1.gridwidth = 4;
-		gbc_jSeparator1.insets = new Insets(0, 0, 5, 5);
+		gbc_jSeparator1.gridwidth = 5;
+		gbc_jSeparator1.insets = new Insets(0, 0, 5, 0);
 		gbc_jSeparator1.gridx = 0;
-		gbc_jSeparator1.gridy = 3;
+		gbc_jSeparator1.gridy = 2;
 		add(getJSeparator1(), gbc_jSeparator1);
 		GridBagConstraints gbc_subPanelParameters = new GridBagConstraints();
 		gbc_subPanelParameters.insets = new Insets(0, 0, 5, 0);
-		gbc_subPanelParameters.gridwidth = 4;
+		gbc_subPanelParameters.gridwidth = 5;
 		gbc_subPanelParameters.fill = GridBagConstraints.BOTH;
 		gbc_subPanelParameters.gridx = 0;
-		gbc_subPanelParameters.gridy = 4;
+		gbc_subPanelParameters.gridy = 3;
 		add(getSubPanelParameters(), gbc_subPanelParameters);
 		GridBagConstraints gbc_jSeparator2 = new GridBagConstraints();
-		gbc_jSeparator2.gridwidth = 4;
+		gbc_jSeparator2.gridwidth = 5;
 		gbc_jSeparator2.insets = new Insets(0, 0, 5, 0);
 		gbc_jSeparator2.gridx = 0;
-		gbc_jSeparator2.gridy = 5;
+		gbc_jSeparator2.gridy = 4;
 		add(getJSeparator2(), gbc_jSeparator2);
 		GridBagConstraints gbc_subPanelVariables = new GridBagConstraints();
-		gbc_subPanelVariables.gridwidth = 4;
+		gbc_subPanelVariables.gridwidth = 5;
 		gbc_subPanelVariables.fill = GridBagConstraints.BOTH;
 		gbc_subPanelVariables.gridx = 0;
-		gbc_subPanelVariables.gridy = 6;
+		gbc_subPanelVariables.gridy = 5;
 		add(getSubPanelVariables(), gbc_subPanelVariables);
 	}
 
@@ -174,6 +184,14 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		}
 		return jTextFieldFmuFile;
 	}
+	private JLabel getJLabelFmuState() {
+		if (jLabelFmuState == null) {
+			jLabelFmuState = new JLabel("");
+			jLabelFmuState.setIcon(GlobalInfo.getInternalImageIcon(IMAGE_ICON_FMU_FAIL));
+		}
+		return jLabelFmuState;
+	}
+
 	private JButton getJButtonFmuFile() {
 		if (jButtonFmuFile == null) {
 			jButtonFmuFile = new JButton();
@@ -206,30 +224,6 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		}
 		return jTextFieldFmuStepSize;
 	}
-	private JLabel getJLabelSimulationWrapper() {
-		if (jLabelSimulationWrapper == null) {
-			jLabelSimulationWrapper = new JLabel("Simulation Wrapper");
-			jLabelSimulationWrapper.setFont(new Font("Dialog", Font.PLAIN, 12));
-		}
-		return jLabelSimulationWrapper;
-	}
-	private JTextField getJTextFieldSImulationWrapper() {
-		if (jTextFieldSImulationWrapper == null) {
-			jTextFieldSImulationWrapper = new JTextField();
-			jTextFieldSImulationWrapper.setColumns(10);
-		}
-		return jTextFieldSImulationWrapper;
-	}
-	private JButton getJButtonSimulationWrapper() {
-		if (jButtonSimulationWrapper == null) {
-			jButtonSimulationWrapper = new JButton();
-			jButtonSimulationWrapper.setToolTipText("Select class");
-			jButtonSimulationWrapper.setPreferredSize(new Dimension(45, 26));
-			jButtonSimulationWrapper.setIcon(GlobalInfo.getInternalImageIcon("edit.png"));
-			jButtonSimulationWrapper.addActionListener(this);
-		}
-		return jButtonSimulationWrapper;
-	}
 	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
@@ -237,18 +231,47 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getSource()==this.getJButtonFmuFile()) {
-			// --- Select an FMU file -------------------------------
-			int result = this.getFileChooserFmuFile().showOpenDialog(this);
-			if (result==JFileChooser.APPROVE_OPTION) {
-				File fmuFile = this.getFileChooserFmuFile().getSelectedFile();
-				if (fmuFile.exists()) {
-					this.getJTextFieldFmuFile().setText(fmuFile.getPath());
-					Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
+			
+			// --- If a valid model is selected already, make sure the user wants to change it
+			if (this.fmuModel!=null) {
+				String warningTitle = "Are you sure?";
+				String warningMessage = "Changing the selected FMU will clear the parameter and variable settings! Are you sure?";
+				int warningResult = JOptionPane.showConfirmDialog(this, warningMessage, warningTitle, JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+				if (warningResult==JOptionPane.CANCEL_OPTION) {
+					return;
 				}
 			}
-		} else if (ae.getSource()==this.getJButtonSimulationWrapper()) {
-			//TODO select a simulation wrapper class
+			
+			// --- Select an FMU file -------------------------------
+			int fileChooserResult = this.getFileChooserFmuFile().showOpenDialog(this);
+			if (fileChooserResult==JFileChooser.APPROVE_OPTION) {
+				File fmuFile = this.getFileChooserFmuFile().getSelectedFile();
+				if (fmuFile.exists()) {
+					
+					this.loadFmuFromFile(fmuFile);
+					
+					if (this.fmuModel!=null) {
+						this.getJTextFieldFmuFile().setText(fmuFile.getPath());
+						Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
+						this.setFmuStateIcon(this.fmuModel!=null);
+					}
+				}
+			}
 		}
+	}
+	
+	/**
+	 * Sets the fmu state.
+	 * @param available the new fmu state
+	 */
+	private void setFmuStateIcon(boolean available) {
+		ImageIcon stateIcon = null;
+		if (available==true) {
+			stateIcon = GlobalInfo.getInternalImageIcon(IMAGE_ICON_FMU_OK);
+		} else {
+			stateIcon = GlobalInfo.getInternalImageIcon(IMAGE_ICON_FMU_FAIL);
+		}
+		this.getJLabelFmuState().setIcon(stateIcon);
 	}
 	
 	/**
@@ -277,6 +300,10 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	 */
 	protected void loadStaticModelToForm() {
 		this.getJTextFieldFmuFile().setText(this.staticDataModel.getFmuFilePath());
+		if (this.staticDataModel.getFmuFilePath()!=null) {
+			this.loadFmuFromFile(this.staticDataModel.getFmuFilePath());
+			this.setFmuStateIcon(this.fmuModel!=null);
+		}
 		
 		long stepSizeMilliSeconds = this.staticDataModel.getModelStepSizeMilliSeconds();
 		TimeUnit stepSizeTimeUnit = this.staticDataModel.getStepSizeDisplayTimeUnit();
@@ -298,13 +325,13 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	}
 	private FmuStaticModelSubPanelParameters getSubPanelParameters() {
 		if (subPanelParameters == null) {
-			subPanelParameters = new FmuStaticModelSubPanelParameters();
+			subPanelParameters = new FmuStaticModelSubPanelParameters(this);
 		}
 		return subPanelParameters;
 	}
 	private FmuStaticModelSubPanelVariables getSubPanelVariables() {
 		if (subPanelVariables == null) {
-			subPanelVariables = new FmuStaticModelSubPanelVariables();
+			subPanelVariables = new FmuStaticModelSubPanelVariables(this);
 		}
 		return subPanelVariables;
 	}
@@ -320,4 +347,87 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		}
 		return jSeparator1;
 	}
+
+	/**
+	 * Loads an FMU model from the file with the specified path.
+	 * @param path the path
+	 */
+	private void loadFmuFromFile(String path) {
+		this.loadFmuFromFile(new File(path));
+	}
+	
+	/**
+	 * Loads an FMU model from the specified file.
+	 * @param fmuFile the fmu file
+	 */
+	private void loadFmuFromFile(File fmuFile) {
+		this.fmuModel = null;
+		if (fmuFile!=null && fmuFile.exists()) {
+			try {
+				// --- Load the FMU from the file -----------------------------
+				this.fmuModel = new Simulation(new FmuFile(fmuFile));
+				// --- Reset the FMU variables list ---------------------------
+				this.fmuVariablesList = null;
+				// --- Clear the settings that depend on the FMU variables ----
+				this.getSubPanelParameters().clear();
+				this.getSubPanelVariables().clear();
+			} catch (Exception ex) {
+				System.err.println("[" + this.getClass().getSimpleName() + "] The selected file contains no valid FMU: " + fmuFile.getAbsolutePath());
+			}
+		} else {
+			System.err.println("[" + this.getClass().getSimpleName() + "] The specified FMU file does not exist on this system, please check your path settings. " + fmuFile.getAbsolutePath());
+		}
+	}
+	
+	/**
+	 * Gets the FMU variables list.
+	 * @return the FMU variables list
+	 */
+	protected Vector<String> getFmuVariablesList(){
+		
+		if (this.fmuVariablesList==null) {
+			this.fmuVariablesList = new Vector<String>();
+			
+			if (this.fmuModel!=null) {
+				
+				// --- Get the variables list from the FMU --------------
+				ModelDescription modelDescription = this.fmuModel.getModelDescription();
+				ScalarVariable[] modelVariables = modelDescription.getModelVariables();
+				
+				// --- Only include input and output variables ----------
+				for (int i=0; i<modelVariables.length; i++) {
+					ScalarVariable variable = modelVariables[i];
+					if (variable.getCausality().equals("input") || variable.getCausality().equals("output")) {
+						this.fmuVariablesList.add(variable.getName());
+					}
+				}
+			}
+			
+		}
+		return this.fmuVariablesList;
+	}
+	
+	/**
+	 * Gets the EOM variables list.
+	 * @return the EOM variables list
+	 */
+	protected Vector<String> getEomVariablesList(){
+		if (this.eomVariablesList==null) {
+			this.eomVariablesList = new Vector<String>();
+			List<SystemVariableDefinition> systemVariables = this.optionModelController.getTechnicalSystem().getSystemVariables();
+			
+			// --- Include boolean, double and integer variables -------- 
+			for (int i=0; i<systemVariables.size(); i++) {
+				SystemVariableDefinition sysVarDef = systemVariables.get(i);
+				if (sysVarDef instanceof SystemVariableDefinitionBoolean 
+						|| sysVarDef instanceof SystemVariableDefinitionDouble 
+						|| sysVarDef instanceof SystemVariableDefinitionInteger) {
+					this.eomVariablesList.add(sysVarDef.getVariableID());
+				}
+			}
+		}
+		
+		return this.eomVariablesList;
+	}
+	
 }

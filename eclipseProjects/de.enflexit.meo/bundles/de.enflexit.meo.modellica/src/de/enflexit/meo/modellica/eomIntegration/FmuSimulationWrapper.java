@@ -1,12 +1,6 @@
 package de.enflexit.meo.modellica.eomIntegration;
 
 import java.io.File;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Vector;
 
 import org.javafmi.proxy.FmuFile;
@@ -20,7 +14,6 @@ import energy.optionModel.FixedInteger;
 import energy.optionModel.FixedVariable;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 
-// TODO: Auto-generated Javadoc
 /**
  * A generic wrapper for FMU simulations in the context of an EOM OptionModelCalculation.
  *
@@ -28,23 +21,11 @@ import energy.optionModel.TechnicalSystemStateEvaluation;
  */
 public class FmuSimulationWrapper {
 	
-	/** The simulation. */
 	private Simulation simulation;
-	
-	/** The fmu static model. */
 	private FmuStaticDataModel fmuStaticModel;
-	
-	/** The setpoint mappings. */
 	private Vector<FmuVariableMapping> setpointMappings;
-	
-	/** The measurement mappings. */
 	private Vector<FmuVariableMapping> measurementMappings;
-	
-	/** The result mappings. */
 	private Vector<FmuVariableMapping> resultMappings;
-	
-	/** The debug. */
-	private boolean debug = false;
 	
 	/**
 	 * Instantiates a new fmu simulation wrapper.
@@ -90,8 +71,6 @@ public class FmuSimulationWrapper {
 			this.getSimulation().init(0);
 		}
 		
-//		this.printFmuStateHeader();
-//		this.printFmuState(initialTsse);
 	}
 
 	/**
@@ -112,7 +91,6 @@ public class FmuSimulationWrapper {
 		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
 		
 		this.getSimulation().doStep(stepSize);
-//		this.printFmuState(tsse);
 
 		// --- Get "result measurements" from the FMU ---------------
 		for (int i=0; i<this.getResultMappings().size(); i++) {
@@ -149,10 +127,6 @@ public class FmuSimulationWrapper {
 				this.getSimulation().write(variableMapping.getFmuVariableName()).with(0.0);
 			}
 		}
-		
-		if (this.debug==true) {
-			System.out.println("Set variable " + variableMapping.getFmuVariableName() + " to FMU: " + this.getVariableString(eomVariable));
-		}
 	}
 	
 	
@@ -175,10 +149,6 @@ public class FmuSimulationWrapper {
 		} else if (eomVariable instanceof FixedBoolean) {
 			boolean fmuValue = this.getSimulation().read(variableMapping.getFmuVariableName()).asBoolean();
 			((FixedBoolean)eomVariable).setValue(fmuValue);
-		}
-		
-		if (this.debug==true) {
-			System.out.println("Read variable " + variableMapping.getFmuVariableName() + " from FMU: " + this.getVariableString(eomVariable));
 		}
 	}
 	
@@ -254,134 +224,5 @@ public class FmuSimulationWrapper {
 	public void terminateSimulation() {
 		this.getSimulation().terminate();
 	}
-
-	/**
-	 * Returns a String representation of the {@link FixedVariable}'s value.
-	 *
-	 * @param variable the variable
-	 * @return the string
-	 */
-	private String getVariableString(FixedVariable variable) {
-		if (variable instanceof FixedBoolean) {
-			return "" + ((FixedBoolean)variable).isValue();
-		} else if (variable instanceof FixedDouble){
-			return "" + ((FixedDouble)variable).getValue();
-		} else if (variable instanceof FixedInteger) {
-			return "" + ((FixedInteger)variable).getValue();
-		} else {
-			return "";
-		}
-	}
 	
-	
-	// --------------------------------------------------------------
-	// --- From here, stuff for debugging TODO remove!!! ------------
-	// --------------------------------------------------------------
-	
-	/** The Constant NUMBER_FORMAT_SHORT. */
-	private static final String NUMBER_FORMAT_SHORT = "0.00";
-	
-	/** The Constant NUMBER_FORMAT_LONG. */
-	private static final String NUMBER_FORMAT_LONG = "0.00000";
-	
-	/** The Constant TIME_FORMAT. */
-	private static final String TIME_FORMAT = "HH:mm";
-	
-	/** The number format short. */
-	private DecimalFormat numberFormatShort;
-	
-	/** The number format long. */
-	private DecimalFormat numberFormatLong;
-	
-	/** The time format. */
-	private SimpleDateFormat timeFormat;
-	
-	/**
-	 * Prints the header for the debug output of FMU variables - see printFmuState method below.
-	 */
-	@SuppressWarnings("unused")
-	private void printFmuStateHeader() {
-		System.out.print("timeEOM\t");
-		System.out.print("timeFMU\t");
-		System.out.print("tAmb\t");
-		System.out.print("pTh\t");
-		System.out.print("tInit\t");
-		System.out.print("hp\t");
-		System.out.print("coil\t");
-		System.out.print("pElHp\t");
-		System.out.print("pElCoil\t");
-		System.out.print("pRes\t");
-		System.out.println("SOC\t");
-	}
-	
-	
-	/**
-	 * Prints the current state of the relevant variables of the Heatpump-FMU.
-	 *
-	 * @param tsse the tsse
-	 */
-	@SuppressWarnings("unused")
-	private void printFmuState(TechnicalSystemStateEvaluation tsse) {
-
-		// --- Get the values from the FMU ----------------
-		double tAmp = this.getSimulation().read("UmgebungsTemperatur").asDouble();
-		double pTh = this.getSimulation().read("ThermischeLast").asDouble();
-		double tInit = this.getSimulation().read("Tinit_bottom").asDouble();
-		double setpointHeatpump = this.getSimulation().read("Schaltsignal_Waermepumpe").asDouble();
-		double setpointCoil = this.getSimulation().read("Schaltsignal_Heizstab").asDouble();
-		double pElHeatPump = this.getSimulation().read("Pel_HP").asDouble();
-		double pElCoil = this.getSimulation().read("Pel_COIL").asDouble();
-		double pRes = this.getSimulation().read("Pth_Residual").asDouble();
-		double soc = this.getSimulation().read("SOC").asDouble();
-		
-		// --- Print the values ---------------------------
-		System.out.print(this.getTimeFormat().format(new Date(tsse.getGlobalTime())) + "\t");
-		System.out.print(this.getSimulation().getCurrentTime() + "\t");
-		System.out.print(this.getNumberFormatShort().format(tAmp) + "\t");
-		System.out.print(this.getNumberFormatShort().format(pTh) + "\t");
-		System.out.print(this.getNumberFormatShort().format(tInit) + "\t");
-		System.out.print(setpointHeatpump + "\t");
-		System.out.print(setpointCoil + "\t");
-		System.out.print(this.getNumberFormatShort().format(pElHeatPump) + "\t");
-		System.out.print(this.getNumberFormatShort().format(pElCoil) + "\t");
-		System.out.print(this.getNumberFormatShort().format(pRes) + "\t");
-		System.out.println(this.getNumberFormatLong().format(soc));
-	}
-	
-	/**
-	 * Gets the number format short.
-	 * @return the number format short
-	 */
-	private DecimalFormat getNumberFormatShort() {
-		if (numberFormatShort==null) {
-			numberFormatShort = new DecimalFormat(NUMBER_FORMAT_SHORT);
-			numberFormatShort.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.US));
-			numberFormatShort.setRoundingMode(RoundingMode.HALF_UP);
-		}
-		return numberFormatShort;
-	}
-	
-	/**
-	 * Gets the number format long.
-	 * @return the number format long
-	 */
-	private DecimalFormat getNumberFormatLong() {
-		if (numberFormatLong==null) {
-			numberFormatLong = new DecimalFormat(NUMBER_FORMAT_LONG);
-			numberFormatLong.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.US));
-			numberFormatLong.setRoundingMode(RoundingMode.HALF_UP);
-		}
-		return numberFormatLong;
-	}
-	
-	/**
-	 * Gets the time format.
-	 * @return the time format
-	 */
-	public SimpleDateFormat getTimeFormat() {
-		if (timeFormat==null) {
-			timeFormat = new SimpleDateFormat(TIME_FORMAT);
-		}
-		return timeFormat;
-	}
 }

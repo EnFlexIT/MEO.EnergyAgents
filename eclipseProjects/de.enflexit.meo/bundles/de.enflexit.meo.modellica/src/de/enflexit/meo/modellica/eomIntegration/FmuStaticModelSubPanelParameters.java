@@ -35,13 +35,16 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 	private JTable jTableParameters;
 	private DefaultTableModel tableModelParameters;
 	private JLabel jLabelParameters;
+	
+	private FmuStaticModelConfigurationPanel parentPanel;
 
 	/**
 	 * Instantiates a new fmu static model sub panel parameters.
 	 */
-	public FmuStaticModelSubPanelParameters() {
+	public FmuStaticModelSubPanelParameters(FmuStaticModelConfigurationPanel parentPanel) {
 		super();
-		initialize();
+		this.parentPanel = parentPanel;
+		this.initialize();
 	}
 	/**
 	 * Initializes the GUI components.
@@ -167,6 +170,15 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 		}
 	}
 	
+	/**
+	 * Discards the currently defined parameter settings.
+	 */
+	protected void clear() {
+		this.getParameterSettings().clear();
+		this.updateTableModel();
+		this.getTableModelParameters().fireTableDataChanged();
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -192,7 +204,7 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 	 */
 	private FmuParameterSettings createNewParameterSettings() {
 		// --- Find an initial FMU variable name that is not a duplicate ------
-		String fmuBaseName = "FmuVar";
+		String fmuBaseName = "Select FMU Variable";
 		String fmuName = fmuBaseName;
 		int suffix = 1;
 		while (this.getParameterSettingsByFmuName(fmuName)!=null) {
@@ -236,5 +248,13 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Gets the fmu variables list.
+	 * @return the fmu variables list
+	 */
+	protected Vector<String> getFmuVariablesList(){
+		return this.parentPanel.getFmuVariablesList();
 	}
 }

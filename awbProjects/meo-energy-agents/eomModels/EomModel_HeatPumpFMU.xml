@@ -250,7 +250,7 @@
         <ns2:SetPointForUser>false</ns2:SetPointForUser>
         <ns2:StateIdentifier>false</ns2:StateIdentifier>
         <ns2:StaticModelClass>de.enflexit.meo.modellica.heatPump.HeatPumpFmuStaticModel</ns2:StaticModelClass>
-        <ns2:StaticModelValue>rO0ABXNyADtkZS5lbmZsZXhpdC5tZW8ubW9kZWxsaWNhLmVvbUludGVncmF0aW9uLkZtdVN0YXRpY0RhdGFNb2RlbGfAZ/IH3T0YAgAHSgAZbW9kZWxTdGVwU2l6ZU1pbGxpU2Vjb25kc0wAC2ZtdUZpbGVQYXRodAASTGphdmEvbGFuZy9TdHJpbmc7TAAUZm11U2ltdWxhdGlvbldyYXBwZXJ0AD9MZGUvZW5mbGV4aXQvbWVvL21vZGVsbGljYS9lb21JbnRlZ3JhdGlvbi9GbXVTaW11bGF0aW9uV3JhcHBlcjtMABVpbnRlcmZhY2VGbG93TWFwcGluZ3N0ABJMamF2YS91dGlsL1ZlY3RvcjtMABFwYXJhbWV0ZXJTZXR0aW5nc3EAfgADTAAXc3RlcFNpemVEaXNwbGF5VGltZVVuaXR0AB1MZW5lcmd5L29wdGlvbk1vZGVsL1RpbWVVbml0O0wAEHZhcmlhYmxlTWFwcGluZ3NxAH4AA3hwAAAAAAAA6mB0AHNEOlxnaXRcTUVPLkVuZXJneUFnZW50c1xhd2JQcm9qZWN0c1xtZW8tZW5lcmd5LWFnZW50c1xmbXVNb2RlbHNcSGVhdFB1bXBGTVVfVmVyc2lvbjMuMFxtR1JpRFNfQ29TaW1GTUkuSFBTeXN0ZW0uZm11cHBzcgAQamF2YS51dGlsLlZlY3RvctmXfVuAO68BAwADSQARY2FwYWNpdHlJbmNyZW1lbnRJAAxlbGVtZW50Q291bnRbAAtlbGVtZW50RGF0YXQAE1tMamF2YS9sYW5nL09iamVjdDt4cAAAAAAAAAADdXIAE1tMamF2YS5sYW5nLk9iamVjdDuQzlifEHMpbAIAAHhwAAAACnNyAD1kZS5lbmZsZXhpdC5tZW8ubW9kZWxsaWNhLmVvbUludGVncmF0aW9uLkZtdVBhcmFtZXRlclNldHRpbmdzY90a1eeNvW4CAANMAA9mbXVWYXJpYWJsZU5hbWVxAH4AAUwABHVuaXRxAH4AAUwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHB0AChXYWVybWVwdW1wZV9FbGVrdHJpc2NoZXZlcmJyYXVjaF9Ob21pbmFsdAACa1dzcgAQamF2YS5sYW5nLkRvdWJsZYCzwkopa/sEAgABRAAFdmFsdWV4cgAQamF2YS5sYW5nLk51bWJlcoaslR0LlOCLAgAAeHBAAAAAAAAAAHNxAH4ADHQAJldhZXJtZXB1bXBlX1RoZXJtaXNjaGVMZWlzdHVuZ19Ob21pbmFsdAACa1dzcQB+ABFAHAAAAAAAAHNxAH4ADHQAGUhlaXpzdGFiX05vbWluYWxfTGVpc3R1bmd0AAJrV3NxAH4AEUAIAAAAAAAAcHBwcHBwcHh+cgAbZW5lcmd5Lm9wdGlvbk1vZGVsLlRpbWVVbml0AAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAIU0VDT05EX1NzcQB+AAcAAAAAAAAABXVxAH4ACgAAAApzcgA7ZGUuZW5mbGV4aXQubWVvLm1vZGVsbGljYS5lb21JbnRlZ3JhdGlvbi5GbXVWYXJpYWJsZU1hcHBpbmerK2dc3NR8GAIABEwAD2VvbVZhcmlhYmxlTmFtZXEAfgABTAAPZm11VmFyaWFibGVOYW1lcQB+AAFMAAR1bml0cQB+AAFMAAx2YXJpYWJsZVR5cGV0AExMZGUvZW5mbGV4aXQvbWVvL21vZGVsbGljYS9lb21JbnRlZ3JhdGlvbi9GbXVWYXJpYWJsZU1hcHBpbmckSW9WYXJpYWJsZVR5cGU7eHB0AANTT0N0AANTT0N0AAB+cgBKZGUuZW5mbGV4aXQubWVvLm1vZGVsbGljYS5lb21JbnRlZ3JhdGlvbi5GbXVWYXJpYWJsZU1hcHBpbmckSW9WYXJpYWJsZVR5cGUAAAAAAAAAABIAAHhxAH4AHXQABlJFU1VMVHNxAH4AInQADGNvaWxTZXRwb2ludHQAFVNjaGFsdHNpZ25hbF9IZWl6c3RhYnQAAH5xAH4AKHQACFNFVFBPSU5Uc3EAfgAidAAKaHBTZXRwb2ludHQAGFNjaGFsdHNpZ25hbF9XYWVybWVwdW1wZXEAfgAucQB+AC9zcQB+ACJ0AANwVGh0AA5UaGVybWlzY2hlTGFzdHQAA8KwQ35xAH4AKHQAC01FQVNVUkVNRU5Uc3EAfgAidAAEdEFtYnQAE1VtZ2VidW5nc1RlbXBlcmF0dXJ0AAPCsENxAH4AOHBwcHBweA==</ns2:StaticModelValue>
+        <ns2:StaticModelValue>rO0ABXNyAD1kZS5lbmZsZXhpdC5tZW8ubW9kZWxsaWNhLmhlYXRQdW1wLkhlYXRQdW1wRm11U3RhdGljRGF0YU1vZGVs5l04Q6XqdZ8CAAB4cgA7ZGUuZW5mbGV4aXQubWVvLm1vZGVsbGljYS5lb21JbnRlZ3JhdGlvbi5GbXVTdGF0aWNEYXRhTW9kZWxnwGfyB909GAIAB0oAGW1vZGVsU3RlcFNpemVNaWxsaVNlY29uZHNMAAtmbXVGaWxlUGF0aHQAEkxqYXZhL2xhbmcvU3RyaW5nO0wAFWludGVyZmFjZUZsb3dNYXBwaW5nc3QAEkxqYXZhL3V0aWwvVmVjdG9yO0wAEXBhcmFtZXRlclNldHRpbmdzcQB+AANMABFzaW11bGF0aW9uV3JhcHBlcnQAP0xkZS9lbmZsZXhpdC9tZW8vbW9kZWxsaWNhL2VvbUludGVncmF0aW9uL0ZtdVNpbXVsYXRpb25XcmFwcGVyO0wAF3N0ZXBTaXplRGlzcGxheVRpbWVVbml0dAAdTGVuZXJneS9vcHRpb25Nb2RlbC9UaW1lVW5pdDtMABB2YXJpYWJsZU1hcHBpbmdzcQB+AAN4cAAAAAAAAAPodABzRDpcZ2l0XE1FTy5FbmVyZ3lBZ2VudHNcYXdiUHJvamVjdHNcbWVvLWVuZXJneS1hZ2VudHNcZm11TW9kZWxzXEhlYXRQdW1wRk1VX1ZlcnNpb24zLjBcbUdSaURTX0NvU2ltRk1JLkhQU3lzdGVtLmZtdXBzcgAQamF2YS51dGlsLlZlY3RvctmXfVuAO68BAwADSQARY2FwYWNpdHlJbmNyZW1lbnRJAAxlbGVtZW50Q291bnRbAAtlbGVtZW50RGF0YXQAE1tMamF2YS9sYW5nL09iamVjdDt4cAAAAAAAAAADdXIAE1tMamF2YS5sYW5nLk9iamVjdDuQzlifEHMpbAIAAHhwAAAACnNyAD1kZS5lbmZsZXhpdC5tZW8ubW9kZWxsaWNhLmVvbUludGVncmF0aW9uLkZtdVBhcmFtZXRlclNldHRpbmdzY90a1eeNvW4CAANMAA9mbXVWYXJpYWJsZU5hbWVxAH4AAkwABHVuaXRxAH4AAkwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHB0AChXYWVybWVwdW1wZV9FbGVrdHJpc2NoZXZlcmJyYXVjaF9Ob21pbmFsdAACa1dzcgAQamF2YS5sYW5nLkRvdWJsZYCzwkopa/sEAgABRAAFdmFsdWV4cgAQamF2YS5sYW5nLk51bWJlcoaslR0LlOCLAgAAeHBAAAAAAAAAAHNxAH4ADXQAJldhZXJtZXB1bXBlX1RoZXJtaXNjaGVMZWlzdHVuZ19Ob21pbmFsdAACa1dzcQB+ABJAHAAAAAAAAHNxAH4ADXQAGUhlaXpzdGFiX05vbWluYWxfTGVpc3R1bmd0AAJrV3NxAH4AEkAIAAAAAAAAcHBwcHBwcHhwfnIAG2VuZXJneS5vcHRpb25Nb2RlbC5UaW1lVW5pdAAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQACFNFQ09ORF9Tc3EAfgAIAAAAAAAAAAV1cQB+AAsAAAAKc3IAO2RlLmVuZmxleGl0Lm1lby5tb2RlbGxpY2EuZW9tSW50ZWdyYXRpb24uRm11VmFyaWFibGVNYXBwaW5nqytnXNzUfBgCAARMAA9lb21WYXJpYWJsZU5hbWVxAH4AAkwAD2ZtdVZhcmlhYmxlTmFtZXEAfgACTAAEdW5pdHEAfgACTAAMdmFyaWFibGVUeXBldABMTGRlL2VuZmxleGl0L21lby9tb2RlbGxpY2EvZW9tSW50ZWdyYXRpb24vRm11VmFyaWFibGVNYXBwaW5nJElvVmFyaWFibGVUeXBlO3hwdAADU09DdAADU09DdAAAfnIASmRlLmVuZmxleGl0Lm1lby5tb2RlbGxpY2EuZW9tSW50ZWdyYXRpb24uRm11VmFyaWFibGVNYXBwaW5nJElvVmFyaWFibGVUeXBlAAAAAAAAAAASAAB4cQB+AB50AAZSRVNVTFRzcQB+ACN0AApocFNldHBvaW50dAAYU2NoYWx0c2lnbmFsX1dhZXJtZXB1bXBlcQB+ACh+cQB+ACl0AAhTRVRQT0lOVHNxAH4AI3QADGNvaWxTZXRwb2ludHQAFVNjaGFsdHNpZ25hbF9IZWl6c3RhYnEAfgAocQB+AC9zcQB+ACN0AANwVGh0AA5UaGVybWlzY2hlTGFzdHQAA8KwQ35xAH4AKXQAC01FQVNVUkVNRU5Uc3EAfgAjdAAEdEFtYnQAE1VtZ2VidW5nc1RlbXBlcmF0dXJ0AAPCsENxAH4AOHBwcHBweA==</ns2:StaticModelValue>
     </ns2:SystemVariables>
     <ns2:SystemVariables xsi:type="ns2:SystemVariableDefinitionDouble" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <ns2:VariableID>tAmb</ns2:VariableID>
@@ -321,6 +321,12 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -331,6 +337,12 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
+                <ns2:EnergyAmountCumulated>
+                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
+                    <ns2:Value>0.0</ns2:Value>
+                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
+                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
+                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>
@@ -373,12 +385,6 @@
                     <ns2:value>0.0</ns2:value>
                     <ns2:SIPrefix>kilo, k, 3</ns2:SIPrefix>
                 </ns2:EnergyFlow>
-                <ns2:EnergyAmountCumulated>
-                    <ns2:idEnergyAmount>0</ns2:idEnergyAmount>
-                    <ns2:Value>0.0</ns2:Value>
-                    <ns2:SIPrefix>none, , 0</ns2:SIPrefix>
-                    <ns2:TimeUnit>millisecond, ms</ns2:TimeUnit>
-                </ns2:EnergyAmountCumulated>
             </ns2:UsageOfInterfaces>
             <ns2:UsageOfInterfaces xsi:type="ns2:UsageOfInterfaceEnergy">
                 <ns2:idInterfaceUsage>0</ns2:idInterfaceUsage>

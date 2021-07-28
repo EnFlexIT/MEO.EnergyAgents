@@ -3,7 +3,6 @@ package de.enflexit.meo.modellica.heatPump;
 import java.awt.Frame;
 import java.io.Serializable;
 
-import de.enflexit.meo.modellica.eomIntegration.FmuStaticDataModel;
 import de.enflexit.meo.modellica.eomIntegration.FmuStaticModelConfigurationDialog;
 import energy.OptionModelController;
 import energy.optionModel.gui.sysVariables.AbstractStaticModel;
@@ -15,7 +14,7 @@ import energy.optionModel.gui.sysVariables.AbstractStaticModelDialog;
  */
 public class HeatPumpFmuStaticModel extends AbstractStaticModel {
 	
-	private FmuStaticDataModel staticModel;
+	private HeatPumpFmuStaticDataModel staticModel;
 
 	/**
 	 * Instantiates a new heat pump fmu static model.
@@ -31,7 +30,7 @@ public class HeatPumpFmuStaticModel extends AbstractStaticModel {
 	@Override
 	public Serializable getStaticDataModel() {
 		if (this.staticModel==null) {
-			this.staticModel = new FmuStaticDataModel();
+			this.staticModel = new HeatPumpFmuStaticDataModel();
 		}
 		return this.staticModel;
 	}
@@ -41,7 +40,7 @@ public class HeatPumpFmuStaticModel extends AbstractStaticModel {
 	 */
 	@Override
 	public void setStaticDataModel(Serializable staticModel) {
-		this.staticModel = (FmuStaticDataModel) staticModel;
+		this.staticModel = (HeatPumpFmuStaticDataModel) staticModel;
 	}
 
 	/* (non-Javadoc)

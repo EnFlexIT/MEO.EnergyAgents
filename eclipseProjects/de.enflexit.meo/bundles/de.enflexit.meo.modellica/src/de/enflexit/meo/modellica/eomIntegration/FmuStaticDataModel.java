@@ -25,7 +25,7 @@ public class FmuStaticDataModel implements Serializable{
 	private Vector<FmuInterfaceFlowMapping> interfaceFlowMappings;
 	
 	@Transient
-	private FmuSimulationWrapper fmuSimulationWrapper;
+	protected FmuSimulationWrapper simulationWrapper;
 
 	/**
 	 * Gets the fmu file path.
@@ -130,10 +130,11 @@ public class FmuStaticDataModel implements Serializable{
 	 * implementation, which takes care of the necessary adjustments.  
 	 * @return the fmu simulation wrapper
 	 */
-	public FmuSimulationWrapper getFmuSimulationWrapper() {
-		if (fmuSimulationWrapper==null) {
-			fmuSimulationWrapper = new FmuSimulationWrapper(this);
+	public FmuSimulationWrapper getSimulationWrapper() {
+		if (simulationWrapper==null) {
+			simulationWrapper = new FmuSimulationWrapper(this);
 		}
-		return fmuSimulationWrapper;
+		return simulationWrapper;
 	}
+	
 }

@@ -60,7 +60,7 @@ public class FmuStaticModelConfigurationDialog extends AbstractStaticModelDialog
 	 */
 	private FmuStaticModelConfigurationPanel getConfigurationPanel() {
 		if (configurationPanel==null) {
-			configurationPanel = new FmuStaticModelConfigurationPanel((FmuStaticDataModel) this.staticModel.getStaticDataModel());
+			configurationPanel = new FmuStaticModelConfigurationPanel((FmuStaticDataModel) this.staticModel.getStaticDataModel(), this.staticModel.getOptionModelController());
 		}
 		return configurationPanel;
 	}

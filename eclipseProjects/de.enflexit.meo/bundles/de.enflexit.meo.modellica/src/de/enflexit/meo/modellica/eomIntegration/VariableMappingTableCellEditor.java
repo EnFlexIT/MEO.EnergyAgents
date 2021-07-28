@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.BorderFactory;
@@ -68,12 +69,18 @@ public class VariableMappingTableCellEditor extends AbstractCellEditor implement
 		String eomName = (String) table.getValueAt(row, COLUMN_INDEX_EOM_VARIABLE_NAME);
 		this.variableMapping = parentPanel.getVariableMappingByEomName(eomName);
 		
-		//TODO implement combo box for variable name selection
-		if (this.column==COLUMN_INDEX_VARIABLE_TYPE) {
-			editorComponent = this.getTypeSelectionComboBox();
-		} else {
-			editorComponent = this.getTextFieldEditorComponent();
+		switch(this.column) {
+		case COLUMN_INDEX_EOM_VARIABLE_NAME:
+		case COLUMN_INDEX_FMU_VARIABLE_NAME:
+			this.editorComponent = this.getVariableSelectionComboBox();
+			break;
+		case COLUMN_INDEX_VARIABLE_TYPE:
+			this.editorComponent = this.getTypeSelectionComboBox();
+			break;
+		default:
+			this.editorComponent = this.getTextFieldEditorComponent();
 		}
+		
 		return this.editorComponent;
 	}
 	
@@ -94,6 +101,42 @@ public class VariableMappingTableCellEditor extends AbstractCellEditor implement
 			}
 		});
 		return typeSelectionComboBox;
+	}
+	
+	private JComboBox<String> getVariableSelectionComboBox(){
+		Vector<String> options = new Vector<String>();
+		options.add("Please Select");
+		
+		if (this.column==COLUMN_INDEX_EOM_VARIABLE_NAME) {
+			options.addAll(this.parentPanel.getEomVariablesList());
+		} else if (this.column==COLUMN_INDEX_FMU_VARIABLE_NAME) {
+			options.addAll(this.parentPanel.getFmuVariablesList());
+		}
+		
+		JComboBox<String> variableSelectionComboBox = new JComboBox<String>(options);
+		if (this.initialValue!=null && options.contains(this.initialValue)) {
+			variableSelectionComboBox.setSelectedItem(this.initialValue);
+		}
+		variableSelectionComboBox.addActionListener(new ActionListener() {
+			
+			/* (non-Javadoc)
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (variableSelectionComboBox.getSelectedIndex()>0) {
+					String variableName = (String) variableSelectionComboBox.getSelectedItem();
+					VariableMappingTableCellEditor.this.editedValue = variableName;
+					if (VariableMappingTableCellEditor.this.column==COLUMN_INDEX_EOM_VARIABLE_NAME) {
+						VariableMappingTableCellEditor.this.variableMapping.setEomVariableName(variableName);
+					} else {
+						VariableMappingTableCellEditor.this.variableMapping.setFmuVariableName(variableName);
+					}
+				}
+			}
+		});
+		
+		return variableSelectionComboBox;
 	}
 
 	/**

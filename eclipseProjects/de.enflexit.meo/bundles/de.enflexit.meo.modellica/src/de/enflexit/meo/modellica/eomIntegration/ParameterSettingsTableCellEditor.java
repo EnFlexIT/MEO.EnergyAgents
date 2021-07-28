@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.AbstractCellEditor;
 import javax.swing.BorderFactory;
@@ -70,10 +71,11 @@ public class ParameterSettingsTableCellEditor extends AbstractCellEditor impleme
 		
 		String fmuName = (String) table.getValueAt(row, COLUMN_INDEX_FMU_VARIABLE_NAME);
 		this.parameterSettings = this.parentPanel.getParameterSettingsByFmuName(fmuName);
-		
-		//TODO implement combo box for variable name selection
-		 if (this.column==COLUMN_INDEX_DATA_TYPE) {
-			 this.editorComponent = this.getDataTypesComboBox();
+
+		if (this.column==COLUMN_INDEX_FMU_VARIABLE_NAME) {
+			this.editorComponent = this.getVariableSelectionComboBox();
+		} else if (this.column==COLUMN_INDEX_DATA_TYPE) {
+			 this.editorComponent = this.getDataTypeSelectionComboBox();
 		 } else {
 			 this.editorComponent = this.getTextFieldEditorComponent();
 		 }
@@ -85,7 +87,7 @@ public class ParameterSettingsTableCellEditor extends AbstractCellEditor impleme
 	 * Gets a combo box for selecting the parameters data type.
 	 * @return the data types combo box
 	 */
-	private JComboBox<String> getDataTypesComboBox(){
+	private JComboBox<String> getDataTypeSelectionComboBox(){
 		String[] possibleTypes = {Double.class.getSimpleName(), Boolean.class.getSimpleName(), Integer.class.getSimpleName()};
 		JComboBox<String> dataTypesComboBox = new JComboBox<String>(possibleTypes);
 		dataTypesComboBox.setSelectedItem(this.initialValue);
@@ -103,6 +105,36 @@ public class ParameterSettingsTableCellEditor extends AbstractCellEditor impleme
 			}
 		});
 		return dataTypesComboBox;
+	}
+	
+	/**
+	 * Gets a combo box for selecting the FMU variable the parameter value will be assigned to.
+	 * @return the variable selection combo box
+	 */
+	private JComboBox<String> getVariableSelectionComboBox(){
+		Vector<String> options = new Vector<String>();
+		options.add("Please Select");
+		options.addAll(this.parentPanel.getFmuVariablesList());
+		
+		JComboBox<String> variableSelectionComboBox = new JComboBox<String>(options);
+		if (initialValue!=null && options.contains(initialValue)) {
+			variableSelectionComboBox.setSelectedItem(this.initialValue);
+		}
+		variableSelectionComboBox.addActionListener(new ActionListener() {
+			
+			/* (non-Javadoc)
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (variableSelectionComboBox.getSelectedIndex()>0) {
+					String variableName = (String) variableSelectionComboBox.getSelectedItem();
+					ParameterSettingsTableCellEditor.this.editedValue = variableName;
+					ParameterSettingsTableCellEditor.this.parameterSettings.setFmuVariableName(variableName);
+				}
+			}
+		});
+		return variableSelectionComboBox;
 	}
 
 	/**
