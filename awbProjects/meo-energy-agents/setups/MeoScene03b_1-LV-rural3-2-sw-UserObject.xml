@@ -4,7 +4,7 @@
     <ns2:scheduleTimeRange>
         <numberOfSystemStates>100</numberOfSystemStates>
         <rangeType>StartTimeAndNumber</rangeType>
-        <timeFrom>1467324000000</timeFrom>
+        <timeFrom>1464300000000</timeFrom>
         <timeTo>1483224300000</timeTo>
     </ns2:scheduleTimeRange>
 </ns2:setupExtension>

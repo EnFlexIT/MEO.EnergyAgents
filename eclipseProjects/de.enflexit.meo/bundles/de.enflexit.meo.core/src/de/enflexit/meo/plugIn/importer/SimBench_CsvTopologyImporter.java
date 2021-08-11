@@ -165,7 +165,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			mapSettings = new MapSettings();
 			mapSettings.setUTMLongitudeZone(32);
 			mapSettings.setUTMLatitudeZone("U");
-			mapSettings.setMapScale(MapScale.km);
+			mapSettings.setMapScale(MapScale.s3x);
 			mapSettings.setMapTileTransparency(50);
 		}
 		return mapSettings;
