@@ -236,16 +236,6 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getSource()==this.getJButtonFmuFile()) {
 			
-			// --- If a valid model is selected already, make sure the user wants to change it
-			if (this.fmuModel!=null) {
-				String warningTitle = "Are you sure?";
-				String warningMessage = "Changing the selected FMU will clear the parameter and variable settings! Are you sure?";
-				int warningResult = JOptionPane.showConfirmDialog(this, warningMessage, warningTitle, JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-				if (warningResult==JOptionPane.CANCEL_OPTION) {
-					return;
-				}
-			}
-			
 			// --- Select an FMU file -------------------------------
 			int fileChooserResult = this.getFileChooserFmuFile().showOpenDialog(this);
 			if (fileChooserResult==JFileChooser.APPROVE_OPTION) {
@@ -253,18 +243,25 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 				if (fmuFile.exists()) {
 					
 					Path fmuFilePath = fmuFile.toPath();
-					
-					Path relativePath = this.getProjectFolderPath().relativize(fmuFilePath);
-					
-					Path absolutePath = this.getProjectFolderPath().resolve(relativePath);
-					
-					this.loadFmuFromFile(absolutePath.toFile());
-					
-					if (this.fmuModel!=null) {
-						this.getJTextFieldFmuFile().setText(relativePath.toString());
-						Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
-						this.setFmuStateIcon(this.fmuModel!=null);
+
+					// --- Check if the FMU is inside the project folder ------
+					if (fmuFilePath.startsWith(this.getProjectFolderPath())==false) {
+						String errorMessage = "The FMU file must be located within the current AWP project folder!";
+						JOptionPane.showMessageDialog(this, errorMessage, "Invalid FMU location", JOptionPane.ERROR_MESSAGE);
+					} else {
+						
+						// --- Load the selected FMU file ---------------------
+						this.loadFmuFromFile(fmuFile);
+						
+						if (this.fmuModel!=null) {
+							// --- Set the relative path to the text field ----
+							Path relativePath = this.getProjectFolderPath().relativize(fmuFilePath);
+							this.getJTextFieldFmuFile().setText(relativePath.toString());
+							Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
+							this.setFmuStateIcon(this.fmuModel!=null);
+						}
 					}
+					
 				}
 			}
 		}
