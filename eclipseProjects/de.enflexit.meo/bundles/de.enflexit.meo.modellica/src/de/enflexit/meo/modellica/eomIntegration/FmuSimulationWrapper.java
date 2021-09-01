@@ -6,7 +6,7 @@ import java.util.Vector;
 import org.javafmi.proxy.FmuFile;
 import org.javafmi.wrapper.Simulation;
 
-import de.enflexit.meo.modellica.eomIntegration.FmuVariableMappingIoList.IoVariableType;
+import de.enflexit.meo.modellica.eomIntegration.FmuVariableMapping.IoVariableType;
 import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.FixedBoolean;
 import energy.optionModel.FixedDouble;
@@ -15,21 +15,17 @@ import energy.optionModel.FixedVariable;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 
 /**
- * A generic wrapper for FMU simulations in the context of an EOM OptionModelCalculation
+ * A generic wrapper for FMU simulations in the context of an EOM OptionModelCalculation.
+ *
  * @author Nils Loose - SOFTEC - Paluno - University of Duisburg-Essen
  */
 public class FmuSimulationWrapper {
+	
 	private Simulation simulation;
 	private FmuStaticDataModel fmuStaticModel;
-	
-	private boolean singleStepMode = true;
-	private boolean firstExecution = true;
-	
-	private Vector<FmuVariableMappingIoList> setpointMappings;
-	private Vector<FmuVariableMappingIoList> measurementMappings;
-	private Vector<FmuVariableMappingIoList> resultMappings;
-	
-	private boolean debug = false;
+	private Vector<FmuVariableMapping> setpointMappings;
+	private Vector<FmuVariableMapping> measurementMappings;
+	private Vector<FmuVariableMapping> resultMappings;
 	
 	/**
 	 * Instantiates a new fmu simulation wrapper.
@@ -38,51 +34,14 @@ public class FmuSimulationWrapper {
 	public FmuSimulationWrapper(FmuStaticDataModel fmuStaticModel) {
 		this.fmuStaticModel = fmuStaticModel;
 	}
-
-	/**
-	 * Simulate a single {@link TechnicalSystemStateEvaluation} with the FMU.
-	 * @param tsse the tsse
-	 */
-	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
-
-		// --- Reset the simulation first ---------------------------
-		if (this.isSingleStepMode()==true || this.firstExecution==true) {
-			
-			this.getSimulation().reset();
-			this.initializeParameters();
-			if (this.isSingleStepMode()) {
-				// --- Simulate one single TSSE ---------------------
-				this.getSimulation().init(0, tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds());
-			} else {
-				// --- Simulate the whole time without reset --------
-				this.getSimulation().init(0);	//TODO end time necessary? If so, use evaluation end time here.
-			}
-			this.firstExecution = false;
-		}
-		
-		// --- Set values for measurements and setpoints ------------
-		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
-			this.writeVariableToFMU(this.getMeasurementMappings().get(i), tsse);
-		}
-		for (int i=0; i<this.getSetpointMappings().size(); i++) {
-			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
-		}
-		
-		// --- Perform the actual simulation ------------------------
-		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
-		this.getSimulation().doStep(stepSize);
-
-		// --- Get "result measurements" from the FMU ---------------
-		for (int i=0; i<this.getResultMappings().size(); i++) {
-			this.readVariableFromFMU(this.getResultMappings().get(i), tsse);
-		}
-	}
 	
 	/**
-	 * Initialize simulation.
+	 * Initialize the FMU.
+	 * @param initialTsse the initial {@link TechnicalSystemStateEvaluation} of the evaluation period
+	 * @param evaluationEndTime the end of the evaluation period (Java timestamp)
 	 */
-	private void initializeParameters() {
-		
+	public void initializeFmu(TechnicalSystemStateEvaluation initialTsse, long evaluationEndTime) {
+
 		// --- Initialize the FMU with the static parameters --------
 		for (int i=0; i<this.getStaticParameters().size(); i++) {
 			String fmuName = this.getStaticParameters().get(i).getFmuVariableName();
@@ -95,17 +54,67 @@ public class FmuSimulationWrapper {
 				this.getSimulation().write(fmuName).with((Boolean)parameter);
 			} 
 		}
+		this.performCustomInitializations(initialTsse);
 		
+		// --- Set values for measurements and setpoints ------------
+		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
+			this.writeVariableToFMU(this.getMeasurementMappings().get(i), initialTsse);
+		}
+		for (int i=0; i<this.getSetpointMappings().size(); i++) {
+			this.writeVariableToFMU(this.getSetpointMappings().get(i), initialTsse);
+		}
+		
+		if (evaluationEndTime>0) {
+			double fmuEndTime = (evaluationEndTime-initialTsse.getGlobalTime()) / this.getStaticModel().getModelStepSizeMilliSeconds();
+			this.getSimulation().init(0, fmuEndTime);
+		} else {
+			this.getSimulation().init(0);
+		}
+		
+	}
+
+	/**
+	 * Simulate a single {@link TechnicalSystemStateEvaluation} with the FMU.
+	 * @param tsse the tsse
+	 */
+	public void simulateTsse(TechnicalSystemStateEvaluation tsse) {
+
+		// --- Set values for measurements and setpoints ------------
+		for (int i=0; i<this.getMeasurementMappings().size(); i++) {
+			this.writeVariableToFMU(this.getMeasurementMappings().get(i), tsse);
+		}
+		for (int i=0; i<this.getSetpointMappings().size(); i++) {
+			this.writeVariableToFMU(this.getSetpointMappings().get(i), tsse);
+		}
+		
+		// --- Perform the actual simulation ------------------------
+		long stepSize = tsse.getStateTime() / this.getStaticModel().getModelStepSizeMilliSeconds();
+		
+		this.getSimulation().doStep(stepSize);
+
+		// --- Get "result measurements" from the FMU ---------------
+		for (int i=0; i<this.getResultMappings().size(); i++) {
+			this.readVariableFromFMU(this.getResultMappings().get(i), tsse);
+		}
+	}
+	
+	/**
+	 * This method can be overridden to implement FMU-specific initialization tasks that go beyond
+	 * just initializing parameters with static values. The default implementation is empty.
+	 * @param tsse the tsse to be simulated
+	 */
+	protected void performCustomInitializations(TechnicalSystemStateEvaluation tsse) {
+		// --- Empty default implementation.  
 	}
 	
 	/**
 	 * Writes the value of a {@link FixedVariable} from a {@link TechnicalSystemStateEvaluation} to the corresponding FMU input variable.
-	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMappingIoList}.
+	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMapping}.
 	 * If a variable requires a special pre-processing, this can be implemented in a model-specific subclass. 
 	 * @param variableMapping the variable mapping
 	 * @param tsse the tsse
 	 */
-	protected void writeVariableToFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
+	protected void writeVariableToFMU(FmuVariableMapping variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		if (eomVariable instanceof FixedDouble) {
 			this.getSimulation().write(variableMapping.getFmuVariableName()).with(((FixedDouble)eomVariable).getValue());
@@ -118,21 +127,17 @@ public class FmuSimulationWrapper {
 				this.getSimulation().write(variableMapping.getFmuVariableName()).with(0.0);
 			}
 		}
-		
-		if (this.debug==true) {
-			System.out.println("Set variable " + variableMapping.getFmuVariableName() + " to FMU: " + this.getVariableString(eomVariable));
-		}
 	}
 	
 	
 	/**
 	 * Reads the value from a FMU output variable and writes it to the corresponding {@link FixedVariable} of the {@link TechnicalSystemStateEvaluation}.
-	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMappingIoList}.
+	 * This generic implementation will just transfer the values unchanged, according to the corresponding {@link FmuVariableMapping}.
 	 * If a variable requires a special post-processing, this can be implemented in a model-specific subclass. 
 	 * @param variableMapping the variable mapping
 	 * @param tsse the tsse
 	 */
-	protected void readVariableFromFMU(FmuVariableMappingIoList variableMapping, TechnicalSystemStateEvaluation tsse) {
+	protected void readVariableFromFMU(FmuVariableMapping variableMapping, TechnicalSystemStateEvaluation tsse) {
 		FixedVariable eomVariable = TechnicalSystemStateHelper.getFixedVariable(tsse.getIOlist(), variableMapping.getEomVariableName());
 		
 		if (eomVariable instanceof FixedDouble) {
@@ -144,10 +149,6 @@ public class FmuSimulationWrapper {
 		} else if (eomVariable instanceof FixedBoolean) {
 			boolean fmuValue = this.getSimulation().read(variableMapping.getFmuVariableName()).asBoolean();
 			((FixedBoolean)eomVariable).setValue(fmuValue);
-		}
-		
-		if (this.debug==true) {
-			System.out.println("Read variable " + variableMapping.getFmuVariableName() + " from FMU: " + this.getVariableString(eomVariable));
 		}
 	}
 	
@@ -180,15 +181,15 @@ public class FmuSimulationWrapper {
 	 * Gets the static parameters.
 	 * @return the static parameters
 	 */
-	private Vector<FmuVariableMappingStaticParameter> getStaticParameters() {
-		return this.getStaticModel().getStaticParameters();
+	private Vector<FmuParameterSettings> getStaticParameters() {
+		return this.getStaticModel().getParameterSettings();
 	}
 	
 	/**
 	 * Gets the FMU variable mappings for setpoint variables.
 	 * @return the setpoint mappings
 	 */
-	private Vector<FmuVariableMappingIoList> getSetpointMappings() {
+	private Vector<FmuVariableMapping> getSetpointMappings() {
 		if (setpointMappings==null) {
 			setpointMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.SETPOINT);
 		}
@@ -199,7 +200,7 @@ public class FmuSimulationWrapper {
 	 * Gets the FMU variable mappings for measurement variables.
 	 * @return the measurement mappings
 	 */
-	private Vector<FmuVariableMappingIoList> getMeasurementMappings() {
+	private Vector<FmuVariableMapping> getMeasurementMappings() {
 		if (measurementMappings==null) {
 			measurementMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.MEASUREMENT);
 		}
@@ -210,7 +211,7 @@ public class FmuSimulationWrapper {
 	 * Gets the FMU variable mappings for result variables.
 	 * @return the result mappings
 	 */
-	public Vector<FmuVariableMappingIoList> getResultMappings() {
+	public Vector<FmuVariableMapping> getResultMappings() {
 		if (resultMappings==null) {
 			resultMappings = this.getStaticModel().getIoVariablesByType(IoVariableType.RESULT);
 		}
@@ -218,50 +219,10 @@ public class FmuSimulationWrapper {
 	}
 
 	/**
-	 * Checks if this wrapper is single step mode. If true, the simulation is performed step-wise,
-	 * i.e. it is reset and re-initialized for each simulation step, which is required for the 
-	 * typical EOM evaluation behavior to check all alternatives for the next step. If false, the
-	 * simulation is performed in the "regular" sequential way, which will not work for EOM 
-	 * evaluations if there is more than one possible next step.    
-	 * @return true, if is single step mode
-	 */
-	public boolean isSingleStepMode() {
-		return singleStepMode;
-	}
-	
-	/**
 	 * Terminates the FMU simulation.
 	 */
 	public void terminateSimulation() {
 		this.getSimulation().terminate();
 	}
-
-	/**
-	 * Enabled or disables single step mode. If enabled, the simulation is performed step-wise,
-	 * i.e. it is reset and re-initialized for each simulation step, which is required for the 
-	 * typical EOM evaluation behavior to check all alternatives for the next step. If disabled, 
-	 * the simulation is performed in the "regular" sequential way, which will not work for EOM 
-	 * evaluations if there is more than one possible next step.
-	 * @param singleStepMode the new single step mode
-	 */
-	public void setSingleStepMode(boolean singleStepMode) {
-		this.singleStepMode = singleStepMode;
-	}
 	
-	/**
-	 * Returns a String representation of the {@link FixedVariable}'s value
-	 * @param variable the variable
-	 * @return the string
-	 */
-	private String getVariableString(FixedVariable variable) {
-		if (variable instanceof FixedBoolean) {
-			return "" + ((FixedBoolean)variable).isValue();
-		} else if (variable instanceof FixedDouble){
-			return "" + ((FixedDouble)variable).getValue();
-		} else if (variable instanceof FixedInteger) {
-			return "" + ((FixedInteger)variable).getValue();
-		} else {
-			return "";
-		}
-	}
 }

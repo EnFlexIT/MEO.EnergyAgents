@@ -1,9 +1,14 @@
 package de.enflexit.meo.modellica.test;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Vector;
 
@@ -32,6 +37,11 @@ public class TestFMU extends Thread {
 	private static final String RESIDUAL_LOAD = "Pth_Residual";
 	private static final String STORAGE_LOAD = "SOC";
 	
+	private static final String INPUT_VALUES_FILE_PATH = "D:\\Documents\\Projekte\\MEO\\Co-Simulation\\FMU_Inputs_stufig.csv";
+//	private static final String INPUT_VALUES_FILE_PATH = "D:\\Documents\\Projekte\\MEO\\Co-Simulation\\FMU_Inputs_linear.csv";
+	
+	private static final int T_INIT_SOC_100 = 50;
+	
 	
 	private static final String NUMBER_FORMAT_SHORT = "0.00";
 	private static final String NUMBER_FORMAT_LONG = "0.00000";
@@ -39,12 +49,12 @@ public class TestFMU extends Thread {
 	private DecimalFormat numberFormatLong;
 	
 	private String fmuFilePath;
-	private Simulation simulation; 
-
-	public TestFMU() {
-		this.start();
-	}
+	private Simulation simulation;
 	
+	private double tInitCalc = 50;
+	
+	private HashMap<Integer, Vector<Double>> inputValues;
+
 	@Override
 	public void run() {
 		super.run();
@@ -53,49 +63,54 @@ public class TestFMU extends Thread {
 
 	private void test() {
 		
+		this.runMultiStepSimulation();
+		
+	}
+	
+	@SuppressWarnings("unused")
+	private void runOneStepSimulation() {
+		
+		int[][] switchSignals = {{0,0},{0,1},{1,0},{1,1}};
+		
 		// --- Time configuration -------------------------
 		int startTime = 0;
-		int stopTime = 3600;
+		int stopTime = 60;
 		int stepSize = 60;
 		
 		// --- Initialization of parameters ---------------
 		double npHeatPumpThermal = 7.0;			// Nominal thermal power of the HeatPump
 		double npHeatPumpElectrical = 2.0;		// Nominal electrical power of the HeatPump
 		double npCoil = 3.0;					// Nominal power of the Coil
-		double tInit = 40.0;					// Initial storage temperature
+		double tInit = 48.01;					// Initial storage temperature
 		
+		Simulation simulation = this.getSimulation();
+		this.printFmuStateHeader();
 		try {
 			
-			// --- Initialize the simulation --------------
-			Simulation simulation = this.getSimulation();
-			simulation.write(NOMINAL_POWER_HEAT, NOMINAL_POWER_ELECTRIC, NOMINAL_POWER_COIL).with(npHeatPumpThermal, npHeatPumpElectrical, npCoil);
-			simulation.write(INITIAL_STORAGE_TEMPERATURE).with(tInit);
-			simulation.init(startTime, stopTime);
-			
-			ModelDescription md = this.getSimulation().getModelDescription();
-			System.out.println("FMI version " + md.getFmiVersion());
-			System.out.println("Input variables:" + this.getVariableNamesByCausality("input"));
-			System.out.println("Onput variables:" + this.getVariableNamesByCausality("output"));
-
-			double tAmb = 25.0;
-			double pTh = 10.0;
-			
-			simulation.write(SWITCH_HEATPUMP).with(1.0);
-			simulation.write(AMBIENT_TEMPERATURE).with(tAmb);
-			simulation.write(THERMAL_LOAD).with(pTh);
-			
-			this.printOutputHeaders();
-			this.printFmuState();
-			int i = 0;
-			for (i=0; i < stopTime; i+=stepSize) {
-//				double hpState = 1.0 * (i%2);
-//				double hpState = 0.0;
-				double hpState = 1.0;
-				simulation.write(SWITCH_HEATPUMP).with(hpState);
-				simulation.write(AMBIENT_TEMPERATURE).with(tAmb);
-				simulation.write(THERMAL_LOAD).with(pTh);
-				simulation.doStep(stepSize);
-				this.printFmuState();
+			for (int i=0; i<switchSignals.length; i++) {
+				// --- Initialize the simulation --------------
+				simulation.write(NOMINAL_POWER_HEAT, NOMINAL_POWER_ELECTRIC, NOMINAL_POWER_COIL).with(npHeatPumpThermal, npHeatPumpElectrical, npCoil);
+				simulation.write(INITIAL_STORAGE_TEMPERATURE).with(tInit);
+				simulation.init(startTime, stopTime);
+				
+				double hpState = switchSignals[i][0];
+				double coilState = switchSignals[i][1];
+				double tAmb = 22.84;
+				double pTh = 12.39;
+				
+				int j = 0;
+				for (j=0; j < stopTime; j+=stepSize) {
+					simulation.write(AMBIENT_TEMPERATURE).with(tAmb);
+					simulation.write(THERMAL_LOAD).with(pTh);
+					simulation.write(SWITCH_HEATPUMP).with(hpState);
+					simulation.write(SWITCH_COIL).with(coilState);
+					simulation.write(AMBIENT_TEMPERATURE).with(tAmb);
+					simulation.write(THERMAL_LOAD).with(pTh);
+					simulation.doStep(stepSize);
+					this.printFmuState();
+				}
+				
+				simulation.reset();
 			}
 			
 			simulation.terminate();
@@ -103,7 +118,71 @@ public class TestFMU extends Thread {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Runs a multi-step simulation based on a series of inputs.
+	 */
+	@SuppressWarnings("unused")
+	private void runMultiStepSimulation() {
+		// --- Time configuration -------------------------
+		int startTime = 0;
+		int stopTime = 3600*3;
+		int stepSize = 60;
 		
+		// --- Initialization of parameters ---------------
+		double npHeatPumpThermal = 7.0;			// Nominal thermal power of the HeatPump
+		double npHeatPumpElectrical = 2.0;		// Nominal electrical power of the HeatPump
+		double npCoil = 3.0;					// Nominal power of the Coil
+		double tInit = 50.0;					// Initial storage temperature
+		
+		try {
+			
+			// --- Prepare the simulation -----------------
+			Simulation simulation = this.getSimulation();
+			simulation.write(NOMINAL_POWER_HEAT, NOMINAL_POWER_ELECTRIC, NOMINAL_POWER_COIL).with(npHeatPumpThermal, npHeatPumpElectrical, npCoil);
+			simulation.write(INITIAL_STORAGE_TEMPERATURE).with(tInit);
+			
+			// --- Use the first set of input values for t0
+			simulation.write(SWITCH_HEATPUMP).with(0);
+			simulation.write(AMBIENT_TEMPERATURE).with(22.8);
+			simulation.write(THERMAL_LOAD).with(12.5);
+			
+			simulation.init(startTime, stopTime);
+
+			this.printFmuStateHeader();
+			
+//			ModelDescription md = this.getSimulation().getModelDescription();
+//			System.out.println("FMI version " + md.getFmiVersion());
+//			System.out.println("Input variables:" + this.getVariableNamesByCausality("input"));
+//			System.out.println("Onput variables:" + this.getVariableNamesByCausality("output"));
+
+			double tAmb = 25.0;
+			double pTh = 10.0;
+			
+			while (simulation.getCurrentTime() < stopTime) {
+
+				int stepEndTime = new Double(simulation.getCurrentTime()+stepSize).intValue();
+				
+				Vector<Double> stepValues = this.getInputValues().get(stepEndTime);
+				if (stepValues!=null) {
+					simulation.write(AMBIENT_TEMPERATURE).with(stepValues.get(0));
+					simulation.write(THERMAL_LOAD).with(stepValues.get(1));
+					simulation.write(SWITCH_HEATPUMP).with(stepValues.get(2));
+					this.printFmuState();
+					simulation.doStep(stepSize);
+					this.printFmuState();
+				} else {
+					System.err.println("No input values found for FMU time " + stepEndTime);
+					break;
+				}
+			}
+			
+			simulation.terminate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	/**
@@ -138,6 +217,7 @@ public class TestFMU extends Thread {
 	 * @param causality the causality (input|output|local)
 	 * @return the variable names
 	 */
+	@SuppressWarnings("unused")
 	private Vector<String> getVariableNamesByCausality(String causality){
 		Vector<String> variableNames = new Vector<String>(); 
 		ModelDescription modelDescription = this.getSimulation().getModelDescription();
@@ -150,35 +230,6 @@ public class TestFMU extends Thread {
 		return variableNames;
 	}
 	
-	private void printOutputHeaders() {
-		System.out.print("Time\t");
-		System.out.print("tAmb\t");
-		System.out.print("pTh\t");
-		System.out.print("HP\t");
-		System.out.print("pEl\t");
-		System.out.print("Coil\t");
-		System.out.print("pEl\t");
-		System.out.print("pRes\t");
-		System.out.print("Tinit\t");
-		System.out.print("SOC\t");
-		System.out.println();
-	}
-	
-	private void printFmuState() {
-		double time = this.getSimulation().getCurrentTime();
-		double tAmb = this.getSimulation().read(AMBIENT_TEMPERATURE).asDouble();
-		double pTh = this.getSimulation().read(THERMAL_LOAD).asDouble();
-		double heatPump = this.getSimulation().read(SWITCH_HEATPUMP).asDouble();
-		double pElHP = this.getSimulation().read(ELECTRICAL_LOAD_HEATPUMP).asDouble();
-		double coil = this.getSimulation().read(SWITCH_COIL).asDouble();
-		double pElCoil = this.getSimulation().read(ELECTRICAL_LOAD_COIL).asDouble();
-		double pRes = this.getSimulation().read(RESIDUAL_LOAD).asDouble();
-		double soc = this.getSimulation().read(STORAGE_LOAD).asDouble();
-		
-		double tInit = this.getSimulation().read(INITIAL_STORAGE_TEMPERATURE).asDouble();
-		
-		System.out.println(time + "\t" + tAmb + "\t" + pTh + "\t" + heatPump + "\t" + this.getNumberFormatShort().format(pElHP) + "\t" + coil + "\t" + this.getNumberFormatShort().format(pElCoil) + "\t" + this.getNumberFormatShort().format(pRes)+ "\t" + this.getNumberFormatShort().format(tInit) + "\t" + this.getNumberFormatLong().format(soc));
-	}
 	
 	/**
 	 * Gets the decimal format.
@@ -200,6 +251,105 @@ public class TestFMU extends Thread {
 			numberFormatLong.setRoundingMode(RoundingMode.HALF_UP);
 		}
 		return numberFormatLong;
+	}
+	
+	
+	private void printFmuStateHeader() {
+		System.out.print("time\t");
+		System.out.print("tAmb\t");
+		System.out.print("pTh\t");
+		System.out.print("tInit\t");
+		System.out.print("hp\t");
+		System.out.print("coil\t");
+		System.out.print("pElHp\t");
+		System.out.print("pElCoil\t");
+		System.out.print("pRes\t");
+		System.out.println("SOC\t");
+	}
+	
+	
+	private void printFmuState() {
+		
+		double tAmp = this.getSimulation().read(AMBIENT_TEMPERATURE).asDouble();
+		double pTh = this.getSimulation().read(THERMAL_LOAD).asDouble();
+//		double tInit = this.getSimulation().read(INITIAL_STORAGE_TEMPERATURE).asDouble();
+		double tInit = this.tInitCalc;	//  Calculated tInit from the previus state
+		double setpointHeatpump = this.getSimulation().read(SWITCH_HEATPUMP).asDouble();
+		double setpointCoil = this.getSimulation().read(SWITCH_COIL).asDouble();
+		double pElHeatPump = this.getSimulation().read(ELECTRICAL_LOAD_HEATPUMP).asDouble();
+		double pElCoil = this.getSimulation().read(ELECTRICAL_LOAD_COIL).asDouble();
+		double pRes = this.getSimulation().read(RESIDUAL_LOAD).asDouble();
+		double soc = this.getSimulation().read(STORAGE_LOAD).asDouble();
+		
+		System.out.print(this.getSimulation().getCurrentTime() + "\t");
+		System.out.print(this.getNumberFormatShort().format(tAmp) + "\t");
+		System.out.print(this.getNumberFormatShort().format(pTh) + "\t");
+		System.out.print(this.getNumberFormatShort().format(tInit) + "\t");
+		System.out.print(setpointHeatpump + "\t");
+		System.out.print(setpointCoil + "\t");
+		System.out.print(this.getNumberFormatShort().format(pElHeatPump) + "\t");
+		System.out.print(this.getNumberFormatShort().format(pElCoil) + "\t");
+		System.out.print(this.getNumberFormatShort().format(pRes) + "\t");
+		System.out.println(this.getNumberFormatLong().format(soc));
+		
+		// Remember calculated tInit for the next step
+		this.tInitCalc = T_INIT_SOC_100 * soc;
+	}
+	
+	private HashMap<Integer, Vector<Double>> getInputValues() {
+		if (inputValues==null) {
+			inputValues = this.readInputsFromCsv(INPUT_VALUES_FILE_PATH);
+		}
+		return inputValues;
+	}
+	
+	private HashMap<Integer, Vector<Double>> readInputsFromCsv(String csvFileFullPath){
+		HashMap<Integer, Vector<Double>> inputValues = new HashMap<Integer, Vector<Double>>();
+		File csvFile = new File(csvFileFullPath);
+		
+		if (csvFile.exists()) {
+			BufferedReader fileReader = null;
+			try {
+				fileReader = new BufferedReader(new FileReader(csvFile));
+				String line;
+				fileReader.readLine();	// Ignore headers
+				while((line = fileReader.readLine()) != null){
+					String[] parts = line.split(";");
+					
+					int fmuTime = Integer.parseInt(parts[0]);
+					double tAmb = Double.parseDouble(parts[1]);
+					double pTh = Double.parseDouble(parts[2]);
+					double hpSetpoint = Double.parseDouble(parts[3]);
+					
+					Vector<Double> lineInputs = new Vector<Double>();
+					lineInputs.add(tAmb);
+					lineInputs.add(pTh);
+					lineInputs.add(hpSetpoint);
+					
+					inputValues.put(fmuTime, lineInputs);
+				}
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				
+				if (fileReader!=null) {
+					try {
+						fileReader.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		} else {
+			System.err.println("Input file not found at " + csvFile.getAbsolutePath());
+		}
+		return inputValues;
 	}
 	
 }
