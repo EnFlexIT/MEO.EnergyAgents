@@ -179,6 +179,20 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 		this.getTableModelParameters().fireTableDataChanged();
 	}
 	
+	/**
+	 * Removes obsolete parameter settings from both the table and the list. 
+	 * @param parametersToKeep the parameters to keep
+	 */
+	protected void removeObsoleteParameterSettings(Vector<String> parametersToKeep) {
+		for (int i=0; i<this.getJTableParameters().getRowCount(); i++) {
+			String fmuName = (String) this.getJTableParameters().getValueAt(i, 0);
+			if (parametersToKeep.contains(fmuName)==false) {
+				this.removeParameterSettings(i);
+				i--;
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -191,11 +205,19 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 			this.addParameterSettingsToTableModel(variableMapping);
 		} else if (ae.getSource()==this.getJButtonRemove()) {
 			int selectedRow = this.getJTableParameters().getSelectedRow();
-			String fmuName = (String) this.getJTableParameters().getValueAt(selectedRow, 0);
-			FmuParameterSettings selectedParameter = this.getParameterSettingsByFmuName(fmuName);
-			this.getParameterSettings().remove(selectedParameter);
-			this.getTableModelParameters().removeRow(selectedRow);
+			this.removeParameterSettings(selectedRow);
 		}
+	}
+	
+	/**
+	 * Removes the parameter settings at the specified table row from both the table and the list.
+	 * @param rowIndex the row index
+	 */
+	private void removeParameterSettings(int rowIndex) {
+		String fmuName = (String) this.getJTableParameters().getValueAt(rowIndex, 0);
+		FmuParameterSettings selectedParameter = this.getParameterSettingsByFmuName(fmuName);
+		this.getParameterSettings().remove(selectedParameter);
+		this.getTableModelParameters().removeRow(rowIndex);
 	}
 	
 	/**

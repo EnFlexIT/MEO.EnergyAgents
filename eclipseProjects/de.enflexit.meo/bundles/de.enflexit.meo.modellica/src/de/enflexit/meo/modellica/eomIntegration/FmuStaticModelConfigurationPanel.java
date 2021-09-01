@@ -18,6 +18,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Vector;
 
@@ -70,6 +72,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	private Vector<String> eomVariablesList;
 	
 	private OptionModelController optionModelController;
+	
+	private Path projectFolderPath;
 	
 	/**
 	 * Instantiates a new FMU static model configuration panel.
@@ -248,10 +252,16 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 				File fmuFile = this.getFileChooserFmuFile().getSelectedFile();
 				if (fmuFile.exists()) {
 					
-					this.loadFmuFromFile(fmuFile);
+					Path fmuFilePath = fmuFile.toPath();
+					
+					Path relativePath = this.getProjectFolderPath().relativize(fmuFilePath);
+					
+					Path absolutePath = this.getProjectFolderPath().resolve(relativePath);
+					
+					this.loadFmuFromFile(absolutePath.toFile());
 					
 					if (this.fmuModel!=null) {
-						this.getJTextFieldFmuFile().setText(fmuFile.getPath());
+						this.getJTextFieldFmuFile().setText(relativePath.toString());
 						Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
 						this.setFmuStateIcon(this.fmuModel!=null);
 					}
@@ -301,7 +311,10 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	protected void loadStaticModelToForm() {
 		this.getJTextFieldFmuFile().setText(this.staticDataModel.getFmuFilePath());
 		if (this.staticDataModel.getFmuFilePath()!=null) {
-			this.loadFmuFromFile(this.staticDataModel.getFmuFilePath());
+			Path relativePath = Paths.get(this.staticDataModel.getFmuFilePath());
+			Path absolutePath = this.getProjectFolderPath().resolve(relativePath);
+			
+			this.loadFmuFromFile(absolutePath);
 			this.setFmuStateIcon(this.fmuModel!=null);
 		}
 		
@@ -352,8 +365,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	 * Loads an FMU model from the file with the specified path.
 	 * @param path the path
 	 */
-	private void loadFmuFromFile(String path) {
-		this.loadFmuFromFile(new File(path));
+	private void loadFmuFromFile(Path path) {
+		this.loadFmuFromFile(path.toFile());
 	}
 	
 	/**
@@ -369,8 +382,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 				// --- Reset the FMU variables list ---------------------------
 				this.fmuVariablesList = null;
 				// --- Clear the settings that depend on the FMU variables ----
-				this.getSubPanelParameters().clear();
-				this.getSubPanelVariables().clear();
+				this.getSubPanelParameters().removeObsoleteParameterSettings(this.getFmuVariablesList());
+				this.getSubPanelVariables().removeObsoleteVariableMappings(this.getFmuVariablesList());
 			} catch (Exception ex) {
 				System.err.println("[" + this.getClass().getSimpleName() + "] The selected file contains no valid FMU: " + fmuFile.getAbsolutePath());
 			}
@@ -428,6 +441,17 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		}
 		
 		return this.eomVariablesList;
+	}
+	
+	/**
+	 * Gets the project folder path.
+	 * @return the project folder path
+	 */
+	public Path getProjectFolderPath() {
+		if (projectFolderPath==null) {
+			projectFolderPath = Paths.get(Application.getProjectFocused().getProjectFolderFullPath());
+		}
+		return projectFolderPath;
 	}
 	
 }

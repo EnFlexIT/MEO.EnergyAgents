@@ -154,6 +154,20 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 		this.getTableModelVariables().fireTableDataChanged();
 	}
 	
+	/**
+	 * Removes obsolete variable mappings from both the table and the list. 
+	 * @param variablesToKeep the variables to keep
+	 */
+	protected void removeObsoleteVariableMappings(Vector<String> variablesToKeep) {
+		for (int i=0; i<this.getJTableVariables().getRowCount(); i++) {
+			String fmuName = (String) this.getJTableVariables().getValueAt(i, 1);
+			if (variablesToKeep.contains(fmuName)==false) {
+				this.removeVariableMapping(i);
+				i--;
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -166,11 +180,19 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 			this.getVariableMappings().add(variableMapping);
 		} else if (ae.getSource()==this.getJButtonRemove()) {
 			int selectedRow = this.getJTableVariables().getSelectedRow();
-			String eomName = (String) this.getJTableVariables().getValueAt(selectedRow, 0);
-			FmuVariableMapping selectedMapping = this.getVariableMappingByEomName(eomName);
-			this.getVariableMappings().remove(selectedMapping);
-			this.getTableModelVariables().removeRow(selectedRow);
+			this.removeVariableMapping(selectedRow);
 		}
+	}
+	
+	/**
+	 * Removes the variable mapping.
+	 * @param rowIndex the row index
+	 */
+	private void removeVariableMapping(int rowIndex) {
+		String eomName = (String) this.getJTableVariables().getValueAt(rowIndex, 0);
+		FmuVariableMapping selectedMapping = this.getVariableMappingByEomName(eomName);
+		this.getVariableMappings().remove(selectedMapping);
+		this.getTableModelVariables().removeRow(rowIndex);
 	}
 	
 	/**
