@@ -6,7 +6,6 @@
     <projectTabHeaderVisible>false</projectTabHeaderVisible>
     <version>0.0.1.20190903-1100</version>
     <versionTag>Complete Project</versionTag>
-    <updateSite>?</updateSite>
     <updateAutoConfiguration>0</updateAutoConfiguration>
     <updateDateLastChecked>0</updateDateLastChecked>
     <updateAuthorization>
@@ -17,7 +16,6 @@
     <plugins>
         <className>de.enflexit.ea.core.awbIntegration.plugin.AWBIntegrationPlugIn</className>
         <className>de.enflexit.meo.plugIn.MEOPlugin</className>
-        <className>de.enflexit.meo.modellica.test.ModellicaTestPlugIn</className>
     </plugins>
     <subOntologies>
         <subOntology>agentgui.ontology.AgentGUI_BaseOntology</subOntology>
