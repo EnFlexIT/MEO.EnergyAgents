@@ -120,6 +120,8 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 		if (jTableVariables == null) {
 			jTableVariables = new JTable();
 			jTableVariables.setFillsViewportHeight(true);
+			jTableVariables.setFont(new Font("Dialog", Font.PLAIN, 12));
+			jTableVariables.setRowHeight(20);
 			jTableVariables.setModel(this.getTableModelVariables());
 			for (int i=0; i<jTableVariables.getColumnCount(); i++) {
 				jTableVariables.getColumnModel().getColumn(i).setCellEditor(new VariableMappingTableCellEditor(this));
@@ -158,13 +160,22 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 	 * Removes obsolete variable mappings from both the table and the list. 
 	 * @param variablesToKeep the variables to keep
 	 */
-	protected void removeObsoleteVariableMappings(Vector<String> variablesToKeep) {
-		for (int i=0; i<this.getJTableVariables().getRowCount(); i++) {
-			String fmuName = (String) this.getJTableVariables().getValueAt(i, 1);
-			if (variablesToKeep.contains(fmuName)==false) {
-				this.removeVariableMapping(i);
-				i--;
+	protected void removeObsoleteVariableMappings() {
+		
+		// --- Collect all mappings that should be removed ----------
+		Vector<FmuVariableMapping> mappingsToRemove = new Vector<FmuVariableMapping>();
+		for (int i=0; i<this.getVariableMappings().size(); i++) {
+			FmuVariableMapping currentMapping = this.getVariableMappings().get(i);
+			if (this.getFmuVariablesList().contains(currentMapping.getFmuVariableName())==false) {
+				mappingsToRemove.add(currentMapping);
 			}
+		}
+		
+		// --- Remove the mappings and update the table -------------
+		if (mappingsToRemove.size()>0) {
+			this.getVariableMappings().removeAll(mappingsToRemove);
+			this.updateTableModel();
+			this.getTableModelVariables().fireTableDataChanged();
 		}
 	}
 	
@@ -179,8 +190,26 @@ public class FmuStaticModelSubPanelVariables extends JPanel implements ActionLis
 			this.addVariableMappingToTableModel(variableMapping);
 			this.getVariableMappings().add(variableMapping);
 		} else if (ae.getSource()==this.getJButtonRemove()) {
+			this.stopCellEditing();
 			int selectedRow = this.getJTableVariables().getSelectedRow();
 			this.removeVariableMapping(selectedRow);
+			
+			if (this.getJTableVariables().getRowCount()>0) {
+				int newSelection = 0;
+				if (selectedRow>0) {
+					newSelection = selectedRow-1;
+				}
+				this.getJTableVariables().setRowSelectionInterval(newSelection, newSelection);
+			}
+		}
+	}
+	
+	/**
+	 * Stops cell editing if currently active.
+	 */
+	private void stopCellEditing() {
+		if (this.getJTableVariables().getCellEditor()!=null) {
+			this.getJTableVariables().getCellEditor().stopCellEditing();
 		}
 	}
 	

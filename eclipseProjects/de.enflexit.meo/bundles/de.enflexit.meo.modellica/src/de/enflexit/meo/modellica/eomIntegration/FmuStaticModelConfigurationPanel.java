@@ -379,8 +379,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 				// --- Reset the FMU variables list ---------------------------
 				this.fmuVariablesList = null;
 				// --- Clear the settings that depend on the FMU variables ----
-				this.getSubPanelParameters().removeObsoleteParameterSettings(this.getFmuVariablesList());
-				this.getSubPanelVariables().removeObsoleteVariableMappings(this.getFmuVariablesList());
+				this.getSubPanelParameters().removeObsoleteParameterSettings();
+				this.getSubPanelVariables().removeObsoleteVariableMappings();
 			} catch (Exception ex) {
 				System.err.println("[" + this.getClass().getSimpleName() + "] The selected file contains no valid FMU: " + fmuFile.getAbsolutePath());
 			}
