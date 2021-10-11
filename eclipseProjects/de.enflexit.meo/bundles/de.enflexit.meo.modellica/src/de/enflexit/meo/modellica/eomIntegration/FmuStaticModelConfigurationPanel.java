@@ -18,6 +18,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Vector;
 
@@ -70,6 +72,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	private Vector<String> eomVariablesList;
 	
 	private OptionModelController optionModelController;
+	
+	private Path projectFolderPath;
 	
 	/**
 	 * Instantiates a new FMU static model configuration panel.
@@ -232,29 +236,32 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getSource()==this.getJButtonFmuFile()) {
 			
-			// --- If a valid model is selected already, make sure the user wants to change it
-			if (this.fmuModel!=null) {
-				String warningTitle = "Are you sure?";
-				String warningMessage = "Changing the selected FMU will clear the parameter and variable settings! Are you sure?";
-				int warningResult = JOptionPane.showConfirmDialog(this, warningMessage, warningTitle, JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-				if (warningResult==JOptionPane.CANCEL_OPTION) {
-					return;
-				}
-			}
-			
 			// --- Select an FMU file -------------------------------
 			int fileChooserResult = this.getFileChooserFmuFile().showOpenDialog(this);
 			if (fileChooserResult==JFileChooser.APPROVE_OPTION) {
 				File fmuFile = this.getFileChooserFmuFile().getSelectedFile();
 				if (fmuFile.exists()) {
 					
-					this.loadFmuFromFile(fmuFile);
-					
-					if (this.fmuModel!=null) {
-						this.getJTextFieldFmuFile().setText(fmuFile.getPath());
-						Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
-						this.setFmuStateIcon(this.fmuModel!=null);
+					Path fmuFilePath = fmuFile.toPath();
+
+					// --- Check if the FMU is inside the project folder ------
+					if (fmuFilePath.startsWith(this.getProjectFolderPath())==false) {
+						String errorMessage = "The FMU file must be located within the current AWP project folder!";
+						JOptionPane.showMessageDialog(this, errorMessage, "Invalid FMU location", JOptionPane.ERROR_MESSAGE);
+					} else {
+						
+						// --- Load the selected FMU file ---------------------
+						this.loadFmuFromFile(fmuFile);
+						
+						if (this.fmuModel!=null) {
+							// --- Set the relative path to the text field ----
+							Path relativePath = this.getProjectFolderPath().relativize(fmuFilePath);
+							this.getJTextFieldFmuFile().setText(relativePath.toString());
+							Application.getGlobalInfo().setLastSelectedFolder(this.getFileChooserFmuFile().getCurrentDirectory());
+							this.setFmuStateIcon(this.fmuModel!=null);
+						}
 					}
+					
 				}
 			}
 		}
@@ -301,7 +308,10 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	protected void loadStaticModelToForm() {
 		this.getJTextFieldFmuFile().setText(this.staticDataModel.getFmuFilePath());
 		if (this.staticDataModel.getFmuFilePath()!=null) {
-			this.loadFmuFromFile(this.staticDataModel.getFmuFilePath());
+			Path relativePath = Paths.get(this.staticDataModel.getFmuFilePath());
+			Path absolutePath = this.getProjectFolderPath().resolve(relativePath);
+			
+			this.loadFmuFromFile(absolutePath);
 			this.setFmuStateIcon(this.fmuModel!=null);
 		}
 		
@@ -352,8 +362,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 	 * Loads an FMU model from the file with the specified path.
 	 * @param path the path
 	 */
-	private void loadFmuFromFile(String path) {
-		this.loadFmuFromFile(new File(path));
+	private void loadFmuFromFile(Path path) {
+		this.loadFmuFromFile(path.toFile());
 	}
 	
 	/**
@@ -369,8 +379,8 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 				// --- Reset the FMU variables list ---------------------------
 				this.fmuVariablesList = null;
 				// --- Clear the settings that depend on the FMU variables ----
-				this.getSubPanelParameters().clear();
-				this.getSubPanelVariables().clear();
+				this.getSubPanelParameters().removeObsoleteParameterSettings();
+				this.getSubPanelVariables().removeObsoleteVariableMappings();
 			} catch (Exception ex) {
 				System.err.println("[" + this.getClass().getSimpleName() + "] The selected file contains no valid FMU: " + fmuFile.getAbsolutePath());
 			}
@@ -428,6 +438,17 @@ public class FmuStaticModelConfigurationPanel extends JPanel implements ActionLi
 		}
 		
 		return this.eomVariablesList;
+	}
+	
+	/**
+	 * Gets the project folder path.
+	 * @return the project folder path
+	 */
+	public Path getProjectFolderPath() {
+		if (projectFolderPath==null) {
+			projectFolderPath = Paths.get(Application.getProjectFocused().getProjectFolderFullPath());
+		}
+		return projectFolderPath;
 	}
 	
 }

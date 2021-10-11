@@ -120,6 +120,8 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 		if (jTableParameters == null) {
 			jTableParameters = new JTable();
 			jTableParameters.setFillsViewportHeight(true);
+			jTableParameters.setFont(new Font("Dialog", Font.PLAIN, 12));
+			jTableParameters.setRowHeight(20);
 			jTableParameters.setModel(this.getTableModelParameters());
 			for (int i=0; i<jTableParameters.getColumnCount(); i++) {
 				jTableParameters.getColumnModel().getColumn(i).setCellEditor(new ParameterSettingsTableCellEditor(this));
@@ -179,6 +181,29 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 		this.getTableModelParameters().fireTableDataChanged();
 	}
 	
+	/**
+	 * Removes obsolete parameter settings from both the table and the list. 
+	 * @param parametersToKeep the parameters to keep
+	 */
+	protected void removeObsoleteParameterSettings() {
+		
+		// --- Collect the parameters that should be removed --------
+		Vector<FmuParameterSettings> removeParameters = new Vector<FmuParameterSettings>();
+		for (int i=0; i<this.getParameterSettings().size(); i++) {
+			FmuParameterSettings currentParameter = this.getParameterSettings().get(i);
+			if (this.getFmuVariablesList().contains(currentParameter.getFmuVariableName())==false) {
+				removeParameters.add(currentParameter);
+			}
+		}
+		
+		// --- Remove the parameters and update the table -----------
+		if (removeParameters.size()>0) {
+			this.getParameterSettings().removeAll(removeParameters);
+			this.updateTableModel();
+			this.getTableModelParameters().fireTableDataChanged();
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -190,12 +215,38 @@ public class FmuStaticModelSubPanelParameters extends JPanel implements ActionLi
 			this.getParameterSettings().add(variableMapping);
 			this.addParameterSettingsToTableModel(variableMapping);
 		} else if (ae.getSource()==this.getJButtonRemove()) {
+			this.stopCellEditing();
 			int selectedRow = this.getJTableParameters().getSelectedRow();
-			String fmuName = (String) this.getJTableParameters().getValueAt(selectedRow, 0);
-			FmuParameterSettings selectedParameter = this.getParameterSettingsByFmuName(fmuName);
-			this.getParameterSettings().remove(selectedParameter);
-			this.getTableModelParameters().removeRow(selectedRow);
+			this.removeParameterSettings(selectedRow);
+			
+			if (this.getJTableParameters().getRowCount()>0) {
+				int newSelection = 0;
+				if (selectedRow>0) {
+					newSelection = selectedRow-1;
+				}
+				this.getJTableParameters().setRowSelectionInterval(newSelection, newSelection);
+			}
 		}
+	}
+	
+	/**
+	 * Stops cell editing if currently active.
+	 */
+	private void stopCellEditing() {
+		if (this.getJTableParameters().getCellEditor()!=null) {
+			this.getJTableParameters().getCellEditor().stopCellEditing();
+		}
+	}
+	
+	/**
+	 * Removes the parameter settings at the specified table row from both the table and the list.
+	 * @param rowIndex the row index
+	 */
+	private void removeParameterSettings(int rowIndex) {
+		String fmuName = (String) this.getJTableParameters().getValueAt(rowIndex, 0);
+		FmuParameterSettings selectedParameter = this.getParameterSettingsByFmuName(fmuName);
+		this.getParameterSettings().remove(selectedParameter);
+		this.getTableModelParameters().removeRow(rowIndex);
 	}
 	
 	/**

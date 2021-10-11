@@ -1,11 +1,14 @@
 package de.enflexit.meo.modellica.eomIntegration;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Vector;
 
 import org.javafmi.proxy.FmuFile;
 import org.javafmi.wrapper.Simulation;
 
+import agentgui.core.application.Application;
 import de.enflexit.meo.modellica.eomIntegration.FmuVariableMapping.IoVariableType;
 import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.FixedBoolean;
@@ -26,6 +29,8 @@ public class FmuSimulationWrapper {
 	private Vector<FmuVariableMapping> setpointMappings;
 	private Vector<FmuVariableMapping> measurementMappings;
 	private Vector<FmuVariableMapping> resultMappings;
+	
+	private Path projectFolderPath;
 	
 	/**
 	 * Instantiates a new fmu simulation wrapper.
@@ -167,7 +172,8 @@ public class FmuSimulationWrapper {
 	public Simulation getSimulation() {
 		
 		if (simulation==null) {
-			File fmuFile = new File(this.getStaticModel().getFmuFilePath());
+			Path fmuRelativePath = Paths.get(this.getStaticModel().getFmuFilePath());
+			File fmuFile = this.getProjectFolderPath().resolve(fmuRelativePath).toFile();
 			if (fmuFile.exists()==false) {
 				System.err.println("[" + this.getClass().getSimpleName() + "] Could not find FMU file '" + fmuFile.getAbsolutePath() + "'");
 				return null;
@@ -223,6 +229,17 @@ public class FmuSimulationWrapper {
 	 */
 	public void terminateSimulation() {
 		this.getSimulation().terminate();
+	}
+	
+	/**
+	 * Gets the project folder path.
+	 * @return the project folder path
+	 */
+	private Path getProjectFolderPath() {
+		if (projectFolderPath==null) {
+			projectFolderPath = Paths.get(Application.getProjectFocused().getProjectFolderFullPath());
+		}
+		return projectFolderPath;
 	}
 	
 }
