@@ -4,8 +4,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -17,6 +15,8 @@ import agentgui.core.application.Application;
 import agentgui.core.project.Project;
 import agentgui.core.project.setup.SimulationSetupNotification;
 import agentgui.core.project.setup.SimulationSetupNotification.SimNoteReason;
+import de.enflexit.common.Observable;
+import de.enflexit.common.Observer;
 import de.enflexit.meo.db.BundleHelper;
 
 /**
