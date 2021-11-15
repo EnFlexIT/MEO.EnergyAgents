@@ -2,6 +2,7 @@ package de.enflexit.meo.persistence;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -606,7 +607,7 @@ public class SimBenchFileStoreReader {
 	private Vector<Vector<String>> getDataVectorOfCsvFile(String csvFileName) {
 		CsvDataController nodeCsvController = this.getCsvDataControllerOfCsvFile(csvFileName);
 		if (nodeCsvController!=null) {
-			return new Vector<Vector<String>>(nodeCsvController.getDataModel().getDataVector());
+			return new Vector<Vector<String>>((Collection<? extends Vector<String>>) nodeCsvController.getDataModel().getDataVector());
 		}
 		return null;
 	}
