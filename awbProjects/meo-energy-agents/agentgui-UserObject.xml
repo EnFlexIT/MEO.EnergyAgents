@@ -6,6 +6,7 @@
     <snapshotDecisionLocation>Decentral</snapshotDecisionLocation>
     <networkCalculationIntervalLength>10000</networkCalculationIntervalLength>
     <networkCalculationIntervalUnitIndex>1</networkCalculationIntervalUnitIndex>
+    <stateTransmission>Reduced</stateTransmission>
     <executionDataBase>NodePowerFlows</executionDataBase>
     <energyTransmissionConfiguration>
         <deltaAbsoluteWatt>100</deltaAbsoluteWatt>
@@ -77,9 +78,7 @@
         </settingsTreeMap>
     </graphElementLayoutSettingsPersisted>
     <scheduleLengthRestriction>
-        <ns2:idScheduleLengthRestriction>0</ns2:idScheduleLengthRestriction>
         <ns2:Duration>
-            <ns2:idDuration>0</ns2:idDuration>
             <ns2:value>5</ns2:value>
             <ns2:unit>day, d</ns2:unit>
         </ns2:Duration>

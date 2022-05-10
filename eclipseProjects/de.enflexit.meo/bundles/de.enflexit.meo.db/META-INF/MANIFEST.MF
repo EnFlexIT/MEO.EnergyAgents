@@ -17,7 +17,7 @@ Require-Bundle: de.enflexit.api,
  de.enflexit.eom.core,
  de.enflexit.ea.electricity,
  de.enflexit.ea.core.blackboard,
- net.agenthygrid.transformer
+ de.enflexit.ea.electricity.transformer
 Bundle-Activator: de.enflexit.meo.db.DatabaseActivator
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: EnFlex.IT

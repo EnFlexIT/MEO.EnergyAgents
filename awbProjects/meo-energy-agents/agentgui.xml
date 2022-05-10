@@ -185,7 +185,7 @@
         <showJADErmaGUI>false</showJADErmaGUI>
     </remoteContainerConfiguration>
     <userObjectClassName>de.enflexit.ea.core.dataModel.absEnvModel.HyGridAbstractEnvironmentModel</userObjectClassName>
-    <simulationSetupCurrent>Meo.Scene.02_Co-Simulation</simulationSetupCurrent>
+    <simulationSetupCurrent>Meo.Scene.03a_1-LV-rural3--2-sw</simulationSetupCurrent>
     <timeModelClass>agentgui.simulationService.time.TimeModelDiscrete</timeModelClass>
     <simulationSetups>
         <entry>

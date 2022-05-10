@@ -786,6 +786,10 @@
             <value>1451602800000</value>
         </entry>
         <entry>
+            <key>ZoneId</key>
+            <value>Europe/Berlin</value>
+        </entry>
+        <entry>
             <key>TimeStop</key>
             <value>1483224300000</value>
         </entry>

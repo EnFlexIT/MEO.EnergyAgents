@@ -23,6 +23,8 @@ import de.enflexit.ea.core.dataModel.ontology.UniPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseElectricalNodeState;
 import de.enflexit.ea.electricity.aggregation.triPhase.SubNetworkConfigurationElectricalDistributionGrids;
 import de.enflexit.ea.electricity.blackboard.SubBlackboardModelElectricity;
+import de.enflexit.ea.electricity.transformer.eomDataModel.TransformerDataModel.HighVoltageUniPhase;
+import de.enflexit.ea.electricity.transformer.eomDataModel.TransformerDataModel.TransformerSystemVariable;
 import de.enflexit.meo.db.BundleHelper;
 import de.enflexit.meo.db.DatabaseHandler;
 import de.enflexit.meo.db.dataModel.EdgeResult;
@@ -37,8 +39,6 @@ import energy.optionModel.FixedDouble;
 import energy.optionModel.FixedInteger;
 import energy.optionModel.TechnicalSystemStateEvaluation;
 import energy.optionModel.UsageOfInterfaceEnergy;
-import hygrid.agent.transformer.eomDataModel.TransformerDataModel.HighVoltageUniPhase;
-import hygrid.agent.transformer.eomDataModel.TransformerDataModel.TransformerSystemVariable;
 
 /**
  * The BlackboardListener connects to the {@link Blackboard} of the SimulationManager and thus
