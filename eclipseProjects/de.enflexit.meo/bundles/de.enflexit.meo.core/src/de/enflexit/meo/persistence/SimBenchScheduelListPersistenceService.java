@@ -100,8 +100,8 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 		// --- Get a SimBench data file ---------------------------------------
 		// --------------------------------------------------------------------
 		File simBenchFileSelected = null;
-		if (sc!=null && sc.isReloadScheduleList() && sc.getCurrentFile()!=null && sc.getCurrentFile().exists()) {
-			String loadProfileFilePath = sc.getCurrentFile().getAbsolutePath() + "/" + SimBenchFileStore.SIMBENCH_LoadProfile;
+		if (sc!=null && sc.isReloadScheduleList() && sc.getEomControllerStorageSettings().getCurrentFile()!=null && sc.getEomControllerStorageSettings().getCurrentFile().exists()) {
+			String loadProfileFilePath = sc.getEomControllerStorageSettings().getCurrentFile().getAbsolutePath() + "/" + SimBenchFileStore.SIMBENCH_LoadProfile;
 			File loadProfileFile = new File(loadProfileFilePath); 
 			if (loadProfileFile.exists()==true) {
 				simBenchFileSelected = loadProfileFile;
@@ -139,8 +139,7 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 		ScheduleList scheduleList = this.loadScheduleList(simBenchFileSelected, sbFileSelection, sbRowIndexSelection, scheduleTimeRange);
 		
 		// --- Finally configure the ScheduleController -----------------------  
-		sc.setCurrentFile(simBenchFileSelected.getParentFile());
-		sc.setPersistenceServiceUsed(this.getClass());
+		sc.getEomControllerStorageSettings().setCurrentFile(simBenchFileSelected.getParentFile(), this.getClass());
 		sc.setBase64EncodedModel(null);
 		
 		return scheduleList;

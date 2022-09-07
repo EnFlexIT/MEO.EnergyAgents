@@ -88,7 +88,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 					sbPathName = sbPathNameProject;
 				}
 			}
-			sc.setCurrentFile(sbPath);
+			sc.getEomControllerStorageSettings().setCurrentFile(sbPath, SimBenchScheduelListPersistenceService.class);
 		}
 	}
 	
@@ -104,7 +104,7 @@ public class SimBenchStorageHandler extends AbstractEomStorageHandler {
 			ScheduleController sc = (ScheduleController) eomController;
 
 			// --- Check if in project path -------------------------
-			String sbPathName = sc.getCurrentFile().getAbsolutePath();
+			String sbPathName = sc.getEomControllerStorageSettings().getCurrentFile().getAbsolutePath();
 			String projectPathName = this.getProject().getProjectFolderFullPath();
 			if (sbPathName.startsWith(projectPathName)==true) {
 				sbPathName = sbPathName.substring(projectPathName.length(), sbPathName.length());
