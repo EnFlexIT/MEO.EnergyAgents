@@ -23,6 +23,7 @@ import agentgui.core.application.Application;
 import de.enflexit.common.csv.CSV_FilePreview;
 import de.enflexit.common.csv.CSV_FilePreview.CSV_FilePreviewSelection;
 import de.enflexit.meo.BundleHelper;
+import energy.EomControllerStorageSettings;
 import energy.GlobalInfo;
 import energy.optionModel.ScheduleList;
 import energy.persistence.service.PersistenceConfigurator;
@@ -424,6 +425,12 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 	@Override
 	public boolean saveScheduleListAs(ScheduleController sc, ScheduleList slSaveAs, Component invoker) {
 		return false;
+	}
+
+	@Override
+	public Object loadModelInstance(EomControllerStorageSettings eomStorageSettings) {
+		// --- Not required / implemented yet ---
+		return null;
 	}
 
 }
