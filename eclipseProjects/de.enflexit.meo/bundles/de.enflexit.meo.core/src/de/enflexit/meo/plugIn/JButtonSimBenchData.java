@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import org.awb.env.networkModel.controller.GraphEnvironmentController;
 import org.awb.env.networkModel.controller.ui.toolbar.AbstractCustomToolbarComponent;
 
-import agentgui.core.application.Application;
+import de.enflexit.common.swing.OwnerDetection;
 import de.enflexit.meo.BundleHelper;
 import de.enflexit.meo.persistence.SimBenchFileStore;
 
@@ -50,8 +50,7 @@ public class JButtonSimBenchData extends AbstractCustomToolbarComponent implemen
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
-		Frame ownerFrame = Application.getGlobalInfo().getOwnerFrameForComponent(this.graphController.getGraphEnvironmentControllerGUI());
-		
+		Frame ownerFrame = OwnerDetection.getOwnerFrameForComponent(this.graphController.getGraphEnvironmentControllerGUI());
 		SimBenchFileStore sfs = SimBenchFileStore.getInstance();
 		if (sfs.getCsvDataController().size()>=0) {
 			sfs.showSimbenchData();

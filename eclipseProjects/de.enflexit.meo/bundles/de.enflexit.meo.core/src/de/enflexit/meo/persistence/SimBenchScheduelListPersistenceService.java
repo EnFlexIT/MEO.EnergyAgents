@@ -19,9 +19,9 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import agentgui.core.application.Application;
 import de.enflexit.common.csv.CSV_FilePreview;
 import de.enflexit.common.csv.CSV_FilePreview.CSV_FilePreviewSelection;
+import de.enflexit.common.swing.OwnerDetection;
 import de.enflexit.meo.BundleHelper;
 import energy.EomControllerStorageSettings;
 import energy.GlobalInfo;
@@ -236,7 +236,7 @@ public class SimBenchScheduelListPersistenceService implements PersistenceServic
 					SimBenchProceedSelectionPanel proceedPanel = (SimBenchProceedSelectionPanel) button.getParent();
 					
 					// --- Get the instance of the CSV_FilePreview ------------ 
-					Dialog parentDialog = Application.getGlobalInfo().getOwnerDialogForComponent((JComponent) ae.getSource());
+					Dialog parentDialog = OwnerDetection.getOwnerDialogForComponent((JComponent) ae.getSource());
 					if (parentDialog instanceof CSV_FilePreview) {
 						// --- Get the preview dialog -------------------------
 						CSV_FilePreview preview = (CSV_FilePreview) parentDialog;

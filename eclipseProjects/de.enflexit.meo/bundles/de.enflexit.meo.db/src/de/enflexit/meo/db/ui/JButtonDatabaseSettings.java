@@ -12,7 +12,7 @@ import org.awb.env.networkModel.controller.GraphEnvironmentController;
 import org.awb.env.networkModel.controller.ui.toolbar.AbstractCustomToolbarComponent;
 import org.hibernate.cfg.Configuration;
 
-import agentgui.core.application.Application;
+import de.enflexit.common.swing.OwnerDetection;
 import de.enflexit.db.hibernate.SessionFactoryMonitor.SessionFactoryState;
 import de.enflexit.db.hibernate.gui.DatabaseSettings;
 import de.enflexit.db.hibernate.gui.DatabaseSettingsDialog;
@@ -53,7 +53,7 @@ public class JButtonDatabaseSettings extends AbstractCustomToolbarComponent impl
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
-		Frame owner = Application.getGlobalInfo().getOwnerFrameForComponent(this.graphController.getGraphEnvironmentControllerGUI());
+		Frame owner = OwnerDetection.getOwnerFrameForComponent(this.graphController.getGraphEnvironmentControllerGUI());
 		DatabaseSettingsDialog settingDialog = new DatabaseSettingsDialog(owner, this.getDatabaseSettings());
 		settingDialog.setTitle("MEO Result - Database Settings");
 		settingDialog.setHeaderText("MEO Result - Database Settings");
