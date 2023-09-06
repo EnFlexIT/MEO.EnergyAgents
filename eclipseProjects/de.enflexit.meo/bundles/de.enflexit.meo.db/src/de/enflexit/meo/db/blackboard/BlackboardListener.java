@@ -21,7 +21,7 @@ import de.enflexit.ea.core.dataModel.ontology.TriPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.TriPhaseElectricalNodeState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseCableState;
 import de.enflexit.ea.core.dataModel.ontology.UniPhaseElectricalNodeState;
-import de.enflexit.ea.electricity.aggregation.triPhase.SubNetworkConfigurationElectricalDistributionGrids;
+import de.enflexit.ea.electricity.ElectricityDomainIdentification;
 import de.enflexit.ea.electricity.blackboard.SubBlackboardModelElectricity;
 import de.enflexit.ea.electricity.transformer.eomDataModel.TransformerDataModel.HighVoltageUniPhase;
 import de.enflexit.ea.electricity.transformer.eomDataModel.TransformerDataModel.TransformerSystemVariable;
@@ -132,7 +132,7 @@ public class BlackboardListener implements BlackboardListenerService {
 			this.getDatabaseHandler().addNetworkStateToSave(networkState);
 			
 		} else {
-			System.err.println("[" + this.getClass().getSimpleName() + "] No SubBlackboardModel found for " + SubNetworkConfigurationElectricalDistributionGrids.SUBNET_DESCRIPTION_ELECTRICAL_DISTRIBUTION_GRIDS);
+			System.err.println("[" + this.getClass().getSimpleName() + "] No SubBlackboardModel found for the electricity domain!");
 		}
 	}
 	
@@ -142,11 +142,22 @@ public class BlackboardListener implements BlackboardListenerService {
 	 * @return the sub blackboard model electricity
 	 */
 	private SubBlackboardModelElectricity getSubBlackboardModelElectricity(AbstractAggregationHandler aggregationHandler) {
+		
+		ArrayList<SubBlackboardModelElectricity> subBlackboardModelListElectricity = new ArrayList<>();
+		
+		List<String> domainList = ElectricityDomainIdentification.getDomainList();
+		for (String domain : domainList) {
+			// --- Get all sub configurations that are of type electricity ----------
+			List<AbstractSubNetworkConfiguration> subNetworkConfogurations = aggregationHandler.getSubNetworkConfiguration(domain);
+			for (AbstractSubNetworkConfiguration subNetworkConfoguration : subNetworkConfogurations) {
+				subBlackboardModelListElectricity.add((SubBlackboardModelElectricity)subNetworkConfoguration.getSubBlackboardModel());
+				subNetworkConfoguration.getSubBlackboardModel();
+			}
+		}
 
 		// TODO what if there are several aggregations of the same kind?
-		List<AbstractSubNetworkConfiguration> subNetworkConfogurations = aggregationHandler.getSubNetworkConfiguration(SubNetworkConfigurationElectricalDistributionGrids.SUBNET_DESCRIPTION_ELECTRICAL_DISTRIBUTION_GRIDS);
-		if (subNetworkConfogurations.size()>0) {
-			return (SubBlackboardModelElectricity) subNetworkConfogurations.get(0).getSubBlackboardModel();
+		if (subBlackboardModelListElectricity.size()>0) {
+			return (SubBlackboardModelElectricity) subBlackboardModelListElectricity.get(0);
 		} else {
 			return null;
 		}
