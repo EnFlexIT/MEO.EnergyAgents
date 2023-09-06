@@ -62,7 +62,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 
 	private static final String LAYOUT_DEFAULT_LAYOUT = GeneralGraphSettings4MAS.DEFAULT_LAYOUT_SETTINGS_NAME;
 	private static final String LAYOUT_GeoCoordinates_WGS84 = "Geo-Coordinates WGS84";
-	private static final String LAYOUT_GeoCoordinates_UTM = "Geo-Coordinates UTM";
+	private static final String LAYOUT_GeoCoordinates_UTM = "Geo-Coordinates UTM 32U";
 	
 	private static final String SIMBENCH_Coordinates	 = "Coordinates.csv";
 	private static final String SIMBENCH_ExternalNet	 = "ExternalNet.csv";
