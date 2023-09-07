@@ -466,7 +466,7 @@ public class SimBench_CsvTopologyImporter extends AbstractNetworkModelCsvImporte
 			String type = row.get(ciType);
 			String coordID = row.get(ciCoordID);
 			
-			if (type.equals("busbar")==false) continue;
+			if (type.equals("busbar")==false && type.equals("node")==false) continue;
 			
 			// --- Provide some user information ----------------------------------------
 			Application.setStatusBarMessage(this.getClass().getSimpleName() + ": Import node '" + nodeID  + "' - (" + (i+1) +  "/" + nodeDataVector.size() + ")");
