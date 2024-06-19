@@ -4,10 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,7 +38,7 @@ public class FmuStaticModelConfigurationDialog extends AbstractStaticModelDialog
 	 * @param owner the owner
 	 * @param staticModel the static model
 	 */
-	public FmuStaticModelConfigurationDialog(Frame owner, AbstractStaticModel staticModel) {
+	public FmuStaticModelConfigurationDialog(Window owner, AbstractStaticModel staticModel) {
 		super(owner, staticModel);
 		this.initialize();
 	}

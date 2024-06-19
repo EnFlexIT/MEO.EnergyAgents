@@ -1,6 +1,6 @@
 package de.enflexit.meo.modellica.heatPump;
 
-import java.awt.Frame;
+import java.awt.Window;
 import java.io.Serializable;
 
 import de.enflexit.meo.modellica.eomIntegration.FmuStaticModelConfigurationDialog;
@@ -47,7 +47,7 @@ public class HeatPumpFmuStaticModel extends AbstractStaticModel {
 	 * @see energy.optionModel.gui.sysVariables.AbstractStaticModel#getNewModelDialog(java.awt.Frame)
 	 */
 	@Override
-	public AbstractStaticModelDialog getNewModelDialog(Frame owner) {
+	public AbstractStaticModelDialog getNewModelDialog(Window owner) {
 		return new FmuStaticModelConfigurationDialog(owner, this);
 	}
 
