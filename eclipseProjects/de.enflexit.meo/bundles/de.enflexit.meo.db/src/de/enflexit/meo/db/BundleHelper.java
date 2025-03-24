@@ -4,7 +4,8 @@ import javax.swing.ImageIcon;
 
 import org.osgi.service.prefs.BackingStoreException;
 
-import agentgui.core.application.Application;
+import de.enflexit.awb.core.Application;
+
 
 
 /**

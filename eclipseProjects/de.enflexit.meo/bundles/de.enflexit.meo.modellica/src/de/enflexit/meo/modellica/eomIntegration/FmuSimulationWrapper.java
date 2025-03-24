@@ -7,8 +7,7 @@ import java.util.Vector;
 
 import org.javafmi.proxy.FmuFile;
 import org.javafmi.wrapper.Simulation;
-
-import agentgui.core.application.Application;
+import de.enflexit.awb.core.Application;
 import de.enflexit.meo.modellica.eomIntegration.FmuVariableMapping.IoVariableType;
 import energy.helper.TechnicalSystemStateHelper;
 import energy.optionModel.FixedBoolean;

@@ -28,8 +28,9 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import java.awt.Dimension;
 import java.awt.Font;
-import agentgui.core.application.Application;
-import agentgui.core.config.GlobalInfo;
+
+import de.enflexit.awb.core.Application;
+import de.enflexit.awb.core.config.GlobalInfo;
 import energy.OptionModelController;
 import energy.helper.UnitConverter;
 import energy.optionModel.SystemVariableDefinition;

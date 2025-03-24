@@ -9,22 +9,24 @@ Service-Component: OSGI-INF/awbClassLoadService.xml,
  OSGI-INF/eomClassLoadService.xml,
  OSGI-INF/SimBenchNetworkModelImportService.xml,
  OSGI-INF/SimBenchScheduleListPersistenceService.xml
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
-Require-Bundle: de.enflexit.api,
- de.enflexit.common,
+Require-Bundle: de.enflexit.common,
  de.enflexit.eom.core,
  de.enflexit.geography,
  de.enflexit.meo.db,
- org.agentgui.core,
- org.agentgui.lib.jade,
- wrapped.org.jfree.jfreechart,
  org.awb.env.networkModel,
  de.enflexit.ea.core.dataModel,
- de.enflexit.eom.awbAdapter
+ de.enflexit.eom.awbAdapter,
+ de.enflexit.jade,
+ de.enflexit.awb.core
 Export-Package: de.enflexit.meo,
  de.enflexit.meo.classLoadService,
  de.enflexit.meo.persistence,
  de.enflexit.meo.plugIn,
  de.enflexit.meo.plugIn.importer
-Import-Package: edu.uci.ics.jung.graph
+Import-Package: agentgui.ontology,
+ de.enflexit.awb.core.environment,
+ de.enflexit.awb.core.project,
+ de.enflexit.awb.core.project.plugins,
+ edu.uci.ics.jung.graph

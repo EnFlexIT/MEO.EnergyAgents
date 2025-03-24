@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import agentgui.core.application.Application;
+import de.enflexit.awb.core.Application;
 import de.enflexit.meo.db.dataModel.AbstractStateResult;
 import de.enflexit.meo.db.dataModel.EdgeResult;
 import de.enflexit.meo.db.dataModel.NetworkState;

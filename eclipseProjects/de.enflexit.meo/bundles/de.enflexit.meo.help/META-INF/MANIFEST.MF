@@ -4,6 +4,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: MEO Help & API
 Bundle-SymbolicName: de.enflexit.meo.help;singleton:=true
 Bundle-Version: 0.0.1.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: EnFlex.IT - SOFTEC
 Require-Bundle: org.eclipse.help

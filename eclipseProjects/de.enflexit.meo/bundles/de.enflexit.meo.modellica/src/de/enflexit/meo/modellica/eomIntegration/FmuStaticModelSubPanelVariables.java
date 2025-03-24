@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import agentgui.core.config.GlobalInfo;
+import de.enflexit.awb.core.config.GlobalInfo;
 import de.enflexit.meo.modellica.eomIntegration.FmuVariableMapping.IoVariableType;
 
 import javax.swing.JLabel;

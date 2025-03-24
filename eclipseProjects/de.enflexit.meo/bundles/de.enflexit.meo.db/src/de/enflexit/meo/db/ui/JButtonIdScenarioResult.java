@@ -2,6 +2,7 @@ package de.enflexit.meo.db.ui;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,11 +11,10 @@ import javax.swing.JComponent;
 
 import org.awb.env.networkModel.controller.GraphEnvironmentController;
 import org.awb.env.networkModel.controller.ui.toolbar.AbstractCustomToolbarComponent;
-
-import agentgui.core.application.Application;
-import agentgui.core.project.Project;
-import agentgui.core.project.setup.SimulationSetupNotification;
-import agentgui.core.project.setup.SimulationSetupNotification.SimNoteReason;
+import de.enflexit.awb.core.Application;
+import de.enflexit.awb.core.project.Project;
+import de.enflexit.awb.core.project.setup.SimulationSetupNotification;
+import de.enflexit.awb.core.project.setup.SimulationSetupNotification.SimNoteReason;
 import de.enflexit.common.Observable;
 import de.enflexit.common.Observer;
 import de.enflexit.meo.db.BundleHelper;
@@ -69,7 +69,7 @@ public class JButtonIdScenarioResult extends AbstractCustomToolbarComponent impl
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
-		JDialogScenarioResult jDialog = new JDialogScenarioResult(Application.getMainWindow());
+		JDialogScenarioResult jDialog = new JDialogScenarioResult((Window)Application.getMainWindow());
 		jDialog.setVisible(true);
 		// --- Wait for the user interaction -------------- 
 		this.loadIDScenarioResult();

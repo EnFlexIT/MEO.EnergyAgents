@@ -15,7 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import agentgui.core.config.GlobalInfo;
+import de.enflexit.awb.core.config.GlobalInfo;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 

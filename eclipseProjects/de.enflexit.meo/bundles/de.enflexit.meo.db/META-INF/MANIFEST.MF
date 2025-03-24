@@ -4,12 +4,10 @@ Bundle-Name: MEO - Result DB Connector
 Bundle-SymbolicName: de.enflexit.meo.db
 Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: de.enflexit.meo.db
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Eclipse-RegisterBuddy: de.enflexit.db.hibernate
-Require-Bundle: de.enflexit.api,
- de.enflexit.common,
+Require-Bundle: de.enflexit.common,
  de.enflexit.db.hibernate,
- org.agentgui.core,
  org.awb.env.networkModel,
  de.enflexit.ea.core.dataModel,
  org.eclipse.equinox.preferences,
@@ -27,4 +25,8 @@ Export-Package: de.enflexit.meo.db,
  de.enflexit.meo.db.mappings,
  de.enflexit.meo.db.ui
 Service-Component: OSGI-INF/BlackboardListenerService.xml
-Import-Package: de.enflexit.ea.core.aggregation
+Import-Package: de.enflexit.awb.core,
+ de.enflexit.awb.core.environment,
+ de.enflexit.awb.core.project,
+ de.enflexit.awb.core.project.setup,
+ de.enflexit.ea.core.aggregation

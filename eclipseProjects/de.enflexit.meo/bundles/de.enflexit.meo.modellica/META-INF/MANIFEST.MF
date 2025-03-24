@@ -6,14 +6,13 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: EnFlex.IT
 Automatic-Module-Name: de.enflexit.meo.modellica
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.osgi,
  de.enflexit.common,
- org.agentgui.core,
- org.agentgui.lib.jade,
  org.awb.env.networkModel,
  de.enflexit.ea.core.dataModel,
- de.enflexit.eom.core
+ de.enflexit.eom.core,
+ de.enflexit.jade
 Bundle-ClassPath: .,
  lib/fmu-wrapper-2.26.3.jar,
  lib/jna-4.1.0.jar,
@@ -50,3 +49,10 @@ Export-Package: com.sun.jna,
  org.simpleframework.xml.stream,
  org.simpleframework.xml.transform,
  org.simpleframework.xml.util
+Import-Package: de.enflexit.awb.core,
+ de.enflexit.awb.core.classLoadService,
+ de.enflexit.awb.core.config,
+ de.enflexit.awb.core.project,
+ de.enflexit.awb.core.project.plugins,
+ de.enflexit.awb.simulation.balancing,
+ de.enflexit.awb.simulation.environment.time
