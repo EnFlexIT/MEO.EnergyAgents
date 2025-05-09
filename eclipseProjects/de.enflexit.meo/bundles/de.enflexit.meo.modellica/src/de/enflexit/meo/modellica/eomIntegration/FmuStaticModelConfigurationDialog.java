@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import de.enflexit.common.swing.AwbThemeColor;
 import energy.optionModel.gui.sysVariables.AbstractStaticModel;
 import energy.optionModel.gui.sysVariables.AbstractStaticModelDialog;
 
@@ -100,7 +101,7 @@ public class FmuStaticModelConfigurationDialog extends AbstractStaticModelDialog
 		if (jButtonOk == null) {
 			jButtonOk = new JButton("OK");
 			jButtonOk.setPreferredSize(new Dimension(85, 26));
-			jButtonOk.setForeground(new Color(0, 153, 0));
+			jButtonOk.setForeground(AwbThemeColor.ButtonTextGreen.getColor());
 			jButtonOk.setFont(new Font("Dialog", Font.BOLD, 11));
 			jButtonOk.addActionListener(this);
 		}
@@ -115,7 +116,7 @@ public class FmuStaticModelConfigurationDialog extends AbstractStaticModelDialog
 		if (jButtonCancel == null) {
 			jButtonCancel = new JButton("Cancel");
 			jButtonCancel.setPreferredSize(new Dimension(85, 26));
-			jButtonCancel.setForeground(new Color(153, 0, 0));
+			jButtonCancel.setForeground(AwbThemeColor.ButtonTextRed.getColor());
 			jButtonCancel.setFont(new Font("Dialog", Font.BOLD, 11));
 			jButtonCancel.addActionListener(this);
 		}

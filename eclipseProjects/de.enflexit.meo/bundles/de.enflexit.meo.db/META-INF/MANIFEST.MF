@@ -29,4 +29,5 @@ Import-Package: de.enflexit.awb.core,
  de.enflexit.awb.core.environment,
  de.enflexit.awb.core.project,
  de.enflexit.awb.core.project.setup,
- de.enflexit.ea.core.aggregation
+ de.enflexit.ea.core.aggregation,
+ jakarta.persistence

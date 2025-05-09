@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 
+import de.enflexit.common.swing.AwbThemeColor;
 import de.enflexit.common.swing.KeyAdapter4Numbers;
 import de.enflexit.meo.db.BundleHelper;
 
@@ -135,7 +136,7 @@ public class JDialogScenarioResult extends JDialog implements ActionListener {
 		if (jButtonSave == null) {
 			jButtonSave = new JButton("Save");
 			jButtonSave.setPreferredSize(new Dimension(80, 26));
-			jButtonSave.setForeground(new Color(0, 153, 0));
+			jButtonSave.setForeground(AwbThemeColor.ButtonTextGreen.getColor());
 			jButtonSave.setFont(new Font("Dialog", Font.BOLD, 12));
 			jButtonSave.addActionListener(this);
 		}
@@ -145,7 +146,7 @@ public class JDialogScenarioResult extends JDialog implements ActionListener {
 		if (jButtonCancel == null) {
 			jButtonCancel = new JButton("Cancel");
 			jButtonCancel.setPreferredSize(new Dimension(80, 26));
-			jButtonCancel.setForeground(new Color(153, 0, 0));
+			jButtonCancel.setForeground(AwbThemeColor.ButtonTextRed.getColor());
 			jButtonCancel.setFont(new Font("Dialog", Font.BOLD, 12));
 			jButtonCancel.addActionListener(this);
 		}

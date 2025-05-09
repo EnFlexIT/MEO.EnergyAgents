@@ -10,12 +10,9 @@ import javax.swing.JComponent;
 
 import org.awb.env.networkModel.controller.GraphEnvironmentController;
 import org.awb.env.networkModel.controller.ui.toolbar.AbstractCustomToolbarComponent;
-import org.hibernate.cfg.Configuration;
 
 import de.enflexit.common.swing.OwnerDetection;
-import de.enflexit.db.hibernate.SessionFactoryMonitor.SessionFactoryState;
-import de.enflexit.db.hibernate.gui.DatabaseSettings;
-import de.enflexit.db.hibernate.gui.DatabaseSettingsDialog;
+import de.enflexit.db.hibernate.gui.DatabaseConnectionSettingsDialog;
 import de.enflexit.meo.db.BundleHelper;
 import de.enflexit.meo.db.DatabaseSessionFactoryHandler;
 
@@ -54,68 +51,9 @@ public class JButtonDatabaseSettings extends AbstractCustomToolbarComponent impl
 	public void actionPerformed(ActionEvent ae) {
 
 		Frame owner = OwnerDetection.getOwnerFrameForComponent(this.graphController.getGraphEnvironmentControllerGUI());
-		DatabaseSettingsDialog settingDialog = new DatabaseSettingsDialog(owner, this.getDatabaseSettings());
-		settingDialog.setTitle("MEO Result - Database Settings");
-		settingDialog.setHeaderText("MEO Result - Database Settings");
+		DatabaseConnectionSettingsDialog settingDialog = new DatabaseConnectionSettingsDialog(owner, DatabaseSessionFactoryHandler.SESSION_FACTORY_ID);
 		settingDialog.setVisible(true);
 		// --- Wait for the user action -----
-		if (settingDialog.isCanceled()==false) {
-			this.setDatabaseSettings(settingDialog.getDatabaseSettings());
-		}
-		settingDialog = null;
+	}
 		
-	}
-	
-	/**
-	 * Gets the database settings form the {@link DatabaseBundleInfo}.
-	 * @return the database settings
-	 */
-	private DatabaseSettings getDatabaseSettings() {
-		String databaseSystemName = DatabaseSessionFactoryHandler.getDatabaseSystem();
-		Configuration hiberanteConfig = DatabaseSessionFactoryHandler.getConfiguration();
-		return new DatabaseSettings(databaseSystemName, hiberanteConfig);
-	}
-	/**
-	 * Sets the database settings to the bundle configuration (eclipse preferences).
-	 * @param dbSettings the new database settings
-	 */
-	private void setDatabaseSettings(DatabaseSettings dbSettings) {
-		
-		boolean hasChangedSettings = ! dbSettings.equals(this.getDatabaseSettings());
-		DatabaseSessionFactoryHandler.setDatabaseSystem(dbSettings.getDatabaseSystemName());
-		DatabaseSessionFactoryHandler.setEclipsePreferencesForDatabaseConnection(dbSettings.getHibernateDatabaseSettings());
-		if (hasChangedSettings==true) {
-			DatabaseSessionFactoryHandler.startSessionFactory(true, false);
-		} else {
-			if (this.isAllowSessionFactoryStart(DatabaseSessionFactoryHandler.getSessionFactoryMonitor().getSessionFactoryState())==true) {
-				DatabaseSessionFactoryHandler.startSessionFactory(true, false);
-			}
-		}
-	}
-	/**
-	 * Checks, based on the current state, if a new SessionFactory start is allowed.
-	 *
-	 * @param currentState the current state
-	 * @return true, if is allow session start
-	 */
-	private boolean isAllowSessionFactoryStart(SessionFactoryState currentState) {
-		
-		boolean allowSessionStart = false;
-		switch (currentState) {
-		case CheckDBConectionFailed:
-		case InitializationProcessFailed:
-		case Destroyed:
-			allowSessionStart = true;
-			break;
-
-		case NotAvailableYet:
-		case CheckDBConnection:
-		case InitializationProcessStarted:
-		case Created:
-			allowSessionStart = false;
-			break;
-		}
-		return allowSessionStart;
-	}
-	
 }
